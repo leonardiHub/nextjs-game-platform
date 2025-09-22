@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUIDU API - AES Encryption Tester</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+        .section h3 {
+            color: #495057;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .btn-encrypt {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+        .btn-decrypt {
+            background: linear-gradient(135deg, #007bff, #6610f2);
+            color: white;
+        }
+        .btn-test {
+            background: linear-gradient(135deg, #fd7e14, #e83e8c);
+            color: white;
+        }
+        .btn-clear {
+            background: linear-gradient(135deg, #6c757d, #495057);
+            color: white;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .api-section {
+            background: #e8f4fd;
+            border-color: #bee5eb;
+        }
+        .result-section {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .info {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        .preset-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .preset-btn {
+            padding: 8px 16px;
+            background: #6c757d;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .preset-btn:hover {
+            background: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔐 HUIDU API - AES Encryption Tester</h1>
+        
+        <!-- AES Key Section -->
+        <div class="section">
+            <h3>🔑 AES Encryption Key</h3>
+            <div class="preset-buttons">
+                <button class="preset-btn" onclick="setHuiduKey()">HUIDU Official Key</button>
+                <button class="preset-btn" onclick="setLegacyKey()">Legacy Key</button>
+            </div>
+            <label for="aesKey">AES Key (32 characters):</label>
+            <input type="text" id="aesKey" placeholder="Enter 32-character AES key" maxlength="32">
+        </div>
+
+        <!-- Payload Section -->
+        <div class="section">
+            <h3>📝 Payload Data</h3>
+            <div class="preset-buttons">
+                <button class="preset-btn" onclick="setCallbackPayload()">Callback Payload</button>
+                <button class="preset-btn" onclick="setGameLaunchPayload()">Game Launch</button>
+                <button class="preset-btn" onclick="setTransactionPayload()">Transaction List</button>
+            </div>
+            <label for="plaintext">JSON Payload to Encrypt:</label>
+            <textarea id="plaintext" placeholder="Enter JSON payload here"></textarea>
+        </div>
+
+        <!-- Encryption/Decryption -->
+        <div class="section">
+            <h3>🔒 Encryption/Decryption</h3>
+            <div class="button-group">
+                <button class="btn-encrypt" onclick="encrypt()">🔒 Encrypt</button>
+                <button class="btn-decrypt" onclick="decrypt()">🔓 Decrypt</button>
+                <button class="btn-clear" onclick="clearAll()">🗑️ Clear All</button>
+            </div>
+            
+            <label for="ciphertext">Encrypted Result (Base64):</label>
+            <textarea id="ciphertext" placeholder="Encrypted ciphertext will appear here"></textarea>
+            
+            <label for="decryptedtext">Decrypted Result:</label>
+            <textarea id="decryptedtext" placeholder="Decrypted plaintext will appear here"></textarea>
+        </div>
+
+        <!-- API Testing Section -->
+        <div class="section api-section">
+            <h3>🌐 API Testing</h3>
+            <div class="info">
+                <strong>Endpoint:</strong> https://99group.games/api/game/callback<br>
+                <strong>Method:</strong> POST<br>
+                <strong>Format:</strong> {"agency_uid": "...", "timestamp": "...", "payload": "encrypted_data"}
+            </div>
+            
+            <label for="apiUrl">API Endpoint:</label>
+            <input type="text" id="apiUrl" value="https://99group.games/api/game/callback">
+            
+            <div class="button-group">
+                <button class="btn-test" onclick="testAPI()">🚀 Test API Call</button>
+                <button class="btn-test" onclick="generateHuiduRequest()">📋 Generate HUIDU Request</button>
+            </div>
+            
+            <label for="apiRequest">Generated API Request:</label>
+            <textarea id="apiRequest" placeholder="Generated API request will appear here"></textarea>
+        </div>
+
+        <!-- Results Section -->
+        <div class="section result-section">
+            <h3>📊 API Response</h3>
+            <div id="apiStatus"></div>
+            <textarea id="apiResponse" placeholder="API response will appear here" readonly></textarea>
+            
+            <label for="decryptedResponse">Decrypted Response:</label>
+            <textarea id="decryptedResponse" placeholder="Decrypted API response will appear here" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const PRODUCTION_CONFIG = {
+            agency_uid: "45370b4f27dfc8a2875ba78d07e8a81a", 
+            aes_key: "08970240475e1255d2b4ac023ac658f3"
+        };
+
+        const HUIDU_CONFIG = {
+            agency_uid: "8dee1e401b87408cca3ca813c2250cb4",
+            aes_key: "68b074393ec7c5a975856a90bd6fdf47"
+        };
+
+        // Set preset keys
+        function setHuiduKey() {
+            document.getElementById('aesKey').value = HUIDU_CONFIG.aes_key;
+        }
+
+        function setLegacyKey() {
+            document.getElementById('aesKey').value = PRODUCTION_CONFIG.aes_key;
+        }
+
+        // Set preset payloads
+        function setCallbackPayload() {
+            const payload = {
+                "serial_number": "245876c4-f717-76d2-b143-3453dac191c7",
+                "currency_code": "USD",
+                "game_uid": "24da72b49b0dd0e5cbef9579d09d8981",
+                "member_account": "h4944ddemo",
+                "win_amount": "4.8",
+                "bet_amount": "2.0",
+                "timestamp": Date.now().toString(),
+                "game_round": "6031693650962757486"
+            };
+            document.getElementById('plaintext').value = JSON.stringify(payload, null, 2);
+        }
+
+        function setGameLaunchPayload() {
+            const payload = {
+                "agency_uid": PRODUCTION_CONFIG.agency_uid,
+                "member_account": "h4944ddemo",
+                "game_uid": "24da72b49b0dd0e5cbef9579d09d8981",
+                "timestamp": Date.now().toString(),
+                "credit_amount": "50",
+                "currency_code": "USD",
+                "language": "en",
+                "platform": 1,
+                "callback_url": "https://99group.games/api/game/callback"
+            };
+            document.getElementById('plaintext').value = JSON.stringify(payload, null, 2);
+        }
+
+        function setTransactionPayload() {
+            const now = Date.now();
+            const oneDayAgo = now - (24 * 60 * 60 * 1000);
+            const payload = {
+                "timestamp": now.toString(),
+                "agency_uid": HUIDU_CONFIG.agency_uid,
+                "from_date": oneDayAgo.toString(),
+                "to_date": now.toString(),
+                "page_no": 1,
+                "page_size": 30
+            };
+            document.getElementById('plaintext').value = JSON.stringify(payload, null, 2);
+        }
+
+        // Encryption function
+        function encrypt() {
+            try {
+                const aesKey = document.getElementById('aesKey').value;
+                const plaintext = document.getElementById('plaintext').value;
+                
+                if (!aesKey) {
+                    alert('Please enter an AES key');
+                    return;
+                }
+                
+                if (!plaintext) {
+                    alert('Please enter plaintext to encrypt');
+                    return;
+                }
+
+                const key = CryptoJS.enc.Utf8.parse(aesKey);
+                const ciphertext = CryptoJS.AES.encrypt(plaintext, key, {
+                    mode: CryptoJS.mode.ECB,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+                
+                const base64CipherText = ciphertext.toString();
+                document.getElementById('ciphertext').value = base64CipherText;
+                
+                updateStatus('Encryption successful!', 'success');
+            } catch (error) {
+                updateStatus('Encryption failed: ' + error.message, 'error');
+            }
+        }
+
+        // Decryption function
+        function decrypt() {
+            try {
+                const aesKey = document.getElementById('aesKey').value;
+                const base64CipherText = document.getElementById('ciphertext').value;
+                
+                if (!aesKey) {
+                    alert('Please enter an AES key');
+                    return;
+                }
+                
+                if (!base64CipherText) {
+                    alert('Please enter ciphertext to decrypt');
+                    return;
+                }
+
+                const key = CryptoJS.enc.Utf8.parse(aesKey);
+                const decrypted = CryptoJS.AES.decrypt(base64CipherText, key, {
+                    mode: CryptoJS.mode.ECB,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+                
+                const plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+                document.getElementById('decryptedtext').value = plaintext;
+                
+                updateStatus('Decryption successful!', 'success');
+            } catch (error) {
+                updateStatus('Decryption failed: ' + error.message, 'error');
+            }
+        }
+
+        // Generate HUIDU API request
+        function generateHuiduRequest() {
+            try {
+                const ciphertext = document.getElementById('ciphertext').value;
+                
+                if (!ciphertext) {
+                    alert('Please encrypt payload first');
+                    return;
+                }
+
+                const huiduRequest = {
+                    "agency_uid": HUIDU_CONFIG.agency_uid,
+                    "timestamp": Date.now().toString(),
+                    "payload": ciphertext
+                };
+
+                document.getElementById('apiRequest').value = JSON.stringify(huiduRequest, null, 2);
+                updateStatus('HUIDU request generated!', 'success');
+            } catch (error) {
+                updateStatus('Request generation failed: ' + error.message, 'error');
+            }
+        }
+
+        // Test API call
+        async function testAPI() {
+            try {
+                const apiUrl = document.getElementById('apiUrl').value;
+                const requestBody = document.getElementById('apiRequest').value;
+                
+                if (!requestBody) {
+                    alert('Please generate API request first');
+                    return;
+                }
+
+                updateStatus('Sending API request...', 'info');
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: requestBody
+                });
+
+                const responseData = await response.json();
+                document.getElementById('apiResponse').value = JSON.stringify(responseData, null, 2);
+
+                // Try to decrypt response payload if it exists
+                if (responseData.payload) {
+                    try {
+                        const aesKey = document.getElementById('aesKey').value;
+                        const key = CryptoJS.enc.Utf8.parse(aesKey);
+                        const decrypted = CryptoJS.AES.decrypt(responseData.payload, key, {
+                            mode: CryptoJS.mode.ECB,
+                            padding: CryptoJS.pad.Pkcs7
+                        });
+                        const decryptedText = decrypted.toString(CryptoJS.enc.Utf8);
+                        document.getElementById('decryptedResponse').value = decryptedText;
+                    } catch (decryptError) {
+                        document.getElementById('decryptedResponse').value = 'Failed to decrypt response: ' + decryptError.message;
+                    }
+                }
+
+                updateStatus(`API call completed! Status: ${response.status}`, response.ok ? 'success' : 'error');
+            } catch (error) {
+                updateStatus('API call failed: ' + error.message, 'error');
+                document.getElementById('apiResponse').value = 'Error: ' + error.message;
+            }
+        }
+
+        // Clear all fields
+        function clearAll() {
+            document.getElementById('plaintext').value = '';
+            document.getElementById('ciphertext').value = '';
+            document.getElementById('decryptedtext').value = '';
+            document.getElementById('apiRequest').value = '';
+            document.getElementById('apiResponse').value = '';
+            document.getElementById('decryptedResponse').value = '';
+            updateStatus('All fields cleared', 'info');
+        }
+
+        // Update status message
+        function updateStatus(message, type) {
+            const statusElement = document.getElementById('apiStatus');
+            statusElement.textContent = message;
+            statusElement.className = type;
+        }
+
+        // Initialize with production key
+        window.onload = function() {
+            setLegacyKey();
+            updateStatus('Ready to test API encryption with production keys', 'info');
+        };
+    </script>
+</body>
+</html>
+
+

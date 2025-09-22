@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99Group Game Platform - Admin Panel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .admin-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .admin-badge {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .stat-card p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .stat-card.users { border-left: 4px solid #3498db; }
+        .stat-card.withdrawals { border-left: 4px solid #e74c3c; }
+        .stat-card.kyc { border-left: 4px solid #f39c12; }
+        .stat-card.revenue { border-left: 4px solid #27ae60; }
+
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #ffc107; color: #856404; }
+        .status-approved { background: #28a745; color: white; }
+        .status-rejected { background: #dc3545; color: white; }
+        .status-submitted { background: #17a2b8; color: white; }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0.2rem;
+            transition: all 0.3s;
+        }
+
+        .btn-success { background: #28a745; color: white; }
+        .btn-danger { background: #dc3545; color: white; }
+        .btn-info { background: #17a2b8; color: white; }
+        .btn-warning { background: #ffc107; color: #856404; }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h2 {
+            color: #333;
+        }
+
+        .close {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        .document-preview {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+        }
+
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-danger { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .alert-warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .alert-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+
+        .search-box {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #2c3e50;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pagination-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .pagination-btn:hover {
+            background: #f8f9fa;
+        }
+
+        .pagination-btn.active {
+            background: #2c3e50;
+            color: white;
+            border-color: #2c3e50;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+
+        .user-actions .btn {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .admin-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .data-table {
+                font-size: 0.8rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.5rem;
+            }
+
+            .user-actions {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>🔧 Admin Panel - 99Group Game Platform</h1>
+        <div class="admin-info">
+            <div class="admin-badge" id="adminBadge">
+                👤 Admin
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" style="display: block;">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>🔐 Admin Login</h2>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="adminUsername" placeholder="Enter admin username" value="admin">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="adminPassword" placeholder="Enter admin password" value="admin123">
+            </div>
+            <button onclick="adminLogin()" class="btn btn-success" style="width: 100%;">
+                🔑 Login
+            </button>
+            <div id="loginError" class="alert alert-danger" style="display: none; margin-top: 1rem;">
+                Invalid credentials
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="adminContent" style="display: none;">
+        <!-- Statistics -->
+        <div class="stats-grid">
+            <div class="stat-card users">
+                <h3 id="totalUsers">0</h3>
+                <p>Total Users</p>
+            </div>
+            <div class="stat-card withdrawals">
+                <h3 id="pendingWithdrawals">0</h3>
+                <p>Pending Withdrawals</p>
+            </div>
+            <div class="stat-card kyc">
+                <h3 id="pendingKYC">0</h3>
+                <p>Pending KYC</p>
+            </div>
+            <div class="stat-card revenue">
+                <h3 id="totalRevenue">$0</h3>
+                <p>Total Revenue</p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('users')">👥 Users</div>
+            <div class="tab" onclick="showTab('withdrawals')">💰 Withdrawals</div>
+            <div class="tab" onclick="showTab('kyc')">📄 KYC</div>
+            <div class="tab" onclick="showTab('settings')">⚙️ Settings</div>
+        </div>
+
+        <!-- Users Tab -->
+        <div id="users" class="tab-content active">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <h2>👥 User Management</h2>
+                <button onclick="openCreateUserModal()" class="btn btn-success">
+                    ➕ Create New User
+                </button>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                <input type="text" id="userSearchBox" class="search-box" placeholder="Search users by username, ID, or game account..." 
+                       onkeyup="debounceSearch()" style="flex: 1;">
+                <button onclick="refreshUsers()" class="btn btn-info">🔄 Refresh</button>
+            </div>
+            
+            <div id="userTableContainer">
+                <table class="data-table" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Game Account</th>
+                            <th>Balance</th>
+                            <th>Free Credit</th>
+                            <th>Total Wagered</th>
+                            <th>Total Won</th>
+                            <th>Transactions</th>
+                            <th>Can Withdraw</th>
+                            <th>KYC Status</th>
+                            <th>Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Users will be loaded here -->
+                    </tbody>
+                </table>
+                
+                <!-- Pagination -->
+                <div id="usersPagination" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 1rem;">
+                    <!-- Pagination controls will be added here -->
+                </div>
+            </div>
+            
+            <!-- Loading indicator -->
+            <div id="usersLoading" style="text-align: center; padding: 2rem; display: none;">
+                <div style="display: inline-block; width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid #2c3e50; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+                <p>Loading users...</p>
+            </div>
+        </div>
+
+        <!-- Withdrawals Tab -->
+        <div id="withdrawals" class="tab-content">
+            <h2>💰 Withdrawal Management</h2>
+            <input type="text" class="search-box" placeholder="Search withdrawals..." onkeyup="filterTable('withdrawalsTable', this.value)">
+            <table class="data-table" id="withdrawalsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>User</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Bank Details</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Withdrawals will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- KYC Tab -->
+        <div id="kyc" class="tab-content">
+            <h2>📄 KYC Management</h2>
+            <input type="text" class="search-box" placeholder="Search KYC..." onkeyup="filterTable('kycTable', this.value)">
+            <table class="data-table" id="kycTable">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>Document Type</th>
+                        <th>Status</th>
+                        <th>Uploaded</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- KYC documents will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Settings Tab -->
+        <div id="settings" class="tab-content">
+            <h2>⚙️ System Settings</h2>
+            
+            <!-- Wallet Settings -->
+            <div style="background: white; border-radius: 15px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 25px rgba(0,0,0,0.1);">
+                <h3 style="color: #333; margin-bottom: 1.5rem; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem;">💰 Wallet Configuration</h3>
+                
+                <div class="form-group">
+                    <label>用户初始Balance ($)</label>
+                    <input type="number" id="initialBalance" min="0" step="0.01" placeholder="50.00">
+                    <small style="color: #666;">新用户注册时获得的初始余额</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>免费积分金额 ($)</label>
+                    <input type="number" id="freeCreditAmount" min="0" step="0.01" placeholder="50.00">
+                    <small style="color: #666;">新用户获得的免费积分金额</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>最低余额清零阈值 ($)</label>
+                    <input type="number" id="minBalanceThreshold" min="0" step="0.01" placeholder="0.10">
+                    <small style="color: #666;">低于此金额时余额将被清零</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>提现门槛 ($)</label>
+                    <input type="number" id="withdrawalThreshold" min="0" step="0.01" placeholder="1000.00">
+                    <small style="color: #666;">达到此金额后用户可以申请提现</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>提现金额 ($)</label>
+                    <input type="number" id="withdrawalAmount" min="0" step="0.01" placeholder="50.00">
+                    <small style="color: #666;">用户可以提现的固定金额</small>
+                </div>
+                
+                <button onclick="saveWalletSettings()" class="btn btn-success">
+                    💾 保存钱包设置
+                </button>
+            </div>
+
+            <!-- Game Settings -->
+            <div style="background: white; border-radius: 15px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 25px rgba(0,0,0,0.1);">
+                <h3 style="color: #333; margin-bottom: 1.5rem; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem;">🎮 Game Configuration</h3>
+                
+                <div class="form-group">
+                    <label>Game API URL</label>
+                    <input type="url" id="gameApiUrl" placeholder="https://jsgame.live">
+                    <small style="color: #666;">游戏API服务器地址</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Agency UID</label>
+                    <input type="text" id="agencyUid" placeholder="45370b4f27dfc8a2875ba78d07e8a81a">
+                    <small style="color: #666;">代理商唯一标识符</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Player Prefix</label>
+                    <input type="text" id="playerPrefix" placeholder="h4944d">
+                    <small style="color: #666;">玩家账号前缀</small>
+                </div>
+                
+                <button onclick="saveGameSettings()" class="btn btn-success">
+                    💾 保存游戏设置
+                </button>
+            </div>
+
+            <!-- System Status -->
+            <div style="background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 25px rgba(0,0,0,0.1);">
+                <h3 style="color: #333; margin-bottom: 1.5rem; border-bottom: 2px solid #e9ecef; padding-bottom: 0.5rem;">📊 System Status</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                        <h4 style="color: #333;">Database</h4>
+                        <p id="dbStatus" style="color: #28a745;">✅ Connected</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                        <h4 style="color: #333;">Game API</h4>
+                        <p id="gameApiStatus" style="color: #ffc107;">⏳ Checking...</p>
+                    </div>
+                    <div style="text-align: center; padding: 1rem; background: #f8f9fa; border-radius: 8px;">
+                        <h4 style="color: #333;">Server</h4>
+                        <p id="serverStatus" style="color: #28a745;">✅ Running</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdrawal Process Modal -->
+    <div id="withdrawalModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💰 Process Withdrawal</h2>
+                <span class="close" onclick="closeModal('withdrawalModal')">&times;</span>
+            </div>
+            <div id="withdrawalDetails">
+                <!-- Withdrawal details will be loaded here -->
+            </div>
+            <div class="form-group">
+                <label>Action</label>
+                <select id="withdrawalAction">
+                    <option value="approve">✅ Approve</option>
+                    <option value="reject">❌ Reject</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Admin Notes</label>
+                <textarea id="withdrawalNotes" rows="4" placeholder="Enter admin notes..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Attachments (optional)</label>
+                <input type="file" id="withdrawalAttachments" multiple accept=".jpg,.jpeg,.png,.pdf">
+            </div>
+            <button onclick="processWithdrawal()" class="btn btn-success">
+                💾 Process Withdrawal
+            </button>
+        </div>
+    </div>
+
+    <!-- KYC Process Modal -->
+    <div id="kycModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📄 Process KYC</h2>
+                <span class="close" onclick="closeModal('kycModal')">&times;</span>
+            </div>
+            <div id="kycDetails">
+                <!-- KYC details will be loaded here -->
+            </div>
+            <div class="form-group">
+                <label>Action</label>
+                <select id="kycAction">
+                    <option value="approve">✅ Approve</option>
+                    <option value="reject">❌ Reject</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Admin Notes</label>
+                <textarea id="kycNotes" rows="4" placeholder="Enter admin notes..."></textarea>
+            </div>
+            <button onclick="processKYC()" class="btn btn-success">
+                💾 Process KYC
+            </button>
+        </div>
+    </div>
+
+    <!-- User Details Modal -->
+    <div id="userDetailsModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>👤 User Details</h2>
+                <span class="close" onclick="closeModal('userDetailsModal')">&times;</span>
+            </div>
+            <div id="userDetailsContent">
+                <!-- User details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>✏️ Edit User</h2>
+                <span class="close" onclick="closeModal('editUserModal')">&times;</span>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="editUsername" readonly style="background: #f8f9fa;">
+            </div>
+            <div class="form-group">
+                <label>Balance ($)</label>
+                <input type="number" id="editBalance" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+                <label>Free Credit ($)</label>
+                <input type="number" id="editFreeCredit" min="0" step="0.01">
+            </div>
+            <div class="form-group">
+                <label>Can Withdraw</label>
+                <select id="editCanWithdraw">
+                    <option value="0">❌ No</option>
+                    <option value="1">✅ Yes</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>KYC Status</label>
+                <select id="editKycStatus">
+                    <option value="pending">⏳ Pending</option>
+                    <option value="submitted">📄 Submitted</option>
+                    <option value="approved">✅ Approved</option>
+                    <option value="rejected">❌ Rejected</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button onclick="updateUser()" class="btn btn-success">💾 Update User</button>
+                <button onclick="closeModal('editUserModal')" class="btn btn-danger">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create User Modal -->
+    <div id="createUserModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>➕ Create New User</h2>
+                <span class="close" onclick="closeModal('createUserModal')">&times;</span>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" id="createUsername" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="createPassword" placeholder="Enter password (min 6 characters)">
+            </div>
+            <div class="form-group">
+                <label>Initial Balance ($)</label>
+                <input type="number" id="createInitialBalance" min="0" step="0.01" placeholder="Leave empty for system default">
+            </div>
+            <div class="form-group">
+                <label>Initial Credit ($)</label>
+                <input type="number" id="createInitialCredit" min="0" step="0.01" placeholder="Leave empty for system default">
+            </div>
+            <div class="form-group">
+                <button onclick="createUser()" class="btn btn-success">➕ Create User</button>
+                <button onclick="closeModal('createUserModal')" class="btn btn-danger">❌ Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '';
+        let currentAdmin = null;
+        let currentWithdrawal = null;
+        let currentKYCUser = null;
+        let currentEditUser = null;
+        let currentPage = 1;
+        let currentSearch = '';
+        let searchTimeout = null;
+
+        // Initialize admin panel
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('adminToken');
+            if (token) {
+                verifyAdminToken(token);
+            }
+        });
+
+        // Admin authentication
+        function getAdminAuthHeaders() {
+            const token = localStorage.getItem('adminToken');
+            return {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            };
+        }
+
+        async function adminLogin() {
+            const username = document.getElementById('adminUsername').value;
+            const password = document.getElementById('adminPassword').value;
+
+            if (!username || !password) {
+                showError('Please enter username and password');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('adminToken', data.token);
+                    currentAdmin = data.admin;
+                    
+                    document.getElementById('loginModal').style.display = 'none';
+                    document.getElementById('adminContent').style.display = 'block';
+                    document.getElementById('adminBadge').textContent = `👤 ${data.admin.username} (${data.admin.role})`;
+                    
+                    loadDashboardData();
+                } else {
+                    showError('Invalid admin credentials');
+                }
+            } catch (error) {
+                console.error('Admin login error:', error);
+                showError('Login failed. Please try again.');
+            }
+        }
+
+        async function verifyAdminToken(token) {
+            try {
+                const response = await fetch('/api/admin/users', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    document.getElementById('loginModal').style.display = 'none';
+                    document.getElementById('adminContent').style.display = 'block';
+                    loadDashboardData();
+                } else {
+                    localStorage.removeItem('adminToken');
+                }
+            } catch (error) {
+                localStorage.removeItem('adminToken');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('adminToken');
+            window.location.reload();
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('loginError');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+        }
+
+        // Tab management
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            await Promise.all([
+                loadUsers(),
+                loadWithdrawals(),
+                loadKYCDocuments(),
+                loadStatistics(),
+                loadSettings()
+            ]);
+        }
+
+        // Load statistics
+        async function loadStatistics() {
+            try {
+                const [usersResponse, withdrawalsResponse] = await Promise.all([
+                    fetch('/api/admin/users', { headers: getAdminAuthHeaders() }),
+                    fetch('/api/admin/withdrawals', { headers: getAdminAuthHeaders() })
+                ]);
+
+                if (usersResponse.ok && withdrawalsResponse.ok) {
+                    const usersData = await usersResponse.json();
+                    const withdrawalsData = await withdrawalsResponse.json();
+
+                    document.getElementById('totalUsers').textContent = usersData.users.length;
+                    
+                    const pendingWithdrawals = withdrawalsData.withdrawals.filter(w => w.status === 'pending');
+                    document.getElementById('pendingWithdrawals').textContent = pendingWithdrawals.length;
+
+                    const pendingKYC = usersData.users.filter(u => u.kyc_status === 'submitted');
+                    document.getElementById('pendingKYC').textContent = pendingKYC.length;
+
+                    const totalRevenue = usersData.users.reduce((sum, user) => sum + (user.total_wagered - user.total_won), 0);
+                    document.getElementById('totalRevenue').textContent = `$${totalRevenue.toFixed(2)}`;
+                }
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+            }
+        }
+
+        // Load users with pagination and search
+        async function loadUsers(page = 1, search = '') {
+            try {
+                showUsersLoading(true);
+                
+                const params = new URLSearchParams({
+                    page: page,
+                    limit: 20
+                });
+                
+                if (search) {
+                    params.append('search', search);
+                }
+                
+                const response = await fetch(`/api/admin/users?${params.toString()}`, {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    renderUsersTable(data.users);
+                    renderUsersPagination(data.pagination);
+                    
+                    currentPage = page;
+                    currentSearch = search;
+                } else {
+                    throw new Error('Failed to load users');
+                }
+            } catch (error) {
+                console.error('Error loading users:', error);
+                alert('Failed to load users. Please try again.');
+            } finally {
+                showUsersLoading(false);
+            }
+        }
+
+        function renderUsersTable(users) {
+            const tbody = document.querySelector('#usersTable tbody');
+            tbody.innerHTML = '';
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${user.id}</td>
+                    <td>${user.username}</td>
+                    <td>${user.game_account}</td>
+                    <td>$${user.balance.toFixed(2)}</td>
+                    <td>$${user.free_credit.toFixed(2)}</td>
+                    <td>$${user.total_wagered.toFixed(2)}</td>
+                    <td>$${user.total_won.toFixed(2)}</td>
+                    <td>${user.total_transactions || 0}</td>
+                    <td>${user.can_withdraw ? '✅' : '❌'}</td>
+                    <td><span class="status-badge status-${user.kyc_status}">${user.kyc_status}</span></td>
+                    <td>${new Date(user.created_at).toLocaleDateString()}</td>
+                    <td>
+                        <div class="user-actions">
+                            <button class="btn btn-info" onclick="viewUserDetails(${user.id})" title="View Details">👁️</button>
+                            <button class="btn btn-warning" onclick="editUser(${user.id})" title="Edit User">✏️</button>
+                            <button class="btn btn-danger" onclick="deleteUser(${user.id}, '${user.username}')" title="Delete User">🗑️</button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function renderUsersPagination(pagination) {
+            const container = document.getElementById('usersPagination');
+            container.innerHTML = '';
+            
+            if (pagination.totalPages <= 1) return;
+            
+            // Previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'pagination-btn';
+            prevBtn.innerHTML = '← Previous';
+            prevBtn.disabled = pagination.page === 1;
+            prevBtn.onclick = () => loadUsers(pagination.page - 1, currentSearch);
+            container.appendChild(prevBtn);
+            
+            // Page numbers
+            const startPage = Math.max(1, pagination.page - 2);
+            const endPage = Math.min(pagination.totalPages, pagination.page + 2);
+            
+            if (startPage > 1) {
+                const firstBtn = document.createElement('button');
+                firstBtn.className = 'pagination-btn';
+                firstBtn.innerHTML = '1';
+                firstBtn.onclick = () => loadUsers(1, currentSearch);
+                container.appendChild(firstBtn);
+                
+                if (startPage > 2) {
+                    const dots = document.createElement('span');
+                    dots.innerHTML = '...';
+                    container.appendChild(dots);
+                }
+            }
+            
+            for (let i = startPage; i <= endPage; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `pagination-btn ${i === pagination.page ? 'active' : ''}`;
+                pageBtn.innerHTML = i;
+                pageBtn.onclick = () => loadUsers(i, currentSearch);
+                container.appendChild(pageBtn);
+            }
+            
+            if (endPage < pagination.totalPages) {
+                if (endPage < pagination.totalPages - 1) {
+                    const dots = document.createElement('span');
+                    dots.innerHTML = '...';
+                    container.appendChild(dots);
+                }
+                
+                const lastBtn = document.createElement('button');
+                lastBtn.className = 'pagination-btn';
+                lastBtn.innerHTML = pagination.totalPages;
+                lastBtn.onclick = () => loadUsers(pagination.totalPages, currentSearch);
+                container.appendChild(lastBtn);
+            }
+            
+            // Next button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'pagination-btn';
+            nextBtn.innerHTML = 'Next →';
+            nextBtn.disabled = pagination.page === pagination.totalPages;
+            nextBtn.onclick = () => loadUsers(pagination.page + 1, currentSearch);
+            container.appendChild(nextBtn);
+            
+            // Page info
+            const pageInfo = document.createElement('div');
+            pageInfo.innerHTML = `Page ${pagination.page} of ${pagination.totalPages} (${pagination.total} users)`;
+            pageInfo.style.marginLeft = '1rem';
+            pageInfo.style.color = '#666';
+            container.appendChild(pageInfo);
+        }
+
+        function showUsersLoading(show) {
+            document.getElementById('usersLoading').style.display = show ? 'block' : 'none';
+            document.getElementById('userTableContainer').style.display = show ? 'none' : 'block';
+        }
+
+        function debounceSearch() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const searchValue = document.getElementById('userSearchBox').value.trim();
+                loadUsers(1, searchValue);
+            }, 500);
+        }
+
+        function refreshUsers() {
+            loadUsers(currentPage, currentSearch);
+        }
+
+        // Load withdrawals
+        async function loadWithdrawals() {
+            try {
+                const response = await fetch('/api/admin/withdrawals', {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const tbody = document.querySelector('#withdrawalsTable tbody');
+                    tbody.innerHTML = '';
+
+                    data.withdrawals.forEach(withdrawal => {
+                        const bankDetails = JSON.parse(withdrawal.bank_details || '{}');
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${withdrawal.id}</td>
+                            <td>${withdrawal.username}</td>
+                            <td>$${withdrawal.amount.toFixed(2)}</td>
+                            <td><span class="status-badge status-${withdrawal.status}">${withdrawal.status}</span></td>
+                            <td>${bankDetails.bank_name || 'N/A'}</td>
+                            <td>${new Date(withdrawal.created_at).toLocaleDateString()}</td>
+                            <td>
+                                ${withdrawal.status === 'pending' ? 
+                                    `<button class="btn btn-warning" onclick="openWithdrawalModal(${withdrawal.id})">⚙️ Process</button>` :
+                                    `<button class="btn btn-info" onclick="viewWithdrawal(${withdrawal.id})">👁️ View</button>`
+                                }
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading withdrawals:', error);
+            }
+        }
+
+        // Load KYC documents
+        async function loadKYCDocuments() {
+            try {
+                const response = await fetch('/api/admin/kyc', {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const tbody = document.querySelector('#kycTable tbody');
+                    tbody.innerHTML = '';
+
+                    // Group documents by user
+                    const userGroups = {};
+                    data.documents.forEach(doc => {
+                        if (!userGroups[doc.user_id]) {
+                            userGroups[doc.user_id] = {
+                                username: doc.username,
+                                kyc_status: doc.kyc_status,
+                                documents: []
+                            };
+                        }
+                        userGroups[doc.user_id].documents.push(doc);
+                    });
+
+                    Object.keys(userGroups).forEach(userId => {
+                        const userGroup = userGroups[userId];
+                        const firstDoc = userGroup.documents[0];
+                        
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${userId}</td>
+                            <td>${userGroup.username}</td>
+                            <td>${userGroup.documents.length} documents</td>
+                            <td><span class="status-badge status-${userGroup.kyc_status}">${userGroup.kyc_status}</span></td>
+                            <td>${new Date(firstDoc.created_at).toLocaleDateString()}</td>
+                            <td>
+                                ${userGroup.kyc_status === 'submitted' ? 
+                                    `<button class="btn btn-warning" onclick="openKYCModal(${userId})">⚙️ Process</button>` :
+                                    `<button class="btn btn-info" onclick="viewKYC(${userId})">👁️ View</button>`
+                                }
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading KYC documents:', error);
+            }
+        }
+
+        // Open withdrawal modal
+        async function openWithdrawalModal(withdrawalId) {
+            try {
+                const response = await fetch('/api/admin/withdrawals', {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const withdrawal = data.withdrawals.find(w => w.id === withdrawalId);
+                    
+                    if (withdrawal) {
+                        currentWithdrawal = withdrawal;
+                        const bankDetails = JSON.parse(withdrawal.bank_details || '{}');
+                        
+                        document.getElementById('withdrawalDetails').innerHTML = `
+                            <div class="alert alert-info">
+                                <strong>Withdrawal #${withdrawal.id}</strong><br>
+                                User: ${withdrawal.username}<br>
+                                Amount: $${withdrawal.amount.toFixed(2)}<br>
+                                Bank: ${bankDetails.bank_name}<br>
+                                Account: ${bankDetails.account_number}<br>
+                                Holder: ${bankDetails.account_holder}<br>
+                                Branch: ${bankDetails.bank_branch}
+                            </div>
+                        `;
+                        
+                        document.getElementById('withdrawalModal').style.display = 'block';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading withdrawal:', error);
+            }
+        }
+
+        // Process withdrawal
+        async function processWithdrawal() {
+            if (!currentWithdrawal) return;
+
+            const action = document.getElementById('withdrawalAction').value;
+            const notes = document.getElementById('withdrawalNotes').value;
+
+            try {
+                const response = await fetch(`/api/admin/withdrawal/${currentWithdrawal.id}/process`, {
+                    method: 'POST',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify({
+                        action: action,
+                        admin_notes: notes,
+                        attachments: [] // File upload handling can be added later
+                    })
+                });
+
+                if (response.ok) {
+                    alert(`Withdrawal ${action}d successfully!`);
+                    closeModal('withdrawalModal');
+                    loadWithdrawals();
+                    loadStatistics();
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Failed to process withdrawal');
+                }
+            } catch (error) {
+                console.error('Error processing withdrawal:', error);
+                alert('Failed to process withdrawal');
+            }
+        }
+
+        // Open KYC modal
+        async function openKYCModal(userId) {
+            try {
+                const response = await fetch('/api/admin/kyc', {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const userDocs = data.documents.filter(doc => doc.user_id == userId);
+                    
+                    if (userDocs.length > 0) {
+                        currentKYCUser = userId;
+                        
+                        let documentsHtml = '<div class="alert alert-info">';
+                        documentsHtml += `<strong>KYC Documents for User #${userId} (${userDocs[0].username})</strong><br>`;
+                        documentsHtml += '</div>';
+                        
+                        userDocs.forEach(doc => {
+                            documentsHtml += `
+                                <div style="margin: 1rem 0; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                                    <strong>${doc.document_type}</strong><br>
+                                    <a href="/${doc.file_path}" target="_blank" class="btn btn-info">📄 View Document</a>
+                                </div>
+                            `;
+                        });
+                        
+                        document.getElementById('kycDetails').innerHTML = documentsHtml;
+                        document.getElementById('kycModal').style.display = 'block';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading KYC:', error);
+            }
+        }
+
+        // Process KYC
+        async function processKYC() {
+            if (!currentKYCUser) return;
+
+            const action = document.getElementById('kycAction').value;
+            const notes = document.getElementById('kycNotes').value;
+
+            try {
+                const response = await fetch(`/api/admin/kyc/${currentKYCUser}/process`, {
+                    method: 'POST',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify({
+                        action: action,
+                        admin_notes: notes
+                    })
+                });
+
+                if (response.ok) {
+                    alert(`KYC ${action}d successfully!`);
+                    closeModal('kycModal');
+                    loadKYCDocuments();
+                    loadUsers();
+                    loadStatistics();
+                } else {
+                    const error = await response.json();
+                    alert(error.error || 'Failed to process KYC');
+                }
+            } catch (error) {
+                console.error('Error processing KYC:', error);
+                alert('Failed to process KYC');
+            }
+        }
+
+        // Modal management
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            currentWithdrawal = null;
+            currentKYCUser = null;
+            currentEditUser = null;
+        }
+
+        // Table filtering
+        function filterTable(tableId, searchTerm) {
+            const table = document.getElementById(tableId);
+            const rows = table.getElementsByTagName('tr');
+            
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                const cells = row.getElementsByTagName('td');
+                let found = false;
+                
+                for (let j = 0; j < cells.length; j++) {
+                    const cellText = cells[j].textContent.toLowerCase();
+                    if (cellText.includes(searchTerm.toLowerCase())) {
+                        found = true;
+                        break;
+                    }
+                }
+                
+                row.style.display = found ? '' : 'none';
+            }
+        }
+
+        // User CRUD Functions
+        async function viewUserDetails(userId) {
+            try {
+                const response = await fetch(`/api/admin/users/${userId}`, {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    renderUserDetails(data);
+                    document.getElementById('userDetailsModal').style.display = 'block';
+                } else {
+                    throw new Error('Failed to load user details');
+                }
+            } catch (error) {
+                console.error('Error loading user details:', error);
+                alert('Failed to load user details');
+            }
+        }
+
+        function renderUserDetails(data) {
+            const { user, transactions, withdrawals, kycDocuments } = data;
+            
+            let html = `
+                <div class="alert alert-info">
+                    <h3>👤 User Information</h3>
+                    <p><strong>ID:</strong> ${user.id}</p>
+                    <p><strong>Username:</strong> ${user.username}</p>
+                    <p><strong>Game Account:</strong> ${user.game_account}</p>
+                    <p><strong>Balance:</strong> $${user.balance.toFixed(2)}</p>
+                    <p><strong>Free Credit:</strong> $${user.free_credit.toFixed(2)}</p>
+                    <p><strong>Total Wagered:</strong> $${user.total_wagered.toFixed(2)}</p>
+                    <p><strong>Total Won:</strong> $${user.total_won.toFixed(2)}</p>
+                    <p><strong>Can Withdraw:</strong> ${user.can_withdraw ? '✅ Yes' : '❌ No'}</p>
+                    <p><strong>KYC Status:</strong> <span class="status-badge status-${user.kyc_status}">${user.kyc_status}</span></p>
+                    <p><strong>Joined:</strong> ${new Date(user.created_at).toLocaleString()}</p>
+                </div>
+            `;
+            
+            if (transactions.length > 0) {
+                html += `
+                    <h4>📊 Recent Transactions (Last 20)</h4>
+                    <table class="data-table" style="margin-bottom: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Balance Before</th>
+                                <th>Balance After</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                transactions.forEach(tx => {
+                    html += `
+                        <tr>
+                            <td>${tx.transaction_type}</td>
+                            <td>$${tx.amount.toFixed(2)}</td>
+                            <td>$${tx.balance_before.toFixed(2)}</td>
+                            <td>$${tx.balance_after.toFixed(2)}</td>
+                            <td>${tx.description || '-'}</td>
+                            <td>${new Date(tx.created_at).toLocaleString()}</td>
+                        </tr>
+                    `;
+                });
+                
+                html += '</tbody></table>';
+            }
+            
+            if (withdrawals.length > 0) {
+                html += `
+                    <h4>💰 Withdrawal History</h4>
+                    <table class="data-table" style="margin-bottom: 1rem;">
+                        <thead>
+                            <tr>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Created</th>
+                                <th>Processed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                withdrawals.forEach(withdrawal => {
+                    html += `
+                        <tr>
+                            <td>$${withdrawal.amount.toFixed(2)}</td>
+                            <td><span class="status-badge status-${withdrawal.status}">${withdrawal.status}</span></td>
+                            <td>${new Date(withdrawal.created_at).toLocaleString()}</td>
+                            <td>${withdrawal.processed_at ? new Date(withdrawal.processed_at).toLocaleString() : '-'}</td>
+                        </tr>
+                    `;
+                });
+                
+                html += '</tbody></table>';
+            }
+            
+            if (kycDocuments.length > 0) {
+                html += `
+                    <h4>📄 KYC Documents</h4>
+                    <div style="display: grid; gap: 1rem;">
+                `;
+                
+                kycDocuments.forEach(doc => {
+                    html += `
+                        <div style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px;">
+                            <p><strong>Type:</strong> ${doc.document_type}</p>
+                            <p><strong>Status:</strong> <span class="status-badge status-${doc.status}">${doc.status}</span></p>
+                            <p><strong>Uploaded:</strong> ${new Date(doc.created_at).toLocaleString()}</p>
+                            <a href="/${doc.file_path}" target="_blank" class="btn btn-info">📄 View Document</a>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+            }
+            
+            document.getElementById('userDetailsContent').innerHTML = html;
+        }
+
+        async function editUser(userId) {
+            try {
+                const response = await fetch(`/api/admin/users/${userId}`, {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    const user = data.user;
+                    
+                    currentEditUser = user;
+                    
+                    // Populate edit form
+                    document.getElementById('editUsername').value = user.username;
+                    document.getElementById('editBalance').value = user.balance;
+                    document.getElementById('editFreeCredit').value = user.free_credit;
+                    document.getElementById('editCanWithdraw').value = user.can_withdraw ? '1' : '0';
+                    document.getElementById('editKycStatus').value = user.kyc_status;
+                    
+                    document.getElementById('editUserModal').style.display = 'block';
+                } else {
+                    throw new Error('Failed to load user data');
+                }
+            } catch (error) {
+                console.error('Error loading user for edit:', error);
+                alert('Failed to load user data');
+            }
+        }
+
+        async function updateUser() {
+            if (!currentEditUser) return;
+            
+            const updateData = {
+                balance: parseFloat(document.getElementById('editBalance').value),
+                free_credit: parseFloat(document.getElementById('editFreeCredit').value),
+                can_withdraw: document.getElementById('editCanWithdraw').value === '1',
+                kyc_status: document.getElementById('editKycStatus').value
+            };
+            
+            try {
+                const response = await fetch(`/api/admin/users/${currentEditUser.id}`, {
+                    method: 'PUT',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify(updateData)
+                });
+
+                if (response.ok) {
+                    alert('✅ User updated successfully!');
+                    closeModal('editUserModal');
+                    refreshUsers();
+                    loadStatistics();
+                } else {
+                    const error = await response.json();
+                    alert('❌ Update failed: ' + (error.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error updating user:', error);
+                alert('❌ Update failed. Please try again.');
+            }
+        }
+
+        async function deleteUser(userId, username) {
+            if (!confirm(`⚠️ Are you sure you want to delete user "${username}"?\n\nThis will:\n- Archive the user account\n- Clear their balance\n- Mark them as deleted\n\nThis action cannot be undone.`)) {
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/admin/users/${userId}`, {
+                    method: 'DELETE',
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    alert('✅ User deleted successfully!');
+                    refreshUsers();
+                    loadStatistics();
+                } else {
+                    const error = await response.json();
+                    alert('❌ Delete failed: ' + (error.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error deleting user:', error);
+                alert('❌ Delete failed. Please try again.');
+            }
+        }
+
+        function openCreateUserModal() {
+            // Clear form
+            document.getElementById('createUsername').value = '';
+            document.getElementById('createPassword').value = '';
+            document.getElementById('createInitialBalance').value = '';
+            document.getElementById('createInitialCredit').value = '';
+            
+            document.getElementById('createUserModal').style.display = 'block';
+        }
+
+        async function createUser() {
+            const username = document.getElementById('createUsername').value.trim();
+            const password = document.getElementById('createPassword').value;
+            const initialBalance = document.getElementById('createInitialBalance').value;
+            const initialCredit = document.getElementById('createInitialCredit').value;
+            
+            if (!username || !password) {
+                alert('❌ Username and password are required');
+                return;
+            }
+            
+            if (password.length < 6) {
+                alert('❌ Password must be at least 6 characters long');
+                return;
+            }
+            
+            const createData = {
+                username,
+                password
+            };
+            
+            if (initialBalance) {
+                createData.initial_balance = parseFloat(initialBalance);
+            }
+            
+            if (initialCredit) {
+                createData.initial_credit = parseFloat(initialCredit);
+            }
+            
+            try {
+                const response = await fetch('/api/admin/users', {
+                    method: 'POST',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify(createData)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    alert(`✅ User created successfully!\n\nUsername: ${result.username}\nGame Account: ${result.gameAccount}\nInitial Balance: $${result.initialBalance}\nInitial Credit: $${result.initialCredit}`);
+                    closeModal('createUserModal');
+                    refreshUsers();
+                    loadStatistics();
+                } else {
+                    const error = await response.json();
+                    alert('❌ Creation failed: ' + (error.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error creating user:', error);
+                alert('❌ Creation failed. Please try again.');
+            }
+        }
+
+        function viewWithdrawal(withdrawalId) {
+            alert(`Withdrawal details for ID: ${withdrawalId} - Feature coming soon!`);
+        }
+
+        function viewKYC(userId) {
+            alert(`KYC details for User ID: ${userId} - Feature coming soon!`);
+        }
+
+        // Settings management functions
+        async function loadSettings() {
+            try {
+                const response = await fetch('/api/admin/settings', {
+                    headers: getAdminAuthHeaders()
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    // Load wallet settings
+                    document.getElementById('initialBalance').value = data.wallet.initialBalance || 50;
+                    document.getElementById('freeCreditAmount').value = data.wallet.freeCreditAmount || 50;
+                    document.getElementById('minBalanceThreshold').value = data.wallet.minBalanceThreshold || 0.1;
+                    document.getElementById('withdrawalThreshold').value = data.wallet.withdrawalThreshold || 1000;
+                    document.getElementById('withdrawalAmount').value = data.wallet.withdrawalAmount || 50;
+                    
+                    // Load game settings
+                    document.getElementById('gameApiUrl').value = data.game.apiUrl || 'https://jsgame.live';
+                    document.getElementById('agencyUid').value = data.game.agencyUid || '45370b4f27dfc8a2875ba78d07e8a81a';
+                    document.getElementById('playerPrefix').value = data.game.playerPrefix || 'h4944d';
+                    
+                    // Check game API status
+                    checkGameApiStatus();
+                }
+            } catch (error) {
+                console.error('Error loading settings:', error);
+                // Set default values if loading fails
+                document.getElementById('initialBalance').value = 50;
+                document.getElementById('freeCreditAmount').value = 50;
+                document.getElementById('minBalanceThreshold').value = 0.1;
+                document.getElementById('withdrawalThreshold').value = 1000;
+                document.getElementById('withdrawalAmount').value = 50;
+                document.getElementById('gameApiUrl').value = 'https://jsgame.live';
+                document.getElementById('agencyUid').value = '45370b4f27dfc8a2875ba78d07e8a81a';
+                document.getElementById('playerPrefix').value = 'h4944d';
+            }
+        }
+
+        async function saveWalletSettings() {
+            const settings = {
+                initialBalance: parseFloat(document.getElementById('initialBalance').value) || 50,
+                freeCreditAmount: parseFloat(document.getElementById('freeCreditAmount').value) || 50,
+                minBalanceThreshold: parseFloat(document.getElementById('minBalanceThreshold').value) || 0.1,
+                withdrawalThreshold: parseFloat(document.getElementById('withdrawalThreshold').value) || 1000,
+                withdrawalAmount: parseFloat(document.getElementById('withdrawalAmount').value) || 50
+            };
+
+            try {
+                const response = await fetch('/api/admin/settings/wallet', {
+                    method: 'POST',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify(settings)
+                });
+
+                if (response.ok) {
+                    alert('💰 钱包设置已保存成功！');
+                    loadStatistics(); // Refresh statistics
+                } else {
+                    const error = await response.json();
+                    alert('保存失败: ' + (error.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error saving wallet settings:', error);
+                alert('保存失败，请重试');
+            }
+        }
+
+        async function saveGameSettings() {
+            const settings = {
+                apiUrl: document.getElementById('gameApiUrl').value || 'https://jsgame.live',
+                agencyUid: document.getElementById('agencyUid').value || '45370b4f27dfc8a2875ba78d07e8a81a',
+                playerPrefix: document.getElementById('playerPrefix').value || 'h4944d'
+            };
+
+            try {
+                const response = await fetch('/api/admin/settings/game', {
+                    method: 'POST',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify(settings)
+                });
+
+                if (response.ok) {
+                    alert('🎮 游戏设置已保存成功！');
+                    checkGameApiStatus();
+                } else {
+                    const error = await response.json();
+                    alert('保存失败: ' + (error.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('Error saving game settings:', error);
+                alert('保存失败，请重试');
+            }
+        }
+
+        async function checkGameApiStatus() {
+            const gameApiUrl = document.getElementById('gameApiUrl').value;
+            const statusElement = document.getElementById('gameApiStatus');
+            
+            statusElement.innerHTML = '⏳ Checking...';
+            statusElement.style.color = '#ffc107';
+            
+            try {
+                const response = await fetch('/api/admin/settings/test-game-api', {
+                    method: 'POST',
+                    headers: getAdminAuthHeaders(),
+                    body: JSON.stringify({ apiUrl: gameApiUrl })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    if (data.success) {
+                        statusElement.innerHTML = '✅ Connected';
+                        statusElement.style.color = '#28a745';
+                    } else {
+                        statusElement.innerHTML = '❌ Failed';
+                        statusElement.style.color = '#dc3545';
+                    }
+                } else {
+                    statusElement.innerHTML = '❌ Error';
+                    statusElement.style.color = '#dc3545';
+                }
+            } catch (error) {
+                console.error('Error checking game API:', error);
+                statusElement.innerHTML = '❌ Error';
+                statusElement.style.color = '#dc3545';
+            }
+        }
+    </script>
+</body>
+</html>
+

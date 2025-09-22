@@ -1,0 +1,728 @@
+API Guide
+Quick Start
+1、Apply for API Key
+"agency_uid" : "8dee1e401b87408cca3ca813c2250cb4",
+"aes_key" : "68b074393ec7c5a975856a90bd6fdf47",
+"server_url" : "https://jsgame.live"
+2、Get Game URL （SEAMELESS）
+Request：
+POST https://{SERVER-URL}/game/v1 HTTP/1.1
+Content-Type: application/json
+{
+"agency_uid": "8dee1e401b87408cca3ca813c2250cb4",//replace key
+"timestamp": "1631459081871",
+"payload": "(AES256EncryptionResult)"
+}
+Response:
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{
+"code": 0,
+"msg": "",
+"payload": {"game_launch_url":"https://game_url"}
+}
+3、Retrieve Bet Information （SEAMELESS）
+Callback to the proxy platform, where the platform implements the interface to receive the
+information.
+Request：
+POST https://{callback url} HTTP/1.1
+Content-Type: application/json
+{
+"agency_uid": "8dee1e401b87408cca3ca813c2250cb4",//replace key
+"payload": "/aIRsjJmK5CYVZLuFS4l5C27vm8Br8..."
+"timestamp": "1705474368229"
+}
+Response:
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{
+"code": 0
+"msg": "",
+"payload":"m8Br86TSic3fFelsNLxL8eRGXmeuQML.."
+}
+4、Get Game URL （TRANSFER）
+Request：
+POST https://{SERVER-URL}/game/v2 HTTP/1.1
+Content-Type: application/json
+{
+"agency_uid": "8dee1e401b87408cca3ca813c2250cb4",//replace key
+"timestamp": "1631459081871",
+"payload": "(AES256EncryptionResult)"
+}
+Response:
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{
+"code": 0,
+"msg": "",
+"payload": {"game_launch_url":"https://game_url",......}
+}
+5、Get transaction records
+Return the list of transaction records within a specific time period
+Request：
+POST https://{SERVER-URL}/game/transaction/list HTTP/1.1
+Content-Type: application/json
+{
+"agency_uid": "8dee1e401b87408cca3ca813c2250cb4",//replace key
+"timestamp": "1631459081871",
+"payload": "(AES256EncryptionResult)"
+}
+Response:
+HTTP/1.1 200 OK
+Content-Type: application/json; charset=utf-8
+{
+"code": 0,
+"msg": "",
+"payload": {"records":[],"total_page":100,......}
+}
+API Interface
+1、Ge Game URL （SEAMELESS）
+The interface is designed to retrieve game URL.
+The request URL
+https://{SERVER-URL}/game/v1
+Request
+URL：https://{SERVER-URL}/game/v1
+Http Method：post
+JSON :
+{
+"agency_
+uid": "5d19788698c611ee9b6100163e0b978d"
+,
+"timestamp": "1631459081871"
+,
+"payload": "(AES256EncryptionResult)"
+}
+Parameter Description Type Required
+agency_
+uid Agent identification code. String Yes
+timestamp Current timestamp(Milliseconds) String Yes
+payload
+Encrypt the following JSON String
+parameters using AES 256
+Key: Provided by HUIDU
+JSON
+string Yes
+For example:
+Encrypt.AESEncrypt("{\"agency_
+ui
+d\":\"5d19788698c611ee9b6100163e
+0b978d\"
+,\"member
+account
+_
+\":\"palyer001\"
+,\"game
+uid\":\"1\"
+,\
+_
+"timestamp\":\"1631459081871\"
+,\"c
+redit
+_
+amount\":\"50\"}");
+Parameters within the payload
+timestamp Current timestamp(Milliseconds) String agency_
+uid Game agency identification code String member
+account
+_
+Player account name(Suggest a
+username with 4 to 20 characters and
+a customizable prefix.)
+String game
+uid _
+Game UID String credit
+amount _
+Game User Credit amount String currency_
+code Game currency code (eg. USD) String language
+The selected language which the
+game should be opened. Default:
+'en'
+String home
+_
+url Back to agent website URL String platform
+The platform that the game will open
+on.
+Possible values:
+1. web (default)
+2. H5
+(Fill in 1 or 2)
+Int callback
+url _
+Game data callback url String Response
+JSON :
+{
+"code": 0,
+"msg": ""
+,
+"payload": {"game
+launch
+_
+_
+url":"game
+_
+url"}
+}
+Parameter Type Description
+code Int Result code
+msg String Result message
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+No
+No
+No
+payload JSON String Return result
+Payload JSON String Parameter correspondence
+game
+launch
+_
+_
+url String Game URL
+2、Retrieve Bet Information （SEAMELESS）
+Callback to the proxy platform, where the platform implements the interface to information.
+receive the
+The request URL
+https://{callback url}
+Request
+URL：https://{callback url}
+Http Method：post
+JSON :
+{
+}
+"timestamp": "1631459081871"
+,
+"payload": "(AES256EncryptionResult)"
+Parameter Description Type Required
+agency_
+uid Agent identification code. String Yes
+timestamp
+The current time is UTC+0. The
+format is yyyy-MM-dd HH:mm:ss.
+String Yes
+payload
+Encrypt the following JSON
+String parameters using AES 256
+Key: Provided by HUIDU
+For example:
+Encrypt.AESEncrypt("{\"serial
+nu
+_
+mber\":\"245876c4-f717-76d2-b14
+3-3453dac191c7\"
+,\"currency_
+cod
+e\":\"USD\"
+,\"game
+uid\":\"83a68
+_
+90cf84e4c5a6bacf96d5355d472\"
+,\
+"member
+_
+account\":\"play01\"
+,\"w
+in
+amount\":\"2\"
+,\"bet
+amount\":\
+_
+_
+"1\"
+,\"timestamp\":\"16314590818
+71\"}");
+JSON String Yes
+Parameters within the payload
+serial
+number
+_
+A Universally Unique Identifier
+(UUID) (The same number is to
+retry, directly return code=0
+String Yes
+success and latest balance)
+currency_
+code Game currency code (eg. USD) game
+uid _
+Game UID member
+account
+_
+Player account name
+(recommended username length:
+4–20 characters, with a custom
+prefix).
+win
+amount _
+WIN Amount(If the amount is
+negative, it will be refunded)
+bet
+amount _
+BET Amount(If the amount is
+negative, it will be refunded) timestamp Current timestamp(Milliseconds) game
+_
+round game
+round _
+data Sports Event Detailed Data Response
+JSON:
+{
+"code": 0,
+"msg": ""
+"payload": "(AES256EncryptionResult)"
+}
+Parameter Description code
+Result Code
+(0-Success, 1-Failure) Failure will
+be retried, player balance needs to
+be returned regardless of success or
+failure.
+Returning code=0 and the balance
+is greater than or equal to 0 means
+that the bet is successful, and the
+bet fails in other cases.
+msg Result message payload
+Encrypt the following JSON String
+parameters using AES 256
+Key: Provided by HUIDU
+For example:
+Encrypt.AESEncrypt("{\"credit
+am
+_
+ount\":\"1000.01\"
+,\"timestamp\":\"
+1631459081871\"}");
+String String String String String String String JSON String Type Int String JSON
+String
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Required
+Yes
+Yes
+Yes
+Payload JSON String Parameter correspondence
+credit
+amount
+_
+Game User Account
+(credit
+amount=credit
+_
+_
+amount+win
+_
+_
+amount)
+amount-bet
+String Yes
+timestamp Current timestamp(Milliseconds) String Yes
+3、Get Game URL （TRANSFER）
+This API is used to retrieve the game URL, support deposit and withdrawal transactions, and
+query transfer information.
+The request URL
+https://{SERVER-URL}/game/v2
+Request
+URL：https://{SERVER-URL}/game/v2
+Http Method：post
+JSON :
+{
+"agency_
+uid": "5d19788698c611ee9b6100163e0b978d"
+,
+"timestamp": "1631459081871"
+,
+"payload": "(AES256EncryptionResult)"
+}
+Parameter Description Type Required
+agency_
+uid Agent identification code. String Yes
+timestamp Current timestamp(Milliseconds) String Yes
+payload
+Encrypt the following JSON String
+parameters using AES 256
+Key: Provided by HUIDU
+For example:
+Encrypt.AESEncrypt("{\"agency_
+ui
+d\":\"5d19788698c611ee9b6100163e
+0b978d\"
+,\"member
+account
+_
+\":\"palyer001\"
+,\"game
+uid\":\"1\"
+,\
+_
+"timestamp\":\"1631459081871\"
+,\"c
+redit
+amount\":\"50\"
+,\"transfer
+id\":
+_
+_
+\"1189022\"}");
+JSON
+string Yes
+Parameters within the payload
+timestamp Current timestamp(Milliseconds) String Yes
+agency_
+uid Game agency identification code String member
+account
+_
+Player account name (recommended
+username length: 4–20 characters,
+with a custom prefix).
+String game
+uid _
+Game UID String credit
+amount
+_
+Transfer amount (greater than 0 for
+deposit, less than 0 for withdrawal,
+equal to 0 for query).
+String currency_
+code Currency (see appendix).
+String language Language (see appendix).
+String home
+_
+url Back to agent website URL String platform
+The platform that the game will open
+on.
+Possible values:
+1. web (default)
+2. H5
+(Fill in 1 or 2)
+Int transfer
+id _
+Transfer ID is a unique identifier for
+each transaction.
+String Response
+JSON:
+{
+"code": 0,
+"msg": ""
+,
+"payload": {"game
+launch
+_
+_
+url":"game
+_
+url"}
+}
+Parameter Type Description code Int Result code msg String Result message payload JSON
+String
+Return result Parameters within the payload
+game
+launch
+_
+_
+url String Game launch url player
+_
+name String Player account name. currency String Currency (see appendix). transfer
+_
+amount String Transfer amount. before
+_
+amount String Balance before transfer. Yes
+Yes
+No
+Yes
+Yes
+No
+No
+No
+Yes
+Required
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+after
+_
+amount String Balance after transfer. transfer
+_
+id String
+The operator's transfer ID
+is a unique identifier for
+each transaction.
+transaction
+_
+id String Unique transaction code. transfer
+status _
+Int
+Transfer status (1 for
+successful transfer, 2 for
+failed transfer).
+timestamp Long Transfer timestamp. 4、Get transaction records
+Return the list of transaction records within a specific time period
+The request URL
+{SERVER-URL}/game/transaction/list
+Request
+URL：https://{SERVER-URL}/game/transaction/list
+Http Method：post
+JSON:
+{
+}
+"agency_
+uid": "5d19788698c611ee9b6100163e0b978d"
+,
+"timestamp": "1631459081871"
+,
+"payload": "(AES256EncryptionResult)"
+Parameter Description Type agency_
+uid Agent identification code. String timestamp Current timestamp(Milliseconds) String payload
+Encrypt the following JSON String
+parameters using AES 256
+Key: Provided by HUIDU
+For example:
+Encrypt.AESEncrypt("{\"timestamp\
+":\"1724040409365\"
+,\"agency_
+uid\"
+:\"5d19788698c611ee9b6100163e0b
+978d\"
+,\"from
+date\":\"17223840000
+_
+00\"
+,\"to
+date\":\"1722470399000\"
+,\
+_
+"page
+_
+no\":1,\"page
+_
+size\":30}");
+JSON
+string Yes
+Yes
+Yes
+Yes
+Yes
+Required
+Yes
+Yes
+Yes
+Parameters within the payload
+timestamp Current timestamp(Milliseconds)） String Yes
+agency_
+uid Agent identification code. String Yes
+from
+date
+_
+Start date (UTC+0 timestamp in
+milliseconds).
+Long Yes
+to
+date
+_
+End date (UTC+0 timestamp in
+milliseconds).
+Long Yes
+page
+_
+no Page number.
+Int Yes
+page
+size
+_
+Page size (minimum: 1, maximum:
+5000).
+Int Yes
+Response
+JSON:
+{
+"code": 0,
+"msg": ""
+,
+"payload": {"records":[{"agency_
+uid":"abc"
+...},{}...],
+"total
+_page":1000....}
+}
+Parameter Type Description Required
+code Int Result code Yes
+msg String Result message Yes
+payload JSONStrin
+g
+Return result Yes
+Parameters within the payload
+total
+count _
+Int Total count. Yes
+current
+_page Int Page number. Yes
+page
+size _
+Int Page size Yes
+records
+JSONArra
+y
+JSON Array Yes
+Parameters within the records.
+agency_
+uid String Agent identification code. Yes
+member
+_
+account String Player account name. Yes
+bet
+_
+amount String BET Amount Yes
+win
+_
+amount String WIN Amount Yes
+currency_
+code String currency code Yes
+serial
+_
+number String Unique ID. Yes
+game
+_
+round String Game round ID. Yes
+game
+_
+uid String Game UID Yes
+timestamp String
+Transaction time, format
+UTC+0 (2024-08-19
+00:00:00).
+Yes
+Appendix：
+AES256：
+JA V A
+AES256 ECB Encrypt and Decrypt Example Code
+import java.security.Security;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+public class Encrypt {
+public static boolean initialized = false;
+public static final String ALGORITHM = "AES/ECB/PKCS7Padding";
+public static byte [] Aes256Encode (String str, byte [] key) {
+initialize ();
+byte [] result = null;
+try {
+Cipher cipher = Cipher.getInstance (ALGORITHM,
+SecretKeySpec keySpec = new SecretKeySpec (key,
+"BC");
+"AES");
+cipher.init (Cipher.ENCRYPT
+_
+MODE, keySpec);
+result = cipher.doFinal (str.getBytes ("UTF-8"));
+} catch (Exception e) e.printStackTrace ();
+return result;
+}
+public static String Aes256Decode (byte [] bytes, byte [] key) {
+initialize ();
+String result = null;
+try {
+Cipher cipher = Cipher.getInstance (ALGORITHM,
+SecretKeySpec keySpec = new SecretKeySpec (key,
+"BC");
+"AES");
+cipher.init (Cipher.DECRYPT
+_
+MODE, keySpec);
+byte [] decoded = cipher.doFinal (bytes);
+result = new String (decoded,
+"UTF-8");
+} catch (Exception e) {
+e.printStackTrace ();
+}
+return result;
+}
+public static String try {
+key.getBytes());
+return decryptData;
+}catch (Exception e){
+e.printStackTrace();
+decrypt(String strToDecrypt,String key){
+String decryptData = Aes256Decode(Base64.getDecoder().decode(strToDecrypt),
+}
+return "";
+}
+public static String encrypt(String strToEncrypt,String key) {
+return Base64.getEncoder().encodeToString(Aes256Encode(strToEncrypt,
+key.getBytes()));
+}
+public static void initialize () {
+if (initialized) return;
+Security.addProvider (new BouncyCastleProvider ());
+initialized = true;
+}
+}
+PHP
+<?php
+echo base64
+_
+encode(openssl
+_
+encrypt(
+'{"agency_
+uid":"03bbfac780fa4df73ade8856358c44b5"
+,
+"timestamp":1711524622000}'
+'AES-256-ECB'
+'055cd814c358c01ae65da946635633ff'
+,
+,
+, OPENSSL
+RAW
+_
+_
+DATA));
+echo openssl
+_
+decrypt(base64
+_
+decode(
+'6PVSxlZ1nWt98AO4kX/3fhCEaZdHWK/z5RtHpmj9NUAdDyxH/4atn5yVGL1M96DPu
+DVjiTwCJdesQM9bTJsgyKfQpe/AzRM7rkXuESKxUjc='
+)
+'AES-256-ECB',
+'055cd814c358c01ae65da946635633ff'
+,
+, OPENSSL
+RAW
+_
+_
+DATA);
+JS
+<script
+<script>
+src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+function encrypt() {
+var key = CryptoJS.enc.Utf8.parse('12345678901234567890123456789012');
+var plaintext = 'plaintext';
+var ciphertext = CryptoJS.AES.encrypt(plaintext, key, {
+mode: CryptoJS.mode.ECB,
+padding: CryptoJS.pad.Pkcs7
+});
+var base64CipherText = ciphertext.toString(); // Base64
+}
+function decrypt() {
+var key = CryptoJS.enc.Utf8.parse('12345678901234567890123456789012');
+var base64CipherText = 'ciphertext';
+var decrypted = CryptoJS.AES.decrypt(base64CipherText, key, {
+mode: CryptoJS.mode.ECB,
+padding: CryptoJS.pad.Pkcs7
+});
+var plaintext = decrypted.toString(CryptoJS.enc.Utf8);
+}
+</script>

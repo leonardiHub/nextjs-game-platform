@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99Group Game Platform - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            color: #333;
+            font-size: 1.5rem;
+        }
+
+        .header-user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .user-greeting {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .header-divider {
+            color: #666;
+            font-weight: 300;
+            font-size: 1.1rem;
+        }
+
+        .credit-balance {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #333;
+        }
+
+        .balance-label {
+            font-weight: 500;
+        }
+
+        .balance-amount {
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        .withdrawal-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .withdrawal-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .withdrawal-btn:hover {
+            background: linear-gradient(135deg, #ff5252, #e53935);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.3);
+        }
+
+        .withdrawal-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .balance-card {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .balance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .balance-card:hover::before {
+            left: 100%;
+        }
+
+        .balance-card h3 {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+        }
+
+        .refresh-btn {
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            font-size: 0.8rem;
+            padding: 0.2rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .refresh-btn.loading {
+            animation: spin 1s linear infinite;
+        }
+
+        .balance-card p {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 0.2rem;
+        }
+
+        .balance-status {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            font-weight: normal;
+        }
+
+        .balance-loading {
+            display: inline-block;
+            width: 60px;
+            height: 20px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.3) 25%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0.3) 75%);
+            background-size: 200% 100%;
+            animation: loading-shimmer 1.5s infinite;
+            border-radius: 4px;
+        }
+
+        @keyframes loading-shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .balance-loading-text {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            font-style: italic;
+        }
+
+        .withdraw-eligible {
+            background: linear-gradient(135deg, #ffc107, #fd7e14) !important;
+        }
+
+        .withdraw-eligible .balance-status {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: 1px solid #667eea;
+        }
+
+        .tab:hover:not(.active) {
+            border: 1px solid #e9ecef;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .wallet-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .wallet-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e9ecef;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .game-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .game-card h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .game-card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .play-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .wallet-rules {
+            background: linear-gradient(135deg, #17a2b8, #138496);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .wallet-rules h3 {
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .wallet-rules ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .wallet-rules li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: white;
+            font-weight: 500;
+        }
+
+        .wallet-rules li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            background: #6c757d !important;
+        }
+
+        .btn-primary:disabled:hover {
+            transform: none !important;
+            box-shadow: none !important;
+            background: #6c757d !important;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .status-pending { background: #ffc107; color: #856404; }
+        .status-approved { background: #28a745; color: white; }
+        .status-rejected { background: #dc3545; color: white; }
+        .status-submitted { background: #17a2b8; color: white; }
+
+        .transactions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .transactions-table th,
+        .transactions-table td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .transactions-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* 游戏框架样式 (采用index.html的简洁设计) */
+        .game-frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+        }
+
+        .game-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-game {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 1001;
+            font-size: 14px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .close-game:hover {
+            background: #c82333;
+        }
+
+        .iframe-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 600px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #e9ecef;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .alert {
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-danger { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .alert-warning { background: #fff3cd; color: #856404; border: 1px solid #ffeaa7; }
+        .alert-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+
+        .progress-container {
+            margin: 1.5rem 0;
+        }
+
+        .progress-milestones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .milestone {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .milestone-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 0.3rem;
+            transition: all 0.3s;
+        }
+
+        .milestone.achieved .milestone-icon {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+
+        .milestone.current .milestone-icon {
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .milestone-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .milestone.achieved .milestone-label {
+            color: #ffffff;
+        }
+
+        .milestone.current .milestone-label {
+            color: #ffffff;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 24px;
+            background: #e9ecef;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-text {
+            text-align: center;
+            font-weight: 500;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .header-user-info {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .header-divider {
+                display: none;
+            }
+
+            .withdrawal-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .wallet-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .tab-content {
+                max-width: 100%;
+                margin: 0 0 2rem 0;
+                padding: 1.5rem;
+            }
+
+            .wallet-content {
+                max-width: 100%;
+            }
+
+            .wallet-section {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .progress-milestones {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .milestone {
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .milestone-icon {
+                margin-bottom: 0;
+            }
+
+            .balance-card {
+                min-width: auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>🎮 99Group Game Platform</h1>
+        <div class="header-user-info">
+            <div class="user-greeting">
+                <span class="greeting-text">Hi, <span id="headerUsername">Loading...</span></span>
+            </div>
+            <div class="header-divider">|</div>
+            <div class="credit-balance">
+                <span class="balance-label">Credit:</span>
+                <span class="balance-amount" id="headerBalance">$0.00</span>
+                <button class="refresh-btn" id="refreshBalanceBtn" onclick="refreshBalance()" title="Refresh balance">
+                    🔄
+                </button>
+            </div>
+            <div class="header-divider">|</div>
+            <div class="withdrawal-section">
+                <button class="withdrawal-btn" id="headerWithdrawalBtn" onclick="showWithdrawalModal()" title="Withdrawal">
+                    💸 Withdrawal
+                </button>
+            </div>
+            <button class="logout-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Wallet Rules Info -->
+        <div class="wallet-rules">
+            <h3>💰 Your Journey to Withdrawal</h3>
+            
+            <div class="progress-container">
+                <div class="progress-milestones">
+                    <div class="milestone achieved" id="milestone-start">
+                        <div class="milestone-icon">🎁</div>
+                        <div class="milestone-label">Start<br>$50</div>
+                    </div>
+                    <div class="milestone current" id="milestone-current">
+                        <div class="milestone-icon">🎮</div>
+                        <div class="milestone-label">Playing<br><span id="currentAmount">$50</span></div>
+                    </div>
+                    <div class="milestone" id="milestone-goal">
+                        <div class="milestone-icon">💸</div>
+                        <div class="milestone-label">Withdraw<br>$1000</div>
+                    </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 5%"></div>
+                </div>
+                
+                <div class="progress-text" id="progressText">Progress to withdrawal: $50 / $1000</div>
+            </div>
+            
+            <ul>
+                <li>Start with $50 in your wallet to play games</li>
+                <li>Win or lose, your balance changes in real-time</li>
+                <li>Reach $1000 to unlock $50 withdrawal</li>
+                <li>Balance under $0.10 resets to $0</li>
+                <li>Complete KYC verification to withdraw</li>
+            </ul>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('games')">🎮 Games</div>
+            <div class="tab" onclick="showTab('wallet')">💰 Wallet</div>
+            <div class="tab" onclick="showTab('kyc')">📄 KYC</div>
+            <div class="tab" onclick="showTab('history')">📊 History</div>
+        </div>
+
+        <!-- Games Tab -->
+        <div id="games" class="tab-content active">
+            <h2>🎮 Available Games</h2>
+            <div class="games-grid" id="gamesGrid">
+                <!-- Games will be loaded here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Game Frame (采用index.html的简洁设计) -->
+    <div id="gameFrame" class="game-frame">
+        <button class="close-game" onclick="closeGame()">Close Game</button>
+        <iframe id="gameIframe" src="" 
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-modals"
+                allow="fullscreen; autoplay; encrypted-media; payment; microphone; camera"
+                allowfullscreen
+                loading="lazy"></iframe>
+    </div>
+
+        <!-- Wallet Tab -->
+        <div id="wallet" class="tab-content">
+            <div class="wallet-content">
+                <h2>💰 Wallet Management</h2>
+                
+                <div class="wallet-section">
+                    <div class="alert alert-info" id="withdrawalStatusAlert">
+                        <strong>Withdrawal Status:</strong> <span id="withdrawalStatusText">Checking...</span>
+                    </div>
+
+                    <div class="form-group" id="withdrawalForm">
+                        <h3>💳 Withdrawal Request</h3>
+                        <p>Complete the form below to request your $50 withdrawal:</p>
+                        
+                        <label>Bank Name</label>
+                        <input type="text" id="bankName" placeholder="Enter your bank name">
+                        
+                        <label>Account Number</label>
+                        <input type="text" id="accountNumber" placeholder="Enter your account number">
+                        
+                        <label>Account Holder Name</label>
+                        <input type="text" id="accountHolder" placeholder="Enter account holder name">
+                        
+                        <label>Bank Branch</label>
+                        <input type="text" id="bankBranch" placeholder="Enter bank branch">
+                        
+                        <button onclick="submitWithdrawal()" class="btn-primary" id="withdrawalBtn">
+                            💸 Request Withdrawal ($50)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="wallet-section">
+                    <h3>📋 Withdrawal History</h3>
+                    <table class="transactions-table" id="withdrawalHistory">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Withdrawal history will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- KYC Tab -->
+        <div id="kyc" class="tab-content">
+            <div class="wallet-content">
+                <h2>📄 KYC Verification</h2>
+                
+                <div class="wallet-section">
+                    <div class="alert" id="kycStatusAlert">
+                        <strong>KYC Status:</strong> <span id="kycStatusText">Pending</span>
+                    </div>
+
+                    <div id="kycForm">
+                        <h3>📤 Upload Identity Documents</h3>
+                        <p>Please upload your ID document (both sides) for verification:</p>
+                        
+                        <div class="form-group">
+                            <label>ID Front Side (JPEG, PNG, PDF)</label>
+                            <input type="file" id="idFront" accept=".jpg,.jpeg,.png,.pdf" required>
+                            <small style="color: #666; font-size: 0.85rem;">Clear photo of the front of your government-issued ID</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>ID Back Side (JPEG, PNG, PDF)</label>
+                            <input type="file" id="idBack" accept=".jpg,.jpeg,.png,.pdf" required>
+                            <small style="color: #666; font-size: 0.85rem;">Clear photo of the back of your government-issued ID</small>
+                        </div>
+                        
+                        <div class="alert alert-info" style="margin: 1rem 0; font-size: 0.9rem;">
+                            <strong>💡 Note:</strong> Withdrawal destination will be verified separately by our back office team during the withdrawal process.
+                        </div>
+                        
+                        <button onclick="uploadKYC()" class="btn-primary">
+                            📤 Submit KYC Documents
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Tab -->
+        <div id="history" class="tab-content">
+            <div class="wallet-content">
+                <h2>📊 Transaction History</h2>
+                <div class="wallet-section">
+                    <table class="transactions-table" id="transactionHistory">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Balance After</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Transaction history will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = '';
+        let currentUser = null;
+        let currentBalance = 0;
+        let currentFreeCredit = 0;
+        let canWithdraw = false;
+
+        // 全局错误处理 - 过滤游戏相关的跨域错误
+        window.addEventListener('error', function(event) {
+            // 忽略游戏iframe相关的错误
+            if (event.message && (
+                event.message.includes('MutationObserver') || 
+                event.message.includes('Script error') ||
+                event.message.includes('Unrecognized feature') ||
+                event.message.includes('Allow attribute') ||
+                event.message.includes('Permissions policy') ||
+                event.message.includes('AudioContext') ||
+                event.message.includes('autoplay') ||
+                event.message.includes('user gesture') ||
+                event.message.includes('allowfullscreen') ||
+                event.message.includes('sandbox') ||
+                (event.filename && (
+                    event.filename.includes('jsgame.live') ||
+                    event.filename.includes('web-client-content-script')
+                ))
+            )) {
+                // 静默处理这些错误，不显示在控制台
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        // 处理未捕获的Promise拒绝
+        window.addEventListener('unhandledrejection', function(event) {
+            if (event.reason && (
+                event.reason.toString().includes('MutationObserver') ||
+                event.reason.toString().includes('jsgame.live')
+            )) {
+                event.preventDefault();
+            }
+        });
+
+        // 重写console方法以过滤游戏相关消息
+        const originalConsoleError = console.error;
+        const originalConsoleWarn = console.warn;
+        
+        console.error = function(...args) {
+            const message = args.join(' ');
+            if (message.includes('jsgame.live') || 
+                message.includes('MutationObserver') ||
+                message.includes('web-client-content-script') ||
+                message.includes('Permissions policy') ||
+                message.includes('AudioContext') ||
+                message.includes('autoplay') ||
+                message.includes('user gesture') ||
+                message.includes('Failed to execute') ||
+                message.includes('parameter 1 is not of type') ||
+                message.includes('observe')) {
+                return; // 静默处理游戏相关错误
+            }
+            originalConsoleError.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+            const message = args.join(' ');
+            if (message.includes('Unrecognized feature') ||
+                message.includes('Allow attribute') ||
+                message.includes('allowfullscreen') ||
+                message.includes('sandbox attribute') ||
+                message.includes('allow-scripts') ||
+                message.includes('allow-same-origin') ||
+                message.includes('jsgame.live')) {
+                return; // 静默处理游戏相关警告
+            }
+            originalConsoleWarn.apply(console, args);
+        };
+
+        // 保护原生MutationObserver以防止错误
+        const originalMutationObserver = window.MutationObserver;
+        window.MutationObserver = function(callback) {
+            const observer = new originalMutationObserver(callback);
+            const originalObserve = observer.observe;
+            
+            observer.observe = function(target, options) {
+                try {
+                    if (target && target.nodeType === Node.ELEMENT_NODE) {
+                        return originalObserve.call(this, target, options);
+                    }
+                } catch (e) {
+                    // 静默处理MutationObserver错误
+                }
+            };
+            
+            return observer;
+        };
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                console.log('No auth token found, redirecting to login');
+                window.location.href = '/';
+                return;
+            }
+
+            console.log('Dashboard initializing...');
+            
+            // Show loading state immediately
+            showBalanceLoading();
+
+            // Load data in sequence to avoid race conditions
+            Promise.resolve()
+                .then(() => loadUserProfile())
+                .then(() => {
+                    console.log('User profile loaded, loading other data...');
+                    loadBalance();
+                    loadGames();
+                    loadTransactionHistory();
+                    loadWithdrawalHistory();
+                })
+                .catch(error => {
+                    console.error('Error during initialization:', error);
+                });
+            
+            // Refresh balance every 5 seconds
+            setInterval(loadBalance, 5000);
+        });
+
+        // Authentication
+        function getAuthHeaders() {
+            const token = localStorage.getItem('authToken');
+            if (!token) {
+                console.warn('No auth token found, redirecting to login');
+                logout();
+                return {};
+            }
+            return {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            };
+        }
+
+        function logout() {
+            localStorage.removeItem('authToken');
+            window.location.href = '/';
+        }
+
+        // Load user profile
+        async function loadUserProfile() {
+            try {
+                const response = await fetch('/api/profile', {
+                    headers: getAuthHeaders()
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    currentUser = data.user;
+                    updateWalletDisplay();
+                    updateKYCStatus();
+                    console.log('User profile loaded:', currentUser);
+                } else {
+                    console.error('Failed to load profile, status:', response.status);
+                    if (response.status === 401) {
+                        logout();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+            }
+        }
+
+        // Load balance
+        async function loadBalance() {
+            try {
+                const response = await fetch('/api/balance', {
+                    headers: getAuthHeaders()
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    currentBalance = data.balance;
+                    currentFreeCredit = data.free_credit;
+                    canWithdraw = data.can_withdraw;
+                    updateWalletDisplay();
+                    console.log('Balance loaded:', currentBalance);
+                } else {
+                    console.error('Failed to load balance, status:', response.status);
+                    if (response.status === 401) {
+                        logout();
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading balance:', error);
+            }
+        }
+
+        // Manual refresh balance with visual feedback
+        async function refreshBalance() {
+            const refreshBtn = document.getElementById('refreshBalanceBtn');
+            
+            // Add loading state
+            if (refreshBtn) {
+                refreshBtn.classList.add('loading');
+                refreshBtn.style.pointerEvents = 'none';
+            }
+
+            try {
+                // Show loading in balance
+                showBalanceLoading();
+                
+                const response = await fetch('/api/balance', {
+                    headers: getAuthHeaders()
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    currentBalance = data.balance;
+                    currentFreeCredit = data.free_credit;
+                    canWithdraw = data.can_withdraw;
+                    updateWalletDisplay();
+                    
+                    // Show success feedback
+                    if (refreshBtn) {
+                        refreshBtn.textContent = '✅';
+                        setTimeout(() => {
+                            refreshBtn.textContent = '🔄';
+                        }, 1000);
+                    }
+                } else {
+                    throw new Error('Failed to fetch balance');
+                }
+            } catch (error) {
+                console.error('Error refreshing balance:', error);
+                
+                // Show error feedback
+                if (refreshBtn) {
+                    refreshBtn.textContent = '❌';
+                    setTimeout(() => {
+                        refreshBtn.textContent = '🔄';
+                    }, 2000);
+                }
+                
+                alert('Failed to refresh balance. Please try again.');
+            } finally {
+                // Remove loading state
+                if (refreshBtn) {
+                    refreshBtn.classList.remove('loading');
+                    refreshBtn.style.pointerEvents = 'auto';
+                }
+            }
+        }
+
+        // Show loading state
+        function showBalanceLoading() {
+            // Update header balance to show loading
+            const headerBalance = document.getElementById('headerBalance');
+            if (headerBalance) {
+                headerBalance.innerHTML = '<span class="balance-loading">Loading...</span>';
+            }
+            
+            // Update old balance elements if they exist
+            const balanceAmount = document.getElementById('balanceAmount');
+            const balanceStatus = document.getElementById('balanceStatus');
+            
+            if (balanceAmount) {
+                balanceAmount.innerHTML = '<span class="balance-loading" id="balanceLoading"></span>';
+            }
+            if (balanceStatus) {
+                balanceStatus.innerHTML = '<span class="balance-loading-text">Loading...</span>';
+            }
+        }
+
+        // Update wallet display
+        function updateWalletDisplay() {
+            // Update header username
+            const headerUsername = document.getElementById('headerUsername');
+            if (headerUsername && currentUser) {
+                headerUsername.textContent = currentUser.username || 'User';
+            }
+
+            // Update header balance
+            const headerBalance = document.getElementById('headerBalance');
+            if (headerBalance) {
+                headerBalance.textContent = `$${currentBalance.toFixed(2)}`;
+            }
+
+            // Update header withdrawal button status
+            const headerWithdrawalBtn = document.getElementById('headerWithdrawalBtn');
+            if (headerWithdrawalBtn) {
+                if (canWithdraw && currentUser?.kyc_status === 'approved') {
+                    headerWithdrawalBtn.disabled = false;
+                    headerWithdrawalBtn.title = 'Ready to withdraw $50';
+                } else if (canWithdraw && currentUser?.kyc_status !== 'approved') {
+                    headerWithdrawalBtn.disabled = true;
+                    headerWithdrawalBtn.title = 'Complete KYC verification first';
+                } else {
+                    headerWithdrawalBtn.disabled = true;
+                    headerWithdrawalBtn.title = 'Reach $1000 balance to withdraw';
+                }
+            }
+
+            // Update old balance elements if they exist
+            const balanceAmount = document.getElementById('balanceAmount');
+            const balanceLoading = document.getElementById('balanceLoading');
+            
+            if (balanceAmount) {
+                if (balanceLoading) {
+                    balanceLoading.style.display = 'none';
+                }
+                balanceAmount.innerHTML = `$${currentBalance.toFixed(2)}`;
+            }
+            
+            // Update balance status if elements exist
+            const balanceStatus = document.getElementById('balanceStatus');
+            const balanceCard = document.getElementById('balanceCard');
+            
+            if (balanceStatus && balanceCard) {
+                if (canWithdraw) {
+                    balanceCard.classList.add('withdraw-eligible');
+                    balanceStatus.innerHTML = 'Ready to withdraw!';
+                } else if (currentBalance < 0.1) {
+                    balanceStatus.innerHTML = 'Low balance - will reset';
+                } else if (currentBalance > 50) {
+                    balanceStatus.innerHTML = 'Keep playing to reach $1000';
+                } else {
+                    balanceStatus.innerHTML = 'Starting balance';
+                }
+            }
+
+            // Update milestones
+            updateMilestones();
+
+            // Update progress bar
+            const progressFill = document.getElementById('progressFill');
+            const progressText = document.getElementById('progressText');
+            if (progressFill && progressText) {
+                const progress = Math.min((currentBalance / 1000) * 100, 100);
+                progressFill.style.width = `${progress}%`;
+                progressText.textContent = 
+                    `Progress to withdrawal: $${currentBalance.toFixed(2)} / $1000`;
+            }
+
+            // Update current amount in milestone
+            const currentAmountElement = document.getElementById('currentAmount');
+            if (currentAmountElement) {
+                currentAmountElement.textContent = `$${currentBalance.toFixed(2)}`;
+            }
+
+            // Update withdrawal status display
+            updateWithdrawalStatus();
+        }
+
+        // Update milestone indicators
+        function updateMilestones() {
+            const milestoneStart = document.getElementById('milestone-start');
+            const milestoneCurrent = document.getElementById('milestone-current');
+            const milestoneGoal = document.getElementById('milestone-goal');
+            
+            // Start milestone is always achieved
+            milestoneStart.className = 'milestone achieved';
+            
+            // Current milestone
+            if (currentBalance >= 1000) {
+                milestoneCurrent.className = 'milestone achieved';
+                milestoneGoal.className = 'milestone achieved';
+            } else if (currentBalance > 0) {
+                milestoneCurrent.className = 'milestone current';
+                milestoneGoal.className = 'milestone';
+            } else {
+                milestoneCurrent.className = 'milestone';
+                milestoneGoal.className = 'milestone';
+            }
+        }
+
+        // Show withdrawal modal/section
+        function showWithdrawalModal() {
+            // Scroll to wallet section
+            const walletSection = document.querySelector('.wallet-content');
+            if (walletSection) {
+                walletSection.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+                
+                // Highlight the withdrawal form temporarily
+                const withdrawalForm = document.getElementById('withdrawalForm');
+                if (withdrawalForm) {
+                    withdrawalForm.style.border = '2px solid #ff6b6b';
+                    withdrawalForm.style.borderRadius = '8px';
+                    withdrawalForm.style.transition = 'all 0.3s ease';
+                    
+                    setTimeout(() => {
+                        withdrawalForm.style.border = '';
+                        withdrawalForm.style.borderRadius = '';
+                    }, 3000);
+                }
+            }
+        }
+
+        // Update withdrawal status display
+        function updateWithdrawalStatus() {
+            const statusText = document.getElementById('withdrawalStatusText');
+            const statusAlert = document.getElementById('withdrawalStatusAlert');
+            const withdrawalBtn = document.getElementById('withdrawalBtn');
+            
+            if (!statusText || !statusAlert || !withdrawalBtn) return;
+            
+            if (canWithdraw && currentUser?.kyc_status === 'approved') {
+                statusText.textContent = 'Ready to withdraw! You can request your $50 withdrawal.';
+                statusAlert.className = 'alert alert-success';
+                withdrawalBtn.disabled = false;
+                withdrawalBtn.textContent = '💸 Request Withdrawal ($50)';
+            } else if (canWithdraw && currentUser?.kyc_status !== 'approved') {
+                statusText.textContent = 'Balance reached $1000! Complete KYC verification to withdraw.';
+                statusAlert.className = 'alert alert-warning';
+                withdrawalBtn.disabled = true;
+                withdrawalBtn.textContent = '🔒 Complete KYC First';
+            } else {
+                const needed = (1000 - currentBalance).toFixed(2);
+                statusText.textContent = `Keep playing! You need $${needed} more to reach withdrawal threshold.`;
+                statusAlert.className = 'alert alert-info';
+                withdrawalBtn.disabled = true;
+                withdrawalBtn.textContent = `💸 Need $${needed} More`;
+            }
+        }
+
+        // Tab management
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Load games
+        async function loadGames() {
+            try {
+                const response = await fetch('/api/games');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const gamesGrid = document.getElementById('gamesGrid');
+                    if (!gamesGrid) {
+                        console.error('gamesGrid element not found');
+                        return;
+                    }
+                    
+                    gamesGrid.innerHTML = '';
+                    
+                    // Add fish games
+                    if (data.games && data.games.fishGames) {
+                        data.games.fishGames.forEach(game => {
+                            try {
+                                const gameCard = createGameCard(game);
+                                if (gameCard) {
+                                    gamesGrid.appendChild(gameCard);
+                                }
+                            } catch (err) {
+                                console.error('Error creating fish game card:', err, game);
+                            }
+                        });
+                    }
+                    
+                    // Add slot games
+                    if (data.games && data.games.slotGames) {
+                        data.games.slotGames.forEach(game => {
+                            try {
+                                const gameCard = createGameCard(game);
+                                if (gameCard) {
+                                    gamesGrid.appendChild(gameCard);
+                                }
+                            } catch (err) {
+                                console.error('Error creating slot game card:', err, game);
+                            }
+                        });
+                    }
+                    
+                    console.log('Games loaded successfully');
+                } else {
+                    console.error('Failed to load games:', data);
+                }
+            } catch (error) {
+                console.error('Error loading games:', error);
+            }
+        }
+
+        // Create game card
+        function createGameCard(game) {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            card.innerHTML = `
+                <h3>${game.name}</h3>
+                <p>${game.type}</p>
+                <button class="play-btn" onclick="playGame('${game.game_uid}', '${game.name}')">
+                    🎮 Play Now
+                </button>
+            `;
+            return card;
+        }
+
+        // Launch game (采用index.html的简洁方式)
+        let isGameLoading = false;
+        async function playGame(gameUid, gameName) {            
+            // Prevent multiple clicks
+            if (isGameLoading) {
+                console.log('Game is already loading...');
+                return;
+            }
+            
+            isGameLoading = true;
+            
+            try {
+                console.log('Launching game:', gameName, 'UID:', gameUid);
+                
+                const response = await fetch('/api/game/launch', {
+                    method: 'POST',
+                    headers: getAuthHeaders(),
+                    body: JSON.stringify({ game_uid: gameUid })
+                });
+                
+                const data = await response.json();
+                console.log('Game launch response:', data);
+                
+                if (!response.ok) {
+                    if (response.status === 400 && data.error === 'Insufficient balance') {
+                        throw new Error(`Insufficient balance: ${data.message}`);
+                    }
+                    throw new Error(`HTTP error! status: ${response.status} - ${data.error || 'Unknown error'}`);
+                }
+                
+                if (data.success && data.game_url) {
+                    // Get elements
+                    const iframe = document.getElementById('gameIframe');
+                    const gameFrame = document.getElementById('gameFrame');
+                    
+                    if (!iframe || !gameFrame) {
+                        throw new Error('Game elements not found');
+                    }
+                    
+                    // Clear any existing content and reset iframe
+                    iframe.src = 'about:blank';
+                    
+                    // Add timeout for iframe loading
+                    let loadTimeout;
+                    
+                    // Set up event listeners
+                    iframe.onload = function() {
+                        console.log('Game iframe loaded successfully');
+                        if (loadTimeout) clearTimeout(loadTimeout);
+                        isGameLoading = false;
+                    };
+                    
+                    iframe.onerror = function() {
+                        console.error('Game iframe failed to load');
+                        alert('Game failed to load. Please try again.');
+                        gameFrame.style.display = 'none';
+                        isGameLoading = false;
+                    };
+                    
+                    // Set loading timeout (30 seconds)
+                    loadTimeout = setTimeout(() => {
+                        console.warn('Game loading timeout');
+                        alert('Game loading timeout. Please try again.');
+                        gameFrame.style.display = 'none';
+                        isGameLoading = false;
+                    }, 30000);
+                    
+                    // Show game frame and load the game
+                    gameFrame.style.display = 'block';
+                    
+                    // Add small delay before setting src to ensure iframe is ready
+                    setTimeout(() => {
+                        iframe.src = data.game_url;
+                        console.log('Game URL loaded:', data.game_url);
+                    }, 100);
+                    
+                } else {
+                    throw new Error(data.error || 'Invalid game launch response');
+                }
+            } catch (error) {
+                console.error('Game launch error:', error);
+                alert('Failed to launch game: ' + error.message);
+                isGameLoading = false;
+            }
+        }
+
+        // Close game (采用index.html的简洁方式)
+        async function closeGame() {
+            const gameFrame = document.getElementById('gameFrame');
+            const iframe = document.getElementById('gameIframe');
+            
+            // Reset loading state
+            isGameLoading = false;
+            
+            if (gameFrame) {
+                gameFrame.style.display = 'none';
+            }
+            
+            if (iframe) {
+                iframe.src = 'about:blank';
+                iframe.onload = null;
+                iframe.onerror = null;
+            }
+            
+            // Refresh balance
+            try {
+                const response = await fetch('/api/balance', {
+                    headers: getAuthHeaders()
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    currentBalance = data.balance;
+                    updateWalletDisplay();
+                }
+            } catch (error) {
+                // 静默处理余额刷新错误
+            }
+        }
+
+
+        // Submit withdrawal
+        async function submitWithdrawal() {
+            // Check eligibility first
+            if (!canWithdraw) {
+                const needed = (1000 - currentBalance).toFixed(2);
+                alert(`❌ Withdrawal not available yet!\n\nYou need $${needed} more to reach the $1000 withdrawal threshold.\n\nCurrent balance: $${currentBalance.toFixed(2)}\nRequired balance: $1000.00`);
+                return;
+            }
+
+            if (!currentUser || currentUser.kyc_status !== 'approved') {
+                alert(`❌ KYC Verification Required!\n\nYou must complete KYC verification before withdrawing.\n\nPlease go to the KYC tab to upload your documents.`);
+                return;
+            }
+
+            // Validate form fields
+            const bankDetails = {
+                bank_name: document.getElementById('bankName').value.trim(),
+                account_number: document.getElementById('accountNumber').value.trim(),
+                account_holder: document.getElementById('accountHolder').value.trim(),
+                bank_branch: document.getElementById('bankBranch').value.trim()
+            };
+
+            if (!bankDetails.bank_name || !bankDetails.account_number || 
+                !bankDetails.account_holder || !bankDetails.bank_branch) {
+                alert('❌ Please fill in all bank details:\n\n• Bank Name\n• Account Number\n• Account Holder Name\n• Bank Branch');
+                return;
+            }
+
+            // Confirm withdrawal
+            const confirmMessage = `💸 Confirm Withdrawal Request\n\nAmount: $50.00\nBank: ${bankDetails.bank_name}\nAccount: ${bankDetails.account_number}\nHolder: ${bankDetails.account_holder}\nBranch: ${bankDetails.bank_branch}\n\nProceed with withdrawal request?`;
+            
+            if (!confirm(confirmMessage)) {
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/withdrawal/request', {
+                    method: 'POST',
+                    headers: getAuthHeaders(),
+                    body: JSON.stringify({ bank_details: bankDetails })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('✅ Withdrawal request submitted successfully!\n\nYour request has been sent to the admin for review.\nYou will be notified once it is processed.');
+                    loadWithdrawalHistory();
+                    // Clear form
+                    document.getElementById('bankName').value = '';
+                    document.getElementById('accountNumber').value = '';
+                    document.getElementById('accountHolder').value = '';
+                    document.getElementById('bankBranch').value = '';
+                } else {
+                    alert(`❌ Withdrawal request failed:\n\n${data.error || 'Unknown error occurred'}`);
+                }
+            } catch (error) {
+                console.error('Error submitting withdrawal:', error);
+                alert('❌ Network error occurred. Please try again.');
+            }
+        }
+
+        // Upload KYC documents
+        async function uploadKYC() {
+            const formData = new FormData();
+            const idFront = document.getElementById('idFront').files[0];
+            const idBack = document.getElementById('idBack').files[0];
+
+            // Validate required files
+            if (!idFront || !idBack) {
+                alert('❌ Please upload both ID documents:\n\n• ID Front Side\n• ID Back Side');
+                return;
+            }
+
+            // Validate file types
+            const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'application/pdf'];
+            if (!allowedTypes.includes(idFront.type) || !allowedTypes.includes(idBack.type)) {
+                alert('❌ Invalid file type!\n\nPlease upload files in JPEG, PNG, or PDF format only.');
+                return;
+            }
+
+            // Validate file sizes (max 5MB each)
+            const maxSize = 5 * 1024 * 1024; // 5MB
+            if (idFront.size > maxSize || idBack.size > maxSize) {
+                alert('❌ File too large!\n\nPlease ensure each file is under 5MB.');
+                return;
+            }
+
+            formData.append('id_front', idFront);
+            formData.append('id_back', idBack);
+
+            try {
+                const token = localStorage.getItem('authToken');
+                const response = await fetch('/api/kyc/upload', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    alert('✅ KYC documents uploaded successfully!\n\nYour documents have been submitted for review.\nYou will be notified once verification is complete.');
+                    loadUserProfile(); // Refresh KYC status
+                    
+                    // Clear file inputs
+                    document.getElementById('idFront').value = '';
+                    document.getElementById('idBack').value = '';
+                } else {
+                    alert(`❌ Upload failed:\n\n${data.error || 'Unknown error occurred'}`);
+                }
+            } catch (error) {
+                console.error('Error uploading KYC:', error);
+                alert('❌ Network error occurred. Please try again.');
+            }
+        }
+
+        // Update KYC status
+        function updateKYCStatus() {
+            if (!currentUser) return;
+            
+            const statusText = document.getElementById('kycStatusText');
+            const statusAlert = document.getElementById('kycStatusAlert');
+            const kycForm = document.getElementById('kycForm');
+            
+            statusText.textContent = currentUser.kyc_status.charAt(0).toUpperCase() + 
+                                   currentUser.kyc_status.slice(1);
+            
+            switch (currentUser.kyc_status) {
+                case 'approved':
+                    statusAlert.className = 'alert alert-success';
+                    kycForm.style.display = 'none';
+                    break;
+                case 'rejected':
+                    statusAlert.className = 'alert alert-danger';
+                    kycForm.style.display = 'block';
+                    break;
+                case 'submitted':
+                    statusAlert.className = 'alert alert-info';
+                    kycForm.style.display = 'none';
+                    break;
+                default:
+                    statusAlert.className = 'alert alert-warning';
+                    kycForm.style.display = 'block';
+            }
+        }
+
+        // Load transaction history
+        async function loadTransactionHistory() {
+            try {
+                const response = await fetch('/api/transactions', {
+                    headers: getAuthHeaders()
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const tbody = document.querySelector('#transactionHistory tbody');
+                    tbody.innerHTML = '';
+                    
+                    data.transactions.forEach(transaction => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${new Date(transaction.created_at).toLocaleDateString()}</td>
+                            <td><span class="status-badge status-${transaction.transaction_type.toLowerCase()}">${transaction.transaction_type}</span></td>
+                            <td>$${transaction.amount.toFixed(2)}</td>
+                            <td>$${transaction.balance_after.toFixed(2)}</td>
+                            <td>${transaction.description || '-'}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading transaction history:', error);
+            }
+        }
+
+        // Load withdrawal history
+        async function loadWithdrawalHistory() {
+            try {
+                const response = await fetch('/api/withdrawal/history', {
+                    headers: getAuthHeaders()
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const tbody = document.querySelector('#withdrawalHistory tbody');
+                    tbody.innerHTML = '';
+                    
+                    data.withdrawals.forEach(withdrawal => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${new Date(withdrawal.created_at).toLocaleDateString()}</td>
+                            <td>$${withdrawal.amount.toFixed(2)}</td>
+                            <td><span class="status-badge status-${withdrawal.status}">${withdrawal.status}</span></td>
+                            <td>${withdrawal.admin_notes || '-'}</td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading withdrawal history:', error);
+            }
+        }
+    </script>
+</body>
+</html>
+

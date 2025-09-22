@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99Group Game Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-bottom: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .switch-form {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .switch-form a {
+            color: #667eea;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
+        }
+
+        .message {
+            padding: 0.75rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: left;
+            white-space: pre-line;
+            word-wrap: break-word;
+            font-size: 0.9rem;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            text-align: center;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 0.75rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 0.75rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .dashboard {
+            display: none;
+        }
+
+        .user-info {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .balance {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #28a745;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-section {
+            margin-top: 2rem;
+        }
+
+        .game-list {
+            display: grid;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .game-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid #e9ecef;
+            transition: all 0.2s ease;
+        }
+
+        .game-item:hover {
+            background: #e9ecef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-name {
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0.2rem;
+        }
+
+        .game-type {
+            font-size: 0.8rem;
+            color: #666;
+            background: #667eea;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .game-categories {
+            margin-top: 1rem;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            width: auto;
+            margin: 0;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .game-frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            display: none;
+        }
+
+        .game-frame iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-game {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm">
+            <div class="header">
+                <h1>99Group</h1>
+                <p>Game Platform</p>
+            </div>
+            
+            <div id="message"></div>
+            
+            <form id="login">
+                <div class="form-group">
+                    <label for="loginUsername">Username</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn" id="loginBtn">Login</button>
+            </form>
+            
+            <div class="switch-form">
+                Don't have an account? <a onclick="showRegisterForm()">Register here</a>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="registerForm" style="display: none;">
+            <div class="header">
+                <h1>Create Account</h1>
+                <p>Join 99Group Game Platform - Quick & Easy Registration</p>
+            </div>
+            
+            <div id="registerMessage"></div>
+            
+            <form id="register">
+                <div class="form-group">
+                    <label for="registerFullName">Full Name</label>
+                    <input type="text" id="registerFullName" required minlength="2" maxlength="50" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="registerUsername">Username (3-20 characters)</label>
+                    <input type="text" id="registerUsername" required minlength="3" maxlength="20" placeholder="Choose a username">
+                </div>
+                <div class="form-group">
+                    <label for="captchaInput">Verification Code</label>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <input type="text" id="captchaInput" required maxlength="4" placeholder="Enter code" style="flex: 1;">
+                        <img id="captchaImage" src="" alt="Captcha" style="border: 1px solid #ddd; border-radius: 4px; cursor: pointer;" onclick="refreshCaptcha()" title="Click to refresh">
+                    </div>
+                    <small style="color: #666; font-size: 0.8rem;">Click the image to refresh if unclear</small>
+                </div>
+                <button type="submit" class="btn" id="registerBtn">Register & Login</button>
+            </form>
+            
+            <div class="switch-form">
+                Already have an account? <a onclick="showLoginForm()">Login here</a>
+            </div>
+        </div>
+
+        <!-- Dashboard -->
+        <div id="dashboard" class="dashboard">
+            <div class="header">
+                <h1>Welcome!</h1>
+                <p id="welcomeUser"></p>
+            </div>
+            
+            <div class="user-info">
+                <div class="balance">Balance: $<span id="userBalance">0.00</span></div>
+                <div>Account: <span id="gameAccount"></span></div>
+            </div>
+            
+            <div class="game-section">
+                <h3>JILI Games</h3>
+                <div class="game-categories">
+                    <h4 style="color: #667eea; margin-bottom: 1rem;">🎣 Fish Games</h4>
+                    <div class="game-list" id="fishGameList">
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">Royal Fishing</span>
+                                <span class="game-type">Fish Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('e794bf5717aca371152df192341fe68b')">Play</button>
+                        </div>
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">Bombing Fishing</span>
+                                <span class="game-type">Fish Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('e333695bcff28acdbecc641ae6ee2b23')">Play</button>
+                        </div>
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">Dragon Fortune</span>
+                                <span class="game-type">Fish Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('1200b82493e4788d038849bca884d773')">Play</button>
+                        </div>
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">Mega Fishing</span>
+                                <span class="game-type">Fish Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('caacafe3f64a6279e10a378ede09ff38')">Play</button>
+                        </div>
+                    </div>
+                    
+                    <h4 style="color: #667eea; margin: 2rem 0 1rem 0;">🎰 Slot Games</h4>
+                    <div class="game-list" id="slotGameList">
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">Chin Shi Huang</span>
+                                <span class="game-type">Slot Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('24da72b49b0dd0e5cbef9579d09d8981')">Play</button>
+                        </div>
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">God Of Martial</span>
+                                <span class="game-type">Slot Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('21ef8a7ddd39836979170a2e7584e333')">Play</button>
+                        </div>
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">War Of Dragons</span>
+                                <span class="game-type">Slot Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('4b1d7ffaf9f66e6152ea93a6d0e4215b')">Play</button>
+                        </div>
+                        <div class="game-item">
+                            <div class="game-info">
+                                <span class="game-name">Hot Chilli</span>
+                                <span class="game-type">Slot Game</span>
+                            </div>
+                            <button class="btn btn-small" onclick="launchGame('c845960c81d27d7880a636424e53964d')">Play</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn btn-secondary" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Game Frame -->
+    <div id="gameFrame" class="game-frame">
+        <button class="close-game" onclick="closeGame()">Close Game</button>
+        <iframe id="gameIframe" src=""></iframe>
+    </div>
+
+    <script>
+        let currentUser = null;
+        let authToken = null;
+        let sessionId = null;
+
+        // Check if user is already logged in
+        window.onload = function() {
+            const token = localStorage.getItem('authToken');
+            if (token) {
+                authToken = token;
+                loadUserProfile();
+            }
+        };
+
+        // Generate session ID
+        function generateSessionId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // Load captcha
+        function loadCaptcha() {
+            if (!sessionId) {
+                sessionId = generateSessionId();
+            }
+            const captchaImage = document.getElementById('captchaImage');
+            captchaImage.src = `/api/captcha/${sessionId}?t=${Date.now()}`;
+        }
+
+        // Refresh captcha
+        function refreshCaptcha() {
+            sessionId = generateSessionId();
+            loadCaptcha();
+            document.getElementById('captchaInput').value = '';
+        }
+
+        // Form switching functions
+        function showRegisterForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+            clearMessages();
+            loadCaptcha(); // Load captcha when showing register form
+        }
+
+        function showLoginForm() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            clearMessages();
+        }
+
+        function clearMessages() {
+            document.getElementById('message').innerHTML = '';
+            document.getElementById('registerMessage').innerHTML = '';
+        }
+
+        // Login form handler
+        document.getElementById('login').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            const btn = document.getElementById('loginBtn');
+            
+            btn.disabled = true;
+            btn.textContent = 'Logging in...';
+            
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    localStorage.setItem('authToken', data.token);
+                    // Redirect to new dashboard
+                    window.location.href = '/dashboard.html';
+                } else {
+                    showMessage('message', data.error, 'error');
+                }
+            } catch (error) {
+                showMessage('message', 'Network error. Please try again.', 'error');
+            }
+            
+            btn.disabled = false;
+            btn.textContent = 'Login';
+        });
+
+        // Register form handler
+        document.getElementById('register').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('registerFullName').value.trim();
+            const username = document.getElementById('registerUsername').value.trim();
+            const captcha = document.getElementById('captchaInput').value.trim();
+            const btn = document.getElementById('registerBtn');
+            
+            if (!fullName || !username || !captcha || !sessionId) {
+                showMessage('registerMessage', 'Please fill in all fields and complete the captcha.', 'error');
+                return;
+            }
+            
+            btn.disabled = true;
+            btn.textContent = 'Creating Account...';
+            
+            try {
+                const response = await fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        full_name: fullName,
+                        username: username,
+                        captcha: captcha,
+                        session_id: sessionId
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    // Show success message with temporary password
+                    showMessage('registerMessage', 
+                        `🎉 Registration successful! You are now logged in.\n\n` +
+                        `📝 Your temporary password is: ${data.temporaryPassword}\n` +
+                        `⚠️ Please save this password - you can change it later in your profile.`, 
+                        'success');
+                    
+                    // Auto-login the user
+                    authToken = data.token;
+                    currentUser = data.user;
+                    localStorage.setItem('authToken', authToken);
+                    
+                    // Show dashboard after 3 seconds
+                    setTimeout(() => {
+                        showDashboard();
+                    }, 3000);
+                } else {
+                    showMessage('registerMessage', data.error, 'error');
+                    refreshCaptcha(); // Refresh captcha on error
+                }
+            } catch (error) {
+                showMessage('registerMessage', 'Network error. Please try again.', 'error');
+                refreshCaptcha();
+            }
+            
+            btn.disabled = false;
+            btn.textContent = 'Register & Login';
+        });
+
+        // Load user profile
+        async function loadUserProfile() {
+            try {
+                const response = await fetch('/api/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    currentUser = data.user;
+                    showDashboard();
+                } else {
+                    localStorage.removeItem('authToken');
+                    authToken = null;
+                }
+            } catch (error) {
+                localStorage.removeItem('authToken');
+                authToken = null;
+            }
+        }
+
+        // Show dashboard
+        function showDashboard() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            
+            document.getElementById('welcomeUser').textContent = currentUser.username;
+            document.getElementById('userBalance').textContent = currentUser.balance.toFixed(2);
+            document.getElementById('gameAccount').textContent = currentUser.gameAccount;
+        }
+
+        // Launch game
+        async function launchGame(gameUid) {
+            console.log('🎮 Launching game with UID:', gameUid);
+            
+            try {
+                const response = await fetch('/api/game/launch', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
+                    },
+                    body: JSON.stringify({ game_uid: gameUid })
+                });
+                
+                const data = await response.json();
+                console.log('🎯 Game launch response:', data);
+                
+                if (response.ok && data.success) {
+                    console.log('🔗 Loading game URL:', data.game_url);
+                    
+                    // Get elements
+                    const iframe = document.getElementById('gameIframe');
+                    const gameFrame = document.getElementById('gameFrame');
+                    
+                    console.log('🔍 Elements found:', {
+                        iframe: !!iframe,
+                        gameFrame: !!gameFrame
+                    });
+                    
+                    if (!iframe || !gameFrame) {
+                        console.error('❌ Required elements not found');
+                        alert('Game elements not found. Please refresh the page.');
+                        return;
+                    }
+                    
+                    // Clear any existing content
+                    iframe.src = '';
+                    
+                    // Set up event listeners first
+                    iframe.onload = function() {
+                        console.log('✅ Game iframe loaded successfully');
+                    };
+                    
+                    iframe.onerror = function() {
+                        console.error('❌ Game iframe failed to load');
+                    };
+                    
+                    // Show game frame first
+                    gameFrame.style.display = 'block';
+                    console.log('🎮 Game frame displayed');
+                    
+                    // Then load the game URL
+                    setTimeout(() => {
+                        iframe.src = data.game_url;
+                        console.log('🔗 Game URL loaded into iframe');
+                    }, 100);
+                    
+                } else {
+                    console.error('❌ Game launch failed:', data);
+                    alert('Failed to launch game: ' + (data.error || 'Unknown error'));
+                }
+            } catch (error) {
+                console.error('❌ Network error:', error);
+                alert('Network error. Please try again.');
+            }
+        }
+
+        // Close game
+        async function closeGame() {
+            console.log('🔄 Closing game...');
+            
+            const gameFrame = document.getElementById('gameFrame');
+            const iframe = document.getElementById('gameIframe');
+            
+            if (gameFrame) {
+                gameFrame.style.display = 'none';
+                console.log('🎮 Game frame hidden');
+            }
+            
+            if (iframe) {
+                iframe.src = '';
+                console.log('🔗 Game iframe cleared');
+            }
+            
+            // Refresh balance
+            try {
+                const response = await fetch('/api/balance', {
+                    headers: {
+                        'Authorization': `Bearer ${authToken}`
+                    }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('userBalance').textContent = data.balance.toFixed(2);
+                }
+            } catch (error) {
+                console.error('Failed to refresh balance:', error);
+            }
+        }
+
+        // Logout
+        function logout() {
+            localStorage.removeItem('authToken');
+            authToken = null;
+            currentUser = null;
+            
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+            
+            // Clear form fields
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+            clearMessages();
+        }
+
+        // Show message helper
+        function showMessage(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="${type}">${message}</div>`;
+        }
+    </script>
+</body>
+</html>

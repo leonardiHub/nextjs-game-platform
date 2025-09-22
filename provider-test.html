@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Provider Integration Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; }
+        .config { background: #f0f8ff; padding: 15px; border-radius: 8px; margin: 15px 0; }
+        .example { background: #f5f5f5; padding: 15px; border-radius: 8px; margin: 15px 0; font-family: monospace; }
+        .success { color: #28a745; font-weight: bold; }
+        .error { color: #dc3545; font-weight: bold; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        textarea { width: 100%; height: 150px; font-family: monospace; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <h1>🎮 Game Provider Integration Test</h1>
+    
+    <div class="config">
+        <h3>🔑 HUIDU API Configuration</h3>
+        <p><strong>Agency UID:</strong> 8dee1e401b87408cca3ca813c2250cb4</p>
+        <p><strong>AES Key:</strong> 68b074393ec7c5a975856a90bd6fdf47</p>
+        <p><strong>Callback URL:</strong> https://99group.games/api/game/callback</p>
+        <p><strong>Encryption:</strong> AES-256-ECB with PKCS7 padding</p>
+    </div>
+
+    <h3>📤 Test Callback Request</h3>
+    <button onclick="generateTestRequest()">Generate Test Request</button>
+    <button onclick="sendTestRequest()">Send Test Request</button>
+    <button onclick="clearResults()">Clear</button>
+    
+    <h4>Generated Request:</h4>
+    <textarea id="requestData" placeholder="Generated request will appear here..."></textarea>
+    
+    <h4>Response:</h4>
+    <textarea id="responseData" placeholder="Response will appear here..."></textarea>
+    
+    <h4>Decrypted Response:</h4>
+    <textarea id="decryptedData" placeholder="Decrypted response will appear here..."></textarea>
+
+    <div class="example">
+        <h3>📋 Copy-Paste Ready Configuration</h3>
+        <h4>For Your Game Provider Dashboard:</h4>
+        <p><strong>Callback URL:</strong> https://99group.games/api/game/callback</p>
+        <p><strong>Agency UID:</strong> 8dee1e401b87408cca3ca813c2250cb4</p>
+        <p><strong>AES Key:</strong> 68b074393ec7c5a975856a90bd6fdf47</p>
+        <p><strong>Encryption Method:</strong> AES-256-ECB</p>
+        <p><strong>Padding:</strong> PKCS7</p>
+        <p><strong>Output Format:</strong> Base64</p>
+    </div>
+
+    <script>
+        const HUIDU_CONFIG = {
+            agency_uid: "8dee1e401b87408cca3ca813c2250cb4",
+            aes_key: "68b074393ec7c5a975856a90bd6fdf47"
+        };
+
+        function generateTestRequest() {
+            // Sample callback data
+            const callbackData = {
+                serial_number: "245876c4-f717-76d2-b143-3453dac191c7",
+                currency_code: "USD", 
+                game_uid: "24da72b49b0dd0e5cbef9579d09d8981",
+                member_account: "h4944ddemo",
+                win_amount: "4.8",
+                bet_amount: "2.0",
+                timestamp: Date.now().toString(),
+                game_round: "6031693650962757486"
+            };
+
+            // Encrypt payload
+            const encryptedPayload = CryptoJS.AES.encrypt(
+                JSON.stringify(callbackData),
+                CryptoJS.enc.Utf8.parse(HUIDU_CONFIG.aes_key),
+                {
+                    mode: CryptoJS.mode.ECB,
+                    padding: CryptoJS.pad.Pkcs7
+                }
+            ).toString();
+
+            // Create HUIDU request
+            const request = {
+                agency_uid: HUIDU_CONFIG.agency_uid,
+                timestamp: Date.now().toString(),
+                payload: encryptedPayload
+            };
+
+            document.getElementById('requestData').value = JSON.stringify(request, null, 2);
+            console.log('✅ Test request generated');
+        }
+
+        async function sendTestRequest() {
+            const requestData = document.getElementById('requestData').value;
+            
+            if (!requestData) {
+                alert('Please generate a test request first');
+                return;
+            }
+
+            try {
+                const response = await fetch('https://99group.games/api/game/callback', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: requestData
+                });
+
+                const responseData = await response.json();
+                document.getElementById('responseData').value = JSON.stringify(responseData, null, 2);
+
+                // Decrypt response if successful
+                if (responseData.code === 0 && responseData.payload) {
+                    try {
+                        const decrypted = CryptoJS.AES.decrypt(
+                            responseData.payload,
+                            CryptoJS.enc.Utf8.parse(HUIDU_CONFIG.aes_key),
+                            {
+                                mode: CryptoJS.mode.ECB,
+                                padding: CryptoJS.pad.Pkcs7
+                            }
+                        ).toString(CryptoJS.enc.Utf8);
+
+                        const decryptedObj = JSON.parse(decrypted);
+                        document.getElementById('decryptedData').value = JSON.stringify(decryptedObj, null, 2);
+                        
+                        console.log('✅ Test successful! New balance:', decryptedObj.credit_amount);
+                    } catch (decryptError) {
+                        document.getElementById('decryptedData').value = 'Decryption failed: ' + decryptError.message;
+                    }
+                } else {
+                    document.getElementById('decryptedData').value = 'Request failed: ' + responseData.msg;
+                }
+
+            } catch (error) {
+                document.getElementById('responseData').value = 'Network error: ' + error.message;
+                console.error('❌ Test failed:', error);
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('requestData').value = '';
+            document.getElementById('responseData').value = '';
+            document.getElementById('decryptedData').value = '';
+        }
+
+        // Auto-generate test request on load
+        window.onload = function() {
+            generateTestRequest();
+            console.log('🎮 Provider integration test ready');
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.next/
+.vercel/
+.turbo/
+
+# Build outputs
+build/
+dist/
+out/
+
+# Database files
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+*.log
+.pm2/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Generated files
+*.min.js
+*.min.css
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Uploads
+uploads/
+
+# Documentation (optional)
+*.md

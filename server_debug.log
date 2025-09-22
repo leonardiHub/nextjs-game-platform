@@ -1,0 +1,5 @@
+Enhanced Game platform server running on port 3002
+Visit: http://localhost:3002
+Admin panel: http://localhost:3002/admin
+Default admin: admin/admin123
+✅ Connected to SQLite database successfully

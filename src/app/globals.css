@@ -1,0 +1,208 @@
+@import 'tailwindcss';
+
+/* Tailwind CSS v4 - Custom theme configuration */
+@theme {
+  --color-primary: #c29331; /* Updated Gold */
+  --color-secondary: #212121; /* Updated Dark */
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+  --color-warning: #f59e0b;
+  --color-gold: #c29331;
+  --color-black: #212121;
+  --color-gold-dark: #a67b28;
+
+  /* Font family configuration */
+  --font-sans:
+    var(--font-kanit), ui-sans-serif, system-ui, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* Use Tailwind's layer system to prevent conflicts */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    height: 100%;
+    font-family: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Ensure all text elements use Kanit */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  button,
+  input,
+  textarea,
+  select {
+    font-family: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+body {
+  font-family: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+  background-color: #212121;
+}
+
+/* Custom animations for shimmer effect */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shine {
+  animation: shine 2s infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
+@keyframes tilt {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+
+.animate-shake {
+  animation: tilt 2s ease-in-out infinite;
+}
+
+.gradient-gold {
+  background: linear-gradient(
+    to bottom,
+    #e4c157,
+    #d4b145,
+    #c29331,
+    #b08428,
+    #9e7520
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+@layer utilities {
+  .primary-gradient-to-r {
+    @apply border border-[#C29331] text-[#5C4A2E];
+    background: linear-gradient(
+      135deg,
+      rgba(244, 252, 164, 1) 0%,
+      rgba(239, 231, 139, 1) 25%,
+      rgba(233, 206, 108, 1) 50%,
+      rgba(224, 173, 69, 1) 78%,
+      rgba(220, 155, 46, 1) 100%
+    );
+  }
+  .primary-gradient-to-b {
+    @apply border border-[#C29331] text-[#5C4A2E];
+    background: linear-gradient(
+      180deg,
+      rgb(244, 252, 164) 0%,
+      rgba(239, 231, 139, 1) 25%,
+      rgba(233, 206, 108, 1) 50%,
+      rgba(224, 173, 69, 1) 78%,
+      #c29331 100%
+    );
+  }
+}
+
+.btn-gold-3d {
+  background: linear-gradient(
+    to bottom,
+    #e4c157,
+    #d4b145,
+    #c29331,
+    #b08428,
+    #9e7520
+  );
+  border: 1px solid #c29331;
+  color: #3d311f;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 255, 255, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.1)
+  );
+  pointer-events: none;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shine {
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: shine 2s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Mobile Menu Performance Optimizations */
+.mobile-menu-optimized {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
