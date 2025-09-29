@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { User } from '@/types'
+import { Eye, EyeOff, Loader2, RefreshCw } from 'lucide-react'
+import { useClientOnly, useTimestamp } from '@/hooks/useClientOnly'
 
 interface RegisterFormProps {
   onLogin: (user: User, token: string) => void
@@ -14,23 +16,31 @@ export default function RegisterForm({
 }: RegisterFormProps) {
   const [fullName, setFullName] = useState('')
   const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [captcha, setCaptcha] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [sessionId, setSessionId] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [sessionInitialized, setSessionInitialized] = useState(false)
   const [captchaLoaded, setCaptchaLoaded] = useState(false)
-  const [captchaTimestamp, setCaptchaTimestamp] = useState(Date.now())
+  const [captchaTimestamp, setCaptchaTimestamp] = useState(0)
+  const isClient = useClientOnly()
+  const currentTimestamp = useTimestamp()
 
   useEffect(() => {
-    if (!sessionInitialized) {
+    if (!sessionInitialized && isClient) {
       generateSessionId()
       setSessionInitialized(true)
     }
-  }, [sessionInitialized])
+  }, [sessionInitialized, isClient])
 
   const generateSessionId = () => {
+    if (!isClient) return // Don't generate on server side
+    
     const newSessionId =
       Date.now().toString(36) + Math.random().toString(36).substr(2)
     const timestamp = Date.now()
@@ -52,8 +62,20 @@ export default function RegisterForm({
     setError('')
     setSuccess('')
 
-    if (!fullName.trim() || !username.trim() || !captcha.trim() || !sessionId) {
+    if (!fullName.trim() || !username.trim() || !password.trim() || !confirmPassword.trim() || !captcha.trim() || !sessionId) {
       setError('Please fill in all fields and complete the captcha.')
+      setIsLoading(false)
+      return
+    }
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.')
+      setIsLoading(false)
+      return
+    }
+
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.')
       setIsLoading(false)
       return
     }
@@ -67,6 +89,7 @@ export default function RegisterForm({
         body: JSON.stringify({
           full_name: fullName,
           username: username,
+          password: password,
           captcha: captcha,
           session_id: sessionId,
         }),
@@ -141,6 +164,54 @@ export default function RegisterForm({
             className="w-full px-4 py-3 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
             placeholder="Choose a username"
           />
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-yellow-200 mb-2">
+            Password (6+ characters)
+          </label>
+          <div className="relative">
+            <input
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+              minLength={6}
+              className="w-full px-4 py-3 pr-12 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+              placeholder="Enter your password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-yellow-400 transition-colors"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-yellow-200 mb-2">
+            Confirm Password
+          </label>
+          <div className="relative">
+            <input
+              type={showConfirmPassword ? 'text' : 'password'}
+              value={confirmPassword}
+              onChange={e => setConfirmPassword(e.target.value)}
+              required
+              minLength={6}
+              className="w-full px-4 py-3 pr-12 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+              placeholder="Confirm your password"
+            />
+            <button
+              type="button"
+              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-yellow-400 transition-colors"
+            >
+              {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
         </div>
 
         <div>

@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     console.log('🎮 Game callback GET request with params:', queryParams)
 
     // Forward GET request to backend
-    const backendUrl = `https://99group.games/api/game/callback${queryParams ? `?${queryParams}` : ''}`
+    const backendUrl = `http://localhost:3002/api/game/callback${queryParams ? `?${queryParams}` : ''}`
 
     const response = await fetch(backendUrl, {
       method: 'GET',
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Forward the request to backend server
-    const response = await fetch('https://99group.games/api/game/callback', {
+    const response = await fetch('http://localhost:3002/api/game/callback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

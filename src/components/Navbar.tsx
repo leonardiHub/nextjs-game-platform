@@ -44,6 +44,7 @@ import KYCTab from '@/components/tabs/KYCTab'
 import HistoryTab from '@/components/tabs/HistoryTab'
 import { Withdrawal, Transaction } from '@/types'
 import { useRouter, usePathname } from 'next/navigation'
+import { useHydration } from '@/hooks/useHydration'
 
 interface NavbarProps {
   user: User | null
@@ -90,6 +91,7 @@ export default function GameNavbar({
   const [showHistoryModal, setShowHistoryModal] = useState(false)
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const isHydrated = useHydration()
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   // Close dropdown when clicking outside
@@ -112,7 +114,6 @@ export default function GameNavbar({
   // Handle scroll detection with RAF optimization
   useEffect(() => {
     let ticking = false
-    let lastScrollY = 0
 
     const handleScroll = () => {
       if (!ticking) {
@@ -214,21 +215,38 @@ export default function GameNavbar({
     setIsUserDropdownOpen(false)
   }, [onLogout])
 
+  // Show loading state during hydration
+  // if (!isHydrated) {
+  //   return (
+  //     <div className="fixed top-0 z-[100] w-full bg-[#212121] px-2 lg:px-8 py-3 lg:py-1">
+  //       <div className="w-full flex items-center justify-between">
+  //         <img
+  //           src="pg-slot-logo.webp"
+  //           alt="logo"
+  //           className="h-auto w-[70px] lg:w-[100px]"
+  //         />
+  //         <div className="flex items-center space-x-3">
+  //           <div className="w-20 h-8 bg-gray-700 rounded animate-pulse"></div>
+  //           <div className="w-20 h-8 bg-gray-700 rounded animate-pulse"></div>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   )
+  // }
+
   return (
     <>
       <div
-        className={`sticky z-[99] will-change-transform transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 z-[100] w-full will-change-transform transition-all duration-300 ease-in-out hydration-safe ${
           isScrolled
-            ? 'top-2 w-[90%] lg:w-[1200px] mx-auto rounded-xl shadow-lg backdrop-blur-md bg-[#212121]/95 px-4 lg:px-8 py-3 lg:py-1 border border-gray-700'
-            : 'top-0 w-full bg-[#212121] px-2 lg:px-8 py-3 lg:py-1'
+            ? 'w-[200px] lg:w-[1200px] mx-auto rounded-xl shadow-lg backdrop-blur-md bg-[#212121]/95 px-4 lg:px-8 py-3 lg:py-1 border border-gray-700'
+            : 'w-full bg-[#212121] px-2 lg:px-8 py-3 lg:py-1'
         }`}
         style={{
-          transform: isScrolled
-            ? 'translateY(0) scale(0.95)'
-            : 'translateY(0) scale(1)',
           backfaceVisibility: 'hidden',
           perspective: '1000px',
         }}
+        suppressHydrationWarning={true}
       >
         <div
           className={`w-full flex items-center transition-all duration-300 ease-in-out ${
@@ -236,12 +254,11 @@ export default function GameNavbar({
           }`}
         >
           <img
-            src="pg-slot-logo.webp"
+            src="/pg-slot-logo.webp"
             alt="logo"
             onClick={() => router.push('/')}
             className="h-auto w-[70px] lg:w-[100px] transition-all duration-300 ease-in-out will-change-transform"
             style={{
-              transform: isScrolled ? 'scale(0.9)' : 'scale(1)',
               backfaceVisibility: 'hidden',
             }}
           />
@@ -276,9 +293,18 @@ export default function GameNavbar({
               แทงบอล
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-[#c29331] group">
+            <span
+              onClick={() => router.push('/blog')}
+              className={`relative cursor-pointer transition-colors duration-300 group ${
+                pathname === '/blog' ? 'text-[#c29331]' : 'hover:text-[#c29331]'
+              }`}
+            >
               แทงหวย
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-[#c29331] transition-all duration-300 ${
+                  pathname === '/blog' ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}
+              ></span>
             </span>
             <span
               onClick={() => router.push('/promotions')}
@@ -303,7 +329,7 @@ export default function GameNavbar({
             </span>
           </div>
 
-          {user && (
+          {user && isHydrated && (
             <div
               className={`flex items-stretch transition-all duration-300 ease-in-out ${
                 isScrolled ? 'gap-4' : 'justify-center gap-4 w-max w-1/2'
@@ -320,7 +346,6 @@ export default function GameNavbar({
                     className="gradient-gold font-bold tracking-wide transition-all duration-300 ease-in-out will-change-transform"
                     style={{
                       fontSize: isScrolled ? '1.125rem' : '1.25rem',
-                      transform: isScrolled ? 'scale(0.95)' : 'scale(1)',
                       backfaceVisibility: 'hidden',
                     }}
                   >
@@ -344,7 +369,6 @@ export default function GameNavbar({
                       style={{
                         width: isScrolled ? '0.75rem' : '1rem',
                         height: isScrolled ? '0.75rem' : '1rem',
-                        transform: isScrolled ? 'scale(0.9)' : 'scale(1)',
                         backfaceVisibility: 'hidden',
                       }}
                     />
@@ -360,7 +384,6 @@ export default function GameNavbar({
                     <span
                       className="gradient-gold text-left transition-all duration-300 ease-in-out will-change-transform"
                       style={{
-                        transform: isScrolled ? 'scale(0.95)' : 'scale(1)',
                         backfaceVisibility: 'hidden',
                       }}
                     >
@@ -380,7 +403,6 @@ export default function GameNavbar({
                       }`}
                       title="Refresh balance"
                       style={{
-                        transform: isScrolled ? 'scale(0.9)' : 'scale(1)',
                         backfaceVisibility: 'hidden',
                       }}
                     >
@@ -579,7 +601,7 @@ export default function GameNavbar({
             </div>
           )}
 
-          {!user && (
+          {!user && isHydrated && (
             <div
               className={`flex items-center transition-all duration-300 ease-in-out ${
                 isScrolled ? 'space-x-2' : 'space-x-3'
@@ -712,6 +734,7 @@ export default function GameNavbar({
             className={`fixed top-0 right-0 h-full w-80 bg-[#212121] shadow-2xl z-[99999] lg:hidden overflow-hidden will-change-transform mobile-menu-optimized ${
               showMobileMenu ? 'translate-x-0' : 'translate-x-full'
             }`}
+            suppressHydrationWarning={true}
             style={{
               transition: 'transform 250ms cubic-bezier(0.4, 0.0, 0.2, 1)',
               backfaceVisibility: 'hidden',
@@ -733,7 +756,7 @@ export default function GameNavbar({
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-gray-700 flex-shrink-0">
               <img
-                src="pg-slot-logo.webp"
+                src="/pg-slot-logo.webp"
                 alt="99Group"
                 className="h-10 w-auto"
               />
@@ -856,7 +879,13 @@ export default function GameNavbar({
                 <span className="font-medium">Sports</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
+              <button
+                className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left"
+                onClick={() => {
+                  router.push('/blog')
+                  setShowMobileMenu(false)
+                }}
+              >
                 <Ticket className="w-5 h-5 text-[#C29331]" />
                 <span className="font-medium">Lottery</span>
               </button>

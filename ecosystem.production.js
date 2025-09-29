@@ -1,9 +1,9 @@
 module.exports = {
   apps: [
     {
-      name: '99group-game-platform',
+      name: '99group-backend',
       script: 'server_enhanced.js',
-      cwd: '/home/ubuntu/game-platform01/nextjs-game-platform',
+      cwd: '/home/ubuntu/nextjs-game-platform',
       instances: 1,
       autorestart: true,
       watch: false,
@@ -11,13 +11,33 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3002,
-        PUBLIC_DOMAIN: 'https://99group.games'
+        PUBLIC_DOMAIN: 'https://99group.games',
       },
-      error_file: '/home/ubuntu/logs/99group-platform-error.log',
-      out_file: '/home/ubuntu/logs/99group-platform-out.log',
-      log_file: '/home/ubuntu/logs/99group-platform-combined.log',
+      error_file: '/home/ubuntu/logs/99group-backend-error.log',
+      out_file: '/home/ubuntu/logs/99group-backend-out.log',
+      log_file: '/home/ubuntu/logs/99group-backend-combined.log',
       time: true,
       merge_logs: true,
-    }
-  ]
+    },
+    {
+      name: '99group-frontend',
+      script: 'npm',
+      args: 'start',
+      cwd: '/home/ubuntu/nextjs-game-platform',
+      instances: 1,
+      autorestart: true,
+      watch: false,
+      max_memory_restart: '1G',
+      env: {
+        NODE_ENV: 'production',
+        PORT: 3000,
+        PUBLIC_DOMAIN: 'https://99group.games',
+      },
+      error_file: '/home/ubuntu/logs/99group-frontend-error.log',
+      out_file: '/home/ubuntu/logs/99group-frontend-out.log',
+      log_file: '/home/ubuntu/logs/99group-frontend-combined.log',
+      time: true,
+      merge_logs: true,
+    },
+  ],
 }

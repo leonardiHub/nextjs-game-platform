@@ -36,18 +36,20 @@ export default function Header({
   onKYCUpload,
 }: HeaderProps) {
   return (
-    <Navbar
-      user={user}
-      balance={balance}
-      canWithdraw={canWithdraw}
-      onLogout={onLogout}
-      onRefreshBalance={onRefreshBalance}
-      isRefreshing={isRefreshing}
-      onLogin={onLogin}
-      withdrawals={withdrawals}
-      onWithdrawalSubmit={onWithdrawalSubmit}
-      transactions={transactions}
-      onKYCUpload={onKYCUpload}
-    />
+    <div className="w-full flex items-center justify-center">
+      <Navbar
+        user={user}
+        balance={balance}
+        canWithdraw={canWithdraw}
+        onLogout={onLogout}
+        onRefreshBalance={onRefreshBalance}
+        isRefreshing={isRefreshing}
+        onLogin={onLogin}
+        withdrawals={withdrawals}
+        onWithdrawalSubmit={onWithdrawalSubmit}
+        transactions={transactions}
+        onKYCUpload={onKYCUpload}
+      />
+    </div>
   )
 }

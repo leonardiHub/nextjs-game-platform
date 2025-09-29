@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
 
     // Get withdrawal history
     const response = await fetch(
-      'https://99group.games/api/withdrawal/history',
+      'http://localhost:3002/api/withdrawal/history',
       {
         method: 'GET',
         headers: {
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
 
     // Make withdrawal request
     const response = await fetch(
-      'https://99group.games/api/withdrawal/request',
+      'http://localhost:3002/api/withdrawal/request',
       {
         method: 'POST',
         headers: {

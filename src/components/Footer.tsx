@@ -10,7 +10,7 @@ export default function Footer() {
             {/* Logo Column */}
             <div className="col-span-1">
               <img
-                src="pg-slot-logo.webp"
+                src="/pg-slot-logo.webp"
                 alt="PG Slot"
                 className="h-16 w-auto mb-6"
               />

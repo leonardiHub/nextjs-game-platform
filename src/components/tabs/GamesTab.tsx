@@ -5,7 +5,7 @@ import { GameData, User } from '@/types'
 import AuthModal from '@/components/AuthModal'
 
 interface GamesTabProps {
-  games: GameData[]
+  games: any
   onPlayGame: (gameUid: string) => void
   user: User | null
   onLogin?: (user: User, token: string) => void
@@ -25,7 +25,7 @@ interface ApiGame {
   name: string
   game_uid: string
   type: string
-  rtp: number
+  rtp?: number // Make RTP optional since it's not always provided
 }
 
 export default function GamesTab({
@@ -36,27 +36,10 @@ export default function GamesTab({
   onShowAuthModal,
 }: GamesTabProps) {
   const [activeCategory, setActiveCategory] = useState<GameCategory>('สล็อต')
-  const [apiGames, setApiGames] = useState<ApiGame[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
-  // Fetch games from API
-  useEffect(() => {
-    const fetchGames = async () => {
-      try {
-        const response = await fetch('/api/games')
-        const data = await response.json()
-        if (data.success && data.games) {
-          setApiGames(data.games)
-        }
-      } catch (error) {
-        console.error('Failed to fetch games:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchGames()
-  }, [])
+  // Use games from props instead of fetching separately
+  const apiGames = games
 
   const handleGameClick = (gameUid: string) => {
     if (!user) {
@@ -108,22 +91,27 @@ export default function GamesTab({
     },
   ]
 
-  // Get hot games (first 6 games from API response)
-  const hotGames = apiGames.slice(0, 6).map(game => ({
+  // Only use slotGames, exclude fishGames
+  const allGames = apiGames || []
+
+  // Get hot games (first 6 games from combined list)
+  const hotGames = allGames?.slice(0, 6).map((game: any) => ({
     id: game.code,
     name: game.name,
-    rtp: `${game.rtp}%`,
+    rtp: game.rtp ? `${game.rtp}%` : '96.5%', // Default RTP if not provided
     image: `/pgsoft/${game.code}.png`,
     game_uid: game.game_uid,
+    featured: game?.featured,
   }))
 
   // Get new games (remaining games after the first 6)
-  const newGames = apiGames.slice(6).map(game => ({
+  const newGames = allGames?.slice(6).map((game: any) => ({
     id: game.code,
     name: game.name,
-    rtp: `${game.rtp}%`,
+    rtp: game.rtp ? `${game.rtp}%` : '96.5%', // Default RTP if not provided
     image: `/pgsoft/${game.code}.png`,
     game_uid: game.game_uid,
+    featured: game?.featured,
   }))
 
   const GameCard = ({
@@ -136,11 +124,12 @@ export default function GamesTab({
       rtp: string
       image: string
       game_uid: string
+      featured: any
     }
     onClick: () => void
   }) => (
     <div
-      className="relative rounded-lg overflow-hidden cursor-pointer transform transition-all group"
+      className="relative rounded-lg cursor-pointer transform transition-all group"
       onClick={onClick}
     >
       <div className="aspect-[2/3] md:aspect-[3/4] relative">
@@ -148,9 +137,23 @@ export default function GamesTab({
           src={`/pgsoft/${game.id}.webp`}
           alt={game.name}
           className="w-full h-full object-cover"
+          onError={e => {
+            // Fallback to png if webp doesn't exist
+            const target = e.target as HTMLImageElement
+            if (target.src.includes('.webp')) {
+              target.src = `/pgsoft/${game.id}.png`
+            }
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
+        {game?.featured && (
+          <>
+            <img
+              src="/fire.gif"
+              className="w-7 h-7 lg:w-12 lg:h-12 absolute absolute -top-3 -right-2"
+            />
+          </>
+        )}{' '}
         {/* RTP Badge */}
         <div
           className="overflow-hidden absolute top-0 left-0 text-black text-xs font-bold rounded-tl-lg rounded-br-lg"
@@ -164,7 +167,6 @@ export default function GamesTab({
             <span className="absolute inset-0 shine"></span>
           </div>
         </div>
-
         {/* Game Title */}
         <div className="absolute bottom-0 w-full h-6 flex items-center justify-center bg-[#000]/70">
           <span className="text-white text-xs md:text-[16px] leading-tight drop-shadow-lg px-1 text-center line-clamp-1">
@@ -197,7 +199,7 @@ export default function GamesTab({
                   className="aspect-[2/3] md:aspect-[3/4] bg-gray-200 rounded-2xl animate-pulse"
                 />
               ))
-            : hotGames.map(game => (
+            : hotGames.map((game: any) => (
                 <GameCard
                   key={game.id}
                   game={game}
@@ -226,7 +228,7 @@ export default function GamesTab({
                   className="aspect-[2/3] md:aspect-[3/4] bg-gray-200 rounded-2xl animate-pulse"
                 />
               ))
-            : newGames.map(game => (
+            : newGames.map((game: any) => (
                 <GameCard
                   key={game.id}
                   game={game}

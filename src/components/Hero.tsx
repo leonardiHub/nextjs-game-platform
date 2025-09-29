@@ -89,9 +89,12 @@ const Hero = () => {
                 </div>
 
                 {/* Scrolling Text Container */}
-                <div className="flex-1 overflow-hidden">
-                  <div className="marquee-text whitespace-nowrap text-white font-bold text-sm drop-shadow-sm">
-                    โลดภัย ความไว้วางใจอันดับ 1 โลดภัย ความไว้วางใจอันดับ 1
+                <div className="flex-1 overflow-hidden relative">
+                  <div className="marquee-container whitespace-nowrap text-white font-bold text-sm drop-shadow-sm">
+                    <span className="marquee-text">
+                      โลดภัย ความไว้วางใจอันดับ 1 โลดภัย ความไว้วางใจอันดับ 1
+                      โลดภัย ความไว้วางใจอันดับ 1 โลดภัย ความไว้วางใจอันดับ 1
+                    </span>
                   </div>
                 </div>
               </div>
@@ -166,9 +169,17 @@ const Hero = () => {
           }
         }
 
+        .marquee-container {
+          display: flex;
+          width: 100%;
+          overflow: hidden;
+        }
+
         .marquee-text {
-          animation: marquee-scroll 12s linear infinite;
+          animation: marquee-scroll 15s linear infinite;
           display: inline-block;
+          white-space: nowrap;
+          will-change: transform;
         }
 
         .animate-shine {

@@ -8,10 +8,19 @@ import Footer from '@/components/Footer'
 import MobileNavigation from '@/components/MobileNavigation'
 import { GameData, Transaction, User, Withdrawal } from '@/types'
 import { useEffect, useState } from 'react'
+
+// Define ApiGame interface for the actual API response
+interface ApiGame {
+  code: number
+  name: string
+  game_uid: string
+  type: string
+  rtp?: number
+}
 import Hero from './Hero'
 import AuthModal from '@/components/AuthModal'
 import { useRouter } from 'next/navigation'
-import { useGameContext } from '@/app/layout'
+import { useGameContext } from '@/components/ClientLayoutProvider'
 
 interface DashboardProps {
   user: User | null
@@ -33,7 +42,7 @@ export default function Dashboard({
   const router = useRouter()
   const gameContext = useGameContext()
   const [activeTab, setActiveTab] = useState('games')
-  const [games, setGames] = useState<GameData[]>([])
+  const [games, setGames] = useState<{fishGames?: ApiGame[], slotGames?: ApiGame[]} | null>(null)
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [withdrawals, setWithdrawals] = useState<Withdrawal[]>([])
   const [isRefreshing, setIsRefreshing] = useState(false)
@@ -46,12 +55,16 @@ export default function Dashboard({
 
   useEffect(() => {
     loadGames()
-    loadTransactionHistory()
-    loadWithdrawalHistory()
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+    // Only load user-specific data if user is authenticated
+    if (user) {
+      loadTransactionHistory()
+      loadWithdrawalHistory()
+    }
+  }, [user]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const getAuthHeaders = () => {
-    const token = localStorage.getItem('authToken')
+    // Only access localStorage on client side
+    const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
     return {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -64,11 +77,8 @@ export default function Dashboard({
       const data = await response.json()
 
       if (data.success) {
-        const allGames = [
-          ...(data.games?.fishGames || []),
-          ...(data.games?.slotGames || []),
-        ]
-        setGames(allGames)
+        // Keep the original structure with fishGames and slotGames
+        setGames(data.games)
       }
     } catch (error) {
       console.error('Error loading games:', error)
@@ -186,7 +196,7 @@ export default function Dashboard({
 
   const handleKYCUpload = async (formData: FormData) => {
     try {
-      const token = localStorage.getItem('authToken')
+      const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
       const response = await fetch('/api/kyc/upload', {
         method: 'POST',
         headers: {
@@ -213,10 +223,15 @@ export default function Dashboard({
 
   // Check authentication on mount
   useEffect(() => {
-    const token = localStorage.getItem('authToken')
-    if (token) {
-      setIsAuthenticated(true)
-      // loadUserProfile()
+    // Only run on client side to avoid hydration mismatch
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('authToken')
+      if (token) {
+        setIsAuthenticated(true)
+        // loadUserProfile()
+      } else {
+        setIsLoading(false)
+      }
     } else {
       setIsLoading(false)
     }

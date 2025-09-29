@@ -69,7 +69,7 @@ export async function POST(request: NextRequest) {
       console.log('🔓 Decrypted game parameters:', gameParams)
 
       // Forward to backend game launch endpoint with decrypted parameters
-      const response = await fetch('https://99group.games/api/game/launch', {
+      const response = await fetch('http://localhost:3002/api/game/launch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

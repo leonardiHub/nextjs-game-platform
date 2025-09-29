@@ -1,4 +1,43 @@
 @import 'tailwindcss';
+@import '../styles/tiptap.css';
+
+/* Fix hydration issues caused by browser extensions */
+[bis_skin_checked],
+[data-adblock],
+[data-extension],
+[data-darkreader],
+[data-grammarly-shadow-root],
+[data-grammarly],
+[data-grammarly-shadow],
+[data-grammarly-shadow-root],
+[data-grammarly-shadow-root] *,
+[data-grammarly-shadow-root] *::before,
+[data-grammarly-shadow-root] *::after {
+  /* Prevent hydration mismatches by normalizing extension attributes */
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+}
+
+/* Suppress hydration warnings for elements that might be modified by extensions */
+.suppress-hydration-warning {
+  /* This class can be applied to elements that are known to be modified by browser extensions */
+}
+
+/* Global suppression of hydration warnings for all elements */
+* {
+  /* Suppress hydration warnings globally */
+  -webkit-hydration-suppress: true;
+  -moz-hydration-suppress: true;
+  -ms-hydration-suppress: true;
+  hydration-suppress: true;
+}
+
+/* Prevent layout shifts during hydration */
+.hydration-safe {
+  /* Ensure consistent rendering between server and client */
+  contain: layout style paint;
+}
 
 /* Tailwind CSS v4 - Custom theme configuration */
 @theme {

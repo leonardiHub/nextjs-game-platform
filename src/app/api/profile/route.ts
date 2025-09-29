@@ -4,7 +4,7 @@ export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get('authorization')
 
-    const response = await fetch('https://99group.games/api/profile', {
+    const response = await fetch('http://localhost:3002/api/profile', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

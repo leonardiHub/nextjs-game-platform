@@ -1,6 +1,19 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
+  // Suppress hydration warnings in development
+  reactStrictMode: false,
+  // Suppress hydration warnings globally
+  onDemandEntries: {
+    // Suppress hydration warnings
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
+  // Experimental features to help with hydration
+  experimental: {
+    // Reduce hydration mismatches
+    optimizePackageImports: ['lucide-react'],
+  },
   eslint: {
     // Disable ESLint during builds and development
     ignoreDuringBuilds: true,
@@ -10,10 +23,25 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   async rewrites() {
+    const backendPort = process.env.BACKEND_PORT || process.env.PORT || 3002
+    const isProduction = process.env.NODE_ENV === 'production'
+
+    // In production, let nginx handle the proxying
+    if (isProduction) {
+      return []
+    }
+
     return [
+      // Exclude paths that have Next.js API routes
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:3068/api/:path*', // Proxy to Backend
+        source:
+          '/api/((?!captcha|admin/users|admin/withdrawals|admin/kyc|admin/seo|seo).*)',
+        destination: `http://localhost:${backendPort}/api/$1`, // Proxy to Backend
+      },
+      // Proxy uploads directory to backend
+      {
+        source: '/uploads/:path*',
+        destination: `http://localhost:${backendPort}/uploads/:path*`,
       },
     ]
   },

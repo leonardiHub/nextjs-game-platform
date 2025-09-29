@@ -51,7 +51,7 @@ export default function AuthModal({
           {/* Logo */}
           <div className="mb-4">
             <img
-              src="pg-slot-logo.webp"
+              src="/pg-slot-logo.webp"
               alt="99Group"
               className="h-16 w-auto mx-auto"
             />

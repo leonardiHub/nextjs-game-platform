@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
 
     // Forward the request to your backend server
-    const response = await fetch('https://99group.games/api/register', {
+    const response = await fetch('http://localhost:3002/api/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
