@@ -52,13 +52,8 @@ export default function MediaSelectModal({
         token ? 'Token exists' : 'No token'
       )
 
-      const apiUrl =
-        typeof window !== 'undefined' &&
-        window.location.hostname === 'localhost'
-          ? 'http://localhost:3002'
-          : 'https://api.99group.games'
-
-      const response = await fetch(`${apiUrl}/api/admin/media`, {
+      // Use Next.js API route instead of calling backend directly
+      const response = await fetch('/api/admin/media', {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -70,8 +65,13 @@ export default function MediaSelectModal({
       if (response.ok) {
         const data = await response.json()
         console.log('Media files loaded:', data)
-        console.log('Type of data:', typeof data, 'Is array:', Array.isArray(data))
-        
+        console.log(
+          'Type of data:',
+          typeof data,
+          'Is array:',
+          Array.isArray(data)
+        )
+
         // Handle different response formats
         let files = []
         if (Array.isArray(data)) {
@@ -84,7 +84,7 @@ export default function MediaSelectModal({
           // API returns { data: [...] }
           files = data.data
         }
-        
+
         console.log('Parsed files count:', files.length)
         setMediaFiles(files)
       } else {
@@ -108,12 +108,6 @@ export default function MediaSelectModal({
       setUploading(true)
       const token = localStorage.getItem('adminToken')
 
-      const apiUrl =
-        typeof window !== 'undefined' &&
-        window.location.hostname === 'localhost'
-          ? 'http://localhost:3002'
-          : 'https://api.99group.games'
-
       const formData = new FormData()
       Array.from(files).forEach(file => {
         formData.append('files', file)
@@ -121,7 +115,8 @@ export default function MediaSelectModal({
       formData.append('alt_text', 'Featured image')
       formData.append('description', 'Uploaded for blog featured image')
 
-      const response = await fetch(`${apiUrl}/api/admin/media/upload`, {
+      // Use Next.js API route instead of calling backend directly
+      const response = await fetch('/api/admin/media/upload', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
