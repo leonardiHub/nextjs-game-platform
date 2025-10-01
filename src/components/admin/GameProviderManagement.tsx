@@ -107,8 +107,11 @@ export default function GameProviderManagement() {
       setSaving(true)
       const token = localStorage.getItem('adminToken')
       
-      const url = provider.id ? `/api/admin/game-library-providers/${provider.id}` : '/api/admin/game-library-providers'
-      const method = provider.id ? 'PUT' : 'POST'
+      // Use editingProvider's id if we're editing
+      const providerData = editingProvider ? { ...provider, id: editingProvider.id } : provider
+      
+      const url = providerData.id ? `/api/admin/game-library-providers/${providerData.id}` : '/api/admin/game-library-providers'
+      const method = providerData.id ? 'PUT' : 'POST'
       
       const response = await fetch(url, {
         method,
@@ -116,21 +119,22 @@ export default function GameProviderManagement() {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(provider)
+        body: JSON.stringify(providerData)
       })
 
       if (response.ok) {
-        setMessage({ type: 'success', text: `Provider ${provider.id ? 'updated' : 'created'} successfully` })
+        setMessage({ type: 'success', text: `Provider ${providerData.id ? 'updated' : 'created'} successfully` })
         await loadProviders()
         setShowAddForm(false)
         setEditingProvider(null)
         resetNewProvider()
       } else {
-        throw new Error('Failed to save provider')
+        const errorData = await response.json()
+        throw new Error(errorData.error || 'Failed to save provider')
       }
     } catch (error) {
       console.error('Error saving provider:', error)
-      setMessage({ type: 'error', text: 'Failed to save provider' })
+      setMessage({ type: 'error', text: error instanceof Error ? error.message : 'Failed to save provider' })
     } finally {
       setSaving(false)
     }
@@ -179,10 +183,7 @@ export default function GameProviderManagement() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    const providerData = editingProvider 
-      ? { ...newProvider, id: editingProvider.id } 
-      : newProvider
-    saveProvider(providerData)
+    saveProvider(newProvider)
   }
 
   if (loading) {

@@ -116,10 +116,23 @@ export async function DELETE(
       )
     }
 
-    // Check if provider has games (optional - you might want to prevent deletion)
+    // Get the provider code to match with game_providers table
+    const providerInfo = await dbGet(
+      'SELECT code FROM game_library_providers WHERE id = ?',
+      [providerId]
+    ) as any
+
+    if (!providerInfo) {
+      return NextResponse.json(
+        { error: 'Provider code not found' },
+        { status: 404 }
+      )
+    }
+
+    // Check if provider has games by matching provider codes
     const gameCount = await dbGet(
-      'SELECT COUNT(*) as count FROM games WHERE brand_id = ? OR provider_id = ?',
-      [providerId, providerId]
+      'SELECT COUNT(*) as count FROM games g JOIN game_providers p ON g.provider_id = p.id WHERE p.code = ?',
+      [providerInfo.code]
     ) as any
 
     if (gameCount && gameCount.count > 0) {
@@ -139,7 +152,11 @@ export async function DELETE(
   } catch (error) {
     console.error('Error deleting game library provider:', error)
     return NextResponse.json(
-      { error: 'Failed to delete game library provider' },
+      { 
+        error: 'Failed to delete game library provider',
+        details: error instanceof Error ? error.message : 'Unknown error',
+        stack: error instanceof Error ? error.stack : undefined
+      },
       { status: 500 }
     )
   }

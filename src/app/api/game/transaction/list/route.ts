@@ -130,13 +130,13 @@ export async function POST(request: NextRequest) {
             new Date(record.created_at as string)
               .toISOString()
               .replace('T', ' ')
-              .slice(0, 19),
+              ?.slice(0, 19),
         }))
 
       // Paginate results
       const startIndex = (page_no - 1) * validPageSize
       const endIndex = startIndex + validPageSize
-      const paginatedRecords = filteredRecords.slice(startIndex, endIndex)
+      const paginatedRecords = filteredRecords?.slice(startIndex, endIndex)
 
       const totalCount = filteredRecords.length
       const totalPages = Math.ceil(totalCount / validPageSize)

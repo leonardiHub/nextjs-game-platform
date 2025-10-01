@@ -3004,264 +3004,437 @@ app.post(
   }
 )
 
-// Get available games
-// Get available games
+// Admin Games Management Endpoints
+
+// Create game_library_providers table if it doesn't exist
+db.run(`
+  CREATE TABLE IF NOT EXISTS game_library_providers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    code TEXT NOT NULL UNIQUE,
+    logo_url TEXT,
+    description TEXT,
+    status TEXT DEFAULT 'active',
+    games_count INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+  )
+`)
+
+// Create games table if it doesn't exist
+db.run(`
+  CREATE TABLE IF NOT EXISTS games (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    code INTEGER NOT NULL,
+    game_uid TEXT NOT NULL UNIQUE,
+    type TEXT NOT NULL,
+    provider_id INTEGER NOT NULL,
+    rtp REAL DEFAULT 96.0,
+    status TEXT DEFAULT 'active',
+    featured BOOLEAN DEFAULT 0,
+    min_bet REAL DEFAULT 0.1,
+    max_bet REAL DEFAULT 100.0,
+    demo_url TEXT,
+    thumbnail_url TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    displaySequence INTEGER,
+    FOREIGN KEY(provider_id) REFERENCES game_library_providers(id)
+  )
+`)
+
+// Initialize default providers if empty
+db.get('SELECT COUNT(*) as count FROM game_library_providers', (err, row) => {
+  if (!err && row.count === 0) {
+    const defaultProviders = [
+      {
+        name: 'JILI Gaming',
+        code: 'JILI',
+        logo_url: '/images/providers/jili.png',
+        description: 'Leading Asian gaming provider',
+        status: 'active',
+        games_count: 12,
+      },
+      {
+        name: 'Pragmatic Play',
+        code: 'PP',
+        logo_url: '/images/providers/pragmatic.png',
+        description: 'World-class gaming content provider',
+        status: 'active',
+        games_count: 8,
+      },
+      {
+        name: 'PG Soft',
+        code: 'PG',
+        logo_url: '/images/providers/pgsoft.png',
+        description: 'Mobile-focused gaming solutions',
+        status: 'active',
+        games_count: 6,
+      },
+      {
+        name: 'Habanero',
+        code: 'HAB',
+        logo_url: '/images/providers/habanero.png',
+        description: 'Premium casino games provider',
+        status: 'active',
+        games_count: 4,
+      },
+      {
+        name: 'Red Tiger',
+        code: 'RT',
+        logo_url: '/images/providers/redtiger.png',
+        description: 'Innovative slot game developer',
+        status: 'active',
+        games_count: 3,
+      },
+    ]
+
+    defaultProviders.forEach(provider => {
+      db.run(
+        `
+        INSERT INTO game_library_providers (name, code, logo_url, description, status, games_count) 
+        VALUES (?, ?, ?, ?, ?, ?)
+      `,
+        [
+          provider.name,
+          provider.code,
+          provider.logo_url,
+          provider.description,
+          provider.status,
+          provider.games_count,
+        ]
+      )
+    })
+  }
+})
+
+// GET /api/admin/games - Get all games with provider information
+app.get('/api/admin/games', authenticateAdmin, (req, res) => {
+  db.all(
+    `
+    SELECT 
+      g.*,
+      p.name as provider_name,
+      p.code as provider_code
+    FROM games g
+    LEFT JOIN game_library_providers p ON g.provider_id = p.id
+    ORDER BY g.displaySequence ASC
+  `,
+    (err, games) => {
+      if (err) {
+        return res.status(500).json({ error: 'Failed to retrieve games' })
+      }
+
+      res.json({
+        games: games.map(game => ({
+          ...game,
+          featured: Boolean(game.featured),
+          displaySequence: game.displaySequence || null,
+          created_at: game.created_at,
+          updated_at: game.updated_at,
+        })),
+      })
+    }
+  )
+})
+
+// POST /api/admin/games - Create new game
+app.post('/api/admin/games', authenticateAdmin, (req, res) => {
+  const {
+    name,
+    code,
+    game_uid,
+    type,
+    provider_id,
+    rtp,
+    status,
+    featured,
+    displaySequence,
+    min_bet,
+    max_bet,
+    demo_url,
+    thumbnail_url,
+  } = req.body
+
+  // Validate required fields (allow 0 as valid value for code)
+  if (
+    !name ||
+    code === undefined ||
+    code === null ||
+    !game_uid ||
+    !type ||
+    !provider_id
+  ) {
+    return res.status(400).json({ error: 'Missing required fields' })
+  }
+
+  // Check if game UID already exists
+  db.get(
+    'SELECT id FROM games WHERE game_uid = ?',
+    [game_uid],
+    (err, existingGame) => {
+      if (err) {
+        return res.status(500).json({ error: 'Database error' })
+      }
+
+      if (existingGame) {
+        return res.status(400).json({ error: 'Game UID already exists' })
+      }
+
+      // Check if provider exists
+      db.get(
+        'SELECT id FROM game_library_providers WHERE id = ?',
+        [provider_id],
+        (err, provider) => {
+          if (err) {
+            return res.status(500).json({ error: 'Database error' })
+          }
+
+          if (!provider) {
+            return res.status(400).json({ error: 'Provider not found' })
+          }
+
+          // Get next display sequence if not provided
+          let finalDisplaySequence = displaySequence
+          if (!finalDisplaySequence) {
+            db.get(
+              'SELECT MAX(displaySequence) as maxSeq FROM games',
+              (err, maxSeq) => {
+                if (err) {
+                  return res.status(500).json({ error: 'Database error' })
+                }
+                finalDisplaySequence = (maxSeq?.maxSeq || 0) + 1
+                insertGame()
+              }
+            )
+          } else {
+            insertGame()
+          }
+
+          function insertGame() {
+            // Insert new game
+            db.run(
+              `
+          INSERT INTO games (
+            name, code, game_uid, type, provider_id, rtp, status, featured, displaySequence,
+            min_bet, max_bet, demo_url, thumbnail_url
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `,
+              [
+                name,
+                code,
+                game_uid,
+                type,
+                provider_id,
+                rtp || 96.0,
+                status || 'active',
+                featured ? 1 : 0,
+                finalDisplaySequence,
+                min_bet || 0.1,
+                max_bet || 100,
+                demo_url,
+                thumbnail_url,
+              ],
+              function (err) {
+                if (err) {
+                  return res
+                    .status(500)
+                    .json({ error: 'Failed to create game' })
+                }
+
+                res.json({
+                  success: true,
+                  id: this.lastID,
+                  message: 'Game created successfully',
+                })
+              }
+            )
+          }
+        }
+      )
+    }
+  )
+})
+
+// PUT /api/admin/games/:id - Update game
+app.put('/api/admin/games/:id', authenticateAdmin, (req, res) => {
+  const gameId = req.params.id
+  const {
+    name,
+    code,
+    game_uid,
+    type,
+    provider_id,
+    rtp,
+    status,
+    featured,
+    displaySequence,
+    min_bet,
+    max_bet,
+    demo_url,
+    thumbnail_url,
+  } = req.body
+
+  // Validate required fields (allow 0 as valid value for code)
+  if (
+    !name ||
+    code === undefined ||
+    code === null ||
+    !game_uid ||
+    !type ||
+    !provider_id
+  ) {
+    return res.status(400).json({ error: 'Missing required fields' })
+  }
+
+  // Check if game exists
+  db.get('SELECT id FROM games WHERE id = ?', [gameId], (err, existingGame) => {
+    if (err) {
+      return res.status(500).json({ error: 'Database error' })
+    }
+
+    if (!existingGame) {
+      return res.status(404).json({ error: 'Game not found' })
+    }
+
+    // Check if game UID is taken by another game
+    db.get(
+      'SELECT id FROM games WHERE game_uid = ? AND id != ?',
+      [game_uid, gameId],
+      (err, uidConflict) => {
+        if (err) {
+          return res.status(500).json({ error: 'Database error' })
+        }
+
+        if (uidConflict) {
+          return res.status(400).json({ error: 'Game UID already exists' })
+        }
+
+        // Check if provider exists
+        db.get(
+          'SELECT id FROM game_library_providers WHERE id = ?',
+          [provider_id],
+          (err, provider) => {
+            if (err) {
+              return res.status(500).json({ error: 'Database error' })
+            }
+
+            if (!provider) {
+              return res.status(400).json({ error: 'Provider not found' })
+            }
+
+            // Update game
+            db.run(
+              `
+          UPDATE games SET 
+            name = ?, code = ?, game_uid = ?, type = ?, provider_id = ?, rtp = ?, 
+            status = ?, featured = ?, displaySequence = ?, min_bet = ?, max_bet = ?, 
+            demo_url = ?, thumbnail_url = ?, updated_at = CURRENT_TIMESTAMP
+          WHERE id = ?
+        `,
+              [
+                name,
+                code,
+                game_uid,
+                type,
+                provider_id,
+                rtp || 96.0,
+                status || 'active',
+                featured ? 1 : 0,
+                displaySequence,
+                min_bet || 0.1,
+                max_bet || 100,
+                demo_url,
+                thumbnail_url,
+                gameId,
+              ],
+              function (err) {
+                if (err) {
+                  return res
+                    .status(500)
+                    .json({ error: 'Failed to update game' })
+                }
+
+                res.json({
+                  success: true,
+                  message: 'Game updated successfully',
+                })
+              }
+            )
+          }
+        )
+      }
+    )
+  })
+})
+
+// DELETE /api/admin/games/:id - Delete game
+app.delete('/api/admin/games/:id', authenticateAdmin, (req, res) => {
+  const gameId = req.params.id
+
+  db.run('DELETE FROM games WHERE id = ?', [gameId], function (err) {
+    if (err) {
+      return res.status(500).json({ error: 'Failed to delete game' })
+    }
+
+    if (this.changes === 0) {
+      return res.status(404).json({ error: 'Game not found' })
+    }
+
+    res.json({
+      success: true,
+      message: 'Game deleted successfully',
+    })
+  })
+})
+
+// GET /api/admin/game-library-providers - Get all providers
+app.get('/api/admin/game-library-providers', authenticateAdmin, (req, res) => {
+  db.all(
+    'SELECT * FROM game_library_providers ORDER BY name',
+    (err, providers) => {
+      if (err) {
+        return res.status(500).json({ error: 'Failed to retrieve providers' })
+      }
+
+      res.json({ providers })
+    }
+  )
+})
+
+// Get available games from database
 app.get('/api/games', (req, res) => {
-  // Keeping original fish games (no new fish games in the provided sheet)
-  const fishGames = [
-    {
-      name: 'Royal Fishing',
-      game_uid: 'e794bf5717aca371152df192341fe68b',
-      type: 'Fish Game',
-      code: 1,
-    },
-    {
-      name: 'Bombing Fishing',
-      game_uid: 'e333695bcff28acdbecc641ae6ee2b23',
-      type: 'Fish Game',
-      code: 20,
-    },
-    {
-      name: 'Dinosaur Tycoon',
-      game_uid: 'eef3e28f0e3e7b72cbca61e7924d00f1',
-      type: 'Fish Game',
-      code: 42,
-    },
-    {
-      name: 'Jackpot Fishing',
-      game_uid: '3cf4a85cb6dcf4d8836c982c359cd72d',
-      type: 'Fish Game',
-      code: 32,
-    },
-    {
-      name: 'Dragon Fortune',
-      game_uid: '1200b82493e4788d038849bca884d773',
-      type: 'Fish Game',
-      code: 60,
-    },
-  ]
+  console.log('🎮 Fetching games from database...')
+  const query = `
+    SELECT 
+      g.*,
+      p.name as provider_name,
+      p.code as provider_code
+    FROM games g
+    LEFT JOIN game_library_providers p ON g.provider_id = p.id
+    WHERE g.status = 'active'
+    ORDER BY g.displaySequence ASC
+  `
 
-  // Populated from your data sheet. Added `rtp` as a number.
-  const slotGames = [
-    {
-      code: 74,
-      name: 'Mahjong Ways 2',
-      game_uid: 'ba2adf72179e1ead9e3dae8f0a7d4c07',
-      type: 'Slot Game',
-      rtp: 96.95,
-    },
+  db.all(query, [], (err, games) => {
+    console.log('📊 Games fetched:', games ? games.length : 0, 'err:', err)
+    if (err) {
+      console.error('Error fetching games:', err)
+      return res.status(500).json({
+        success: false,
+        error: 'Failed to fetch games',
+      })
+    }
 
-    {
-      code: 87,
-      name: 'Treasures of Aztec',
-      game_uid: '2fa9a84d096d6ff0bab53f81b79876c8',
-      type: 'Slot Game',
-      rtp: 96.71,
-    },
-    {
-      code: 89,
-      name: 'Lucky Neko',
-      game_uid: 'e1b4c6b95746d519228744771f15fe4b',
-      type: 'Slot Game',
-      rtp: 96.73,
-    },
-    {
-      code: 98,
-      name: 'Fortune Ox',
-      game_uid: '8db4eb6d781f915eebab2a26133db0e9',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 104,
-      name: 'Wild Bandito',
-      game_uid: '95fc290bb05c07b5aad1a054eba4dcc4',
-      type: 'Slot Game',
-      rtp: 96.73,
-    },
-    {
-      code: 100,
-      name: 'Candy Bonanza',
-      game_uid: 'bbe2320adc5c506e7e56a2d24d96a252',
-      type: 'Slot Game',
-      rtp: 96.72,
-    },
-    {
-      code: 1918451,
-      name: 'Galaxy Miner',
-      game_uid: 'fa4fe0c5a06d857bae0aaf727fc863f3',
-      type: 'Slot Game',
-      rtp: 96.77,
-    },
-    {
-      code: 1897678,
-      name: "Dragon's Treasure Quest",
-      game_uid: '3a5aa3e08fc1ddb4ae99d2fb610174fe',
-      type: 'Slot Game',
-      rtp: 96.76,
-    },
-    {
-      code: 1935269,
-      name: 'Diner Frenzy Spins',
-      game_uid: '458dc4c4a81223b3616329330009dc25',
-      type: 'Slot Game',
-      rtp: 96.8,
-    },
-    {
-      code: 1834850,
-      name: 'Jack the Giant Hunter',
-      game_uid: '13109a0d9c012f7f92f192c34a8926bf',
-      type: 'Slot Game',
-      rtp: 96.8,
-    },
-    {
-      code: 1865521,
-      name: "Dead Man's Riches",
-      game_uid: '20107ddd668c254f68b3a77219051801',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1881268,
-      name: 'Knockout Riches',
-      game_uid: '0f5374a4766f204a6420120dcfecd9e2',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1827457,
-      name: 'Doomsday Rampage',
-      game_uid: '52c57d366518d7b6e38e51ca20272584',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1804577,
-      name: 'Graffiti Rush',
-      game_uid: 'bfe3d243abaa1cc4b23d66909fbf6beb',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1799745,
-      name: 'Mr. Treasure’s Fortune',
-      game_uid: '8004c0cdbe396264d035b7a4aba58021',
-      type: 'Slot Game',
-      rtp: 96.71,
-    },
-    {
-      code: 1850016,
-      name: 'Incan Wonders',
-      game_uid: 'b769cb768fa25699ddb695933bde781a',
-      type: 'Slot Game',
-      rtp: 96.74,
-    },
-    {
-      code: 1879752,
-      name: 'Fortune Snake',
-      game_uid: '557babad95070382c94d184090133a72',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1702123,
-      name: "Geisha's Revenge",
-      game_uid: '9d9019d51ed9300035a4160d187b2a29',
-      type: 'Slot Game',
-      rtp: 96.81,
-    },
-    {
-      code: 1666445,
-      name: 'Chocolate Deluxe',
-      game_uid: '5d6ec1ea66a6e374a6d618c7d4b814f7',
-      type: 'Slot Game',
-      rtp: 96.76,
-    },
-    {
-      code: 1786529,
-      name: 'Rio Fantasia',
-      game_uid: 'dc242e2abfe13435226e9dbe8865c2ed',
-      type: 'Slot Game',
-      rtp: 96.76,
-    },
-    {
-      code: 1815268,
-      name: 'Oishi Delights',
-      game_uid: '5af319aeb42d316100789fa1670ed869',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1727711,
-      name: 'Three Crazy Piggies',
-      game_uid: 'a197ff914cb04283a02da3b65d8ba705',
-      type: 'Slot Game',
-      rtp: 96.72,
-    },
-    {
-      code: 1747549,
-      name: 'Wings of Iguazu',
-      game_uid: '6ae667b26f908e5ebe8976ca334fd472',
-      type: 'Slot Game',
-      rtp: 96.78,
-    },
-    {
-      code: 1760238,
-      name: 'Yakuza Honor',
-      game_uid: 'e4772d4ef1de4217915c678d0d1722a8',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1778752,
-      name: 'Futebol Fever',
-      game_uid: '314afef87ff2974867234ac317b37f4c',
-      type: 'Slot Game',
-      rtp: 96.73,
-    },
-    {
-      code: 1738001,
-      name: 'Chicky Run',
-      game_uid: 'c3e600005f72f1d1cabe758e206daf57',
-      type: 'Gamble Game',
-      rtp: 96.0,
-    },
-    {
-      code: 1635221,
-      name: 'Zombie Outbreak',
-      game_uid: '83b6eceea77859c14426b05480b96c34',
-      type: 'Slot Game',
-      rtp: 96.76,
-    },
-    {
-      code: 1623475,
-      name: 'Anubis Wrath',
-      game_uid: 'c268154a85669eea35aa46387834ac76',
-      type: 'Slot Game',
-      rtp: 96.75,
-    },
-    {
-      code: 1717688,
-      name: 'Mystic Potion',
-      game_uid: 'e61bde75d590e943d2c5c6d432b29b46',
-      type: 'Slot Game',
-      rtp: 96.73,
-    },
-    {
-      code: 1695365,
-      name: 'Fortune Dragon',
-      game_uid: 'c5435a8a73707a3a8bb4fe8baaaef3d2',
-      type: 'Slot Game',
-      rtp: 96.74,
-    },
-  ]
-
-  res.json({
-    success: true,
-    games: {
-      fishGames: fishGames,
-      slotGames: slotGames,
-    },
+    res.json({
+      success: true,
+      games: games.map(game => ({
+        ...game,
+        featured: Boolean(game.featured),
+        displaySequence: game.displaySequence || null,
+      })),
+    })
   })
 })
 

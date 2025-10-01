@@ -460,29 +460,38 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new game
-    const result = (await dbRun(
-      `
-      INSERT INTO games (
-        name, code, game_uid, type, provider_id, rtp, status, featured, displaySequence,
-        min_bet, max_bet, demo_url, thumbnail_url
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `,
-      [
-        name,
-        code,
-        game_uid,
-        type,
-        provider_id,
-        rtp || 96.0,
-        status || 'active',
-        featured ? 1 : 0,
-        finalDisplaySequence,
-        min_bet || 0.1,
-        max_bet || 100,
-        demo_url,
-        thumbnail_url,
-      ]
-    )) as any
+    const result = await new Promise((resolve, reject) => {
+      db.run(
+        `
+        INSERT INTO games (
+          name, code, game_uid, type, provider_id, rtp, status, featured, displaySequence,
+          min_bet, max_bet, demo_url, thumbnail_url
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+      `,
+        [
+          name,
+          code,
+          game_uid,
+          type,
+          provider_id,
+          rtp || 96.0,
+          status || 'active',
+          featured ? 1 : 0,
+          finalDisplaySequence,
+          min_bet || 0.1,
+          max_bet || 100,
+          demo_url,
+          thumbnail_url,
+        ],
+        function(err) {
+          if (err) {
+            reject(err)
+          } else {
+            resolve({ lastID: this.lastID })
+          }
+        }
+      )
+    }) as any
 
     return NextResponse.json({
       success: true,

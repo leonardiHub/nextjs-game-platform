@@ -4,7 +4,7 @@ export const API_CONFIG = {
   BASE_URL:
     process.env.NODE_ENV === 'production'
       ? 'https://99group.games'
-      : 'http://localhost:3002',
+      : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
 
   // Frontend base URL
   FRONTEND_URL:

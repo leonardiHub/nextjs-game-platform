@@ -17,31 +17,31 @@ import {
   ToggleLeft,
   ToggleRight,
 } from 'lucide-react'
+import { adminGet, adminPost, adminPut, adminDelete } from '@/utils/adminApi'
 
 interface Game {
-  id: string
+  id: number
   name: string
   code: number
   game_uid: string
   type: 'Slot Game' | 'Fish Game' | 'Table Game' | 'Arcade Game'
-  provider_id: string
+  provider_id: number
   provider_name: string
+  provider_code: string
   rtp: number
   status: 'active' | 'inactive'
   featured: boolean
-  displaySequence?: number
+  displaySequence?: number | null
   min_bet: number
   max_bet: number
-  currency: string
-  language: string
-  demo_url?: string
-  thumbnail_url?: string
+  demo_url?: string | null
+  thumbnail_url?: string | null
   created_at: string
   updated_at: string
 }
 
 interface GameProvider {
-  id: string
+  id: number
   name: string
   code: string
   status: string
@@ -78,15 +78,13 @@ export default function GameLibraryManagement() {
     code: 0,
     game_uid: '',
     type: 'Slot Game',
-    provider_id: '',
+    provider_id: 0,
     rtp: 96.5,
     status: 'active',
     featured: false,
     displaySequence: undefined,
     min_bet: 0.1,
     max_bet: 100,
-    currency: 'USD',
-    language: 'en',
     demo_url: '',
     thumbnail_url: '',
   })
@@ -98,121 +96,34 @@ export default function GameLibraryManagement() {
   const loadData = async () => {
     try {
       setLoading(true)
-      const token = localStorage.getItem('adminToken')
 
       // Load games and providers
-      const [gamesResponse, providersResponse] = await Promise.all([
-        fetch('/api/admin/games', {
-          headers: { Authorization: `Bearer ${token}` },
-        }),
-        fetch('/api/admin/game-library-providers', {
-          headers: { Authorization: `Bearer ${token}` },
-        }),
+      const [gamesData, providersData] = await Promise.all([
+        adminGet('/games').catch(() => ({ games: [] })),
+        adminGet('/game-library-providers').catch(() => ({ providers: [] })),
       ])
 
-      if (gamesResponse.ok && providersResponse.ok) {
-        const [gamesData, providersData] = await Promise.all([
-          gamesResponse.json(),
-          providersResponse.json(),
-        ])
-
-        setData({
-          games: gamesData.games || [],
-          providers: providersData.providers || [],
-        })
-      } else {
-        // Load demo data if API not implemented
-        setData({
-          games: [
-            {
-              id: '1',
-              name: 'Mahjong Ways 2',
-              code: 74,
-              game_uid: 'ba2adf72179e1ead9e3dae8f0a7d4c07',
-              type: 'Slot Game',
-              provider_id: '1',
-              provider_name: 'JILI Gaming',
-              rtp: 96.95,
-              status: 'active',
-              featured: true,
-              min_bet: 0.1,
-              max_bet: 100,
-              currency: 'USD',
-              language: 'en',
-              demo_url: 'https://demo.example.com/mahjong-ways-2',
-              thumbnail_url: '/images/games/mahjong-ways-2.jpg',
-              created_at: '2024-01-01T00:00:00Z',
-              updated_at: '2024-01-01T00:00:00Z',
-            },
-            {
-              id: '2',
-              name: 'Royal Fishing',
-              code: 1,
-              game_uid: 'e794bf5717aca371152df192341fe68b',
-              type: 'Fish Game',
-              provider_id: '1',
-              provider_name: 'JILI Gaming',
-              rtp: 95.8,
-              status: 'active',
-              featured: false,
-              min_bet: 0.1,
-              max_bet: 50,
-              currency: 'USD',
-              language: 'en',
-              demo_url: 'https://demo.example.com/royal-fishing',
-              thumbnail_url: '/images/games/royal-fishing.jpg',
-              created_at: '2024-01-01T00:00:00Z',
-              updated_at: '2024-01-01T00:00:00Z',
-            },
-            {
-              id: '3',
-              name: 'Fortune Ox',
-              code: 98,
-              game_uid: '8db4eb6d781f915eebab2a26133db0e9',
-              type: 'Slot Game',
-              provider_id: '1',
-              provider_name: 'JILI Gaming',
-              rtp: 96.75,
-              status: 'inactive',
-              featured: false,
-              min_bet: 0.1,
-              max_bet: 200,
-              currency: 'USD',
-              language: 'en',
-              demo_url: 'https://demo.example.com/fortune-ox',
-              thumbnail_url: '/images/games/fortune-ox.jpg',
-              created_at: '2024-01-01T00:00:00Z',
-              updated_at: '2024-01-01T00:00:00Z',
-            },
-          ],
-          providers: [
-            {
-              id: '1',
-              name: 'JILI Gaming',
-              code: 'JILI',
-              status: 'inactive',
-              game_count: 5,
-            },
-            {
-              id: '2',
-              name: 'PG Soft',
-              code: 'PG',
-              status: 'active',
-              game_count: 28,
-            },
-            {
-              id: '3',
-              name: 'Pragmatic Play',
-              code: 'PP',
-              status: 'active',
-              game_count: 0,
-            },
-          ],
-        })
-      }
+      setData({
+        games: gamesData.games || [],
+        providers: providersData.providers || [],
+      })
     } catch (error) {
       console.error('Error loading data:', error)
       setMessage({ type: 'error', text: 'Failed to load game library data' })
+
+      // Load fallback data on error
+      setData({
+        games: [],
+        providers: [
+          {
+            id: 1,
+            name: 'JILI Gaming',
+            code: 'JILI',
+            status: 'active',
+            game_count: 0,
+          },
+        ],
+      })
     } finally {
       setLoading(false)
     }
@@ -221,32 +132,21 @@ export default function GameLibraryManagement() {
   const saveGame = async (game: Partial<Game>) => {
     try {
       setSaving(true)
-      const token = localStorage.getItem('adminToken')
 
-      const url = game.id ? `/api/admin/games/${game.id}` : '/api/admin/games'
-      const method = game.id ? 'PUT' : 'POST'
-
-      const response = await fetch(url, {
-        method,
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(game),
-      })
-
-      if (response.ok) {
-        setMessage({
-          type: 'success',
-          text: `Game ${game.id ? 'updated' : 'created'} successfully`,
-        })
-        await loadData()
-        setShowAddForm(false)
-        setEditingGame(null)
-        resetNewGame()
+      if (game.id) {
+        await adminPut(`/games/${game.id}`, game)
       } else {
-        throw new Error('Failed to save game')
+        await adminPost('/games', game)
       }
+
+      setMessage({
+        type: 'success',
+        text: `Game ${game.id ? 'updated' : 'created'} successfully`,
+      })
+      await loadData()
+      setShowAddForm(false)
+      setEditingGame(null)
+      resetNewGame()
     } catch (error) {
       console.error('Error saving game:', error)
       setMessage({ type: 'error', text: 'Failed to save game' })
@@ -255,7 +155,7 @@ export default function GameLibraryManagement() {
     }
   }
 
-  const deleteGame = async (gameId: string) => {
+  const deleteGame = async (gameId: number) => {
     if (
       !confirm(
         'Are you sure you want to delete this game? This action cannot be undone.'
@@ -266,22 +166,9 @@ export default function GameLibraryManagement() {
 
     try {
       setSaving(true)
-      const token = localStorage.getItem('adminToken')
-
-      const response = await fetch(`/api/admin/games/${gameId}`, {
-        method: 'DELETE',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-
-      if (response.ok) {
-        setMessage({ type: 'success', text: 'Game deleted successfully' })
-        await loadData()
-      } else {
-        throw new Error('Failed to delete game')
-      }
+      await adminDelete(`/games/${gameId}`)
+      setMessage({ type: 'success', text: 'Game deleted successfully' })
+      await loadData()
     } catch (error) {
       console.error('Error deleting game:', error)
       setMessage({ type: 'error', text: 'Failed to delete game' })
@@ -290,7 +177,7 @@ export default function GameLibraryManagement() {
     }
   }
 
-  const toggleGameStatus = async (gameId: string, currentStatus: string) => {
+  const toggleGameStatus = async (gameId: number, currentStatus: string) => {
     const newStatus = currentStatus === 'active' ? 'inactive' : 'active'
     const game = data.games.find(g => g.id === gameId)
     if (game) {
@@ -304,15 +191,13 @@ export default function GameLibraryManagement() {
       code: 0,
       game_uid: '',
       type: 'Slot Game',
-      provider_id: '',
+      provider_id: 0,
       rtp: 96.5,
       status: 'active',
       featured: false,
       displaySequence: undefined,
       min_bet: 0.1,
       max_bet: 100,
-      currency: 'USD',
-      language: 'en',
       demo_url: '',
       thumbnail_url: '',
     })
@@ -591,13 +476,14 @@ export default function GameLibraryManagement() {
                     editingGame ? editingGame.provider_id : newGame.provider_id
                   }
                   onChange={e => {
+                    const providerId = parseInt(e.target.value) || 0
                     if (editingGame) {
                       setEditingGame({
                         ...editingGame,
-                        provider_id: e.target.value,
+                        provider_id: providerId,
                       })
                     } else {
-                      setNewGame({ ...newGame, provider_id: e.target.value })
+                      setNewGame({ ...newGame, provider_id: providerId })
                     }
                   }}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"

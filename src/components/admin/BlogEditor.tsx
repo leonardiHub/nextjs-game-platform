@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { 
-  Save, 
-  X, 
-  Eye, 
+import {
+  Save,
+  X,
+  Eye,
   ArrowLeft,
   AlertCircle,
   CheckCircle2,
@@ -20,10 +20,11 @@ import {
   Settings,
   Search,
   FileText,
-  Monitor
+  Monitor,
 } from 'lucide-react'
 import RichTextEditor from './RichTextEditor'
 import MediaSelectModal from './MediaSelectModal'
+import { getApiUrl, API_CONFIG } from '../../utils/config'
 
 interface BlogPost {
   id?: number
@@ -62,7 +63,11 @@ interface BlogEditorProps {
   onSave: () => void
 }
 
-export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps) {
+export default function BlogEditor({
+  blogId,
+  onClose,
+  onSave,
+}: BlogEditorProps) {
   const [blog, setBlog] = useState<BlogPost>({
     title: '',
     slug: '',
@@ -75,19 +80,28 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
     tags: [],
     seo_title: '',
     seo_description: '',
-    scheduled_at: null
+    scheduled_at: null,
   })
 
   const [categories, setCategories] = useState<Category[]>([])
   const [tags, setTags] = useState<Tag[]>([])
   const [loading, setLoading] = useState(false)
   const [saving, setSaving] = useState(false)
-  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  const [message, setMessage] = useState<{
+    type: 'success' | 'error'
+    text: string
+  } | null>(null)
   const [mediaSelectModal, setMediaSelectModal] = useState(false)
-  const [featuredImage, setFeaturedImage] = useState<{ id: number; url: string; alt_text: string } | null>(null)
+  const [featuredImage, setFeaturedImage] = useState<{
+    id: number
+    url: string
+    alt_text: string
+  } | null>(null)
   const [newTagInput, setNewTagInput] = useState('')
   const [creatingTag, setCreatingTag] = useState(false)
-  const [activeTab, setActiveTab] = useState<'content' | 'settings' | 'seo' | 'preview'>('content')
+  const [activeTab, setActiveTab] = useState<
+    'content' | 'settings' | 'seo' | 'preview'
+  >('content')
 
   useEffect(() => {
     loadCategories()
@@ -126,7 +140,8 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
     setBlog(prev => {
       const updates: any = { title: value }
       // Auto-fill SEO title if it matches the previous title (meaning it was auto-filled) or is empty
-      const shouldAutoFill = !blogId && (prev.seo_title === '' || prev.seo_title === prev.title)
+      const shouldAutoFill =
+        !blogId && (prev.seo_title === '' || prev.seo_title === prev.title)
       if (shouldAutoFill && value) {
         updates.seo_title = value
       }
@@ -139,7 +154,9 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
     setBlog(prev => {
       const updates: any = { excerpt: value }
       // Auto-fill SEO description if it matches the previous excerpt (meaning it was auto-filled) or is empty
-      const shouldAutoFill = !blogId && (prev.seo_description === '' || prev.seo_description === prev.excerpt)
+      const shouldAutoFill =
+        !blogId &&
+        (prev.seo_description === '' || prev.seo_description === prev.excerpt)
       if (shouldAutoFill && value) {
         updates.seo_description = value
       }
@@ -153,18 +170,18 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
     try {
       setLoading(true)
       const token = localStorage.getItem('adminToken')
-      
+
       if (!token) {
         throw new Error('No admin token found. Please login first.')
       }
-      
-      const response = await fetch(`http://localhost:3002/api/admin/blogs/${blogId}`, {
+
+      const response = await fetch(getApiUrl(`/api/admin/blogs/${blogId}`), {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       })
-      
+
       if (!response.ok) {
         const error = await response.json()
         if (response.status === 401 || response.status === 403) {
@@ -187,9 +204,9 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
         tags: data.tags?.map((tag: any) => tag.id) || [],
         seo_title: data.seo_title,
         seo_description: data.seo_description,
-        scheduled_at: data.scheduled_at
+        scheduled_at: data.scheduled_at,
       })
-      
+
       // Load featured image if exists
       if (data.featured_image_id) {
         loadFeaturedImage(data.featured_image_id)
@@ -204,13 +221,13 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
   const loadCategories = async () => {
     try {
       const token = localStorage.getItem('adminToken')
-      const response = await fetch('http://localhost:3002/api/admin/categories', {
+      const response = await fetch(getApiUrl('/api/admin/categories'), {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       })
-      
+
       if (response.ok) {
         const data = await response.json()
         // Flatten hierarchical categories for simple selection
@@ -234,13 +251,13 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
   const loadTags = async () => {
     try {
       const token = localStorage.getItem('adminToken')
-      const response = await fetch('http://localhost:3002/api/admin/tags', {
+      const response = await fetch(getApiUrl('/api/admin/tags'), {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       })
-      
+
       if (response.ok) {
         const data = await response.json()
         setTags(data)
@@ -255,44 +272,49 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
   const loadFeaturedImage = async (imageId: number) => {
     try {
       const token = localStorage.getItem('adminToken')
-      const response = await fetch(`http://localhost:3002/api/admin/media/${imageId}`, {
+      const response = await fetch(getApiUrl(`/api/admin/media/${imageId}`), {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       })
-      
+
       if (response.ok) {
         const data = await response.json()
         console.log('Loaded featured image data:', data)
-        
+
         // Ensure URL is properly formatted
         let imageUrl = data.url || ''
         if (imageUrl) {
-          if (imageUrl.startsWith('http://localhost:3002')) {
+          if (
+            imageUrl.startsWith('http://localhost:3002') ||
+            imageUrl.startsWith('https://99group.games')
+          ) {
             // Already correct
           } else if (imageUrl.startsWith('http')) {
             // Other http URL, keep as is
           } else {
-            // Remove any existing localhost:3001 references and rebuild
-            let cleanUrl = imageUrl.replace('http://localhost:3001', '')
-            
+            // Remove any existing localhost references and rebuild
+            let cleanUrl = imageUrl
+              .replace('http://localhost:3001', '')
+              .replace('http://localhost:3002', '')
+
             // If URL doesn't start with /uploads, add the full media path
             if (!cleanUrl.startsWith('/uploads')) {
               // Assume it's a filename that should be in /uploads/media/images/
               cleanUrl = `/uploads/media/images/${cleanUrl.replace(/^\/+/, '')}`
             }
-            
-            imageUrl = `http://localhost:3002${cleanUrl}`
+
+            imageUrl = `${API_CONFIG.BASE_URL}${cleanUrl}`
           }
         }
-        
+
         const featuredImageData = {
           id: data.id,
           url: imageUrl,
-          alt_text: data.alt_text || data.original_name
+          alt_text: data.alt_text || data.original_name,
         }
-        
+
         console.log('Setting loaded featured image:', featuredImageData)
         setFeaturedImage(featuredImageData)
       }
@@ -303,7 +325,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
   const handleFeaturedImageSelect = (media: any) => {
     console.log('Selected media:', media)
-    
+
     // Ensure URL is properly formatted
     let imageUrl = media.url || ''
     if (imageUrl) {
@@ -312,45 +334,46 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
         let cleanUrl = imageUrl
           .replace('http://localhost:3002', '')
           .replace('http://localhost:3001', '')
-        
+          .replace('https://99group.games', '')
+
         // If URL doesn't start with /uploads, add the full media path
         if (!cleanUrl.startsWith('/uploads')) {
           // Assume it's a filename that should be in /uploads/media/images/
           cleanUrl = `/uploads/media/images/${cleanUrl.replace(/^\/+/, '')}`
         }
-        
-        // Use backend URL directly due to proxy issues
-        imageUrl = `http://localhost:3002${cleanUrl}`
+
+        // Use dynamic API URL
+        imageUrl = `${getApiUrl('')}${cleanUrl}`
       } else {
         // Relative path - add full media path if needed
         if (!imageUrl.startsWith('/uploads')) {
           imageUrl = `/uploads/media/images/${imageUrl.replace(/^\/+/, '')}`
         }
-        // Use backend URL directly
-        imageUrl = `http://localhost:3002${imageUrl}`
+        // Use dynamic API URL
+        imageUrl = `${API_CONFIG.BASE_URL}${imageUrl}`
       }
     }
-    
+
     const featuredImageData = {
       id: media.id,
       url: imageUrl,
-      alt_text: media.alt_text || media.original_name
+      alt_text: media.alt_text || media.original_name,
     }
-    
-                    console.log('Setting featured image:', featuredImageData)
+
+    console.log('Setting featured image:', featuredImageData)
     console.log('Image URL being set:', imageUrl)
-    
+
     // Test if image can be loaded
     const testImg = new Image()
     testImg.crossOrigin = 'anonymous'
     testImg.onload = () => {
       console.log('✅ Test image loaded successfully:', imageUrl)
     }
-    testImg.onerror = (e) => {
+    testImg.onerror = e => {
       console.error('❌ Test image failed to load:', imageUrl, e)
     }
     testImg.src = imageUrl
-    
+
     setFeaturedImage(featuredImageData)
     setBlog(prev => ({ ...prev, featured_image_id: media.id }))
     setMediaSelectModal(false)
@@ -373,7 +396,10 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
   }
 
   // Function to upload base64 image to media library
-  const uploadBase64Image = async (base64Src: string, token: string): Promise<string> => {
+  const uploadBase64Image = async (
+    base64Src: string,
+    token: string
+  ): Promise<string> => {
     try {
       // Extract mime type and base64 data
       const matches = base64Src.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/)
@@ -383,10 +409,10 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
       const mimeType = matches[1]
       const base64Data = matches[2]
-      
+
       // Convert to blob
       const blob = base64ToBlob(base64Src, mimeType)
-      
+
       // Create form data
       const formData = new FormData()
       const filename = `pasted-image-${Date.now()}.${mimeType.split('/')[1]}`
@@ -398,7 +424,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
       const response = await fetch('/api/admin/media/upload', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
         body: formData,
       })
@@ -421,17 +447,21 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
   }
 
   // Function to process content and upload base64 images
-  const processAndUploadImages = async (content: string, token: string): Promise<string> => {
+  const processAndUploadImages = async (
+    content: string,
+    token: string
+  ): Promise<string> => {
     // Find all base64 images in the content
-    const base64ImageRegex = /<img[^>]+src="data:image\/[^;]+;base64,[^"]*"[^>]*>/gi
+    const base64ImageRegex =
+      /<img[^>]+src="data:image\/[^;]+;base64,[^"]*"[^>]*>/gi
     const matches = content.match(base64ImageRegex)
-    
+
     if (!matches || matches.length === 0) {
       return content // No base64 images found
     }
 
     let processedContent = content
-    
+
     // Process each base64 image
     for (const match of matches) {
       try {
@@ -439,21 +469,23 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
         const srcMatch = match.match(/src="(data:image\/[^;]+;base64,[^"]*)"/)
         if (srcMatch && srcMatch[1]) {
           const base64Src = srcMatch[1]
-          
+
           // Upload the image
           const uploadedUrl = await uploadBase64Image(base64Src, token)
-          
+
           // Replace the base64 src with the uploaded URL
           processedContent = processedContent.replace(base64Src, uploadedUrl)
-          
-          console.log(`Successfully uploaded and replaced base64 image with: ${uploadedUrl}`)
+
+          console.log(
+            `Successfully uploaded and replaced base64 image with: ${uploadedUrl}`
+          )
         }
       } catch (error) {
         console.error('Failed to upload base64 image:', error)
         // Continue with other images even if one fails
       }
     }
-    
+
     return processedContent
   }
 
@@ -479,15 +511,15 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
     try {
       setSaving(true)
-      
+
       const token = localStorage.getItem('adminToken')
       if (!token) {
         throw new Error('No admin token found. Please login first.')
       }
-      
+
       // Process content and upload any base64 images
       let processedContent = blog.content
-      
+
       // Check if content contains base64 images
       if (blog.content.includes('data:image/')) {
         showMessage('success', 'Processing and uploading images...')
@@ -496,23 +528,35 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
           showMessage('success', 'Images uploaded successfully!')
         } catch (error) {
           console.error('Error processing images:', error)
-          showMessage('error', 'Some images failed to upload, but continuing with save...')
+          showMessage(
+            'error',
+            'Some images failed to upload, but continuing with save...'
+          )
         }
       }
-      
+
       const blogData = {
         ...blog,
         content: processedContent,
-        status: finalStatus
+        status: finalStatus,
+        // Ensure required fields are present
+        author: blog.author || 'Admin',
+        // Convert empty strings to null for optional fields
+        slug: blog.slug || null,
+        excerpt: blog.excerpt || null,
+        seo_title: blog.seo_title || null,
+        seo_description: blog.seo_description || null,
       }
 
-      const url = blogId ? `http://localhost:3002/api/admin/blogs/${blogId}` : 'http://localhost:3002/api/admin/blogs'
+      const url = blogId
+        ? getApiUrl(`/api/admin/blogs/${blogId}`)
+        : getApiUrl('/api/admin/blogs')
       const method = blogId ? 'PUT' : 'POST'
 
       const response = await fetch(url, {
         method,
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(blogData),
@@ -525,12 +569,12 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
       const result = await response.json()
       showMessage('success', result.message || 'Blog saved successfully')
-      
+
       // Update the blog content with processed content
       if (processedContent !== blog.content) {
         setBlog(prev => ({ ...prev, content: processedContent }))
       }
-      
+
       onSave()
     } catch (error: any) {
       showMessage('error', error.message || 'Failed to save blog')
@@ -549,7 +593,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
       ...prev,
       tags: prev.tags.includes(tagId)
         ? prev.tags.filter(id => id !== tagId)
-        : [...prev.tags, tagId]
+        : [...prev.tags, tagId],
     }))
   }
 
@@ -558,20 +602,24 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
     try {
       setCreatingTag(true)
-      
+
       const token = localStorage.getItem('adminToken')
-      const response = await fetch('http://localhost:3002/api/admin/tags', {
+      const response = await fetch(getApiUrl('/api/admin/tags'), {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: newTagInput.trim(),
-          slug: newTagInput.trim().toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-'),
-          color: '#' + Math.floor(Math.random()*16777215).toString(16), // 随机颜色
-          is_featured: false
-        })
+          slug: newTagInput
+            .trim()
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-'),
+          color: '#' + Math.floor(Math.random() * 16777215).toString(16), // 随机颜色
+          is_featured: false,
+        }),
       })
 
       if (!response.ok) {
@@ -580,19 +628,19 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
       }
 
       const newTag = await response.json()
-      
+
       // 更新标签列表
       setTags(prev => [...prev, newTag])
-      
+
       // 自动选择新创建的标签
       setBlog(prev => ({
         ...prev,
-        tags: [...prev.tags, newTag.id]
+        tags: [...prev.tags, newTag.id],
       }))
-      
+
       // 清空输入框
       setNewTagInput('')
-      
+
       showMessage('success', `Tag "${newTag.name}" created successfully`)
     } catch (error: any) {
       showMessage('error', error.message || 'Failed to create tag')
@@ -628,7 +676,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
             {blogId ? 'Edit Blog Post' : 'Create New Blog Post'}
           </h2>
         </div>
-        
+
         <div className="flex items-center space-x-3">
           <button
             onClick={() => handleSave('draft')}
@@ -639,7 +687,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
             <Save className="w-4 h-4" />
             <span>Save Draft</span>
           </button>
-          
+
           <button
             onClick={() => handleSave('published')}
             disabled={saving}
@@ -649,7 +697,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
             <Eye className="w-4 h-4" />
             <span>Publish</span>
           </button>
-          
+
           <button
             onClick={onClose}
             className="flex items-center justify-center w-8 h-8 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-colors"
@@ -662,17 +710,23 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
       {/* Message */}
       {message && (
-        <div className={`mx-6 mt-4 flex items-center space-x-3 p-4 rounded-lg ${
-          message.type === 'success' 
-            ? 'bg-green-50 border border-green-200' 
-            : 'bg-red-50 border border-red-200'
-        }`}>
+        <div
+          className={`mx-6 mt-4 flex items-center space-x-3 p-4 rounded-lg ${
+            message.type === 'success'
+              ? 'bg-green-50 border border-green-200'
+              : 'bg-red-50 border border-red-200'
+          }`}
+        >
           {message.type === 'success' ? (
             <CheckCircle2 className="w-5 h-5 text-green-600" />
           ) : (
             <AlertCircle className="w-5 h-5 text-red-600" />
           )}
-          <span className={message.type === 'success' ? 'text-green-800' : 'text-red-800'}>
+          <span
+            className={
+              message.type === 'success' ? 'text-green-800' : 'text-red-800'
+            }
+          >
             {message.text}
           </span>
         </div>
@@ -756,7 +810,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                 <input
                   type="text"
                   value={blog.title}
-                  onChange={(e) => handleTitleChange(e.target.value)}
+                  onChange={e => handleTitleChange(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-lg"
                   placeholder="Enter blog title..."
                 />
@@ -770,7 +824,9 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                 <input
                   type="text"
                   value={blog.slug}
-                  onChange={(e) => setBlog(prev => ({ ...prev, slug: e.target.value }))}
+                  onChange={e =>
+                    setBlog(prev => ({ ...prev, slug: e.target.value }))
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                   placeholder="blog-url-slug"
                 />
@@ -783,7 +839,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                 </label>
                 <textarea
                   value={blog.excerpt}
-                  onChange={(e) => handleExcerptChange(e.target.value)}
+                  onChange={e => handleExcerptChange(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                   rows={3}
                   placeholder="Brief description of the blog post..."
@@ -798,7 +854,9 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                 <div className="flex-1 min-h-0">
                   <RichTextEditor
                     content={blog.content}
-                    onChange={(content) => setBlog(prev => ({ ...prev, content }))}
+                    onChange={content =>
+                      setBlog(prev => ({ ...prev, content }))
+                    }
                     placeholder="Write your blog content here... You can paste from Google Docs, Word, or any rich text source."
                   />
                 </div>
@@ -809,8 +867,10 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
           {activeTab === 'seo' && (
             <div className="max-w-2xl mx-auto space-y-6">
               <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">SEO Optimization</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  SEO Optimization
+                </h3>
+
                 <div className="space-y-4">
                   <div>
                     <div className="flex items-center justify-between mb-2">
@@ -830,7 +890,12 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                     <input
                       type="text"
                       value={blog.seo_title}
-                      onChange={(e) => setBlog(prev => ({ ...prev, seo_title: e.target.value }))}
+                      onChange={e =>
+                        setBlog(prev => ({
+                          ...prev,
+                          seo_title: e.target.value,
+                        }))
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                       placeholder="SEO optimized title"
                     />
@@ -844,41 +909,54 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                       <label className="block text-sm font-medium text-gray-700">
                         SEO Description
                       </label>
-                      {blog.excerpt && blog.excerpt !== blog.seo_description && (
-                        <button
-                          type="button"
-                          onClick={suggestSEODescription}
-                          className="text-xs text-blue-600 hover:text-blue-800 underline"
-                        >
-                          Use excerpt
-                        </button>
-                      )}
+                      {blog.excerpt &&
+                        blog.excerpt !== blog.seo_description && (
+                          <button
+                            type="button"
+                            onClick={suggestSEODescription}
+                            className="text-xs text-blue-600 hover:text-blue-800 underline"
+                          >
+                            Use excerpt
+                          </button>
+                        )}
                     </div>
                     <textarea
                       value={blog.seo_description}
-                      onChange={(e) => setBlog(prev => ({ ...prev, seo_description: e.target.value }))}
+                      onChange={e =>
+                        setBlog(prev => ({
+                          ...prev,
+                          seo_description: e.target.value,
+                        }))
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                       rows={3}
                       placeholder="SEO meta description"
                     />
                     <p className="text-xs text-gray-500 mt-1">
-                      {blog.seo_description.length}/160 characters (recommended: 150-160)
+                      {blog.seo_description.length}/160 characters (recommended:
+                      150-160)
                     </p>
                   </div>
 
                   {/* SEO Preview */}
                   {(blog.seo_title || blog.seo_description) && (
                     <div className="mt-4 p-3 bg-gray-50 rounded-lg">
-                      <h4 className="text-sm font-medium text-gray-700 mb-2">SEO Preview:</h4>
+                      <h4 className="text-sm font-medium text-gray-700 mb-2">
+                        SEO Preview:
+                      </h4>
                       <div className="space-y-1">
                         <div className="text-blue-600 text-lg font-medium hover:underline cursor-pointer">
-                          {blog.seo_title || blog.title || 'Your blog title here'}
+                          {blog.seo_title ||
+                            blog.title ||
+                            'Your blog title here'}
                         </div>
                         <div className="text-green-700 text-sm">
                           yoursite.com/blog/{blog.slug || 'your-blog-slug'}
                         </div>
                         <div className="text-gray-600 text-sm">
-                          {blog.seo_description || blog.excerpt || 'Your blog description will appear here...'}
+                          {blog.seo_description ||
+                            blog.excerpt ||
+                            'Your blog description will appear here...'}
                         </div>
                       </div>
                     </div>
@@ -892,8 +970,10 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
             <div className="max-w-2xl mx-auto space-y-6">
               {/* Status & Author */}
               <div className="bg-white border border-gray-200 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Publishing</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Publishing
+                </h3>
+
                 <div className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -901,7 +981,12 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                     </label>
                     <select
                       value={blog.status}
-                      onChange={(e) => setBlog(prev => ({ ...prev, status: e.target.value as any }))}
+                      onChange={e =>
+                        setBlog(prev => ({
+                          ...prev,
+                          status: e.target.value as any,
+                        }))
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     >
                       <option value="draft">Draft</option>
@@ -917,7 +1002,9 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                     <input
                       type="text"
                       value={blog.author}
-                      onChange={(e) => setBlog(prev => ({ ...prev, author: e.target.value }))}
+                      onChange={e =>
+                        setBlog(prev => ({ ...prev, author: e.target.value }))
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     />
                   </div>
@@ -929,17 +1016,28 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                       </label>
                       <input
                         type="datetime-local"
-                        value={blog.scheduled_at ? new Date(blog.scheduled_at).toISOString().slice(0, 16) : ''}
-                        onChange={(e) => setBlog(prev => ({ 
-                          ...prev, 
-                          scheduled_at: e.target.value ? new Date(e.target.value).toISOString() : null 
-                        }))}
-                        min={new Date().toISOString().slice(0, 16)}
+                        value={
+                          blog.scheduled_at
+                            ? new Date(blog.scheduled_at)
+                                .toISOString()
+                                .slice(0, 16)
+                            : ''
+                        }
+                        onChange={e =>
+                          setBlog(prev => ({
+                            ...prev,
+                            scheduled_at: e.target.value
+                              ? new Date(e.target.value).toISOString()
+                              : null,
+                          }))
+                        }
+                        min={new Date().toISOString()?.slice(0, 16)}
                         className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                         required
                       />
                       <p className="text-xs text-gray-500 mt-1">
-                        The blog will be automatically published at this date and time
+                        The blog will be automatically published at this date
+                        and time
                       </p>
                     </div>
                   )}
@@ -948,57 +1046,84 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
               {/* Featured Image */}
               <div className="bg-white border border-gray-200 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Featured Image</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Featured Image
+                </h3>
+
                 {featuredImage ? (
                   <div className="space-y-3">
                     <div className="relative group">
                       <img
                         src={(() => {
                           if (!featuredImage.url) return ''
-                          
+
                           // Handle external URLs
-                          if (featuredImage.url.startsWith('http') && !featuredImage.url.includes('localhost')) {
+                          if (
+                            featuredImage.url.startsWith('http') &&
+                            !featuredImage.url.includes('localhost') &&
+                            !featuredImage.url.includes('99group.games')
+                          ) {
                             return featuredImage.url
                           }
-                          
+
                           // For local files, use backend server directly
                           let cleanUrl = featuredImage.url
                             .replace('http://localhost:3002', '')
                             .replace('http://localhost:3001', '')
-                          
+                            .replace('https://99group.games', '')
+
                           // Ensure URL starts with /uploads
                           if (!cleanUrl.startsWith('/uploads')) {
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
-                          
-                          // Return backend server URL directly
-                          return `http://localhost:3002${cleanUrl}`
+
+                          // Return dynamic API URL
+                          return `${getApiUrl('')}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-32 object-cover rounded-lg block"
-                        onError={(e) => {
-                          console.error('Featured image failed to load:', featuredImage.url)
+                        onError={e => {
+                          console.error(
+                            'Featured image failed to load:',
+                            featuredImage.url
+                          )
                           console.error('Error event:', e)
                           const target = e.target as HTMLImageElement
-                          
+
                           // Try fallback URL if original fails
-                          if (featuredImage.url.includes('localhost:3002')) {
-                            const fallbackUrl = featuredImage.url.replace('http://localhost:3002', '')
+                          if (featuredImage.url.includes(API_CONFIG.BASE_URL)) {
+                            const fallbackUrl = featuredImage.url.replace(
+                              API_CONFIG.BASE_URL,
+                              ''
+                            )
                             console.log('Trying fallback URL:', fallbackUrl)
                             target.src = fallbackUrl
                             return
                           }
-                          
+
                           target.style.display = 'none'
                           const parent = target.parentElement!
-                          parent.innerHTML = '<div class="w-full h-32 bg-gray-200 rounded-lg flex items-center justify-center"><div class="text-gray-500 text-sm">Image failed to load</div></div>'
+                          parent.innerHTML =
+                            '<div class="w-full h-32 bg-gray-200 rounded-lg flex items-center justify-center"><div class="text-gray-500 text-sm">Image failed to load</div></div>'
                         }}
-                        onLoad={(e) => {
-                          console.log('Featured image loaded successfully:', featuredImage.url)
+                        onLoad={e => {
+                          console.log(
+                            'Featured image loaded successfully:',
+                            featuredImage.url
+                          )
                           const target = e.target as HTMLImageElement
-                          console.log('Image dimensions:', target.naturalWidth, 'x', target.naturalHeight)
-                          console.log('Image display size:', target.width, 'x', target.height)
+                          console.log(
+                            'Image dimensions:',
+                            target.naturalWidth,
+                            'x',
+                            target.naturalHeight
+                          )
+                          console.log(
+                            'Image display size:',
+                            target.width,
+                            'x',
+                            target.height
+                          )
                         }}
                       />
                       <div className="absolute inset-0 bg-transparent hover:bg-black hover:bg-opacity-50 transition-all rounded-lg flex items-center justify-center pointer-events-none">
@@ -1013,8 +1138,12 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                     </div>
                     <div className="text-sm text-gray-600">
                       <p className="font-medium">{featuredImage.alt_text}</p>
-                      <p className="text-xs text-gray-400 mt-1">ID: {featuredImage.id}</p>
-                      <p className="text-xs text-gray-400 break-all">URL: {featuredImage.url}</p>
+                      <p className="text-xs text-gray-400 mt-1">
+                        ID: {featuredImage.id}
+                      </p>
+                      <p className="text-xs text-gray-400 break-all">
+                        URL: {featuredImage.url}
+                      </p>
                     </div>
                     <button
                       onClick={() => setMediaSelectModal(true)}
@@ -1026,7 +1155,9 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                 ) : (
                   <div className="text-center py-8">
                     <ImageIcon className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500 mb-4">No featured image selected</p>
+                    <p className="text-gray-500 mb-4">
+                      No featured image selected
+                    </p>
                     <button
                       onClick={() => setMediaSelectModal(true)}
                       className="px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
@@ -1039,14 +1170,20 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
               {/* Category */}
               <div className="bg-white border border-gray-200 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Category</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Category
+                </h3>
+
                 <select
                   value={blog.category_id || ''}
-                  onChange={(e) => setBlog(prev => ({ 
-                    ...prev, 
-                    category_id: e.target.value ? parseInt(e.target.value) : null 
-                  }))}
+                  onChange={e =>
+                    setBlog(prev => ({
+                      ...prev,
+                      category_id: e.target.value
+                        ? parseInt(e.target.value)
+                        : null,
+                    }))
+                  }
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                 >
                   <option value="">No category</option>
@@ -1060,8 +1197,10 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
 
               {/* Tags */}
               <div className="bg-white border border-gray-200 rounded-lg p-4">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Tags</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Tags
+                </h3>
+
                 {/* Add New Tag */}
                 <div className="mb-4 p-3 bg-gray-50 rounded-lg border border-gray-200">
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -1071,7 +1210,7 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                     <input
                       type="text"
                       value={newTagInput}
-                      onChange={(e) => setNewTagInput(e.target.value)}
+                      onChange={e => setNewTagInput(e.target.value)}
                       onKeyPress={handleTagInputKeyPress}
                       placeholder="Enter tag name..."
                       className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm"
@@ -1090,31 +1229,39 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                     </button>
                   </div>
                   <p className="text-xs text-gray-500 mt-1">
-                    Press Enter or click Add to create a new tag. It will be automatically selected.
+                    Press Enter or click Add to create a new tag. It will be
+                    automatically selected.
                   </p>
                 </div>
 
                 {/* Existing Tags */}
                 <div className="space-y-2">
                   {tags.length === 0 ? (
-                    <p className="text-gray-500 text-sm italic">No tags available. Create your first tag above.</p>
+                    <p className="text-gray-500 text-sm italic">
+                      No tags available. Create your first tag above.
+                    </p>
                   ) : (
                     tags.map(tag => (
-                      <label key={tag.id} className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                      <label
+                        key={tag.id}
+                        className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded-lg transition-colors"
+                      >
                         <input
                           type="checkbox"
                           checked={blog.tags.includes(tag.id)}
                           onChange={() => toggleTag(tag.id)}
                           className="w-4 h-4 text-gray-900 border-gray-300 rounded focus:ring-gray-900"
                         />
-                        <span 
+                        <span
                           className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium text-white"
                           style={{ backgroundColor: tag.color }}
                         >
                           {tag.name}
                         </span>
                         {tag.is_featured && (
-                          <span className="text-xs text-yellow-600 font-medium">★ Featured</span>
+                          <span className="text-xs text-yellow-600 font-medium">
+                            ★ Featured
+                          </span>
                         )}
                       </label>
                     ))
@@ -1144,15 +1291,16 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                   </div>
                 )}
               </div>
-
             </div>
           )}
 
           {activeTab === 'preview' && (
             <div className="max-w-4xl mx-auto">
               <div className="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Blog Preview</h3>
-                
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                  Blog Preview
+                </h3>
+
                 <div className="prose prose-lg max-w-none">
                   {/* Blog Header */}
                   <div className="border-b border-gray-200 pb-6 mb-6">
@@ -1167,7 +1315,8 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                         <>
                           <span>•</span>
                           <span className="text-blue-600">
-                            {categories.find(c => c.id === blog.category_id)?.name || 'Category'}
+                            {categories.find(c => c.id === blog.category_id)
+                              ?.name || 'Category'}
                           </span>
                         </>
                       )}
@@ -1185,24 +1334,29 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                       <img
                         src={(() => {
                           if (!featuredImage.url) return ''
-                          
+
                           // Handle external URLs
-                          if (featuredImage.url.startsWith('http') && !featuredImage.url.includes('localhost')) {
+                          if (
+                            featuredImage.url.startsWith('http') &&
+                            !featuredImage.url.includes('localhost') &&
+                            !featuredImage.url.includes('99group.games')
+                          ) {
                             return featuredImage.url
                           }
-                          
+
                           // For local files, use backend server directly
                           let cleanUrl = featuredImage.url
                             .replace('http://localhost:3002', '')
                             .replace('http://localhost:3001', '')
-                          
+                            .replace('https://99group.games', '')
+
                           // Ensure URL starts with /uploads
                           if (!cleanUrl.startsWith('/uploads')) {
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
-                          
-                          // Return backend server URL directly
-                          return `http://localhost:3002${cleanUrl}`
+
+                          // Return dynamic API URL
+                          return `${getApiUrl('')}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-64 object-cover rounded-lg"
@@ -1211,17 +1365,21 @@ export default function BlogEditor({ blogId, onClose, onSave }: BlogEditorProps)
                   )}
 
                   {/* Blog Content */}
-                  <div 
+                  <div
                     className="prose prose-lg max-w-none"
-                    dangerouslySetInnerHTML={{ 
-                      __html: blog.content || '<p>Start writing your blog content...</p>' 
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        blog.content ||
+                        '<p>Start writing your blog content...</p>',
                     }}
                   />
 
                   {/* Tags */}
                   {blog.tags.length > 0 && (
                     <div className="mt-8 pt-6 border-t border-gray-200">
-                      <h4 className="text-sm font-medium text-gray-700 mb-3">Tags:</h4>
+                      <h4 className="text-sm font-medium text-gray-700 mb-3">
+                        Tags:
+                      </h4>
                       <div className="flex flex-wrap gap-2">
                         {blog.tags.map(tagId => {
                           const tag = tags.find(t => t.id === tagId)

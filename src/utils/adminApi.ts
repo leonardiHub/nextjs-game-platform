@@ -57,9 +57,14 @@ export async function adminApiCall<T = any>(
 
     if (!response.ok) {
       const errorData = await response.json()
-      throw new Error(
+      const errorMessage =
         errorData.error || errorData.message || `HTTP ${response.status}`
-      )
+      console.error(`API Error [${method} ${endpoint}]:`, errorMessage, {
+        status: response.status,
+        body: body,
+        errorData,
+      })
+      throw new Error(errorMessage)
     }
 
     const data = await response.json()
@@ -117,4 +122,3 @@ export async function adminPatch<T = any>(
 ): Promise<T> {
   return adminApiCall<T>(endpoint, { method: 'PATCH', body })
 }
-

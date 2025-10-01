@@ -11,7 +11,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3002,
-        PUBLIC_DOMAIN: 'https://99group.games',
+        PUBLIC_DOMAIN: 'https://api.99group.games',
       },
       error_file: '/home/ubuntu/logs/99group-backend-error.log',
       out_file: '/home/ubuntu/logs/99group-backend-out.log',
