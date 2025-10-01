@@ -24,10 +24,10 @@ export default function AdminPageClient() {
     try {
       const response = await fetch('/api/admin/verify', {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       })
-      
+
       if (response.ok) {
         setIsAuthenticated(true)
       } else {
@@ -61,7 +61,9 @@ export default function AdminPageClient() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-900 rounded-lg mb-4">
               <Shield className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-2xl font-semibold text-gray-900 mb-2">Admin Panel</h1>
+            <h1 className="text-2xl font-semibold text-gray-900 mb-2">
+              Admin Panel
+            </h1>
             <p className="text-sm text-gray-600">Verifying your session...</p>
           </div>
 
@@ -71,9 +73,14 @@ export default function AdminPageClient() {
               <Loader2 className="w-8 h-8 text-gray-900 animate-spin" />
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-gray-900 h-2 rounded-full animate-pulse" style={{ width: '60%' }}></div>
+              <div
+                className="bg-gray-900 h-2 rounded-full animate-pulse"
+                style={{ width: '60%' }}
+              ></div>
             </div>
-            <p className="text-sm text-gray-500">Please wait while we authenticate you...</p>
+            <p className="text-sm text-gray-500">
+              Please wait while we authenticate you...
+            </p>
           </div>
 
           {/* Loading Footer */}

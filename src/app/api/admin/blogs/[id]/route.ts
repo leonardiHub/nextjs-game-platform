@@ -84,12 +84,23 @@ export async function DELETE(
     })
 
     if (!response.ok) {
-      const error = await response.json()
-      return NextResponse.json(error, { status: response.status })
+      try {
+        const error = await response.json()
+        return NextResponse.json(error, { status: response.status })
+      } catch (jsonError) {
+        // If response is not JSON, return text as error message
+        const text = await response.text()
+        return NextResponse.json({ error: text || 'Failed to delete blog' }, { status: response.status })
+      }
     }
 
-    const data = await response.json()
-    return NextResponse.json(data)
+    try {
+      const data = await response.json()
+      return NextResponse.json(data)
+    } catch (jsonError) {
+      // If successful response is not JSON, return success message
+      return NextResponse.json({ message: 'Blog deleted successfully' })
+    }
   } catch (error) {
     console.error('Error deleting blog:', error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
