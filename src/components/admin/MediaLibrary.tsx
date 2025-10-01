@@ -1,10 +1,10 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { 
-  Image as ImageIcon, 
-  Upload, 
-  Search, 
+import {
+  Image as ImageIcon,
+  Upload,
+  Search,
   Filter,
   Grid3X3,
   List,
@@ -29,7 +29,7 @@ import {
   HardDrive,
   ChevronDown,
   Plus,
-  FolderOpen
+  FolderOpen,
 } from 'lucide-react'
 
 interface MediaFile {
@@ -82,19 +82,21 @@ export default function MediaLibrary() {
   const [searchTerm, setSearchTerm] = useState('')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [showFilters, setShowFilters] = useState(false)
-  const [selectedFolder, setSelectedFolder] = useState<number | undefined>(undefined)
-  
+  const [selectedFolder, setSelectedFolder] = useState<number | undefined>(
+    undefined
+  )
+
   const [filters, setFilters] = useState<MediaFilter>({
     type: 'all',
     folder_id: undefined,
-    date_range: 'all'
+    date_range: 'all',
   })
-  
+
   const [pagination, setPagination] = useState<Pagination>({
     page: 1,
     limit: 24,
     total: 0,
-    totalPages: 0
+    totalPages: 0,
   })
 
   // Modal states
@@ -103,13 +105,16 @@ export default function MediaLibrary() {
   const [showFolderModal, setShowFolderModal] = useState(false)
   const [selectedFile, setSelectedFile] = useState<MediaFile | null>(null)
   const [selectedFiles, setSelectedFiles] = useState<number[]>([])
-  
+
   // Form states
   const [newFolderName, setNewFolderName] = useState('')
   const [dragActive, setDragActive] = useState(false)
-  
+
   // Message state
-  const [message, setMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null)
+  const [message, setMessage] = useState<{
+    type: 'success' | 'error'
+    text: string
+  } | null>(null)
 
   // File input ref
   const fileInputRef = useRef<HTMLInputElement>(null)
@@ -124,13 +129,13 @@ export default function MediaLibrary() {
   const loadMediaFiles = async () => {
     try {
       setLoading(true)
-      
+
       // Build query parameters
       const queryParams = new URLSearchParams({
         page: pagination.page.toString(),
         limit: pagination.limit.toString(),
         type: filters.type,
-        date_range: filters.date_range
+        date_range: filters.date_range,
       })
 
       if (searchTerm) {
@@ -140,11 +145,11 @@ export default function MediaLibrary() {
       if (selectedFolder) {
         queryParams.set('folder_id', selectedFolder.toString())
       }
-      
+
       const response = await fetch(`/api/admin/media?${queryParams}`, {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
+        },
       })
 
       if (!response.ok) {
@@ -154,7 +159,7 @@ export default function MediaLibrary() {
           setPagination(prev => ({
             ...prev,
             total: 0,
-            totalPages: 0
+            totalPages: 0,
           }))
           return
         }
@@ -162,13 +167,12 @@ export default function MediaLibrary() {
       }
 
       const data = await response.json()
-      
+
       setMediaFiles(data.files || [])
       setPagination(prev => ({
         ...prev,
-        ...data.pagination
+        ...data.pagination,
       }))
-
     } catch (error) {
       console.error('Error loading media files:', error)
       showMessage('error', 'Failed to load media files')
@@ -176,7 +180,7 @@ export default function MediaLibrary() {
       setPagination(prev => ({
         ...prev,
         total: 0,
-        totalPages: 0
+        totalPages: 0,
       }))
     } finally {
       setLoading(false)
@@ -187,8 +191,8 @@ export default function MediaLibrary() {
     try {
       const response = await fetch('/api/admin/media/folders', {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
+        },
       })
 
       if (!response.ok) {
@@ -217,11 +221,11 @@ export default function MediaLibrary() {
   const handleFileUpload = async (files: FileList) => {
     try {
       setUploading(true)
-      
+
       const formData = new FormData()
-      
+
       // Add files to form data
-      Array.from(files).forEach((file) => {
+      Array.from(files).forEach(file => {
         formData.append('files', file)
       })
 
@@ -233,9 +237,9 @@ export default function MediaLibrary() {
       const response = await fetch('/api/admin/media/upload', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+          Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
         },
-        body: formData
+        body: formData,
       })
 
       if (!response.ok) {
@@ -244,7 +248,7 @@ export default function MediaLibrary() {
       }
 
       const data = await response.json()
-      
+
       showMessage('success', data.message)
       setShowUploadModal(false)
       loadMediaFiles()
@@ -258,7 +262,7 @@ export default function MediaLibrary() {
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
     setDragActive(false)
-    
+
     const files = e.dataTransfer.files
     if (files.length > 0) {
       handleFileUpload(files)
@@ -280,8 +284,8 @@ export default function MediaLibrary() {
       const response = await fetch(`/api/admin/media/${fileId}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
+        },
       })
 
       if (!response.ok) {
@@ -308,11 +312,11 @@ export default function MediaLibrary() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+          Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
         },
         body: JSON.stringify({
-          name: newFolderName.trim()
-        })
+          name: newFolderName.trim(),
+        }),
       })
 
       if (!response.ok) {
@@ -331,21 +335,29 @@ export default function MediaLibrary() {
   }
 
   const deleteFolder = async (folderId: number, folderName: string) => {
-    if (!confirm(`Are you sure you want to delete the folder "${folderName}"? This action cannot be undone.`)) {
+    if (
+      !confirm(
+        `Are you sure you want to delete the folder "${folderName}"? This action cannot be undone.`
+      )
+    ) {
       return
     }
 
     try {
       // Direct call to backend API to bypass NextJS API route issues
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3002'
-      
-      const response = await fetch(`${API_BASE_URL}/api/admin/media/folders/${folderId}`, {
-        method: 'DELETE',
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`,
-          'Content-Type': 'application/json'
+      const API_BASE_URL =
+        process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3002'
+
+      const response = await fetch(
+        `${API_BASE_URL}/api/admin/media/folders/${folderId}`,
+        {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
+            'Content-Type': 'application/json',
+          },
         }
-      })
+      )
 
       if (!response.ok) {
         const error = await response.json()
@@ -354,12 +366,12 @@ export default function MediaLibrary() {
 
       const data = await response.json()
       showMessage('success', data.message)
-      
+
       // If the deleted folder was currently selected, reset to "All Files"
       if (selectedFolder === folderId) {
         setSelectedFolder(undefined)
       }
-      
+
       loadFolders()
       loadMediaFiles()
     } catch (error: any) {
@@ -397,7 +409,7 @@ export default function MediaLibrary() {
       month: 'short',
       day: 'numeric',
       hour: '2-digit',
-      minute: '2-digit'
+      minute: '2-digit',
     })
   }
 
@@ -410,7 +422,7 @@ export default function MediaLibrary() {
     setFilters({
       type: 'all',
       folder_id: undefined,
-      date_range: 'all'
+      date_range: 'all',
     })
     setSelectedFolder(undefined)
     setSearchTerm('')
@@ -437,7 +449,9 @@ export default function MediaLibrary() {
           </div>
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Media Library</h2>
-            <p className="text-gray-600">Manage your images, videos, and documents</p>
+            <p className="text-gray-600">
+              Manage your images, videos, and documents
+            </p>
           </div>
         </div>
         <div className="flex items-center space-x-3">
@@ -472,17 +486,23 @@ export default function MediaLibrary() {
 
       {/* Message */}
       {message && (
-        <div className={`flex items-center space-x-3 p-4 rounded-lg ${
-          message.type === 'success' 
-            ? 'bg-green-50 border border-green-200' 
-            : 'bg-red-50 border border-red-200'
-        }`}>
+        <div
+          className={`flex items-center space-x-3 p-4 rounded-lg ${
+            message.type === 'success'
+              ? 'bg-green-50 border border-green-200'
+              : 'bg-red-50 border border-red-200'
+          }`}
+        >
           {message.type === 'success' ? (
             <CheckCircle2 className="w-5 h-5 text-green-600" />
           ) : (
             <AlertCircle className="w-5 h-5 text-red-600" />
           )}
-          <span className={message.type === 'success' ? 'text-green-800' : 'text-red-800'}>
+          <span
+            className={
+              message.type === 'success' ? 'text-green-800' : 'text-red-800'
+            }
+          >
             {message.text}
           </span>
         </div>
@@ -494,7 +514,9 @@ export default function MediaLibrary() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Total Files</p>
-              <p className="text-2xl font-bold text-gray-900">{pagination.total}</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {pagination.total}
+              </p>
             </div>
             <div className="p-3 rounded-full bg-blue-100">
               <File className="w-6 h-6 text-blue-600" />
@@ -505,7 +527,7 @@ export default function MediaLibrary() {
             <span className="text-sm text-gray-600 ml-2">data</span>
           </div>
         </div>
-        
+
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -523,7 +545,7 @@ export default function MediaLibrary() {
             <span className="text-sm text-gray-600 ml-2">page</span>
           </div>
         </div>
-        
+
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -541,19 +563,23 @@ export default function MediaLibrary() {
             <span className="text-sm text-gray-600 ml-2">page</span>
           </div>
         </div>
-        
+
         <div className="bg-white rounded-lg border border-gray-200 p-6">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium text-gray-600">Folders</p>
-              <p className="text-2xl font-bold text-gray-900">{folders.length}</p>
+              <p className="text-2xl font-bold text-gray-900">
+                {folders.length}
+              </p>
             </div>
             <div className="p-3 rounded-full bg-orange-100">
               <Folder className="w-6 h-6 text-orange-600" />
             </div>
           </div>
           <div className="mt-4 flex items-center">
-            <span className="text-sm font-medium text-orange-600">Organized</span>
+            <span className="text-sm font-medium text-orange-600">
+              Organized
+            </span>
             <span className="text-sm text-gray-600 ml-2">storage</span>
           </div>
         </div>
@@ -571,24 +597,28 @@ export default function MediaLibrary() {
               <Plus className="w-4 h-4 text-gray-600" />
             </button>
           </div>
-          
+
           <div className="space-y-1">
             <button
               onClick={() => setSelectedFolder(undefined)}
               className={`w-full flex items-center space-x-2 px-3 py-2 rounded-lg text-left transition-colors ${
-                selectedFolder === undefined ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'
+                selectedFolder === undefined
+                  ? 'bg-gray-900 text-white'
+                  : 'hover:bg-gray-100'
               }`}
             >
               <FolderOpen className="w-4 h-4" />
               <span>All Files</span>
               <span className="ml-auto text-xs">({pagination.total})</span>
             </button>
-            
-            {folders.map((folder) => (
+
+            {folders.map(folder => (
               <div
                 key={folder.id}
                 className={`w-full flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors group ${
-                  selectedFolder === folder.id ? 'bg-gray-900 text-white' : 'hover:bg-gray-100'
+                  selectedFolder === folder.id
+                    ? 'bg-gray-900 text-white'
+                    : 'hover:bg-gray-100'
                 }`}
               >
                 <button
@@ -600,13 +630,13 @@ export default function MediaLibrary() {
                   <span className="ml-auto text-xs">({folder.file_count})</span>
                 </button>
                 <button
-                  onClick={(e) => {
+                  onClick={e => {
                     e.stopPropagation()
                     deleteFolder(folder.id, folder.name)
                   }}
                   className={`opacity-0 group-hover:opacity-100 p-1 rounded transition-all ${
-                    selectedFolder === folder.id 
-                      ? 'hover:bg-red-600 text-white' 
+                    selectedFolder === folder.id
+                      ? 'hover:bg-red-600 text-white'
                       : 'hover:bg-red-50 text-red-600'
                   }`}
                   title="Delete folder"
@@ -629,23 +659,27 @@ export default function MediaLibrary() {
                   type="text"
                   placeholder="Search files..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={e => setSearchTerm(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                 />
               </div>
-              
+
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setShowFilters(!showFilters)}
                   className={`flex items-center space-x-2 px-4 py-2 border rounded-lg transition-colors ${
-                    showFilters ? 'bg-gray-900 text-white border-gray-900' : 'border-gray-300 hover:bg-gray-50'
+                    showFilters
+                      ? 'bg-gray-900 text-white border-gray-900'
+                      : 'border-gray-300 hover:bg-gray-50'
                   }`}
                 >
                   <Filter className="w-4 h-4" />
                   <span>Filters</span>
-                  <ChevronDown className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform ${showFilters ? 'rotate-180' : ''}`}
+                  />
                 </button>
-                
+
                 <div className="flex border border-gray-300 rounded-lg">
                   <button
                     onClick={() => setViewMode('grid')}
@@ -668,10 +702,17 @@ export default function MediaLibrary() {
               <div className="mt-4 pt-4 border-t border-gray-200">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">File Type</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      File Type
+                    </label>
                     <select
                       value={filters.type}
-                      onChange={(e) => setFilters(prev => ({ ...prev, type: e.target.value as any }))}
+                      onChange={e =>
+                        setFilters(prev => ({
+                          ...prev,
+                          type: e.target.value as any,
+                        }))
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     >
                       <option value="all">All Types</option>
@@ -683,10 +724,17 @@ export default function MediaLibrary() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Date Range</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Date Range
+                    </label>
                     <select
                       value={filters.date_range}
-                      onChange={(e) => setFilters(prev => ({ ...prev, date_range: e.target.value as any }))}
+                      onChange={e =>
+                        setFilters(prev => ({
+                          ...prev,
+                          date_range: e.target.value as any,
+                        }))
+                      }
                       className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                     >
                       <option value="all">All Time</option>
@@ -718,7 +766,7 @@ export default function MediaLibrary() {
                   <p className="text-gray-500">No media files found</p>
                 </div>
               ) : (
-                mediaFiles.map((file) => (
+                mediaFiles.map(file => (
                   <div
                     key={file.id}
                     className="group relative bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
@@ -733,55 +781,67 @@ export default function MediaLibrary() {
                           src={(() => {
                             const imageUrl = file.thumbnail_url || file.url
                             if (!imageUrl) return ''
-                            
+
                             // Handle external URLs
-                            if (imageUrl.startsWith('http') && !imageUrl.includes('localhost')) {
+                            if (
+                              imageUrl.startsWith('http') &&
+                              !imageUrl.includes('localhost')
+                            ) {
                               return imageUrl
                             }
-                            
+
                             // For local files, use backend server directly
                             let cleanUrl = imageUrl
                               .replace('http://localhost:3002', '')
                               .replace('http://localhost:3001', '')
                               .replace('https://99group.games', '')
                               .replace('https://api.99group.games', '')
-                            
+
                             // Ensure URL starts with /uploads
                             if (!cleanUrl.startsWith('/uploads')) {
                               cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                             }
-                            
+
                             // Return appropriate backend URL based on environment
-                            const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-                              ? 'http://localhost:3002' 
-                              : 'https://api.99group.games'
+                            const apiUrl =
+                              typeof window !== 'undefined' &&
+                              window.location.hostname === 'localhost'
+                                ? 'http://localhost:3002'
+                                : 'https://api.99group.games'
                             return `${apiUrl}${cleanUrl}`
                           })()}
                           alt={file.alt_text || file.name}
                           className="w-full h-full object-cover"
-                          onError={(e) => {
+                          onError={e => {
                             e.currentTarget.style.display = 'none'
                             const parent = e.currentTarget.parentElement!
-                            parent.innerHTML = '<div class="w-full h-full bg-gray-200 flex items-center justify-center"><svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 002 2v12a2 2 0 002 2z"></path></svg></div>'
+                            parent.innerHTML =
+                              '<div class="w-full h-full bg-gray-200 flex items-center justify-center"><svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 002 2v12a2 2 0 002 2z"></path></svg></div>'
                           }}
                         />
                       ) : (
                         <div className="flex flex-col items-center space-y-2 text-gray-400">
                           {getFileIcon(file.type, file.mime_type)}
-                          <span className="text-xs font-medium">{file.type.toUpperCase()}</span>
+                          <span className="text-xs font-medium">
+                            {file.type.toUpperCase()}
+                          </span>
                         </div>
                       )}
                     </div>
-                    
+
                     <div className="p-3">
-                      <h3 className="text-sm font-medium text-gray-900 truncate">{file.name}</h3>
-                      <p className="text-xs text-gray-500 mt-1">{formatFileSize(file.size)}</p>
+                      <h3 className="text-sm font-medium text-gray-900 truncate">
+                        {file.name}
+                      </h3>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {formatFileSize(file.size)}
+                      </p>
                     </div>
 
                     {/* Hover Actions */}
                     <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center space-x-2">
                       <button
-                        onClick={(e) => {
+                        onClick={e => {
                           e.stopPropagation()
                           setSelectedFile(file)
                           setShowDetailsModal(true)
@@ -792,7 +852,7 @@ export default function MediaLibrary() {
                         <Eye className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={(e) => {
+                        onClick={e => {
                           e.stopPropagation()
                           copyToClipboard(file.url)
                         }}
@@ -802,7 +862,7 @@ export default function MediaLibrary() {
                         <Copy className="w-4 h-4" />
                       </button>
                       <button
-                        onClick={(e) => {
+                        onClick={e => {
                           e.stopPropagation()
                           deleteFile(file.id)
                         }}
@@ -842,12 +902,15 @@ export default function MediaLibrary() {
                   <tbody className="divide-y divide-gray-200">
                     {mediaFiles.length === 0 ? (
                       <tr>
-                        <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
+                        <td
+                          colSpan={5}
+                          className="px-6 py-12 text-center text-gray-500"
+                        >
                           No media files found
                         </td>
                       </tr>
                     ) : (
-                      mediaFiles.map((file) => (
+                      mediaFiles.map(file => (
                         <tr key={file.id} className="hover:bg-gray-50">
                           <td className="px-6 py-4">
                             <div className="flex items-center space-x-3">
@@ -855,38 +918,49 @@ export default function MediaLibrary() {
                                 {file.type === 'image' ? (
                                   <img
                                     src={(() => {
-                                      const imageUrl = file.thumbnail_url || file.url
+                                      const imageUrl =
+                                        file.thumbnail_url || file.url
                                       if (!imageUrl) return ''
-                                      
+
                                       // Handle external URLs
-                                      if (imageUrl.startsWith('http') && !imageUrl.includes('localhost')) {
+                                      if (
+                                        imageUrl.startsWith('http') &&
+                                        !imageUrl.includes('localhost')
+                                      ) {
                                         return imageUrl
                                       }
-                                      
+
                                       // For local files, use backend server directly
                                       let cleanUrl = imageUrl
                                         .replace('http://localhost:3002', '')
                                         .replace('http://localhost:3001', '')
                                         .replace('https://99group.games', '')
-                                        .replace('https://api.99group.games', '')
-                                      
+                                        .replace(
+                                          'https://api.99group.games',
+                                          ''
+                                        )
+
                                       // Ensure URL starts with /uploads
                                       if (!cleanUrl.startsWith('/uploads')) {
                                         cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                                       }
-                                      
+
                                       // Return appropriate backend URL based on environment
-                                      const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-                                        ? 'http://localhost:3002' 
-                                        : 'https://api.99group.games'
+                                      const apiUrl =
+                                        typeof window !== 'undefined' &&
+                                        window.location.hostname === 'localhost'
+                                          ? 'http://localhost:3002'
+                                          : 'https://api.99group.games'
                                       return `${apiUrl}${cleanUrl}`
                                     })()}
                                     alt={file.alt_text || file.name}
                                     className="w-10 h-10 rounded object-cover"
-                                    onError={(e) => {
+                                    onError={e => {
                                       e.currentTarget.style.display = 'none'
-                                      const parent = e.currentTarget.parentElement!
-                                      parent.innerHTML = '<div class="w-10 h-10 rounded bg-gray-200 flex items-center justify-center"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 002 2v12a2 2 0 002 2z"></path></svg></div>'
+                                      const parent =
+                                        e.currentTarget.parentElement!
+                                      parent.innerHTML =
+                                        '<div class="w-10 h-10 rounded bg-gray-200 flex items-center justify-center"><svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 002 2v12a2 2 0 002 2z"></path></svg></div>'
                                     }}
                                   />
                                 ) : (
@@ -953,11 +1027,21 @@ export default function MediaLibrary() {
               {pagination.totalPages > 1 && (
                 <div className="px-6 py-3 border-t border-gray-200 flex items-center justify-between">
                   <div className="text-sm text-gray-500">
-                    Showing {((pagination.page - 1) * pagination.limit) + 1} to {Math.min(pagination.page * pagination.limit, pagination.total)} of {pagination.total} results
+                    Showing {(pagination.page - 1) * pagination.limit + 1} to{' '}
+                    {Math.min(
+                      pagination.page * pagination.limit,
+                      pagination.total
+                    )}{' '}
+                    of {pagination.total} results
                   </div>
                   <div className="flex items-center space-x-2">
                     <button
-                      onClick={() => setPagination(prev => ({ ...prev, page: prev.page - 1 }))}
+                      onClick={() =>
+                        setPagination(prev => ({
+                          ...prev,
+                          page: prev.page - 1,
+                        }))
+                      }
                       disabled={pagination.page === 1}
                       className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -967,7 +1051,12 @@ export default function MediaLibrary() {
                       Page {pagination.page} of {pagination.totalPages}
                     </span>
                     <button
-                      onClick={() => setPagination(prev => ({ ...prev, page: prev.page + 1 }))}
+                      onClick={() =>
+                        setPagination(prev => ({
+                          ...prev,
+                          page: prev.page + 1,
+                        }))
+                      }
                       disabled={pagination.page === pagination.totalPages}
                       className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
@@ -986,7 +1075,9 @@ export default function MediaLibrary() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-md">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Upload Files</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Upload Files
+              </h3>
               <button
                 onClick={() => setShowUploadModal(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -1004,14 +1095,16 @@ export default function MediaLibrary() {
               onDragLeave={handleDragLeave}
             >
               <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-sm text-gray-600 mb-2">Drop your files here, or click to browse</p>
+              <p className="text-sm text-gray-600 mb-2">
+                Drop your files here, or click to browse
+              </p>
               <input
                 ref={fileInputRef}
                 type="file"
                 multiple
                 accept="image/*,video/*,.pdf,.doc,.docx"
                 className="hidden"
-                onChange={(e) => {
+                onChange={e => {
                   if (e.target.files) {
                     handleFileUpload(e.target.files)
                   }
@@ -1045,7 +1138,9 @@ export default function MediaLibrary() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-gray-900">File Details</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                File Details
+              </h3>
               <button
                 onClick={() => setShowDetailsModal(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -1057,35 +1152,42 @@ export default function MediaLibrary() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Preview */}
               <div>
-                <h4 className="text-sm font-medium text-gray-700 mb-3">Preview</h4>
+                <h4 className="text-sm font-medium text-gray-700 mb-3">
+                  Preview
+                </h4>
                 <div className="aspect-square bg-gray-100 rounded-lg flex items-center justify-center">
                   {selectedFile.type === 'image' ? (
                     <img
                       src={(() => {
                         const imageUrl = selectedFile.url
                         if (!imageUrl) return ''
-                        
+
                         // Handle external URLs
-                        if (imageUrl.startsWith('http') && !imageUrl.includes('localhost')) {
+                        if (
+                          imageUrl.startsWith('http') &&
+                          !imageUrl.includes('localhost')
+                        ) {
                           return imageUrl
                         }
-                        
+
                         // For local files, use backend server directly
                         let cleanUrl = imageUrl
                           .replace('http://localhost:3002', '')
                           .replace('http://localhost:3001', '')
                           .replace('https://99group.games', '')
                           .replace('https://api.99group.games', '')
-                        
+
                         // Ensure URL starts with /uploads
                         if (!cleanUrl.startsWith('/uploads')) {
                           cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                         }
-                        
+
                         // Return appropriate backend URL based on environment
-                        const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-                          ? 'http://localhost:3002' 
-                          : 'https://api.99group.games'
+                        const apiUrl =
+                          typeof window !== 'undefined' &&
+                          window.location.hostname === 'localhost'
+                            ? 'http://localhost:3002'
+                            : 'https://api.99group.games'
                         return `${apiUrl}${cleanUrl}`
                       })()}
                       alt={selectedFile.alt_text || selectedFile.name}
@@ -1096,7 +1198,9 @@ export default function MediaLibrary() {
                       <div className="p-4 bg-gray-200 rounded-lg">
                         {getFileIcon(selectedFile.type, selectedFile.mime_type)}
                       </div>
-                      <span className="text-sm font-medium">{selectedFile.type.toUpperCase()}</span>
+                      <span className="text-sm font-medium">
+                        {selectedFile.type.toUpperCase()}
+                      </span>
                     </div>
                   )}
                 </div>
@@ -1104,49 +1208,78 @@ export default function MediaLibrary() {
 
               {/* Details */}
               <div>
-                <h4 className="text-sm font-medium text-gray-700 mb-3">Information</h4>
+                <h4 className="text-sm font-medium text-gray-700 mb-3">
+                  Information
+                </h4>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">File Name</label>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      File Name
+                    </label>
                     <p className="text-sm text-gray-900">{selectedFile.name}</p>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">Original Name</label>
-                    <p className="text-sm text-gray-900">{selectedFile.original_name}</p>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      Original Name
+                    </label>
+                    <p className="text-sm text-gray-900">
+                      {selectedFile.original_name}
+                    </p>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">File Size</label>
-                    <p className="text-sm text-gray-900">{formatFileSize(selectedFile.size)}</p>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      File Size
+                    </label>
+                    <p className="text-sm text-gray-900">
+                      {formatFileSize(selectedFile.size)}
+                    </p>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">Type</label>
-                    <p className="text-sm text-gray-900 capitalize">{selectedFile.type}</p>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      Type
+                    </label>
+                    <p className="text-sm text-gray-900 capitalize">
+                      {selectedFile.type}
+                    </p>
                   </div>
-                  
+
                   {selectedFile.dimensions && (
                     <div>
-                      <label className="block text-xs font-medium text-gray-500 mb-1">Dimensions</label>
+                      <label className="block text-xs font-medium text-gray-500 mb-1">
+                        Dimensions
+                      </label>
                       <p className="text-sm text-gray-900">
-                        {selectedFile.dimensions.width} × {selectedFile.dimensions.height}
+                        {selectedFile.dimensions.width} ×{' '}
+                        {selectedFile.dimensions.height}
                       </p>
                     </div>
                   )}
-                  
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">Uploaded By</label>
-                    <p className="text-sm text-gray-900">{selectedFile.uploaded_by}</p>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      Uploaded By
+                    </label>
+                    <p className="text-sm text-gray-900">
+                      {selectedFile.uploaded_by}
+                    </p>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">Upload Date</label>
-                    <p className="text-sm text-gray-900">{formatDate(selectedFile.created_at)}</p>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      Upload Date
+                    </label>
+                    <p className="text-sm text-gray-900">
+                      {formatDate(selectedFile.created_at)}
+                    </p>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-xs font-medium text-gray-500 mb-1">URL</label>
+                    <label className="block text-xs font-medium text-gray-500 mb-1">
+                      URL
+                    </label>
                     <div className="flex items-center space-x-2">
                       <input
                         type="text"
@@ -1192,7 +1325,9 @@ export default function MediaLibrary() {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-md">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Create New Folder</h3>
+              <h3 className="text-lg font-semibold text-gray-900">
+                Create New Folder
+              </h3>
               <button
                 onClick={() => setShowFolderModal(false)}
                 className="text-gray-400 hover:text-gray-600"
@@ -1209,7 +1344,7 @@ export default function MediaLibrary() {
                 <input
                   type="text"
                   value={newFolderName}
-                  onChange={(e) => setNewFolderName(e.target.value)}
+                  onChange={e => setNewFolderName(e.target.value)}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-900 focus:border-transparent"
                   placeholder="Enter folder name..."
                 />
@@ -1237,4 +1372,3 @@ export default function MediaLibrary() {
     </div>
   )
 }
-

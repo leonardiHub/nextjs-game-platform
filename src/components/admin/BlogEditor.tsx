@@ -308,9 +308,11 @@ export default function BlogEditor({
             }
 
             // Use environment-based URL
-            const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-              ? 'http://localhost:3002' 
-              : 'https://api.99group.games'
+            const apiUrl =
+              typeof window !== 'undefined' &&
+              window.location.hostname === 'localhost'
+                ? 'http://localhost:3002'
+                : 'https://api.99group.games'
             imageUrl = `${apiUrl}${cleanUrl}`
           }
         }
@@ -350,9 +352,11 @@ export default function BlogEditor({
         }
 
         // Use environment-based URL
-        const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-          ? 'http://localhost:3002' 
-          : 'https://api.99group.games'
+        const apiUrl =
+          typeof window !== 'undefined' &&
+          window.location.hostname === 'localhost'
+            ? 'http://localhost:3002'
+            : 'https://api.99group.games'
         imageUrl = `${apiUrl}${cleanUrl}`
       } else {
         // Relative path - add full media path if needed
@@ -360,9 +364,11 @@ export default function BlogEditor({
           imageUrl = `/uploads/media/images/${imageUrl.replace(/^\/+/, '')}`
         }
         // Use environment-based URL
-        const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-          ? 'http://localhost:3002' 
-          : 'https://api.99group.games'
+        const apiUrl =
+          typeof window !== 'undefined' &&
+          window.location.hostname === 'localhost'
+            ? 'http://localhost:3002'
+            : 'https://api.99group.games'
         imageUrl = `${apiUrl}${imageUrl}`
       }
     }

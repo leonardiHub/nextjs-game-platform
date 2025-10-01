@@ -129,12 +129,15 @@ export default function GameProviderManagement() {
         setEditingProvider(null)
         resetNewProvider()
       } else {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to save provider')
+        const errorData = await response.json().catch(() => ({ error: `HTTP ${response.status}` }))
+        console.error('Server error response:', { status: response.status, errorData })
+        throw new Error(errorData.error || `Failed to save provider (HTTP ${response.status})`)
       }
     } catch (error) {
       console.error('Error saving provider:', error)
-      setMessage({ type: 'error', text: error instanceof Error ? error.message : 'Failed to save provider' })
+      const errorMessage = error instanceof Error ? error.message : 'Failed to save provider'
+      console.error('Full error details:', errorMessage)
+      setMessage({ type: 'error', text: errorMessage })
     } finally {
       setSaving(false)
     }

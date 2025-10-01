@@ -285,9 +285,11 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                 }
 
                 // Return appropriate backend URL based on environment
-                const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-                  ? 'http://localhost:3002' 
-                  : 'https://api.99group.games'
+                const apiUrl =
+                  typeof window !== 'undefined' &&
+                  window.location.hostname === 'localhost'
+                    ? 'http://localhost:3002'
+                    : 'https://api.99group.games'
                 return `${apiUrl}${cleanUrl}`
               })()}
               alt={blog.title}
