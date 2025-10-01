@@ -168,10 +168,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new provider
-    const result = await dbRun(`
-      INSERT INTO game_library_providers (name, code, logo_url, description, status, games_count) 
-      VALUES (?, ?, ?, ?, ?, ?)
-    `, [name, code, logo_url || '', description || '', status || 'active', game_count || 0]) as any
+    const result = await new Promise<{ lastID: number }>((resolve, reject) => {
+      db.run(`
+        INSERT INTO game_library_providers (name, code, logo_url, description, status, games_count) 
+        VALUES (?, ?, ?, ?, ?, ?)
+      `, [name, code, logo_url || '', description || '', status || 'active', game_count || 0], function(err) {
+        if (err) {
+          reject(err)
+        } else {
+          resolve({ lastID: this.lastID })
+        }
+      })
+    })
 
     return NextResponse.json({
       success: true,
