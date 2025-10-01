@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     if (!imageUrl) return undefined
     
     // Handle external URLs
-    if (imageUrl.startsWith('http') && !imageUrl.includes('localhost')) {
+    if (imageUrl.startsWith('http') && !imageUrl.includes('localhost') && !imageUrl.includes('99group.games')) {
       return imageUrl
     }
     
@@ -65,14 +65,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     let cleanUrl = imageUrl
       .replace('http://localhost:3002', '')
       .replace('http://localhost:3001', '')
+      .replace('https://99group.games', '')
+      .replace('https://api.99group.games', '')
     
     // Ensure URL starts with /uploads
     if (!cleanUrl.startsWith('/uploads')) {
       cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
     }
     
-    // Return backend server URL directly
-    return `http://localhost:3002${cleanUrl}`
+    // Return appropriate backend URL based on environment
+    // In server-side code, check process.env instead of window
+    const apiUrl = process.env.NODE_ENV === 'production'
+      ? 'https://api.99group.games'
+      : 'http://localhost:3002'
+    return `${apiUrl}${cleanUrl}`
   }
 
   const title = blog.seo_title || blog.title || 'Blog Post'

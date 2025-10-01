@@ -276,14 +276,19 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                 let cleanUrl = blog.featured_image_url
                   .replace('http://localhost:3002', '')
                   .replace('http://localhost:3001', '')
+                  .replace('https://99group.games', '')
+                  .replace('https://api.99group.games', '')
 
                 // Ensure URL starts with /uploads
                 if (!cleanUrl.startsWith('/uploads')) {
                   cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                 }
 
-                // Return backend server URL directly
-                return `http://localhost:3002${cleanUrl}`
+                // Return appropriate backend URL based on environment
+                const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                  ? 'http://localhost:3002' 
+                  : 'https://api.99group.games'
+                return `${apiUrl}${cleanUrl}`
               })()}
               alt={blog.title}
               className="w-full aspect-[3/2] sm:aspect-[16/9] md:aspect-[18/9] lg:aspect-[20/9] object-contain sm:object-cover rounded-lg shadow-lg bg-dark"

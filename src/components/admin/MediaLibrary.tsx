@@ -743,14 +743,19 @@ export default function MediaLibrary() {
                             let cleanUrl = imageUrl
                               .replace('http://localhost:3002', '')
                               .replace('http://localhost:3001', '')
+                              .replace('https://99group.games', '')
+                              .replace('https://api.99group.games', '')
                             
                             // Ensure URL starts with /uploads
                             if (!cleanUrl.startsWith('/uploads')) {
                               cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                             }
                             
-                            // Return backend server URL directly
-                            return `http://localhost:3002${cleanUrl}`
+                            // Return appropriate backend URL based on environment
+                            const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                              ? 'http://localhost:3002' 
+                              : 'https://api.99group.games'
+                            return `${apiUrl}${cleanUrl}`
                           })()}
                           alt={file.alt_text || file.name}
                           className="w-full h-full object-cover"
@@ -862,14 +867,19 @@ export default function MediaLibrary() {
                                       let cleanUrl = imageUrl
                                         .replace('http://localhost:3002', '')
                                         .replace('http://localhost:3001', '')
+                                        .replace('https://99group.games', '')
+                                        .replace('https://api.99group.games', '')
                                       
                                       // Ensure URL starts with /uploads
                                       if (!cleanUrl.startsWith('/uploads')) {
                                         cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                                       }
                                       
-                                      // Return backend server URL directly
-                                      return `http://localhost:3002${cleanUrl}`
+                                      // Return appropriate backend URL based on environment
+                                      const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                                        ? 'http://localhost:3002' 
+                                        : 'https://api.99group.games'
+                                      return `${apiUrl}${cleanUrl}`
                                     })()}
                                     alt={file.alt_text || file.name}
                                     className="w-10 h-10 rounded object-cover"
@@ -1064,14 +1074,19 @@ export default function MediaLibrary() {
                         let cleanUrl = imageUrl
                           .replace('http://localhost:3002', '')
                           .replace('http://localhost:3001', '')
+                          .replace('https://99group.games', '')
+                          .replace('https://api.99group.games', '')
                         
                         // Ensure URL starts with /uploads
                         if (!cleanUrl.startsWith('/uploads')) {
                           cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                         }
                         
-                        // Return backend server URL directly
-                        return `http://localhost:3002${cleanUrl}`
+                        // Return appropriate backend URL based on environment
+                        const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                          ? 'http://localhost:3002' 
+                          : 'https://api.99group.games'
+                        return `${apiUrl}${cleanUrl}`
                       })()}
                       alt={selectedFile.alt_text || selectedFile.name}
                       className="max-w-full max-h-full object-contain rounded-lg"
