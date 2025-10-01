@@ -8,21 +8,24 @@ export async function GET(
 ) {
   try {
     console.log(`Fetching blog ${params.id} from ${API_BASE_URL}`)
-    
+
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
-    
-    const response = await fetch(`${API_BASE_URL}/api/admin/blogs/${params.id}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-      signal: controller.signal,
-    })
+
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/blogs/${params.id}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+        signal: controller.signal,
+      }
+    )
 
     clearTimeout(timeoutId)
-    
+
     console.log(`Blog API response status: ${response.status}`)
 
     if (!response.ok) {
@@ -37,7 +40,10 @@ export async function GET(
     if (error instanceof Error && error.name === 'AbortError') {
       return NextResponse.json({ error: 'Request timeout' }, { status: 408 })
     }
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
 
@@ -48,14 +54,17 @@ export async function PUT(
   try {
     const body = await request.json()
 
-    const response = await fetch(`${API_BASE_URL}/api/admin/blogs/${params.id}`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/blogs/${params.id}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      }
+    )
 
     if (!response.ok) {
       const error = await response.json()
@@ -66,7 +75,10 @@ export async function PUT(
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error updating blog:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
 
@@ -75,13 +87,16 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/blogs/${params.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/blogs/${params.id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
       try {
@@ -90,7 +105,10 @@ export async function DELETE(
       } catch (jsonError) {
         // If response is not JSON, return text as error message
         const text = await response.text()
-        return NextResponse.json({ error: text || 'Failed to delete blog' }, { status: response.status })
+        return NextResponse.json(
+          { error: text || 'Failed to delete blog' },
+          { status: response.status }
+        )
       }
     }
 
@@ -103,6 +121,9 @@ export async function DELETE(
     }
   } catch (error) {
     console.error('Error deleting blog:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }

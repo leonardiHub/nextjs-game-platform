@@ -56,19 +56,34 @@ export async function adminApiCall<T = any>(
     const response = await fetch(`/api/admin${endpoint}`, requestOptions)
 
     if (!response.ok) {
-      const errorData = await response.json()
-      const errorMessage =
-        errorData.error || errorData.message || `HTTP ${response.status}`
-      console.error(`API Error [${method} ${endpoint}]:`, errorMessage, {
-        status: response.status,
-        body: body,
-        errorData,
-      })
-      throw new Error(errorMessage)
+      try {
+        const errorData = await response.json()
+        const errorMessage =
+          errorData.error || errorData.message || `HTTP ${response.status}`
+        console.error(`API Error [${method} ${endpoint}]:`, errorMessage, {
+          status: response.status,
+          body: body,
+          errorData,
+        })
+        throw new Error(errorMessage)
+      } catch (jsonError) {
+        // If response is not JSON, try to get text
+        try {
+          const text = await response.text()
+          throw new Error(text || `HTTP ${response.status} Error`)
+        } catch (textError) {
+          throw new Error(`HTTP ${response.status} Error`)
+        }
+      }
     }
 
-    const data = await response.json()
-    return data
+    try {
+      const data = await response.json()
+      return data
+    } catch (jsonError) {
+      // If successful response is not JSON, return empty object
+      return {} as T
+    }
   } catch (error) {
     console.error(`Admin API call failed for ${endpoint}:`, error)
     throw error
