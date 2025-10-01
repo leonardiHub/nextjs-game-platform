@@ -298,6 +298,8 @@ export default function BlogEditor({
             let cleanUrl = imageUrl
               .replace('http://localhost:3001', '')
               .replace('http://localhost:3002', '')
+              .replace('https://99group.games', '')
+              .replace('https://api.99group.games', '')
 
             // If URL doesn't start with /uploads, add the full media path
             if (!cleanUrl.startsWith('/uploads')) {
@@ -305,7 +307,11 @@ export default function BlogEditor({
               cleanUrl = `/uploads/media/images/${cleanUrl.replace(/^\/+/, '')}`
             }
 
-            imageUrl = `${API_CONFIG.BASE_URL}${cleanUrl}`
+            // Use environment-based URL
+            const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+              ? 'http://localhost:3002' 
+              : 'https://api.99group.games'
+            imageUrl = `${apiUrl}${cleanUrl}`
           }
         }
 
@@ -335,6 +341,7 @@ export default function BlogEditor({
           .replace('http://localhost:3002', '')
           .replace('http://localhost:3001', '')
           .replace('https://99group.games', '')
+          .replace('https://api.99group.games', '')
 
         // If URL doesn't start with /uploads, add the full media path
         if (!cleanUrl.startsWith('/uploads')) {
@@ -342,15 +349,21 @@ export default function BlogEditor({
           cleanUrl = `/uploads/media/images/${cleanUrl.replace(/^\/+/, '')}`
         }
 
-        // Use dynamic API URL
-        imageUrl = `${getApiUrl('')}${cleanUrl}`
+        // Use environment-based URL
+        const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+          ? 'http://localhost:3002' 
+          : 'https://api.99group.games'
+        imageUrl = `${apiUrl}${cleanUrl}`
       } else {
         // Relative path - add full media path if needed
         if (!imageUrl.startsWith('/uploads')) {
           imageUrl = `/uploads/media/images/${imageUrl.replace(/^\/+/, '')}`
         }
-        // Use dynamic API URL
-        imageUrl = `${API_CONFIG.BASE_URL}${imageUrl}`
+        // Use environment-based URL
+        const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+          ? 'http://localhost:3002' 
+          : 'https://api.99group.games'
+        imageUrl = `${apiUrl}${imageUrl}`
       }
     }
 
@@ -1078,9 +1091,11 @@ export default function BlogEditor({
                           }
 
                           // Return appropriate backend URL based on environment
-                          const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-                            ? 'http://localhost:3002' 
-                            : 'https://api.99group.games'
+                          const apiUrl =
+                            typeof window !== 'undefined' &&
+                            window.location.hostname === 'localhost'
+                              ? 'http://localhost:3002'
+                              : 'https://api.99group.games'
                           return `${apiUrl}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
@@ -1359,9 +1374,11 @@ export default function BlogEditor({
                           }
 
                           // Return appropriate backend URL based on environment
-                          const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
-                            ? 'http://localhost:3002' 
-                            : 'https://api.99group.games'
+                          const apiUrl =
+                            typeof window !== 'undefined' &&
+                            window.location.hostname === 'localhost'
+                              ? 'http://localhost:3002'
+                              : 'https://api.99group.games'
                           return `${apiUrl}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
