@@ -1060,8 +1060,7 @@ export default function BlogEditor({
                           // Handle external URLs
                           if (
                             featuredImage.url.startsWith('http') &&
-                            !featuredImage.url.includes('localhost') &&
-                            !featuredImage.url.includes('99group.games')
+                            !featuredImage.url.includes('localhost')
                           ) {
                             return featuredImage.url
                           }
@@ -1077,12 +1076,8 @@ export default function BlogEditor({
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
 
-                          // In production, use the main domain; in dev, use backend port
-                          const baseUrl =
-                            process.env.NODE_ENV === 'production'
-                              ? 'https://99group.games'
-                              : 'http://localhost:3002'
-                          return `${baseUrl}${cleanUrl}`
+                          // Return backend server URL directly
+                          return `http://localhost:3002${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-32 object-cover rounded-lg block"
@@ -1342,8 +1337,7 @@ export default function BlogEditor({
                           // Handle external URLs
                           if (
                             featuredImage.url.startsWith('http') &&
-                            !featuredImage.url.includes('localhost') &&
-                            !featuredImage.url.includes('99group.games')
+                            !featuredImage.url.includes('localhost')
                           ) {
                             return featuredImage.url
                           }
@@ -1359,12 +1353,8 @@ export default function BlogEditor({
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
 
-                          // In production, use the main domain; in dev, use backend port
-                          const baseUrl =
-                            process.env.NODE_ENV === 'production'
-                              ? 'https://99group.games'
-                              : 'http://localhost:3002'
-                          return `${baseUrl}${cleanUrl}`
+                          // Return backend server URL directly
+                          return `http://localhost:3002${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-64 object-cover rounded-lg"
