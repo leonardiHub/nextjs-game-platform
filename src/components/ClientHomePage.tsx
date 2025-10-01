@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import LoginForm from '@/components/LoginForm'
 import RegisterForm from '@/components/RegisterForm'
 import Dashboard from '@/components/Dashboard'
@@ -15,23 +15,27 @@ export default function ClientHomePage() {
   const [canWithdraw, setCanWithdraw] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
 
-  // Check authentication on mount
-  useEffect(() => {
-    // Only run on client side to avoid hydration mismatch
-    if (typeof window !== 'undefined') {
+  const loadBalance = useCallback(async () => {
+    try {
       const token = localStorage.getItem('authToken')
-      if (token) {
-        setIsAuthenticated(true)
-        loadUserProfile()
-      } else {
-        setIsLoading(false)
+      const response = await fetch('/api/balance', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        const data = await response.json()
+        setCurrentBalance(data.balance)
+        setCanWithdraw(data.can_withdraw)
       }
-    } else {
-      setIsLoading(false)
+    } catch (error) {
+      console.error('Error loading balance:', error)
     }
   }, [])
 
-  const loadUserProfile = async () => {
+  const loadUserProfile = useCallback(async () => {
     try {
       const token = localStorage.getItem('authToken')
       const response = await fetch('/api/profile', {
@@ -54,27 +58,23 @@ export default function ClientHomePage() {
     } finally {
       setIsLoading(false)
     }
-  }
+  }, [loadBalance])
 
-  const loadBalance = async () => {
-    try {
+  // Check authentication on mount
+  useEffect(() => {
+    // Only run on client side to avoid hydration mismatch
+    if (typeof window !== 'undefined') {
       const token = localStorage.getItem('authToken')
-      const response = await fetch('/api/balance', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-
-      if (response.ok) {
-        const data = await response.json()
-        setCurrentBalance(data.balance)
-        setCanWithdraw(data.can_withdraw)
+      if (token) {
+        setIsAuthenticated(true)
+        loadUserProfile()
+      } else {
+        setIsLoading(false)
       }
-    } catch (error) {
-      console.error('Error loading balance:', error)
+    } else {
+      setIsLoading(false)
     }
-  }
+  }, [loadUserProfile])
 
   const handleLogin = (user: User, token: string) => {
     setCurrentUser(user)
@@ -114,25 +114,25 @@ export default function ClientHomePage() {
     )
   }
 
-  if (!isAuthenticated) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center p-4">
-        <div className="w-full max-w-md">
-          {showRegister ? (
-            <RegisterForm
-              onSwitchToLogin={handleSwitchToLogin}
-              onRegisterSuccess={handleRegisterSuccess}
-            />
-          ) : (
-            <LoginForm
-              onSwitchToRegister={handleSwitchToRegister}
-              onLoginSuccess={handleLogin}
-            />
-          )}
-        </div>
-      </div>
-    )
-  }
+  // if (!isAuthenticated) {
+  //   return (
+  //     <div className="min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center p-4">
+  //       <div className="w-full max-w-md">
+  //         {showRegister ? (
+  //           <RegisterForm
+  //             onShowLogin={handleSwitchToLogin}
+  //             onLogin={handleRegisterSuccess}
+  //           />
+  //         ) : (
+  //           <LoginForm
+  //             onShowRegister={handleSwitchToRegister}
+  //             onLogin={handleLogin}
+  //           />
+  //         )}
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   return (
     <Dashboard
