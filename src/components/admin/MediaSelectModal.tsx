@@ -44,7 +44,11 @@ export default function MediaSelectModal({ isOpen, onClose, onSelect, selectedId
       const token = localStorage.getItem('adminToken')
       console.log('Loading media files with token:', token ? 'Token exists' : 'No token')
       
-      const response = await fetch('http://localhost:3002/api/admin/media', {
+      const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+        ? 'http://localhost:3002' 
+        : 'https://api.99group.games'
+      
+      const response = await fetch(`${apiUrl}/api/admin/media`, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -76,6 +80,10 @@ export default function MediaSelectModal({ isOpen, onClose, onSelect, selectedId
       setUploading(true)
       const token = localStorage.getItem('adminToken')
       
+      const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+        ? 'http://localhost:3002' 
+        : 'https://api.99group.games'
+      
       const formData = new FormData()
       Array.from(files).forEach(file => {
         formData.append('files', file)
@@ -83,7 +91,7 @@ export default function MediaSelectModal({ isOpen, onClose, onSelect, selectedId
       formData.append('alt_text', 'Featured image')
       formData.append('description', 'Uploaded for blog featured image')
 
-      const response = await fetch('http://localhost:3002/api/admin/media/upload', {
+      const response = await fetch(`${apiUrl}/api/admin/media/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -210,14 +218,18 @@ export default function MediaSelectModal({ isOpen, onClose, onSelect, selectedId
                           let cleanUrl = media.url
                             .replace('http://localhost:3002', '')
                             .replace('http://localhost:3001', '')
+                            .replace('https://api.99group.games', '')
                           
                           // Ensure URL starts with /uploads
                           if (!cleanUrl.startsWith('/uploads')) {
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
                           
-                          // Return backend server URL directly
-                          return `http://localhost:3002${cleanUrl}`
+                          // Return appropriate backend URL based on environment
+                          const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                            ? 'http://localhost:3002' 
+                            : 'https://api.99group.games'
+                          return `${apiUrl}${cleanUrl}`
                         })()}
                         alt={media.alt_text || media.original_name}
                         className="w-full h-full object-cover"

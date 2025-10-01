@@ -1070,14 +1070,18 @@ export default function BlogEditor({
                             .replace('http://localhost:3002', '')
                             .replace('http://localhost:3001', '')
                             .replace('https://99group.games', '')
+                            .replace('https://api.99group.games', '')
 
                           // Ensure URL starts with /uploads
                           if (!cleanUrl.startsWith('/uploads')) {
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
 
-                          // Return backend server URL directly
-                          return `http://localhost:3002${cleanUrl}`
+                          // Return appropriate backend URL based on environment
+                          const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                            ? 'http://localhost:3002' 
+                            : 'https://api.99group.games'
+                          return `${apiUrl}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-32 object-cover rounded-lg block"
@@ -1347,14 +1351,18 @@ export default function BlogEditor({
                             .replace('http://localhost:3002', '')
                             .replace('http://localhost:3001', '')
                             .replace('https://99group.games', '')
+                            .replace('https://api.99group.games', '')
 
                           // Ensure URL starts with /uploads
                           if (!cleanUrl.startsWith('/uploads')) {
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
 
-                          // Return backend server URL directly
-                          return `http://localhost:3002${cleanUrl}`
+                          // Return appropriate backend URL based on environment
+                          const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost' 
+                            ? 'http://localhost:3002' 
+                            : 'https://api.99group.games'
+                          return `${apiUrl}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-64 object-cover rounded-lg"
