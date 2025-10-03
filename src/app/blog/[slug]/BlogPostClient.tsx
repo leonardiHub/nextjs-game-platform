@@ -270,12 +270,13 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
               src={(() => {
                 if (!blog.featured_image_url) return ''
 
-                // Always convert to use the specified server
+                // Clean the URL by removing existing prefixes
                 let cleanUrl = blog.featured_image_url
                   .replace('http://localhost:3006', '')
                   .replace('http://localhost:3001', '')
                   .replace('https://99group.games', '')
                   .replace('http://99group.games', '')
+                  .replace('http://15.235.215.3:5000', '')
                   .replace(API_CONFIG.BASE_URL, '')
                   .replace(
                     API_CONFIG.BASE_URL.replace('https://', 'https://api.'),
@@ -287,8 +288,17 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                   cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                 }
 
-                // Use the specified server URL
-                return `http://15.235.215.3:5000${cleanUrl}`
+                // Determine the base URL based on environment
+                const isLocal =
+                  typeof window !== 'undefined' &&
+                  (window.location.hostname === 'localhost' ||
+                    window.location.hostname === '127.0.0.1')
+
+                const baseUrl = isLocal
+                  ? 'http://localhost:3006'
+                  : 'http://15.235.215.3:5000'
+
+                return `${baseUrl}${cleanUrl}`
               })()}
               alt={blog.title}
               className="w-full aspect-[3/2] sm:aspect-[16/9] md:aspect-[18/9] lg:aspect-[20/9] object-contain sm:object-cover rounded-lg shadow-lg bg-gray-100"

@@ -522,11 +522,11 @@ const PromotionsPage = () => {
           ></div>
 
           {/* Modal Content */}
-          <div className="relative z-10 w-full h-full lg:w-[900px] lg:h-[80vh] bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] lg:rounded-xl border border-gray-700/50 overflow-hidden pb-10">
-            <div className="w-full h-10 bg-white sticky top-0 flex items-center justify-start lg:justify-end px-4 py-6 lg:py-8">
+          <div className="relative z-10 w-full h-full lg:w-[900px] lg:h-[80vh] bg-white lg:rounded-xl border border-[#00a6ff]/20 overflow-hidden pb-10 shadow-2xl">
+            <div className="w-full h-10 bg-gradient-to-r from-[#00a6ff] to-[#0088cc] sticky top-0 flex items-center justify-start lg:justify-end px-4 py-6 lg:py-8">
               <button
                 onClick={closePromotionModal}
-                className="lg:hidden block z-20 w-8 h-8 bg-black/50 hover:bg-black/70"
+                className="lg:hidden block z-20 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center"
               >
                 <span className="text-white text-xl">
                   <ChevronLeft />
@@ -535,7 +535,7 @@ const PromotionsPage = () => {
 
               <button
                 onClick={closePromotionModal}
-                className="lg:block hidden z-20 w-8 h-8 bg-black/50 hover:bg-black/70"
+                className="lg:block hidden z-20 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center"
               >
                 <span className="text-white text-xl">
                   <X />
@@ -557,12 +557,12 @@ const PromotionsPage = () => {
                 </div>
 
                 {/* Content Section */}
-                <div className="px-4    ">
+                <div className="px-4">
                   {/* 2. Promotion Title */}
-                  <h2 className="text-[16px] lg:text-[20px] text-white font-bold">
+                  <h2 className="text-[16px] lg:text-[20px] text-[#00a6ff] font-bold">
                     คืนยอดเสียต่อสัปดาห์สูงสุด 10 %
                   </h2>
-                  <h2 className="text-[12px] lg:text-[20px] text-[#757575] mb-4">
+                  <h2 className="text-[12px] lg:text-[20px] text-gray-600 mb-4">
                     พิเศษคืนให้ทุกวัน 100% ใบเสร็จแรกเท่านั้น!
                   </h2>
 
