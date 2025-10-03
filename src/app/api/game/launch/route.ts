@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
       })
     }
 
-    const response = await fetch('http://localhost:3002/api/game/launch', {
+    const response = await fetch('http://localhost:3006/api/game/launch', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

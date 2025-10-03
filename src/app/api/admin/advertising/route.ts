@@ -6,7 +6,7 @@ import { promisify } from 'util'
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'
 
 // Initialize database
-const db = new sqlite3.Database('./game_platform.db')
+const db = new sqlite3.Database('./fun88_standalone.db')
 const dbGet = promisify(db.get.bind(db))
 const dbRun = promisify(db.run.bind(db))
 
@@ -43,9 +43,9 @@ export async function GET(request: NextRequest) {
     }
 
     // Get the latest advertising settings
-    const result = await dbGet(
+    const result = (await dbGet(
       'SELECT settings FROM advertising_settings ORDER BY updated_at DESC LIMIT 1'
-    ) as any
+    )) as any
 
     if (result) {
       const settings = JSON.parse(result.settings)
@@ -65,8 +65,8 @@ export async function GET(request: NextRequest) {
             initiateCheckout: true,
             completeRegistration: true,
             deposit: true,
-            withdrawal: true
-          }
+            withdrawal: true,
+          },
         },
         google: {
           analyticsId: '',
@@ -74,19 +74,19 @@ export async function GET(request: NextRequest) {
           tagManagerId: '',
           conversionId: '',
           conversionLabel: '',
-          enhancedConversions: false
+          enhancedConversions: false,
         },
         tiktok: {
           pixelId: '',
           accessToken: '',
-          eventsApiEnabled: false
+          eventsApiEnabled: false,
         },
         tracking: {
           utmTracking: true,
           crossDomainTracking: false,
           userIdTracking: true,
-          customDimensions: []
-        }
+          customDimensions: [],
+        },
       }
       return NextResponse.json({ settings: defaultSettings })
     }
@@ -115,7 +115,12 @@ export async function POST(request: NextRequest) {
     const settings = await request.json()
 
     // Validate required structure
-    if (!settings.facebook || !settings.google || !settings.tiktok || !settings.tracking) {
+    if (
+      !settings.facebook ||
+      !settings.google ||
+      !settings.tiktok ||
+      !settings.tracking
+    ) {
       return NextResponse.json(
         { error: 'Invalid settings structure' },
         { status: 400 }
@@ -123,14 +128,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Save settings to database
-    await dbRun(
-      'INSERT INTO advertising_settings (settings) VALUES (?)',
-      [JSON.stringify(settings)]
-    )
+    await dbRun('INSERT INTO advertising_settings (settings) VALUES (?)', [
+      JSON.stringify(settings),
+    ])
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Advertising settings saved successfully' 
+    return NextResponse.json({
+      success: true,
+      message: 'Advertising settings saved successfully',
     })
   } catch (error) {
     console.error('Error saving advertising settings:', error)
@@ -158,12 +162,13 @@ export async function PUT(request: NextRequest) {
 
     // Update the latest settings record
     await dbRun(
-      'UPDATE advertising_settings SET settings = ?, updated_at = CURRENT_TIMESTAMP WHERE id = (SELECT MAX(id) FROM advertising_settings)'
-    , [JSON.stringify(settings)])
+      'UPDATE advertising_settings SET settings = ?, updated_at = CURRENT_TIMESTAMP WHERE id = (SELECT MAX(id) FROM advertising_settings)',
+      [JSON.stringify(settings)]
+    )
 
-    return NextResponse.json({ 
-      success: true, 
-      message: 'Advertising settings updated successfully' 
+    return NextResponse.json({
+      success: true,
+      message: 'Advertising settings updated successfully',
     })
   } catch (error) {
     console.error('Error updating advertising settings:', error)

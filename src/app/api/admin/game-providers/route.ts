@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbAll = promisify(db.all.bind(db))
 const dbGet = promisify(db.get.bind(db))
 const dbRun = promisify(db.run.bind(db))
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 // Create game_providers table if it doesn't exist
 db.run(`
@@ -28,17 +28,20 @@ db.run(`
 // Initialize with default JILI provider if empty
 db.get('SELECT COUNT(*) as count FROM game_providers', (err, row: any) => {
   if (!err && row.count === 0) {
-    db.run(`
+    db.run(
+      `
       INSERT INTO game_providers (name, code, agency_uid, aes_key, server_url, status) 
       VALUES (?, ?, ?, ?, ?, ?)
-    `, [
-      'JILI Gaming',
-      'JILI',
-      '45370b4f27dfc8a2875ba78d07e8a81a',
-      '08970240475e1255d2b4ac023ac658f3',
-      'https://jsgame.live',
-      'active'
-    ])
+    `,
+      [
+        'JILI Gaming',
+        'JILI',
+        '45370b4f27dfc8a2875ba78d07e8a81a',
+        '08970240475e1255d2b4ac023ac658f3',
+        'https://jsgame.live',
+        'active',
+      ]
+    )
   }
 })
 
@@ -61,16 +64,16 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const providers = await dbAll(
+    const providers = (await dbAll(
       'SELECT * FROM game_providers ORDER BY created_at DESC'
-    ) as any[]
+    )) as any[]
 
     return NextResponse.json({
       providers: providers.map(provider => ({
         ...provider,
         created_at: provider.created_at,
-        updated_at: provider.updated_at
-      }))
+        updated_at: provider.updated_at,
+      })),
     })
   } catch (error) {
     console.error('Error getting game providers:', error)
@@ -91,7 +94,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { name, code, agency_uid, aes_key, server_url, status } = await request.json()
+    const { name, code, agency_uid, aes_key, server_url, status } =
+      await request.json()
 
     // Validate required fields
     if (!name || !code || !agency_uid || !aes_key || !server_url) {
@@ -102,10 +106,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if provider code already exists
-    const existingProvider = await dbGet(
+    const existingProvider = (await dbGet(
       'SELECT id FROM game_providers WHERE code = ?',
       [code]
-    ) as any
+    )) as any
 
     if (existingProvider) {
       return NextResponse.json(
@@ -115,15 +119,18 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new provider
-    const result = await dbRun(`
+    const result = (await dbRun(
+      `
       INSERT INTO game_providers (name, code, agency_uid, aes_key, server_url, status) 
       VALUES (?, ?, ?, ?, ?, ?)
-    `, [name, code, agency_uid, aes_key, server_url, status || 'active']) as any
+    `,
+      [name, code, agency_uid, aes_key, server_url, status || 'active']
+    )) as any
 
     return NextResponse.json({
       success: true,
       id: result.lastID,
-      message: 'Game provider created successfully'
+      message: 'Game provider created successfully',
     })
   } catch (error) {
     console.error('Error creating game provider:', error)

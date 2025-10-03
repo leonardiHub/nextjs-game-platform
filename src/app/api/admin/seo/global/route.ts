@@ -1,18 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
 
 export async function GET(request: NextRequest) {
   try {
     const token = request.headers.get('authorization')
-    
+
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
     const response = await fetch(`${BACKEND_URL}/api/admin/seo/global`, {
       headers: {
-        'Authorization': token,
+        Authorization: token,
         'Content-Type': 'application/json',
       },
     })
@@ -35,7 +35,7 @@ export async function GET(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     const token = request.headers.get('authorization')
-    
+
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -45,7 +45,7 @@ export async function PUT(request: NextRequest) {
     const response = await fetch(`${BACKEND_URL}/api/admin/seo/global`, {
       method: 'PUT',
       headers: {
-        'Authorization': token,
+        Authorization: token,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(body),

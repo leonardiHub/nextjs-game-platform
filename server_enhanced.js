@@ -11,21 +11,21 @@ const multer = require('multer')
 const fs = require('fs')
 
 const app = express()
-const PORT = process.env.PORT || 3002
+const PORT = process.env.PORT || 5001
 
 // Game API Configuration
 const GAME_CONFIG = {
-  agency_uid: '45370b4f27dfc8a2875ba78d07e8a81a',
-  aes_key: '08970240475e1255d2b4ac023ac658f3',
-  player_prefix: 'h4944d',
+  agency_uid: '8dee1e401b87408cca3ca813c2250cb4',
+  aes_key: '68b074393ec7c5a975856a90bd6fdf47',
+  player_prefix: 'fun88',
   server_url: 'https://jsgame.live',
   initial_credit: 50,
 }
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 // Public Domain Configuration
-const PUBLIC_DOMAIN = process.env.PUBLIC_DOMAIN || 'https://api.99group.games'
+const PUBLIC_DOMAIN = process.env.PUBLIC_DOMAIN || 'https://api-staging.4d99.co'
 
 // Wallet Rules
 const WALLET_RULES = {
@@ -202,7 +202,7 @@ app.use((req, res, next) => {
 })
 
 // Initialize SQLite Database with better error handling
-const db = new sqlite3.Database('game_platform.db', err => {
+const db = new sqlite3.Database('fun88_standalone.db', err => {
   if (err) {
     console.error('❌ Database connection error:', err.message)
   } else {
@@ -1121,7 +1121,7 @@ app.post('/api/register', (req, res) => {
             },
             initialCredit: freeCreditAmount,
             initialBalance: initialBalance,
-            temporaryPassword: randomPassword, // Send this so user knows their password
+            temporaryPassword: password.trim(), // Send this so user knows their password
           })
         }
       )
@@ -3472,12 +3472,13 @@ function getGameInfo(gameUid) {
 
 // Serve Next.js app for all non-API routes (must be after all API routes)
 if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
+  // Use a middleware approach that's compatible with Express 5.x
+  app.use((req, res, next) => {
     console.log('Next.js route handler called for:', req.path)
 
-    // Skip API routes
+    // Skip API routes - let them pass through to the actual handlers
     if (req.path.startsWith('/api/')) {
-      return res.status(404).json({ error: 'API endpoint not found' })
+      return next()
     }
 
     // Serve the appropriate Next.js page based on the route

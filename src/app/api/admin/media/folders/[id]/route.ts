@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3002'
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
 
 export async function DELETE(
   request: NextRequest,
@@ -11,14 +11,17 @@ export async function DELETE(
     console.log('DELETE folder request - ID:', folderId)
     console.log('API_BASE_URL:', API_BASE_URL)
 
-    const response = await fetch(`${API_BASE_URL}/api/admin/media/folders/${folderId}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-      signal: AbortSignal.timeout(10000), // 10 second timeout
-    })
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/media/folders/${folderId}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+        signal: AbortSignal.timeout(10000), // 10 second timeout
+      }
+    )
 
     console.log('Backend response status:', response.status)
 
@@ -33,6 +36,9 @@ export async function DELETE(
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error deleting folder:', error)
-    return NextResponse.json({ error: 'Internal server error', details: error.message }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error', details: error.message },
+      { status: 500 }
+    )
   }
 }

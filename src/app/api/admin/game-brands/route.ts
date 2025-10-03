@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbAll = promisify(db.all.bind(db)) as any
 const dbGet = promisify(db.get.bind(db)) as any
 const dbRun = promisify(db.run.bind(db)) as any
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 // Create game_brands table if it doesn't exist
 db.run(`
@@ -35,7 +35,7 @@ db.get('SELECT COUNT(*) as count FROM game_brands', (err, row: any) => {
         logo_url: '/images/brands/jili.png',
         description: 'Leading Asian gaming provider with innovative slot games',
         status: 'active',
-        games_count: 12
+        games_count: 12,
       },
       {
         name: 'Pragmatic Play',
@@ -43,7 +43,7 @@ db.get('SELECT COUNT(*) as count FROM game_brands', (err, row: any) => {
         logo_url: '/images/brands/pragmatic.png',
         description: 'World-class gaming content provider',
         status: 'active',
-        games_count: 8
+        games_count: 8,
       },
       {
         name: 'PG Soft',
@@ -51,7 +51,7 @@ db.get('SELECT COUNT(*) as count FROM game_brands', (err, row: any) => {
         logo_url: '/images/brands/pgsoft.png',
         description: 'Mobile-focused gaming solutions',
         status: 'active',
-        games_count: 6
+        games_count: 6,
       },
       {
         name: 'Habanero',
@@ -59,7 +59,7 @@ db.get('SELECT COUNT(*) as count FROM game_brands', (err, row: any) => {
         logo_url: '/images/brands/habanero.png',
         description: 'Premium casino games provider',
         status: 'active',
-        games_count: 4
+        games_count: 4,
       },
       {
         name: 'Red Tiger',
@@ -67,15 +67,25 @@ db.get('SELECT COUNT(*) as count FROM game_brands', (err, row: any) => {
         logo_url: '/images/brands/redtiger.png',
         description: 'Innovative slot game developer',
         status: 'active',
-        games_count: 3
-      }
+        games_count: 3,
+      },
     ]
 
     defaultBrands.forEach(brand => {
-      db.run(`
+      db.run(
+        `
         INSERT INTO game_brands (name, code, logo_url, description, status, games_count) 
         VALUES (?, ?, ?, ?, ?, ?)
-      `, [brand.name, brand.code, brand.logo_url, brand.description, brand.status, brand.games_count])
+      `,
+        [
+          brand.name,
+          brand.code,
+          brand.logo_url,
+          brand.description,
+          brand.status,
+          brand.games_count,
+        ]
+      )
     })
   }
 })
@@ -99,16 +109,16 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const brands = await dbAll(
+    const brands = (await dbAll(
       'SELECT * FROM game_brands ORDER BY created_at DESC'
-    ) as any[]
+    )) as any[]
 
     return NextResponse.json({
       brands: brands.map(brand => ({
         ...brand,
         created_at: brand.created_at,
-        updated_at: brand.updated_at
-      }))
+        updated_at: brand.updated_at,
+      })),
     })
   } catch (error) {
     console.error('Error getting game brands:', error)
@@ -129,7 +139,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { name, code, logo_url, description, status, games_count } = await request.json()
+    const { name, code, logo_url, description, status, games_count } =
+      await request.json()
 
     // Validate required fields
     if (!name || !code) {
@@ -140,10 +151,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if brand code already exists
-    const existingBrand = await dbGet(
+    const existingBrand = (await dbGet(
       'SELECT id FROM game_brands WHERE code = ?',
       [code]
-    ) as any
+    )) as any
 
     if (existingBrand) {
       return NextResponse.json(
@@ -153,15 +164,25 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new brand
-    const result = await dbRun(`
+    const result = (await dbRun(
+      `
       INSERT INTO game_brands (name, code, logo_url, description, status, games_count) 
       VALUES (?, ?, ?, ?, ?, ?)
-    `, [name, code, logo_url || '', description || '', status || 'active', games_count || 0]) as any
+    `,
+      [
+        name,
+        code,
+        logo_url || '',
+        description || '',
+        status || 'active',
+        games_count || 0,
+      ]
+    )) as any
 
     return NextResponse.json({
       success: true,
       id: result.lastID,
-      message: 'Game brand created successfully'
+      message: 'Game brand created successfully',
     })
   } catch (error) {
     console.error('Error creating game brand:', error)

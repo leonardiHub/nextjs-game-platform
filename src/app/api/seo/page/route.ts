@@ -1,22 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
 
 export async function GET(request: NextRequest) {
   try {
     const searchParams = request.nextUrl.searchParams
     const path = searchParams.get('path')
-    
+
     if (!path) {
-      return NextResponse.json({ error: 'Page path is required' }, { status: 400 })
+      return NextResponse.json(
+        { error: 'Page path is required' },
+        { status: 400 }
+      )
     }
 
-    const response = await fetch(`${BACKEND_URL}/api/seo/page?path=${encodeURIComponent(path)}`, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      cache: 'no-store'
-    })
+    const response = await fetch(
+      `${BACKEND_URL}/api/seo/page?path=${encodeURIComponent(path)}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        cache: 'no-store',
+      }
+    )
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)

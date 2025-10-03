@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { API_CONFIG } from '@/utils/config'
 import { useRouter } from 'next/navigation'
 import { Eye } from 'lucide-react'
 
@@ -81,8 +82,8 @@ const BlogPageClient = () => {
 
   if (loading) {
     return (
-      <div className="w-full flex items-center justify-center min-h-[400px] bg-dark">
-        <div className="text-xl text-yellow-500 font-semibold">
+      <div className="w-full flex items-center justify-center min-h-[400px] bg-white">
+        <div className="text-xl text-[#00a6ff] font-semibold">
           Loading blog articles...
         </div>
       </div>
@@ -91,7 +92,7 @@ const BlogPageClient = () => {
 
   if (error) {
     return (
-      <div className="w-full flex items-center justify-center min-h-[400px] bg-dark">
+      <div className="w-full flex items-center justify-center min-h-[400px] bg-white">
         <div className="text-xl text-red-500 font-semibold">Error: {error}</div>
       </div>
     )
@@ -99,7 +100,7 @@ const BlogPageClient = () => {
 
   return (
     <div className="w-full min-h-screen bg-dark text-white flex flex-col items-center pb-8">
-      <span className="text-3xl gradient-gold font-semibold my-8">
+      <span className="text-3xl text-primary font-semibold my-8">
         Blog Articles
       </span>
 
@@ -113,7 +114,7 @@ const BlogPageClient = () => {
             <div
               key={blog.id}
               onClick={() => handleBlogClick(blog)}
-              className="group bg-dark rounded-lg border border-gray-700 shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl relative cursor-pointer"
+              className="group bg-dark rounded-lg border border-gray-50 shadow-lg overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl relative cursor-pointer"
             >
               <div className="relative w-full h-48 overflow-hidden">
                 <img
@@ -130,10 +131,13 @@ const BlogPageClient = () => {
 
                     // For local files, use backend server directly
                     let cleanUrl = blog.featured_image_url
-                      .replace('http://localhost:3002', '')
+                      .replace('http://localhost:3006', '')
                       .replace('http://localhost:3001', '')
-                      .replace('https://99group.games', '')
-                      .replace('https://api.99group.games', '')
+                      .replace(API_CONFIG.BASE_URL, '')
+                      .replace(
+                        API_CONFIG.BASE_URL.replace('https://', 'https://api.'),
+                        ''
+                      )
 
                     // Ensure URL starts with /uploads
                     if (!cleanUrl.startsWith('/uploads')) {
@@ -144,8 +148,8 @@ const BlogPageClient = () => {
                     const apiUrl =
                       typeof window !== 'undefined' &&
                       window.location.hostname === 'localhost'
-                        ? 'http://localhost:3002'
-                        : 'https://api.99group.games'
+                        ? 'http://localhost:3006'
+                        : API_CONFIG.BASE_URL
                     return `${apiUrl}${cleanUrl}`
                   })()}
                   alt={blog.title}
@@ -157,13 +161,16 @@ const BlogPageClient = () => {
                 />
               </div>
               <div className="p-4 flex flex-col justify-between flex-grow">
-                <div className="w-max primary-gradient-to-r px-2 py-1 rounded-md font-semibold text-xs lg:text-sm mb-2">
-                  {blog.category_name}
-                </div>
-                <h3 className="text-2xl font-semibold gradient-gold">
+                {blog.category_name && (
+                  <div className="w-max bg-primary px-2 py-1 rounded-md font-semibold text-xs lg:text-sm mb-2">
+                    {blog.category_name}
+                  </div>
+                )}
+
+                <h3 className="text-2xl font-semibold text-primary">
                   {blog.title}
                 </h3>
-                <p className="text-gray-300 text-sm mt-2 line-clamp-2">
+                <p className="text-gray-500 text-sm mt-2 line-clamp-2">
                   {blog.excerpt}
                 </p>
                 <div className="flex items-center justify-between text-gray-400 text-xs mt-4">
@@ -172,10 +179,10 @@ const BlogPageClient = () => {
                     <span>{formatDate(blog.published_at)}</span>
                   </div>
                   <div className="flex items-center">
-                    <span className="text-yellow-500 mr-1">
+                    <span className="text-blue-500 mr-1">
                       <Eye className="w-3 h-3" />
                     </span>
-                    <span className="text-yellow-500">
+                    <span className="text-blue-500">
                       {getFakeViews(blog.id)}
                     </span>
                   </div>

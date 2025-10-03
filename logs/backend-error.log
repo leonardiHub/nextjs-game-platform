@@ -1,0 +1,633 @@
+2025-10-02 18:45:14 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:14 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:14 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:14 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:14 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:14 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:14 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:14 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:14 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:14 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:14 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:14 +00:00:   originalPath: '*'
+2025-10-02 18:45:14 +00:00: }
+2025-10-02 18:45:18 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:18 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:18 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:18 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:18 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:18 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:18 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:18 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:18 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:18 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:18 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:18 +00:00:   originalPath: '*'
+2025-10-02 18:45:18 +00:00: }
+2025-10-02 18:45:22 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:22 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:22 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:22 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:22 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:22 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:22 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:22 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:22 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:22 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:22 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:22 +00:00:   originalPath: '*'
+2025-10-02 18:45:22 +00:00: }
+2025-10-02 18:45:26 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:26 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:26 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:26 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:26 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:26 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:26 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:26 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:26 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:26 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:26 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:26 +00:00:   originalPath: '*'
+2025-10-02 18:45:26 +00:00: }
+2025-10-02 18:45:30 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:30 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:30 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:30 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:30 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:30 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:30 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:30 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:30 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:30 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:30 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:30 +00:00:   originalPath: '*'
+2025-10-02 18:45:30 +00:00: }
+2025-10-02 18:45:35 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:35 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:35 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:35 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:35 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:35 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:35 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:35 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:35 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:35 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:35 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:35 +00:00:   originalPath: '*'
+2025-10-02 18:45:35 +00:00: }
+2025-10-02 18:45:39 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:39 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:39 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:39 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:39 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:39 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:39 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:39 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:39 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:39 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:39 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:39 +00:00:   originalPath: '*'
+2025-10-02 18:45:39 +00:00: }
+2025-10-02 18:45:43 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:43 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:43 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:43 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:43 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:43 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:43 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:43 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:43 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:43 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:43 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:43 +00:00:   originalPath: '*'
+2025-10-02 18:45:43 +00:00: }
+2025-10-02 18:45:47 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:47 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:47 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:47 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:47 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:47 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:47 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:47 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:47 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:47 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:47 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:47 +00:00:   originalPath: '*'
+2025-10-02 18:45:47 +00:00: }
+2025-10-02 18:45:51 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:45:51 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:45:51 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:45:51 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:45:51 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:45:51 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:45:51 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:45:51 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:45:51 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:45:51 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:45:51 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:45:51 +00:00:   originalPath: '*'
+2025-10-02 18:45:51 +00:00: }
+2025-10-02 18:46:58 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:46:58 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:46:58 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:46:58 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:46:58 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:46:58 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:46:58 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:46:58 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:46:58 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:46:58 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:46:58 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:46:58 +00:00:   originalPath: '*'
+2025-10-02 18:46:58 +00:00: }
+2025-10-02 18:47:02 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:02 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:02 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:02 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:02 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:02 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:02 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:02 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:02 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:02 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:02 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:02 +00:00:   originalPath: '*'
+2025-10-02 18:47:02 +00:00: }
+2025-10-02 18:47:06 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:06 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:06 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:06 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:06 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:06 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:06 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:06 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:06 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:06 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:06 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:06 +00:00:   originalPath: '*'
+2025-10-02 18:47:06 +00:00: }
+2025-10-02 18:47:10 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:10 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:10 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:10 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:10 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:10 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:10 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:10 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:10 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:10 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:10 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:10 +00:00:   originalPath: '*'
+2025-10-02 18:47:10 +00:00: }
+2025-10-02 18:47:14 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:14 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:14 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:14 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:14 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:14 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:14 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:14 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:14 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:14 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:14 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:14 +00:00:   originalPath: '*'
+2025-10-02 18:47:14 +00:00: }
+2025-10-02 18:47:19 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:19 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:19 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:19 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:19 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:19 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:19 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:19 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:19 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:19 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:19 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:19 +00:00:   originalPath: '*'
+2025-10-02 18:47:19 +00:00: }
+2025-10-02 18:47:23 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:23 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:23 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:23 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:23 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:23 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:23 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:23 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:23 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:23 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:23 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:23 +00:00:   originalPath: '*'
+2025-10-02 18:47:23 +00:00: }
+2025-10-02 18:47:27 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:27 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:27 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:27 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:27 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:27 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:27 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:27 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:27 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:27 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:27 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:27 +00:00:   originalPath: '*'
+2025-10-02 18:47:27 +00:00: }
+2025-10-02 18:47:31 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:31 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:31 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:31 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:31 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:31 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:31 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:31 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:31 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:31 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:31 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:31 +00:00:   originalPath: '*'
+2025-10-02 18:47:31 +00:00: }
+2025-10-02 18:47:35 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:47:35 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:47:35 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:47:35 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:47:35 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:47:35 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:47:35 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:47:35 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:47:35 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:47:35 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:47:35 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:47:35 +00:00:   originalPath: '*'
+2025-10-02 18:47:35 +00:00: }
+2025-10-02 18:48:10 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:10 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:10 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:10 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:10 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:10 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:10 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:10 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:10 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:10 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:10 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:10 +00:00:   originalPath: '*'
+2025-10-02 18:48:10 +00:00: }
+2025-10-02 18:48:15 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:15 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:15 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:15 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:15 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:15 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:15 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:15 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:15 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:15 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:15 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:15 +00:00:   originalPath: '*'
+2025-10-02 18:48:15 +00:00: }
+2025-10-02 18:48:19 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:19 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:19 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:19 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:19 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:19 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:19 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:19 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:19 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:19 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:19 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:19 +00:00:   originalPath: '*'
+2025-10-02 18:48:19 +00:00: }
+2025-10-02 18:48:23 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:23 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:23 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:23 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:23 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:23 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:23 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:23 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:23 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:23 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:23 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:23 +00:00:   originalPath: '*'
+2025-10-02 18:48:23 +00:00: }
+2025-10-02 18:48:27 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:27 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:27 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:27 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:27 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:27 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:27 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:27 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:27 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:27 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:27 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:27 +00:00:   originalPath: '*'
+2025-10-02 18:48:27 +00:00: }
+2025-10-02 18:48:31 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:31 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:31 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:31 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:31 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:31 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:31 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:31 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:31 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:31 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:31 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:31 +00:00:   originalPath: '*'
+2025-10-02 18:48:31 +00:00: }
+2025-10-02 18:48:36 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:36 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:36 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:36 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:36 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:36 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:36 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:36 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:36 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:36 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:36 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:36 +00:00:   originalPath: '*'
+2025-10-02 18:48:36 +00:00: }
+2025-10-02 18:48:40 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:40 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:40 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:40 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:40 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:40 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:40 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:40 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:40 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:40 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:40 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:40 +00:00:   originalPath: '*'
+2025-10-02 18:48:40 +00:00: }
+2025-10-02 18:48:44 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:44 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:44 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:44 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:44 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:44 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:44 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:44 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:44 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:44 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:44 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:44 +00:00:   originalPath: '*'
+2025-10-02 18:48:44 +00:00: }
+2025-10-02 18:48:48 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:48 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:48 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:48 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:48 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:48 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:48 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:48 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:48 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:48 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:48 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:48 +00:00:   originalPath: '*'
+2025-10-02 18:48:48 +00:00: }
+2025-10-02 18:48:52 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:52 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:52 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:52 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:52 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:52 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:52 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:52 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:52 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:52 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:52 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:52 +00:00:   originalPath: '*'
+2025-10-02 18:48:52 +00:00: }
+2025-10-02 18:48:57 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:48:57 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:48:57 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:48:57 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:48:57 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:48:57 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:48:57 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:48:57 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:48:57 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:48:57 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:48:57 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:48:57 +00:00:   originalPath: '*'
+2025-10-02 18:48:57 +00:00: }
+2025-10-02 18:49:01 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:49:01 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:49:01 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:49:01 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:49:01 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:49:01 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:49:01 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:49:01 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:49:01 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:49:01 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:49:01 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:49:01 +00:00:   originalPath: '*'
+2025-10-02 18:49:01 +00:00: }
+2025-10-02 18:49:05 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:49:05 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:49:05 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:49:05 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:49:05 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:49:05 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:49:05 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:49:05 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:49:05 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:49:05 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:49:05 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:49:05 +00:00:   originalPath: '*'
+2025-10-02 18:49:05 +00:00: }
+2025-10-02 18:49:09 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:49:09 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:49:09 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:49:09 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:49:09 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:49:09 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:49:09 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:49:09 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:49:09 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:49:09 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:49:09 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:49:09 +00:00:   originalPath: '*'
+2025-10-02 18:49:09 +00:00: }
+2025-10-02 18:49:13 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:49:13 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:49:13 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:49:13 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:49:13 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:49:13 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:49:13 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:49:13 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:49:13 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:49:13 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:49:13 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:49:13 +00:00:   originalPath: '*'
+2025-10-02 18:49:13 +00:00: }
+2025-10-02 18:49:18 +00:00: PathError [TypeError]: Missing parameter name at index 1: *; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:49:18 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:49:18 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:49:18 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:49:18 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:49:18 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:49:18 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:49:18 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:49:18 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:49:18 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:49:18 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:49:18 +00:00:   originalPath: '*'
+2025-10-02 18:49:18 +00:00: }
+2025-10-02 18:54:50 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:54:50 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:54:50 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:54:50 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:54:50 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:54:50 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:54:50 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:54:50 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:54:50 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:54:50 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:54:50 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:54:50 +00:00:   originalPath: '/*'
+2025-10-02 18:54:50 +00:00: }
+2025-10-02 18:54:55 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:54:55 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:54:55 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:54:55 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:54:55 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:54:55 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:54:55 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:54:55 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:54:55 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:54:55 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:54:55 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:54:55 +00:00:   originalPath: '/*'
+2025-10-02 18:54:55 +00:00: }
+2025-10-02 18:54:59 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:54:59 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:54:59 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:54:59 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:54:59 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:54:59 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:54:59 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:54:59 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:54:59 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:54:59 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:54:59 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:54:59 +00:00:   originalPath: '/*'
+2025-10-02 18:54:59 +00:00: }
+2025-10-02 18:55:03 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:03 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:03 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:03 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:03 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:03 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:03 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:03 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:03 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:03 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:03 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:03 +00:00:   originalPath: '/*'
+2025-10-02 18:55:03 +00:00: }
+2025-10-02 18:55:07 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:07 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:07 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:07 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:07 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:07 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:07 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:07 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:07 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:07 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:07 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:07 +00:00:   originalPath: '/*'
+2025-10-02 18:55:07 +00:00: }
+2025-10-02 18:55:11 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:11 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:11 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:11 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:11 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:11 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:11 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:11 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:11 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:11 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:11 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:11 +00:00:   originalPath: '/*'
+2025-10-02 18:55:11 +00:00: }
+2025-10-02 18:55:16 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:16 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:16 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:16 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:16 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:16 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:16 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:16 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:16 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:16 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:16 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:16 +00:00:   originalPath: '/*'
+2025-10-02 18:55:16 +00:00: }
+2025-10-02 18:55:20 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:20 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:20 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:20 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:20 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:20 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:20 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:20 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:20 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:20 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:20 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:20 +00:00:   originalPath: '/*'
+2025-10-02 18:55:20 +00:00: }
+2025-10-02 18:55:24 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:24 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:24 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:24 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:24 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:24 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:24 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:24 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:24 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:24 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:24 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:24 +00:00:   originalPath: '/*'
+2025-10-02 18:55:24 +00:00: }
+2025-10-02 18:55:28 +00:00: PathError [TypeError]: Missing parameter name at index 2: /*; visit https://git.new/pathToRegexpError for info
+2025-10-02 18:55:28 +00:00:     at name (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:96:19)
+2025-10-02 18:55:28 +00:00:     at parse (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:113:68)
+2025-10-02 18:55:28 +00:00:     at pathToRegexp (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:267:58)
+2025-10-02 18:55:28 +00:00:     at Object.match (/home/ubuntu/fun88-v1/node_modules/path-to-regexp/dist/index.js:237:30)
+2025-10-02 18:55:28 +00:00:     at matcher (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:86:23)
+2025-10-02 18:55:28 +00:00:     at new Layer (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:93:62)
+2025-10-02 18:55:28 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/router/index.js:428:17)
+2025-10-02 18:55:28 +00:00:     at Function.route (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:257:22)
+2025-10-02 18:55:28 +00:00:     at app.<computed> [as get] (/home/ubuntu/fun88-v1/node_modules/express/lib/application.js:478:22)
+2025-10-02 18:55:28 +00:00:     at Object.<anonymous> (/home/ubuntu/fun88-v1/server_enhanced.js:3475:7) {
+2025-10-02 18:55:28 +00:00:   originalPath: '/*'
+2025-10-02 18:55:28 +00:00: }
+2025-10-02 19:29:56 +00:00: NotFoundError: Not Found
+2025-10-02 19:29:56 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-02 19:29:56 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-02 19:29:56 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-02 19:29:56 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-02 19:29:56 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-02 19:29:56 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-02 19:29:56 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-02 19:29:56 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-02 19:29:56 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-02 19:29:56 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-02 19:38:26 +00:00: NotFoundError: Not Found
+2025-10-02 19:38:26 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-02 19:38:26 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-02 19:38:26 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-02 19:38:26 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-02 19:38:26 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-02 19:38:26 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-02 19:38:26 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-02 19:38:26 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-02 19:38:26 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-02 19:38:26 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)

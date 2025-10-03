@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbAll = promisify(db.all.bind(db)) as any
 const dbGet = promisify(db.get.bind(db)) as any
 const dbRun = promisify(db.run.bind(db)) as any
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 // Create platform_provider table if it doesn't exist
 db.run(`
@@ -27,16 +27,19 @@ db.run(`
 // Initialize with default merchant provider if empty
 db.get('SELECT COUNT(*) as count FROM platform_provider', (err, row: any) => {
   if (!err && row.count === 0) {
-    db.run(`
+    db.run(
+      `
       INSERT INTO platform_provider (name, server_url, agency_uid, aes_key, status) 
       VALUES (?, ?, ?, ?, ?)
-    `, [
-      'Merchant Gaming Platform',
-      'https://jsgame.live',
-      '45370b4f27dfc8a2875ba78d07e8a81a',
-      '08970240475e1255d2b4ac023ac658f3',
-      'active'
-    ])
+    `,
+      [
+        'Merchant Gaming Platform',
+        'https://jsgame.live',
+        '45370b4f27dfc8a2875ba78d07e8a81a',
+        '08970240475e1255d2b4ac023ac658f3',
+        'active',
+      ]
+    )
   }
 })
 
@@ -59,12 +62,12 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const provider = await dbGet(
+    const provider = (await dbGet(
       'SELECT * FROM platform_provider ORDER BY created_at DESC LIMIT 1'
-    ) as any
+    )) as any
 
     return NextResponse.json({
-      provider: provider || null
+      provider: provider || null,
     })
   } catch (error) {
     console.error('Error getting platform provider:', error)
@@ -85,7 +88,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { name, server_url, agency_uid, aes_key, status } = await request.json()
+    const { name, server_url, agency_uid, aes_key, status } =
+      await request.json()
 
     // Validate required fields
     if (!name || !server_url || !agency_uid || !aes_key) {
@@ -96,33 +100,46 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if provider already exists
-    const existingProvider = await dbGet(
+    const existingProvider = (await dbGet(
       'SELECT id FROM platform_provider LIMIT 1'
-    ) as any
+    )) as any
 
     if (existingProvider) {
       // Update existing provider
-      await dbRun(`
+      ;(await dbRun(
+        `
         UPDATE platform_provider 
         SET name = ?, server_url = ?, agency_uid = ?, aes_key = ?, status = ?, updated_at = CURRENT_TIMESTAMP
         WHERE id = ?
-      `, [name, server_url, agency_uid, aes_key, status || 'active', existingProvider.id]) as any
+      `,
+        [
+          name,
+          server_url,
+          agency_uid,
+          aes_key,
+          status || 'active',
+          existingProvider.id,
+        ]
+      )) as any
 
       return NextResponse.json({
         success: true,
-        message: 'Platform provider updated successfully'
+        message: 'Platform provider updated successfully',
       })
     } else {
       // Insert new provider
-      const result = await dbRun(`
+      const result = (await dbRun(
+        `
         INSERT INTO platform_provider (name, server_url, agency_uid, aes_key, status) 
         VALUES (?, ?, ?, ?, ?)
-      `, [name, server_url, agency_uid, aes_key, status || 'active']) as any
+      `,
+        [name, server_url, agency_uid, aes_key, status || 'active']
+      )) as any
 
       return NextResponse.json({
         success: true,
         id: result.lastID,
-        message: 'Platform provider created successfully'
+        message: 'Platform provider created successfully',
       })
     }
   } catch (error) {

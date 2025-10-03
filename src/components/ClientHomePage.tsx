@@ -105,9 +105,9 @@ export default function ClientHomePage() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121]">
+      <div className="flex items-center justify-center min-h-screen bg-white">
         <div className="flex items-center space-x-3">
-          <Loader2 className="w-8 h-8 animate-spin text-[#C29331]" />
+          <Loader2 className="w-8 h-8 animate-spin text-[#00a6ff]" />
           <span className="text-gray-300 text-lg">Loading...</span>
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { API_CONFIG } from '@/utils/config'
 import { useRouter } from 'next/navigation'
 
 interface BlogPost {
@@ -122,8 +123,8 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
   if (loading) {
     return (
-      <div className="w-full flex items-center justify-center min-h-screen bg-dark">
-        <div className="text-xl text-yellow-500 font-semibold">
+      <div className="w-full flex items-center justify-center min-h-screen bg-white">
+        <div className="text-xl text-[#00a6ff] font-semibold">
           Loading blog post...
         </div>
       </div>
@@ -132,14 +133,14 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
   if (error) {
     return (
-      <div className="w-full flex items-center justify-center min-h-screen bg-dark">
+      <div className="w-full flex items-center justify-center min-h-screen bg-white pt-20">
         <div className="text-center">
-          <div className="text-xl text-red-500 font-semibold mb-4">
+          <div className="text-xl text-red-600 font-semibold mb-4">
             Error: {error}
           </div>
           <button
             onClick={goBack}
-            className="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+            className="bg-[#00a6ff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#0088cc] transition-colors"
           >
             Go Back
           </button>
@@ -150,14 +151,14 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
   if (!blog) {
     return (
-      <div className="w-full flex items-center justify-center min-h-screen bg-dark">
+      <div className="w-full flex items-center justify-center min-h-screen bg-white">
         <div className="text-center">
-          <div className="text-xl text-gray-400 font-semibold mb-4">
+          <div className="text-xl text-gray-600 font-semibold mb-4">
             Blog post not found
           </div>
           <button
             onClick={goBack}
-            className="bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition-colors"
+            className="bg-[#00a6ff] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#0088cc] transition-colors"
           >
             Go Back
           </button>
@@ -167,11 +168,11 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-dark text-white">
+    <div className="w-full min-h-screen bg-white text-gray-900">
       {/* Custom styles for blog content */}
       <style jsx global>{`
         .blog-content {
-          color: #e5e7eb !important;
+          color: #374151 !important;
           line-height: 1.8;
           font-size: 1.125rem;
         }
@@ -189,6 +190,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
           font-weight: bold !important;
           margin-top: 1.5rem !important;
           margin-bottom: 1rem !important;
+          color: #00a6ff !important;
         }
 
         .blog-content h1 {
@@ -228,7 +230,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
         .blog-content ul li::before {
           content: '•' !important;
-          color: #e5e7eb !important;
+          color: #00a6ff !important;
           font-weight: bold !important;
           position: absolute !important;
           left: 0.5rem !important;
@@ -241,6 +243,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
         .blog-content strong {
           font-weight: bold !important;
+          color: #00a6ff !important;
         }
 
         .blog-content em {
@@ -248,10 +251,13 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
         }
 
         .blog-content blockquote {
-          border-left: 4px solid #fbbf24 !important;
+          border-left: 4px solid #00a6ff !important;
           padding-left: 1rem !important;
           margin: 1rem 0 !important;
           font-style: italic !important;
+          background-color: #f0f9ff !important;
+          padding: 1rem !important;
+          border-radius: 0.5rem !important;
         }
       `}</style>
 
@@ -264,36 +270,28 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
               src={(() => {
                 if (!blog.featured_image_url) return ''
 
-                // Handle external URLs
-                if (
-                  blog.featured_image_url.startsWith('http') &&
-                  !blog.featured_image_url.includes('localhost')
-                ) {
-                  return blog.featured_image_url
-                }
-
-                // For local files, use backend server directly
+                // Always convert to use the specified server
                 let cleanUrl = blog.featured_image_url
-                  .replace('http://localhost:3002', '')
+                  .replace('http://localhost:3006', '')
                   .replace('http://localhost:3001', '')
                   .replace('https://99group.games', '')
-                  .replace('https://api.99group.games', '')
+                  .replace('http://99group.games', '')
+                  .replace(API_CONFIG.BASE_URL, '')
+                  .replace(
+                    API_CONFIG.BASE_URL.replace('https://', 'https://api.'),
+                    ''
+                  )
 
                 // Ensure URL starts with /uploads
                 if (!cleanUrl.startsWith('/uploads')) {
                   cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                 }
 
-                // Return appropriate backend URL based on environment
-                const apiUrl =
-                  typeof window !== 'undefined' &&
-                  window.location.hostname === 'localhost'
-                    ? 'http://localhost:3002'
-                    : 'https://api.99group.games'
-                return `${apiUrl}${cleanUrl}`
+                // Use the specified server URL
+                return `http://15.235.215.3:5000${cleanUrl}`
               })()}
               alt={blog.title}
-              className="w-full aspect-[3/2] sm:aspect-[16/9] md:aspect-[18/9] lg:aspect-[20/9] object-contain sm:object-cover rounded-lg shadow-lg bg-dark"
+              className="w-full aspect-[3/2] sm:aspect-[16/9] md:aspect-[18/9] lg:aspect-[20/9] object-contain sm:object-cover rounded-lg shadow-lg bg-gray-100"
             />
           </div>
         )}
@@ -302,15 +300,16 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
           {/* Enhanced Blog Header */}
           <div className="mb-8 sm:mb-12 lg:mb-16">
             {/* Category Badge */}
-            <div className="primary-gradient-to-r w-max px-2 py-1 rounded-md font-semibold lg:text-sm">
-              {blog.category_name}
-            </div>
+            {blog.category_name && (
+              <div className="bg-blue-100 text-[#00a6ff] w-max px-3 py-1 rounded-full font-semibold text-sm">
+                {blog.category_name}
+              </div>
+            )}
 
             {/* Main Title */}
-
-            <span className="gradient-gold text-3xl font-semibold my-3">
+            <h1 className="text-[#00a6ff] text-3xl font-bold my-4">
               {blog.title}
-            </span>
+            </h1>
 
             {/* Author and Meta Info */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 sm:mb-8">
@@ -318,7 +317,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                 {/* Author Info */}
                 <div className="flex items-center space-x-3">
                   <div>
-                    <p className="text-gray-300 font-medium">
+                    <p className="text-gray-700 font-medium">
                       By {blog.author}
                     </p>
                     <p className="text-gray-500 text-sm">Content Creator</p>
@@ -326,10 +325,10 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                 </div>
 
                 {/* Divider */}
-                <div className="hidden sm:block w-px h-8 bg-gray-600"></div>
+                <div className="hidden sm:block w-px h-8 bg-gray-300"></div>
 
                 {/* Date and Views */}
-                <div className="flex items-center space-x-4 text-gray-400">
+                <div className="flex items-center space-x-4 text-gray-600">
                   <div className="flex items-center space-x-2">
                     <svg
                       className="w-4 h-4"
@@ -376,7 +375,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
               </div>
 
               {/* Reading Time Estimate */}
-              <div className="flex items-center space-x-2 text-gray-400">
+              <div className="flex items-center space-x-2 text-gray-600">
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -397,8 +396,8 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
             {/* Excerpt */}
             {blog.excerpt && (
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 to-transparent rounded-lg"></div>
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-200 leading-relaxed relative z-10 p-6 rounded-lg border border-gray-700/50">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#00a6ff]/10 to-transparent rounded-lg"></div>
+                <p className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed relative z-10 p-6 rounded-lg border border-[#00a6ff]/20 bg-blue-50">
                   {blog.excerpt}
                 </p>
               </div>
@@ -411,7 +410,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                   {blog.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-gray-800/50 text-gray-300 border border-gray-700/50 hover:bg-gray-700/50 transition-colors"
+                      className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-[#00a6ff] border border-blue-200 hover:bg-blue-200 transition-colors"
                     >
                       #{tag}
                     </span>
@@ -426,7 +425,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
               className="blog-content prose prose-lg sm:prose-xl lg:prose-2xl max-w-none"
               dangerouslySetInnerHTML={{ __html: decodeHtml(htmlContent) }}
               style={{
-                color: '#e5e7eb',
+                color: '#374151',
                 lineHeight: '1.8',
                 fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
               }}
@@ -434,36 +433,36 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
           )}
 
           {/* Enhanced Blog Footer */}
-          <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-gray-700/50">
+          <div className="mt-12 sm:mt-16 lg:mt-20 pt-8 sm:pt-10 border-t border-gray-300">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-6 sm:space-y-0">
               {/* Share and Actions */}
               <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
                 <div className="flex items-center space-x-4">
-                  <span className="text-gray-400 text-sm font-medium">
+                  <span className="text-gray-600 text-sm font-medium">
                     Share this article:
                   </span>
                   <div className="flex items-center space-x-3">
-                    <button className="p-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <button className="p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors">
                       <svg
-                        className="w-4 h-4 text-gray-400"
+                        className="w-4 h-4 text-[#00a6ff]"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
                         <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                       </svg>
                     </button>
-                    <button className="p-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <button className="p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors">
                       <svg
-                        className="w-4 h-4 text-gray-400"
+                        className="w-4 h-4 text-[#00a6ff]"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
                         <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
                       </svg>
                     </button>
-                    <button className="p-2 bg-gray-800/50 hover:bg-gray-700/50 rounded-lg transition-colors">
+                    <button className="p-2 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors">
                       <svg
-                        className="w-4 h-4 text-gray-400"
+                        className="w-4 h-4 text-[#00a6ff]"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -477,7 +476,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
               {/* Back Button */}
               <button
                 onClick={goBack}
-                className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-500 to-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:from-yellow-400 hover:to-yellow-300 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#00a6ff] to-[#0088cc] text-white px-6 py-3 rounded-lg font-semibold hover:from-[#0088cc] hover:to-[#006699] transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
               >
                 <svg
                   className="w-4 h-4"

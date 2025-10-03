@@ -218,7 +218,7 @@ export default function GameNavbar({
   // Show loading state during hydration
   // if (!isHydrated) {
   //   return (
-  //     <div className="fixed top-0 z-[100] w-full bg-[#212121] px-2 lg:px-8 py-3 lg:py-1">
+  //     <div className="fixed top-0 z-[100] w-full bg-white px-2 lg:px-8 py-3 lg:py-1">
   //       <div className="w-full flex items-center justify-between">
   //         <img
   //           src="pg-slot-logo.webp"
@@ -239,8 +239,8 @@ export default function GameNavbar({
       <div
         className={`fixed top-0 z-[100] w-full will-change-transform transition-all duration-300 ease-in-out hydration-safe ${
           isScrolled
-            ? 'w-[200px] lg:w-[1200px] mx-auto rounded-xl shadow-lg backdrop-blur-md bg-[#212121]/95 px-4 lg:px-8 py-3 lg:py-1 border border-gray-700'
-            : 'w-full bg-[#212121] px-2 lg:px-8 py-3 lg:py-1'
+            ? 'w-[200px] lg:w-[1200px] mx-auto rounded-xl shadow-lg backdrop-blur-md bg-[#00a6ff]/95 px-4 lg:px-8 py-3 lg:py-1 border border-blue-300'
+            : 'w-full bg-[#00a6ff] px-2 lg:px-8 py-3 lg:py-1'
         }`}
         style={{
           backfaceVisibility: 'hidden',
@@ -249,15 +249,15 @@ export default function GameNavbar({
         suppressHydrationWarning={true}
       >
         <div
-          className={`w-full flex items-center transition-all duration-300 ease-in-out ${
+          className={`w-full flex items-center transition-all duration-300 ease-in-out py-2 ${
             isScrolled ? 'justify-between' : 'justify-between'
           }`}
         >
           <img
-            src="/pg-slot-logo.webp"
+            src="fun88-white.svg"
             alt="logo"
             onClick={() => router.push('/')}
-            className="h-auto w-[70px] lg:w-[100px] transition-all duration-300 ease-in-out will-change-transform"
+            className="h-auto w-[70px] lg:w-[80px] transition-all duration-300 ease-in-out will-change-transform"
             style={{
               backfaceVisibility: 'hidden',
             }}
@@ -267,41 +267,41 @@ export default function GameNavbar({
             <span
               onClick={() => router.push('/')}
               className={`relative cursor-pointer transition-colors duration-300 group ${
-                pathname === '/' ? 'text-[#c29331]' : 'hover:text-[#c29331]'
+                pathname === '/' ? 'text-white' : 'hover:text-white'
               }`}
             >
               หน้าหลัก
               <span
-                className={`absolute bottom-0 left-0 h-0.5 bg-[#c29331] transition-all duration-300 ${
+                className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}
               ></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-[#c29331] group">
+            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               สล็อต
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-[#c29331] group">
+            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               หน้าหลัก
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-[#c29331] group">
+            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               คาสิโน
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-[#c29331] group">
+            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               แทงบอล
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </span>
             <span
               onClick={() => router.push('/blog')}
               className={`relative cursor-pointer transition-colors duration-300 group ${
-                pathname === '/blog' ? 'text-[#c29331]' : 'hover:text-[#c29331]'
+                pathname === '/blog' ? 'text-white' : 'hover:text-white'
               }`}
             >
               แทงหวย
               <span
-                className={`absolute bottom-0 left-0 h-0.5 bg-[#c29331] transition-all duration-300 ${
+                className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === '/blog' ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}
               ></span>
@@ -309,23 +309,21 @@ export default function GameNavbar({
             <span
               onClick={() => router.push('/promotions')}
               className={`relative cursor-pointer transition-colors duration-300 group ${
-                pathname === '/promotions'
-                  ? 'text-[#c29331]'
-                  : 'hover:text-[#c29331]'
+                pathname === '/promotions' ? 'text-white' : 'hover:text-white'
               }`}
             >
               โปรโมชั่น
               <span
-                className={`absolute bottom-0 left-0 h-0.5 bg-[#c29331] transition-all duration-300 ${
+                className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === '/promotions'
                     ? 'w-full'
                     : 'w-0 group-hover:w-full'
                 }`}
               ></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-[#c29331] group">
+            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               สิทธิพิเศษ บทความ
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#c29331] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </span>
           </div>
 
@@ -343,7 +341,7 @@ export default function GameNavbar({
               >
                 <div className="flex items-center">
                   <span
-                    className="gradient-gold font-bold tracking-wide transition-all duration-300 ease-in-out will-change-transform"
+                    className="text-white font-bold tracking-wide transition-all duration-300 ease-in-out will-change-transform"
                     style={{
                       fontSize: isScrolled ? '1.125rem' : '1.25rem',
                       backfaceVisibility: 'hidden',
@@ -377,12 +375,12 @@ export default function GameNavbar({
               </div>
 
               <div className="flex items-center justify-center gap-2 lg:hidden">
-                <div className="rounded-lg flex flex-col border-r-0 rounded-r-none text-gray-300 leading-tight">
+                <div className="rounded-lg flex flex-col border-r-0 rounded-r-none text-gray-200 leading-tight">
                   <span className="text-xs text-left">Balance:</span>
 
                   <div className="flex">
                     <span
-                      className="gradient-gold text-left transition-all duration-300 ease-in-out will-change-transform"
+                      className="text-white text-left transition-all duration-300 ease-in-out will-change-transform"
                       style={{
                         backfaceVisibility: 'hidden',
                       }}
@@ -398,8 +396,8 @@ export default function GameNavbar({
                       disabled={isRefreshing}
                       className={`p-1 rounded-full transition-all duration-300 will-change-transform ${
                         isRefreshing
-                          ? 'animate-spin text-gray-500'
-                          : 'hover:bg-gray-700/50 text-gray-400 hover:text-[#C29331]'
+                          ? 'animate-spin text-white'
+                          : 'hover:bg-gray-700/50 text-white hover:text-[#fff]'
                       }`}
                       title="Refresh balance"
                       style={{
@@ -419,14 +417,14 @@ export default function GameNavbar({
                 <button
                   onClick={() => setShowWalletModal(true)}
                   disabled={!canWithdraw || user?.kyc_status !== 'approved'}
-                  className={`h-max border border-primary flex items-center justify-center px-2 rounded-md transition-all duration-200 ${
+                  className={`h-max border border-primary flex items-center justify-center px-2 py-1 rounded-md transition-all duration-200 ${
                     canWithdraw && user?.kyc_status === 'approved'
                       ? 'hover:opacity-90 cursor-pointer'
                       : 'opacity-50 cursor-not-allowed'
                   }`}
                   style={{
                     background:
-                      'linear-gradient(180deg, #af8135, #f0e07c, #c69b3a)',
+                      'linear-gradient(180deg, #fff, #f5f5f5,rgb(217, 217, 217))',
                   }}
                   title={
                     canWithdraw && user?.kyc_status === 'approved'
@@ -444,7 +442,7 @@ export default function GameNavbar({
               <button
                 onClick={() => setShowWalletModal(true)}
                 disabled={!canWithdraw || user?.kyc_status !== 'approved'}
-                className={`lg:flex hidden items-center lg:space-x-1 px-3 py-1.5 rounded-lg font-semibold transition-all duration-300 text-sm`}
+                className="lg:flex hidden items-center lg:space-x-1 px-3 py-1.5 rounded-lg font-semibold transition-all duration-300 text-sm"
                 title={
                   canWithdraw && user?.kyc_status === 'approved'
                     ? 'Open withdrawal options'
@@ -454,7 +452,7 @@ export default function GameNavbar({
                 }
                 style={{
                   background:
-                    'linear-gradient(180deg, #af8135, #f0e07c, #c69b3a)',
+                    'linear-gradient(180deg, #fff, #f5f5f5,rgb(217, 217, 217))',
                 }}
               >
                 <DollarSign className="w-4 h-4" />
@@ -475,7 +473,7 @@ export default function GameNavbar({
                   onClick={handleUserDropdownToggle}
                   className="flex items-center space-x-2 rounded-lg hover:bg-gray-700/50 transition-all duration-200"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-[#D4B145] to-[#C29331] rounded-full flex items-center justify-center">
+                  <div className="w-8 h-8 bg-gradient-to-r from-[#D4B145] to-[#00a6ff] rounded-full flex items-center justify-center">
                     <UserIcon className="w-4 h-4 text-[#212121]" />
                   </div>
                   <ChevronDown
@@ -490,7 +488,7 @@ export default function GameNavbar({
                   <div className="absolute right-0 top-full mt-2 w-56 bg-[#2a2a2a] rounded-lg shadow-xl border border-gray-600 z-50">
                     <div className="p-4 border-b border-gray-600">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-[#D4B145] to-[#C29331] rounded-full flex items-center justify-center">
+                        <div className="w-10 h-10 bg-gradient-to-r from-[#D4B145] to-[#00a6ff] rounded-full flex items-center justify-center">
                           <UserIcon className="w-5 h-5 text-[#212121]" />
                         </div>
                         <div>
@@ -559,7 +557,7 @@ export default function GameNavbar({
               </div> */}
 
               <button
-                className="lg:hidden block text-white hover:bg-gray-700/50 rounded-lg transition-colors"
+                className="lg:hidden block text-white hover:bg-white/20 rounded-lg transition-colors"
                 onClick={() => setShowMobileMenu(true)}
               >
                 <Menu className="w-5 h-5" />
@@ -612,7 +610,7 @@ export default function GameNavbar({
                   setAuthModalTab('login')
                   setShowAuthModal(true)
                 }}
-                className={`text-white border border-[#C29331] rounded-lg hover:bg-[#C29331] hover:text-[#212121] transition-all duration-300 font-medium ${
+                className={`text-white border border-white rounded-lg hover:bg-white hover:text-[#00a6ff] transition-all duration-300 font-medium ${
                   isScrolled ? 'px-3 py-1.5 text-sm' : 'px-4 py-2'
                 }`}
               >
@@ -623,7 +621,7 @@ export default function GameNavbar({
                   setAuthModalTab('register')
                   setShowAuthModal(true)
                 }}
-                className={`bg-gradient-to-r from-[#D4B145] to-[#C29331] text-[#212121] rounded-lg hover:from-[#C29331] hover:to-[#B08428] transition-all duration-300 font-medium ${
+                className={`bg-white text-[#00a6ff] rounded-lg hover:bg-gray-100 transition-all duration-300 font-medium ${
                   isScrolled ? 'px-3 py-1.5 text-sm' : 'px-4 py-2'
                 }`}
               >
@@ -631,7 +629,7 @@ export default function GameNavbar({
               </button>
 
               <button
-                className="lg:hidden block text-white ml-0 mr-2 p-0 hover:bg-gray-700/50 rounded-lg transition-colors"
+                className="lg:hidden block text-white ml-0 mr-2 p-0 hover:bg-white/20 rounded-lg transition-colors"
                 onClick={() => setShowMobileMenu(true)}
               >
                 <Menu className="w-5 h-5" />
@@ -654,8 +652,8 @@ export default function GameNavbar({
 
       {/* Wallet Modal */}
       {showWalletModal && (
-        <div className="bg-[#212121] px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8 ">
-          <div className="relative bg-[#212121] w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
+        <div className="bg-white px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8 ">
+          <div className="relative bg-white w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
             <button
               onClick={() => setShowWalletModal(false)}
               className="absolute top-0 right-0 text-gray-500 hover:text-gray-700 z-10 transition-colors"
@@ -676,8 +674,8 @@ export default function GameNavbar({
 
       {/* KYC Modal */}
       {showKYCModal && (
-        <div className="bg-[#212121] px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8 ">
-          <div className="relative bg-[#212121] w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
+        <div className="bg-white px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8 ">
+          <div className="relative bg-white w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
             <button
               onClick={() => setShowKYCModal(false)}
               className="absolute top-0 right-0 text-gray-500 hover:text-gray-700 z-10 transition-colors"
@@ -692,8 +690,8 @@ export default function GameNavbar({
 
       {/* History Modal */}
       {showHistoryModal && (
-        <div className="bg-[#212121] px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8 ">
-          <div className="relative bg-[#212121] w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
+        <div className="bg-white px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8 ">
+          <div className="relative bg-white w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
             <button
               onClick={() => setShowHistoryModal(false)}
               className="absolute top-0 right-0 text-gray-500 hover:text-gray-700 z-10 transition-colors"
@@ -731,7 +729,7 @@ export default function GameNavbar({
 
           {/* Slide-out Menu */}
           <div
-            className={`fixed top-0 right-0 h-full w-80 bg-[#212121] shadow-2xl z-[99999] lg:hidden overflow-hidden will-change-transform mobile-menu-optimized ${
+            className={`fixed top-0 right-0 h-full w-80 bg-[#00a6ff] shadow-2xl z-[99999] lg:hidden overflow-hidden will-change-transform mobile-menu-optimized ${
               showMobileMenu ? 'translate-x-0' : 'translate-x-full'
             }`}
             suppressHydrationWarning={true}
@@ -754,15 +752,11 @@ export default function GameNavbar({
             }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b border-gray-700 flex-shrink-0">
-              <img
-                src="/pg-slot-logo.webp"
-                alt="99Group"
-                className="h-10 w-auto"
-              />
+            <div className="flex items-center justify-between p-4 border-b border-white/20 flex-shrink-0">
+              <img src="fun88-white.svg" alt="99Group" className="h-6 w-auto" />
               <button
                 onClick={() => setShowMobileMenu(false)}
-                className="text-gray-400 hover:text-white p-2 hover:bg-gray-700/50 rounded-lg transition-colors"
+                className="text-white hover:text-white/80 p-2 hover:bg-white/20 rounded-lg transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -786,14 +780,14 @@ export default function GameNavbar({
             >
               {/* User Profile Section */}
               {user && (
-                <div className="mb-4 p-4 bg-gray-800/30 rounded-lg border border-gray-700">
+                <div className="mb-4 p-4 bg-white/10 rounded-lg border border-white/20">
                   <div className="flex items-center space-x-3 mb-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-[#D4B145] to-[#C29331] rounded-full flex items-center justify-center">
-                      <UserIcon className="w-5 h-5 text-[#212121]" />
+                    <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                      <UserIcon className="w-5 h-5 text-[#00a6ff]" />
                     </div>
                     <div>
                       <p className="text-white font-medium">{user?.username}</p>
-                      <p className="text-gray-400 text-sm">{user?.full_name}</p>
+                      <p className="text-white/70 text-sm">{user?.full_name}</p>
                     </div>
                   </div>
 
@@ -803,7 +797,7 @@ export default function GameNavbar({
                         setShowWalletModal(true)
                         setShowMobileMenu(false)
                       }}
-                      className="flex items-center space-x-2 p-2 text-gray-300 hover:bg-gray-700/50 hover:text-white rounded-lg transition-colors text-sm"
+                      className="flex items-center space-x-2 p-2 text-white hover:bg-white/20 hover:text-white rounded-lg transition-colors text-sm"
                     >
                       <Wallet className="w-4 h-4" />
                       <span>Wallet</span>
@@ -814,22 +808,22 @@ export default function GameNavbar({
                         setShowKYCModal(true)
                         setShowMobileMenu(false)
                       }}
-                      className="flex items-center space-x-2 p-2 text-gray-300 hover:bg-gray-700/50 hover:text-white rounded-lg transition-colors text-sm"
+                      className="flex items-center space-x-2 p-2 text-white hover:bg-white/20 hover:text-white rounded-lg transition-colors text-sm"
                     >
                       <FileText className="w-4 h-4" />
                       <span>KYC Verification</span>
                       {user?.kyc_status === 'approved' && (
-                        <span className="ml-auto text-green-400 text-xs">
+                        <span className="ml-auto text-green-300 text-xs">
                           ✓
                         </span>
                       )}
                       {user?.kyc_status === 'pending' && (
-                        <span className="ml-auto text-yellow-400 text-xs">
+                        <span className="ml-auto text-yellow-300 text-xs">
                           ⏳
                         </span>
                       )}
                       {user?.kyc_status === 'rejected' && (
-                        <span className="ml-auto text-red-400 text-xs">✗</span>
+                        <span className="ml-auto text-red-300 text-xs">✗</span>
                       )}
                     </button>
 
@@ -838,7 +832,7 @@ export default function GameNavbar({
                         setShowHistoryModal(true)
                         setShowMobileMenu(false)
                       }}
-                      className="flex items-center space-x-2 p-2 text-gray-300 hover:bg-gray-700/50 hover:text-white rounded-lg transition-colors text-sm"
+                      className="flex items-center space-x-2 p-2 text-white hover:bg-white/20 hover:text-white rounded-lg transition-colors text-sm"
                     >
                       <History className="w-4 h-4" />
                       <span>Transaction History</span>
@@ -849,7 +843,7 @@ export default function GameNavbar({
                         onLogout()
                         setShowMobileMenu(false)
                       }}
-                      className="flex items-center space-x-2 p-2 text-red-400 hover:bg-red-600/20 hover:text-red-300 rounded-lg transition-colors text-sm"
+                      className="flex items-center space-x-2 p-2 text-red-300 hover:bg-red-500/20 hover:text-red-200 rounded-lg transition-colors text-sm"
                     >
                       <LogOut className="w-4 h-4" />
                       <span>Logout</span>
@@ -859,60 +853,60 @@ export default function GameNavbar({
               )}
 
               {/* Menu Items as Buttons */}
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <Home className="w-5 h-5 text-[#C29331]" />
-                <span className="font-medium">PG SLOT</span>
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <Home className="w-5 h-5 text-white" />
+                <span className="font-medium">FUN88</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <Spade className="w-5 h-5 text-[#C29331]" />
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <Spade className="w-5 h-5 text-white" />
                 <span className="font-medium">Casino</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <Gamepad2 className="w-5 h-5 text-[#C29331]" />
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <Gamepad2 className="w-5 h-5 text-white" />
                 <span className="font-medium">Slots</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <Trophy className="w-5 h-5 text-[#C29331]" />
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <Trophy className="w-5 h-5 text-white" />
                 <span className="font-medium">Sports</span>
               </button>
 
               <button
-                className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left"
+                className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left"
                 onClick={() => {
                   router.push('/blog')
                   setShowMobileMenu(false)
                 }}
               >
-                <Ticket className="w-5 h-5 text-[#C29331]" />
+                <Ticket className="w-5 h-5 text-white" />
                 <span className="font-medium">Lottery</span>
               </button>
 
               <button
-                className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left"
+                className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left"
                 onClick={() => {
                   router.push('/promotions')
                   setShowMobileMenu(false)
                 }}
               >
-                <Gift className="w-5 h-5 text-[#C29331]" />
+                <Gift className="w-5 h-5 text-white" />
                 <span className="font-medium">Promotions</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <CreditCard className="w-5 h-5 text-[#C29331]" />
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <CreditCard className="w-5 h-5 text-white" />
                 <span className="font-medium">Payments</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <Users className="w-5 h-5 text-[#C29331]" />
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <Users className="w-5 h-5 text-white" />
                 <span className="font-medium">Affiliate</span>
               </button>
 
-              <button className="flex items-center space-x-3 p-3 text-white bg-gray-800/50 hover:bg-[#C29331]/20 hover:border-[#C29331] border border-transparent rounded-lg transition-all duration-200 text-left">
-                <BookOpen className="w-5 h-5 text-[#C29331]" />
+              <button className="flex items-center space-x-3 p-3 text-white bg-white/10 hover:bg-white/20 hover:border-white border border-transparent rounded-lg transition-all duration-200 text-left">
+                <BookOpen className="w-5 h-5 text-white" />
                 <span className="font-medium">Blog</span>
               </button>
             </div>

@@ -22,8 +22,8 @@
  ✓ Ready in 1561ms
  ○ Compiling /api/admin/seo/pages/[id] ...
  ✓ Compiled /api/admin/seo/pages/[id] in 582ms (296 modules)
-Frontend API: BACKEND_URL is: http://localhost:3002
-Frontend API: BACKEND_URL is: http://localhost:3002
+Frontend API: BACKEND_URL is: http://localhost:3006
+Frontend API: BACKEND_URL is: http://localhost:3006
 Error: Route "/api/admin/seo/pages/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
     at PUT (src/app/api/admin/seo/pages/[id]/route.ts:51:74)
   49 |
@@ -49,7 +49,7 @@ Error: Route "/api/admin/seo/pages/[id]" used `params.id`. `params` should be aw
   58 |     const response = await fetch(`${BACKEND_URL}/api/admin/seo/pages/${params.id}`, {
   59 |       method: 'PUT',
   60 |       headers: {
-Frontend API: Sending request to backend: http://localhost:3002/api/admin/seo/pages/1
+Frontend API: Sending request to backend: http://localhost:3006/api/admin/seo/pages/1
 Error: Route "/api/admin/seo/pages/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
     at PUT (src/app/api/admin/seo/pages/[id]/route.ts:58:79)
   56 |
@@ -118,8 +118,8 @@ Frontend API: Returning successful response
  ✓ Compiled /api/admin/seo/pages in 228ms (1120 modules)
  GET /api/admin/seo/pages 200 in 259ms
  ✓ Compiled /api/admin/seo/pages/[id] in 313ms (1122 modules)
-Frontend API: BACKEND_URL is: http://localhost:3002
-Frontend API: BACKEND_URL is: http://localhost:3002
+Frontend API: BACKEND_URL is: http://localhost:3006
+Frontend API: BACKEND_URL is: http://localhost:3006
 Error: Route "/api/admin/seo/pages/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
     at PUT (src/app/api/admin/seo/pages/[id]/route.ts:51:74)
   49 |
@@ -155,7 +155,7 @@ Error: Route "/api/admin/seo/pages/[id]" used `params.id`. `params` should be aw
   58 |     const response = await fetch(`${BACKEND_URL}/api/admin/seo/pages/${params.id}`, {
   59 |       method: 'PUT',
   60 |       headers: {
-Frontend API: Sending request to backend: http://localhost:3002/api/admin/seo/pages/1
+Frontend API: Sending request to backend: http://localhost:3006/api/admin/seo/pages/1
 Error: Route "/api/admin/seo/pages/[id]" used `params.id`. `params` should be awaited before using its properties. Learn more: https://nextjs.org/docs/messages/sync-dynamic-apis
     at PUT (src/app/api/admin/seo/pages/[id]/route.ts:58:79)
   56 |
@@ -230,7 +230,7 @@ Error:   [31mx[0m Return statement is not allowed here
  [2m105[0m |       if (isLoading) {
  [2m106[0m | [35;1m,[0m[35;1m-[0m[35;1m>[0m     return (
  [2m107[0m | [35;1m|[0m         <div className="min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center">
- [2m108[0m | [35;1m|[0m           <Loader2 className="text-[#C29331] text-lg animate-spin" />
+ [2m108[0m | [35;1m|[0m           <Loader2 className="text-[#00a6ff] text-lg animate-spin" />
  [2m109[0m | [35;1m|[0m         </div>
  [2m110[0m | [35;1m`[0m[35;1m-[0m[35;1m>[0m     )
  [2m111[0m |       }
@@ -277,7 +277,7 @@ Error:   [31mx[0m Return statement is not allowed here
  [2m105[0m |       if (isLoading) {
  [2m106[0m | [35;1m,[0m[35;1m-[0m[35;1m>[0m     return (
  [2m107[0m | [35;1m|[0m         <div className="min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center">
- [2m108[0m | [35;1m|[0m           <Loader2 className="text-[#C29331] text-lg animate-spin" />
+ [2m108[0m | [35;1m|[0m           <Loader2 className="text-[#00a6ff] text-lg animate-spin" />
  [2m109[0m | [35;1m|[0m         </div>
  [2m110[0m | [35;1m`[0m[35;1m-[0m[35;1m>[0m     )
  [2m111[0m |       }
@@ -335,7 +335,7 @@ Error:   [31mx[0m Return statement is not allowed here
  [2m105[0m |       if (isLoading) {
  [2m106[0m | [35;1m,[0m[35;1m-[0m[35;1m>[0m     return (
  [2m107[0m | [35;1m|[0m         <div className="min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center">
- [2m108[0m | [35;1m|[0m           <Loader2 className="text-[#C29331] text-lg animate-spin" />
+ [2m108[0m | [35;1m|[0m           <Loader2 className="text-[#00a6ff] text-lg animate-spin" />
  [2m109[0m | [35;1m|[0m         </div>
  [2m110[0m | [35;1m`[0m[35;1m-[0m[35;1m>[0m     )
  [2m111[0m |       }

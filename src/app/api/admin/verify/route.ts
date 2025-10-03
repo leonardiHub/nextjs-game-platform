@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import * as jwt from 'jsonwebtoken'
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production'
+const JWT_SECRET =
+  process.env.JWT_SECRET || 'fun88-secret-key-change-in-production'
 
 export async function GET(request: NextRequest) {
   try {
@@ -15,15 +16,18 @@ export async function GET(request: NextRequest) {
 
     // Check if user is admin
     if (decoded.role !== 'admin' && decoded.role !== 'super_admin') {
-      return NextResponse.json({ error: 'Insufficient permissions' }, { status: 403 })
+      return NextResponse.json(
+        { error: 'Insufficient permissions' },
+        { status: 403 }
+      )
     }
 
-    return NextResponse.json({ 
-      valid: true, 
+    return NextResponse.json({
+      valid: true,
       user: {
         username: decoded.username,
-        role: decoded.role
-      }
+        role: decoded.role,
+      },
     })
   } catch (error) {
     return NextResponse.json({ error: 'Invalid token' }, { status: 401 })

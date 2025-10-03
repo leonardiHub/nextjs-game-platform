@@ -1,11 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { API_CONFIG } from '@/utils/config'
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
 
     // Forward the request to your backend server
-    const response = await fetch('http://localhost:3002/api/register', {
+    const response = await fetch(`${API_CONFIG.BASE_URL}/api/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -57,7 +57,7 @@ server {
 
     # 反向代理到游戏平台
     location / {
-        proxy_pass http://localhost:3002;
+        proxy_pass http://localhost:3006;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -76,14 +76,14 @@ server {
     
     # 静态文件缓存
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
-        proxy_pass http://localhost:3002;
+        proxy_pass http://localhost:3006;
         expires 1y;
         add_header Cache-Control "public, immutable";
     }
     
     # API路径优化
     location /api/ {
-        proxy_pass http://localhost:3002;
+        proxy_pass http://localhost:3006;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

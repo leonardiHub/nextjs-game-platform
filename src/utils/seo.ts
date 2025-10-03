@@ -37,7 +37,7 @@ interface GlobalSEOSettings {
 // 获取页面的SEO数据
 export async function getPageSEO(pagePath: string): Promise<SEOData | null> {
   try {
-    const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+    const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
 
     // 首先尝试获取管理员token（如果有的话）
     const url = `${BACKEND_URL}/api/seo/page?path=${encodeURIComponent(pagePath)}`
@@ -73,7 +73,7 @@ export async function getPageSEOSettings(
 ): Promise<SEOData | null> {
   try {
     // 在服务器端渲染时，直接调用后端API
-    const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+    const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
     const url = `${BACKEND_URL}/api/seo/pages?page_path=${encodeURIComponent(pagePath)}`
 
     console.log('Fetching page SEO settings for:', pagePath)
@@ -129,7 +129,7 @@ export async function getGlobalSEOSettings(): Promise<GlobalSEOSettings> {
   }
 
   try {
-    const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+    const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
     const response = await fetch(`${BACKEND_URL}/api/seo/global`, {
       headers: {
         'Content-Type': 'application/json',

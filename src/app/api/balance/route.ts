@@ -4,7 +4,7 @@ export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get('authorization')
 
-    const response = await fetch('http://localhost:3002/api/balance', {
+    const response = await fetch('http://localhost:3006/api/balance', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     const url = new URL(request.url)
     const queryParams = url.searchParams.toString()
 
-    const backendUrl = `http://localhost:3002/api/transactions${queryParams ? `?${queryParams}` : ''}`
+    const backendUrl = `http://localhost:3006/api/transactions${queryParams ? `?${queryParams}` : ''}`
 
     const response = await fetch(backendUrl, {
       method: 'GET',
@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     const authHeader = request.headers.get('authorization')
     const body = await request.json()
 
-    const response = await fetch('http://localhost:3002/api/transactions', {
+    const response = await fetch('http://localhost:3006/api/transactions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

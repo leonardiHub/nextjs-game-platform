@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import BlogEditor from './BlogEditor'
 import { adminGet, adminDelete, adminPost } from '@/utils/adminApi'
+import { API_CONFIG } from '@/utils/config'
 import {
   BookOpen,
   Plus,
@@ -639,7 +640,7 @@ export default function BlogManagement() {
 
                               // For local files, use backend server directly
                               let cleanUrl = blog.featured_image_url
-                                .replace('http://localhost:3002', '')
+                                .replace('http://localhost:3006', '')
                                 .replace('http://localhost:3001', '')
                                 .replace('https://api.99group.games', '')
 
@@ -652,8 +653,8 @@ export default function BlogManagement() {
                               const apiUrl =
                                 typeof window !== 'undefined' &&
                                 window.location.hostname === 'localhost'
-                                  ? 'http://localhost:3002'
-                                  : 'https://api.99group.games'
+                                  ? 'http://localhost:3006'
+                                  : 'http://15.235.215.3:3006'
                               return `${apiUrl}${cleanUrl}`
                             })()}
                             alt={blog.title}

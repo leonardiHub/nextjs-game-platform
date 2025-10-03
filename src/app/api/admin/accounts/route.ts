@@ -4,10 +4,10 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import path from 'path'
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 // Initialize database
-const dbPath = path.join(process.cwd(), 'game_platform.db')
+const dbPath = path.join(process.cwd(), 'fun88_standalone.db')
 const db = new sqlite3.Database(dbPath)
 
 // Verify admin token
@@ -34,7 +34,10 @@ function verifyAdminToken(request: NextRequest) {
 export async function GET(request: NextRequest) {
   const authResult = verifyAdminToken(request)
   if (authResult.error) {
-    return NextResponse.json({ error: authResult.error }, { status: authResult.status })
+    return NextResponse.json(
+      { error: authResult.error },
+      { status: authResult.status }
+    )
   }
 
   const { searchParams } = new URL(request.url)
@@ -43,7 +46,7 @@ export async function GET(request: NextRequest) {
   const search = searchParams.get('search') || ''
   const offset = (page - 1) * limit
 
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     let whereClause = ''
     let params: any[] = []
 
@@ -58,7 +61,9 @@ export async function GET(request: NextRequest) {
       params,
       (err, countResult: any) => {
         if (err) {
-          resolve(NextResponse.json({ error: 'Database error' }, { status: 500 }))
+          resolve(
+            NextResponse.json({ error: 'Database error' }, { status: 500 })
+          )
           return
         }
 
@@ -71,19 +76,23 @@ export async function GET(request: NextRequest) {
           [...params, limit, offset],
           (err, admins) => {
             if (err) {
-              resolve(NextResponse.json({ error: 'Database error' }, { status: 500 }))
+              resolve(
+                NextResponse.json({ error: 'Database error' }, { status: 500 })
+              )
               return
             }
 
-            resolve(NextResponse.json({
-              admins,
-              pagination: {
-                page,
-                limit,
-                total: countResult.total,
-                totalPages: Math.ceil(countResult.total / limit)
-              }
-            }))
+            resolve(
+              NextResponse.json({
+                admins,
+                pagination: {
+                  page,
+                  limit,
+                  total: countResult.total,
+                  totalPages: Math.ceil(countResult.total / limit),
+                },
+              })
+            )
           }
         )
       }
@@ -95,7 +104,10 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const authResult = verifyAdminToken(request)
   if (authResult.error) {
-    return NextResponse.json({ error: authResult.error }, { status: authResult.status })
+    return NextResponse.json(
+      { error: authResult.error },
+      { status: authResult.status }
+    )
   }
 
   const { admin } = authResult
@@ -103,36 +115,55 @@ export async function POST(request: NextRequest) {
 
   // Validate input
   if (!username || !password) {
-    return NextResponse.json({ error: 'Username and password are required' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Username and password are required' },
+      { status: 400 }
+    )
   }
 
   if (password.length < 6) {
-    return NextResponse.json({ error: 'Password must be at least 6 characters long' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Password must be at least 6 characters long' },
+      { status: 400 }
+    )
   }
 
   const validRoles = ['admin', 'super_admin', 'moderator']
   if (role && !validRoles.includes(role)) {
-    return NextResponse.json({ error: 'Invalid role. Must be admin, super_admin, or moderator' }, { status: 400 })
+    return NextResponse.json(
+      { error: 'Invalid role. Must be admin, super_admin, or moderator' },
+      { status: 400 }
+    )
   }
 
   // Check if current user has permission to create admin accounts
   if (admin.role !== 'super_admin') {
-    return NextResponse.json({ error: 'Only super admins can create new admin accounts' }, { status: 403 })
+    return NextResponse.json(
+      { error: 'Only super admins can create new admin accounts' },
+      { status: 403 }
+    )
   }
 
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     // Check if username already exists
     db.get(
       'SELECT id FROM admins WHERE username = ?',
       [username],
       (err, existingAdmin) => {
         if (err) {
-          resolve(NextResponse.json({ error: 'Database error' }, { status: 500 }))
+          resolve(
+            NextResponse.json({ error: 'Database error' }, { status: 500 })
+          )
           return
         }
 
         if (existingAdmin) {
-          resolve(NextResponse.json({ error: 'Username already exists' }, { status: 400 }))
+          resolve(
+            NextResponse.json(
+              { error: 'Username already exists' },
+              { status: 400 }
+            )
+          )
           return
         }
 
@@ -143,9 +174,14 @@ export async function POST(request: NextRequest) {
         db.run(
           'INSERT INTO admins (username, password, role) VALUES (?, ?, ?)',
           [username, hashedPassword, adminRole],
-          function(err) {
+          function (err) {
             if (err) {
-              resolve(NextResponse.json({ error: 'Failed to create admin account' }, { status: 500 }))
+              resolve(
+                NextResponse.json(
+                  { error: 'Failed to create admin account' },
+                  { status: 500 }
+                )
+              )
               return
             }
 
@@ -155,14 +191,24 @@ export async function POST(request: NextRequest) {
               [this.lastID],
               (err, newAdmin) => {
                 if (err) {
-                  resolve(NextResponse.json({ error: 'Failed to retrieve created admin' }, { status: 500 }))
+                  resolve(
+                    NextResponse.json(
+                      { error: 'Failed to retrieve created admin' },
+                      { status: 500 }
+                    )
+                  )
                   return
                 }
 
-                resolve(NextResponse.json({
-                  message: 'Admin account created successfully',
-                  admin: newAdmin
-                }, { status: 201 }))
+                resolve(
+                  NextResponse.json(
+                    {
+                      message: 'Admin account created successfully',
+                      admin: newAdmin,
+                    },
+                    { status: 201 }
+                  )
+                )
               }
             )
           }

@@ -23,7 +23,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   async rewrites() {
-    const backendPort = process.env.BACKEND_PORT || process.env.PORT || 3002
+    const backendPort = process.env.BACKEND_PORT || 3006
     const isProduction = process.env.NODE_ENV === 'production'
 
     // In production, let nginx handle the proxying
@@ -46,7 +46,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['api-staging.4d99.co'],
+    domains: ['api-staging.4d99.co', 'fun88tha.com'],
   },
   async headers() {
     return [

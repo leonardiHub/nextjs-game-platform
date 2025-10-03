@@ -35,12 +35,12 @@ export default function MobileNavigation({
 
   return (
     <>
-      <div className="z-[9999] lg:hidden flex items-center justify-around w-full h-[65px] bg-black rounded-t-3xl sticky bottom-0 border-t border-l border-r border-gray-500">
+      <div className="z-[9999] lg:hidden flex items-center justify-around w-full h-[65px] bg-[#00a6ff] rounded-t-3xl sticky bottom-0 border-t border-l border-r border-blue-300">
         <button
           onClick={() => router.push('/')}
           className="flex flex-col items-center justify-center mb-6 hover:opacity-80 transition-opacity"
         >
-          <img src="nav-1.webp" className="w-12 h-auto" />
+          <img src="nav-1.png" className="w-12 h-auto" />
           <span className="text-white text-sm">Home</span>
         </button>
         <button
@@ -58,8 +58,8 @@ export default function MobileNavigation({
           >
             <div className="relative">
               {/* Beaming animation background - smaller */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#c29331] via-[#d4b145] to-[#c29331] animate-pulse opacity-30"></div>
-              <div className="absolute inset-0 rounded-full bg-[#c29331]/20 animate-ping"></div>
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#00a6ff] via-[#0088cc] to-[#00a6ff] animate-pulse opacity-30"></div>
+              <div className="absolute inset-0 rounded-full bg-[#00a6ff]/20 animate-ping"></div>
 
               {/* Main image with shake animation */}
               <img
@@ -77,8 +77,8 @@ export default function MobileNavigation({
           >
             <div className="relative">
               {/* Beaming animation background - smaller */}
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#c29331] via-[#d4b145] to-[#c29331] animate-pulse opacity-30"></div>
-              <div className="absolute inset-0 rounded-full bg-[#c29331]/20 animate-ping"></div>
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#00a6ff] via-[#0088cc] to-[#00a6ff] animate-pulse opacity-30"></div>
+              <div className="absolute inset-0 rounded-full bg-[#00a6ff]/20 animate-ping"></div>
 
               {/* Main image with shake animation */}
               <img
@@ -117,11 +117,11 @@ export default function MobileNavigation({
 
       {/* Wallet Modal */}
       {showWalletModal && (
-        <div className="bg-[#212121] px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8">
-          <div className="relative bg-[#212121] w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col">
+        <div className="bg-[#00a6ff]/20 px-4 pt-8 pb-22 fixed inset-0 backdrop-blur-sm z-[99999] flex items-start justify-center min-h-screen max-w-screen overflow-y-auto lg:px-0 lg:pb-20 lg:pt-8">
+          <div className="relative bg-white w-full max-w-md mx-auto min-h-fit max-h-full overflow-y-auto flex flex-col rounded-lg shadow-xl">
             <button
               onClick={() => setShowWalletModal(false)}
-              className="absolute top-0 right-0 text-gray-500 hover:text-gray-700 z-10 transition-colors"
+              className="absolute top-0 right-0 text-gray-500 hover:text-[#00a6ff] z-10 transition-colors"
             >
               <X className="w-6 h-6" />
             </button>

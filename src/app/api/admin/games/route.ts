@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbAll = promisify(db.all.bind(db)) as any
 const dbGet = promisify(db.get.bind(db)) as any
 const dbRun = promisify(db.run.bind(db)) as any
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 // Create games table if it doesn't exist
 db.run(`
@@ -460,7 +460,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new game
-    const result = await new Promise((resolve, reject) => {
+    const result = (await new Promise((resolve, reject) => {
       db.run(
         `
         INSERT INTO games (
@@ -483,7 +483,7 @@ export async function POST(request: NextRequest) {
           demo_url,
           thumbnail_url,
         ],
-        function(err) {
+        function (err) {
           if (err) {
             reject(err)
           } else {
@@ -491,7 +491,7 @@ export async function POST(request: NextRequest) {
           }
         }
       )
-    }) as any
+    })) as any
 
     return NextResponse.json({
       success: true,

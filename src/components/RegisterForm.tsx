@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { User } from '@/types'
 import { Eye, EyeOff, Loader2, RefreshCw } from 'lucide-react'
 import { useClientOnly, useTimestamp } from '@/hooks/useClientOnly'
+import { API_CONFIG } from '@/utils/config'
 
 interface RegisterFormProps {
   onLogin: (user: User, token: string) => void
@@ -30,6 +31,7 @@ export default function RegisterForm({
   const [captchaTimestamp, setCaptchaTimestamp] = useState(0)
   const isClient = useClientOnly()
   const currentTimestamp = useTimestamp()
+  const latestSessionIdRef = useRef('')
 
   useEffect(() => {
     if (!sessionInitialized && isClient) {
@@ -40,20 +42,32 @@ export default function RegisterForm({
 
   const generateSessionId = () => {
     if (!isClient) return // Don't generate on server side
-    
+
     const newSessionId =
       Date.now().toString(36) + Math.random().toString(36).substr(2)
     const timestamp = Date.now()
-    console.log('Generated session ID:', newSessionId)
+    console.log('Generated NEW session ID:', newSessionId)
+    console.log('Previous session ID was:', sessionId)
     setSessionId(newSessionId)
+    latestSessionIdRef.current = newSessionId
     setCaptchaTimestamp(timestamp)
     setCaptchaLoaded(true)
   }
 
   const refreshCaptcha = () => {
+    console.log('Refreshing captcha, current session ID:', sessionId)
     setCaptchaLoaded(false)
     setCaptcha('')
-    generateSessionId()
+    // Generate new session ID immediately
+    const newSessionId =
+      Date.now().toString(36) + Math.random().toString(36).substr(2)
+    const timestamp = Date.now()
+    console.log('Generated NEW session ID immediately:', newSessionId)
+    console.log('Previous session ID was:', sessionId)
+    setSessionId(newSessionId)
+    latestSessionIdRef.current = newSessionId
+    setCaptchaTimestamp(timestamp)
+    setCaptchaLoaded(true)
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -62,7 +76,14 @@ export default function RegisterForm({
     setError('')
     setSuccess('')
 
-    if (!fullName.trim() || !username.trim() || !password.trim() || !confirmPassword.trim() || !captcha.trim() || !sessionId) {
+    if (
+      !fullName.trim() ||
+      !username.trim() ||
+      !password.trim() ||
+      !confirmPassword.trim() ||
+      !captcha.trim() ||
+      !sessionId
+    ) {
       setError('Please fill in all fields and complete the captcha.')
       setIsLoading(false)
       return
@@ -81,7 +102,12 @@ export default function RegisterForm({
     }
 
     try {
-      const response = await fetch('/api/register', {
+      const currentSessionId = latestSessionIdRef.current || sessionId
+      console.log('Submitting registration with session ID:', currentSessionId)
+      console.log('State session ID:', sessionId)
+      console.log('Ref session ID:', latestSessionIdRef.current)
+      console.log('Captcha code:', captcha)
+      const response = await fetch(`${API_CONFIG.BASE_URL}/api/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -91,7 +117,7 @@ export default function RegisterForm({
           username: username,
           password: password,
           captcha: captcha,
-          session_id: sessionId,
+          session_id: currentSessionId,
         }),
       })
 
@@ -120,22 +146,22 @@ export default function RegisterForm({
   }
 
   return (
-    <div className="pt-0 p-6">
+    <div className="pt-0 p-6 bg-white">
       {error && (
-        <div className="mb-6 p-4 bg-red-900/50 border border-red-500/50 text-red-300 rounded-lg text-center whitespace-pre-line backdrop-blur-sm">
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-lg text-center whitespace-pre-line">
           {error}
         </div>
       )}
 
       {success && (
-        <div className="mb-6 p-4 bg-green-900/50 border border-green-500/50 text-green-300 rounded-lg text-center whitespace-pre-line backdrop-blur-sm">
+        <div className="mb-6 p-4 bg-green-50 border border-green-200 text-green-600 rounded-lg text-center whitespace-pre-line">
           {success}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Full Name
           </label>
           <input
@@ -145,13 +171,13 @@ export default function RegisterForm({
             required
             minLength={2}
             maxLength={50}
-            className="w-full px-4 py-3 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+            className="w-full px-4 py-3 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
             placeholder="Enter your full name"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Username (3-20 characters)
           </label>
           <input
@@ -161,13 +187,13 @@ export default function RegisterForm({
             required
             minLength={3}
             maxLength={20}
-            className="w-full px-4 py-3 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+            className="w-full px-4 py-3 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
             placeholder="Choose a username"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Password (6+ characters)
           </label>
           <div className="relative">
@@ -177,13 +203,13 @@ export default function RegisterForm({
               onChange={e => setPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full px-4 py-3 pr-12 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+              className="w-full px-4 py-3 pr-12 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
               placeholder="Enter your password"
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-yellow-400 transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#00a6ff] transition-colors"
             >
               {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
@@ -191,7 +217,7 @@ export default function RegisterForm({
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Confirm Password
           </label>
           <div className="relative">
@@ -201,13 +227,13 @@ export default function RegisterForm({
               onChange={e => setConfirmPassword(e.target.value)}
               required
               minLength={6}
-              className="w-full px-4 py-3 pr-12 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+              className="w-full px-4 py-3 pr-12 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
               placeholder="Confirm your password"
             />
             <button
               type="button"
               onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-yellow-400 transition-colors"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#00a6ff] transition-colors"
             >
               {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
             </button>
@@ -215,7 +241,7 @@ export default function RegisterForm({
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Verification Code
           </label>
           <div className="flex items-center gap-3">
@@ -225,27 +251,27 @@ export default function RegisterForm({
               onChange={e => setCaptcha(e.target.value)}
               required
               maxLength={4}
-              className="flex-1 px-4 py-3 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+              className="flex-1 px-4 py-3 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
               placeholder="Enter code"
             />
             {sessionId && captchaLoaded ? (
               <img
                 key={`${sessionId}-${captchaTimestamp}`}
-                src={`/api/captcha/${sessionId}?t=${captchaTimestamp}`}
+                src={`${API_CONFIG.BASE_URL}/api/captcha/${sessionId}?t=${captchaTimestamp}`}
                 alt="Captcha"
                 width={120}
                 height={40}
-                className="border-2 border-yellow-600/30 rounded cursor-pointer hover:opacity-80 transition-opacity bg-white"
+                className="border-2 border-blue-200 rounded cursor-pointer hover:opacity-80 transition-opacity bg-white"
                 onClick={refreshCaptcha}
                 title="Click to refresh"
               />
             ) : (
-              <div className="w-[120px] h-[40px] border-2 border-yellow-600/30 rounded bg-gray-700 flex items-center justify-center">
-                <span className="text-yellow-400 text-xs">Loading...</span>
+              <div className="w-[120px] h-[40px] border-2 border-blue-200 rounded bg-gray-100 flex items-center justify-center">
+                <span className="text-[#00a6ff] text-xs">Loading...</span>
               </div>
             )}
           </div>
-          <p className="text-xs text-yellow-300/70 mt-1">
+          <p className="text-xs text-gray-500 mt-1">
             Click the image to refresh if unclear
           </p>
         </div>
@@ -253,17 +279,20 @@ export default function RegisterForm({
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full primary-gradient-to-b text-black py-3 px-4 rounded-xl cursor-pointer font-bold hover:from-yellow-400 hover:to-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg hover:shadow-yellow-400/25"
+          style={{
+            background: 'linear-gradient(180deg, #00a6ff, #0088cc)',
+          }}
+          className="w-full text-white py-3 px-4 rounded-xl cursor-pointer font-bold hover:from-blue-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-[#00a6ff] focus:ring-offset-2 focus:ring-offset-white transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
         >
           {isLoading ? 'Creating Account...' : 'Register & Login'}
         </button>
       </form>
 
       <div className="mt-6 text-center">
-        <span className="text-yellow-200/80">Already have an account? </span>
+        <span className="text-gray-600">Already have an account? </span>
         <button
           onClick={onShowLogin}
-          className="text-yellow-400 hover:text-yellow-300 font-medium underline decoration-yellow-400/50 hover:decoration-yellow-300"
+          className="text-[#00a6ff] hover:text-blue-600 font-medium underline decoration-[#00a6ff]/50 hover:decoration-blue-600"
         >
           Login here
         </button>

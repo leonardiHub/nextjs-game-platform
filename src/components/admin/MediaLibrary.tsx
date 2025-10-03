@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { API_CONFIG } from '@/utils/config'
 import {
   Image as ImageIcon,
   Upload,
@@ -346,7 +347,7 @@ export default function MediaLibrary() {
     try {
       // Direct call to backend API to bypass NextJS API route issues
       const API_BASE_URL =
-        process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3002'
+        process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3006'
 
       const response = await fetch(
         `${API_BASE_URL}/api/admin/media/folders/${folderId}`,
@@ -792,10 +793,16 @@ export default function MediaLibrary() {
 
                             // For local files, use backend server directly
                             let cleanUrl = imageUrl
-                              .replace('http://localhost:3002', '')
+                              .replace('http://localhost:3006', '')
                               .replace('http://localhost:3001', '')
-                              .replace('https://99group.games', '')
-                              .replace('https://api.99group.games', '')
+                              .replace(API_CONFIG.BASE_URL, '')
+                              .replace(
+                                API_CONFIG.BASE_URL.replace(
+                                  'https://',
+                                  'https://api.'
+                                ),
+                                ''
+                              )
 
                             // Ensure URL starts with /uploads
                             if (!cleanUrl.startsWith('/uploads')) {
@@ -806,8 +813,8 @@ export default function MediaLibrary() {
                             const apiUrl =
                               typeof window !== 'undefined' &&
                               window.location.hostname === 'localhost'
-                                ? 'http://localhost:3002'
-                                : 'https://api.99group.games'
+                                ? 'http://localhost:3006'
+                                : API_CONFIG.BASE_URL
                             return `${apiUrl}${cleanUrl}`
                           })()}
                           alt={file.alt_text || file.name}
@@ -932,7 +939,7 @@ export default function MediaLibrary() {
 
                                       // For local files, use backend server directly
                                       let cleanUrl = imageUrl
-                                        .replace('http://localhost:3002', '')
+                                        .replace('http://localhost:3006', '')
                                         .replace('http://localhost:3001', '')
                                         .replace('https://99group.games', '')
                                         .replace(
@@ -949,8 +956,8 @@ export default function MediaLibrary() {
                                       const apiUrl =
                                         typeof window !== 'undefined' &&
                                         window.location.hostname === 'localhost'
-                                          ? 'http://localhost:3002'
-                                          : 'https://api.99group.games'
+                                          ? 'http://localhost:3006'
+                                          : API_CONFIG.BASE_URL
                                       return `${apiUrl}${cleanUrl}`
                                     })()}
                                     alt={file.alt_text || file.name}
@@ -1172,10 +1179,16 @@ export default function MediaLibrary() {
 
                         // For local files, use backend server directly
                         let cleanUrl = imageUrl
-                          .replace('http://localhost:3002', '')
+                          .replace('http://localhost:3006', '')
                           .replace('http://localhost:3001', '')
-                          .replace('https://99group.games', '')
-                          .replace('https://api.99group.games', '')
+                          .replace(API_CONFIG.BASE_URL, '')
+                          .replace(
+                            API_CONFIG.BASE_URL.replace(
+                              'https://',
+                              'https://api.'
+                            ),
+                            ''
+                          )
 
                         // Ensure URL starts with /uploads
                         if (!cleanUrl.startsWith('/uploads')) {
@@ -1186,8 +1199,8 @@ export default function MediaLibrary() {
                         const apiUrl =
                           typeof window !== 'undefined' &&
                           window.location.hostname === 'localhost'
-                            ? 'http://localhost:3002'
-                            : 'https://api.99group.games'
+                            ? 'http://localhost:3006'
+                            : API_CONFIG.BASE_URL
                         return `${apiUrl}${cleanUrl}`
                       })()}
                       alt={selectedFile.alt_text || selectedFile.name}

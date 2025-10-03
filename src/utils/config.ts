@@ -3,14 +3,18 @@ export const API_CONFIG = {
   // Backend API base URL
   BASE_URL:
     process.env.NODE_ENV === 'production'
-      ? 'https://99group.games'
-      : process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001',
+      ? 'https://api-staging.4d99.co'
+      : process.env.NEXT_PUBLIC_API_URL ||
+        (typeof window !== 'undefined' &&
+        window.location.hostname === 'localhost'
+          ? 'http://localhost:3006'
+          : 'http://15.235.215.3:3006'),
 
   // Frontend base URL
   FRONTEND_URL:
     process.env.NODE_ENV === 'production'
       ? 'https://99group.games'
-      : 'http://localhost:3000',
+      : 'http://localhost:5000',
 
   // HUIDU API Configuration
   HUIDU: {

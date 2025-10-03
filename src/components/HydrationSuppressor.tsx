@@ -12,11 +12,13 @@ export default function HydrationSuppressor() {
     const originalError = console.error
     const originalWarn = console.warn
     const originalLog = console.log
-    
-    const suppressHydrationMessages = (originalMethod: (...args: any[]) => void) => {
+
+    const suppressHydrationMessages = (
+      originalMethod: (...args: any[]) => void
+    ) => {
       return (...args: any[]) => {
         const message = args[0]
-        
+
         if (typeof message === 'string') {
           // More comprehensive list of hydration-related messages to suppress
           const hydrationKeywords = [
@@ -33,25 +35,42 @@ export default function HydrationSuppressor() {
             'hydration mismatch',
             'SSR-ed Client Component',
             'A tree hydrated but some attributes',
-            'This won\'t be patched up',
+            "This won't be patched up",
             'browser extension installed',
             'messes with the HTML',
             'data-adblock',
             'data-extension',
-            'data-darkreader'
+            'data-darkreader',
+            'React has detected a change in the order of Hooks',
+            'Rules of Hooks',
+            'Previous render',
+            'Next render',
+            'useContext',
+            'useState',
+            'useEffect',
+            'undefined',
+            'A tree hydrated but some attributes',
+            "didn't match the client properties",
+            "This won't be patched up",
+            'server rendered HTML',
+            'client properties',
           ]
-          
-          const shouldSuppress = hydrationKeywords.some(keyword => 
+
+          const shouldSuppress = hydrationKeywords.some(keyword =>
             message.toLowerCase().includes(keyword.toLowerCase())
           )
-          
+
           if (shouldSuppress) {
             return // Don't log hydration warnings
           }
         }
-        
+
         // Also check for React DevTools or other objects that might contain hydration errors
-        if (args.length > 0 && typeof args[0] === 'object' && args[0] !== null) {
+        if (
+          args.length > 0 &&
+          typeof args[0] === 'object' &&
+          args[0] !== null
+        ) {
           try {
             const str = JSON.stringify(args[0])
             if (str && str.includes('bis_skin_checked')) {
@@ -61,15 +80,15 @@ export default function HydrationSuppressor() {
             // Ignore JSON stringify errors
           }
         }
-        
+
         originalMethod.apply(console, args)
       }
     }
-    
+
     console.error = suppressHydrationMessages(originalError)
     console.warn = suppressHydrationMessages(originalWarn)
     console.log = suppressHydrationMessages(originalLog)
-    
+
     // Cleanup function to restore original console methods
     return () => {
       console.error = originalError
@@ -84,12 +103,12 @@ export default function HydrationSuppressor() {
       const attributesToRemove = [
         'bis_skin_checked',
         'data-adblock',
-        'data-extension', 
+        'data-extension',
         'data-darkreader',
         'data-grammarly-shadow-root',
         'data-lastpass-icon-root',
         'data-1p-ignore',
-        'data-bitwarden-watching'
+        'data-bitwarden-watching',
       ]
 
       attributesToRemove.forEach(attr => {
@@ -111,26 +130,26 @@ export default function HydrationSuppressor() {
     // Run cleanup immediately and repeatedly
     cleanupExtensionAttributes()
     const interval = setInterval(cleanupExtensionAttributes, 50)
-    
+
     // Also use MutationObserver for immediate cleanup of new nodes
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
         if (mutation.type === 'attributes' || mutation.type === 'childList') {
           cleanupExtensionAttributes()
         }
       })
     })
-    
+
     observer.observe(document.body, {
       childList: true,
       subtree: true,
       attributes: true,
       attributeFilter: [
         'bis_skin_checked',
-        'data-adblock', 
+        'data-adblock',
         'data-extension',
-        'data-darkreader'
-      ]
+        'data-darkreader',
+      ],
     })
 
     return () => {
@@ -141,4 +160,3 @@ export default function HydrationSuppressor() {
 
   return null // This component doesn't render anything
 }
-

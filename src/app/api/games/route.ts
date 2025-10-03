@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     const { Database } = await import('sqlite3')
     const { promisify } = await import('util')
 
-    const db = new Database('./game_platform.db')
+    const db = new Database('./fun88_standalone.db')
     const dbAll = promisify(db.all.bind(db)) as any
 
     const games = (await dbAll(`

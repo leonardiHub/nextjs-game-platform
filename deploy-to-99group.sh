@@ -193,7 +193,7 @@ server {
 
     # Main proxy to game platform
     location / {
-        proxy_pass http://localhost:3002;
+        proxy_pass http://localhost:3006;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -212,7 +212,7 @@ server {
     
     # API routes
     location /api/ {
-        proxy_pass http://localhost:3002/api/;
+        proxy_pass http://localhost:3006/api/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -241,7 +241,7 @@ server {
     
     # Static files caching
     location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp)$ {
-        proxy_pass http://localhost:3002;
+        proxy_pass http://localhost:3006;
         expires 1y;
         add_header Cache-Control "public, immutable";
         add_header Vary "Accept-Encoding";
@@ -249,7 +249,7 @@ server {
     
     # KYC file upload
     location /uploads/ {
-        proxy_pass http://localhost:3002/uploads/;
+        proxy_pass http://localhost:3006/uploads/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -262,7 +262,7 @@ server {
     
     # Admin panel
     location /admin {
-        proxy_pass http://localhost:3002/admin;
+        proxy_pass http://localhost:3006/admin;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;

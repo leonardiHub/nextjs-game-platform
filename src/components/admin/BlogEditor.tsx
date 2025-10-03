@@ -24,7 +24,12 @@ import {
 } from 'lucide-react'
 import RichTextEditor from './RichTextEditor'
 import MediaSelectModal from './MediaSelectModal'
-import { getApiUrl, API_CONFIG } from '../../utils/config'
+import { API_CONFIG } from '../../utils/config'
+
+// Helper function to get the correct backend API URL for serving images
+const getBackendApiUrl = () => {
+  return API_CONFIG.BASE_URL
+}
 
 interface BlogPost {
   id?: number
@@ -99,6 +104,8 @@ export default function BlogEditor({
   } | null>(null)
   const [newTagInput, setNewTagInput] = useState('')
   const [creatingTag, setCreatingTag] = useState(false)
+  const [createTagTimeout, setCreateTagTimeout] =
+    useState<NodeJS.Timeout | null>(null)
   const [activeTab, setActiveTab] = useState<
     'content' | 'settings' | 'seo' | 'preview'
   >('content')
@@ -110,6 +117,15 @@ export default function BlogEditor({
       loadBlog()
     }
   }, [blogId])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (createTagTimeout) {
+        clearTimeout(createTagTimeout)
+      }
+    }
+  }, [createTagTimeout])
 
   useEffect(() => {
     // Auto-generate slug from title
@@ -175,7 +191,7 @@ export default function BlogEditor({
         throw new Error('No admin token found. Please login first.')
       }
 
-      const response = await fetch(getApiUrl(`/api/admin/blogs/${blogId}`), {
+      const response = await fetch(`/api/admin/blogs/${blogId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -221,7 +237,7 @@ export default function BlogEditor({
   const loadCategories = async () => {
     try {
       const token = localStorage.getItem('adminToken')
-      const response = await fetch(getApiUrl('/api/admin/categories'), {
+      const response = await fetch('/api/admin/categories', {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -251,7 +267,7 @@ export default function BlogEditor({
   const loadTags = async () => {
     try {
       const token = localStorage.getItem('adminToken')
-      const response = await fetch(getApiUrl('/api/admin/tags'), {
+      const response = await fetch('/api/admin/tags', {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -272,7 +288,7 @@ export default function BlogEditor({
   const loadFeaturedImage = async (imageId: number) => {
     try {
       const token = localStorage.getItem('adminToken')
-      const response = await fetch(getApiUrl(`/api/admin/media/${imageId}`), {
+      const response = await fetch(`/api/admin/media/${imageId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -286,34 +302,28 @@ export default function BlogEditor({
         // Ensure URL is properly formatted
         let imageUrl = data.url || ''
         if (imageUrl) {
-          if (
-            imageUrl.startsWith('http://localhost:3002') ||
-            imageUrl.startsWith('https://99group.games')
-          ) {
-            // Already correct
+          if (imageUrl.startsWith('http://localhost:3006')) {
+            // Already correct - using backend URL
           } else if (imageUrl.startsWith('http')) {
-            // Other http URL, keep as is
-          } else {
-            // Remove any existing localhost references and rebuild
+            // Other http URL, clean it and use backend URL
             let cleanUrl = imageUrl
               .replace('http://localhost:3001', '')
-              .replace('http://localhost:3002', '')
+              .replace('http://localhost:3006', '')
               .replace('https://99group.games', '')
               .replace('https://api.99group.games', '')
 
             // If URL doesn't start with /uploads, add the full media path
             if (!cleanUrl.startsWith('/uploads')) {
-              // Assume it's a filename that should be in /uploads/media/images/
               cleanUrl = `/uploads/media/images/${cleanUrl.replace(/^\/+/, '')}`
             }
 
-            // Use environment-based URL
-            const apiUrl =
-              typeof window !== 'undefined' &&
-              window.location.hostname === 'localhost'
-                ? 'http://localhost:3002'
-                : 'https://api.99group.games'
-            imageUrl = `${apiUrl}${cleanUrl}`
+            imageUrl = `${getBackendApiUrl()}${cleanUrl}`
+          } else {
+            // Relative path - add full media path if needed
+            if (!imageUrl.startsWith('/uploads')) {
+              imageUrl = `/uploads/media/images/${imageUrl.replace(/^\/+/, '')}`
+            }
+            imageUrl = `${getBackendApiUrl()}${imageUrl}`
           }
         }
 
@@ -337,39 +347,28 @@ export default function BlogEditor({
     // Ensure URL is properly formatted
     let imageUrl = media.url || ''
     if (imageUrl) {
-      if (imageUrl.startsWith('http')) {
-        // Remove any existing localhost references and rebuild
+      if (imageUrl.startsWith('http://localhost:3006')) {
+        // Already correct - using backend URL
+      } else if (imageUrl.startsWith('http')) {
+        // Other http URL, clean it and use backend URL
         let cleanUrl = imageUrl
-          .replace('http://localhost:3002', '')
           .replace('http://localhost:3001', '')
+          .replace('http://localhost:3006', '')
           .replace('https://99group.games', '')
           .replace('https://api.99group.games', '')
 
         // If URL doesn't start with /uploads, add the full media path
         if (!cleanUrl.startsWith('/uploads')) {
-          // Assume it's a filename that should be in /uploads/media/images/
           cleanUrl = `/uploads/media/images/${cleanUrl.replace(/^\/+/, '')}`
         }
 
-        // Use environment-based URL
-        const apiUrl =
-          typeof window !== 'undefined' &&
-          window.location.hostname === 'localhost'
-            ? 'http://localhost:3002'
-            : 'https://api.99group.games'
-        imageUrl = `${apiUrl}${cleanUrl}`
+        imageUrl = `${getBackendApiUrl()}${cleanUrl}`
       } else {
         // Relative path - add full media path if needed
         if (!imageUrl.startsWith('/uploads')) {
           imageUrl = `/uploads/media/images/${imageUrl.replace(/^\/+/, '')}`
         }
-        // Use environment-based URL
-        const apiUrl =
-          typeof window !== 'undefined' &&
-          window.location.hostname === 'localhost'
-            ? 'http://localhost:3002'
-            : 'https://api.99group.games'
-        imageUrl = `${apiUrl}${imageUrl}`
+        imageUrl = `${getBackendApiUrl()}${imageUrl}`
       }
     }
 
@@ -567,9 +566,7 @@ export default function BlogEditor({
         seo_description: blog.seo_description || null,
       }
 
-      const url = blogId
-        ? getApiUrl(`/api/admin/blogs/${blogId}`)
-        : getApiUrl('/api/admin/blogs')
+      const url = blogId ? `/api/admin/blogs/${blogId}` : '/api/admin/blogs'
       const method = blogId ? 'PUT' : 'POST'
 
       const response = await fetch(url, {
@@ -617,32 +614,109 @@ export default function BlogEditor({
   }
 
   const createNewTag = async () => {
-    if (!newTagInput.trim()) return
+    if (!newTagInput.trim() || creatingTag) return
+
+    // Clear any existing timeout
+    if (createTagTimeout) {
+      clearTimeout(createTagTimeout)
+      setCreateTagTimeout(null)
+    }
 
     try {
       setCreatingTag(true)
 
       const token = localStorage.getItem('adminToken')
-      const response = await fetch(getApiUrl('/api/admin/tags'), {
+      if (!token) {
+        throw new Error('No admin token found. Please login again.')
+      }
+
+      // Generate a proper slug
+      const generateSlug = (input: string): string => {
+        let slug = input
+          .trim()
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, '')
+          .replace(/\s+/g, '-')
+          .replace(/-+/g, '-')
+          .replace(/^-+|-+$/g, '')
+
+        // If slug is empty after processing, use a fallback
+        if (!slug) {
+          slug = `tag-${Date.now()}`
+        }
+
+        return slug
+      }
+
+      const tagName = newTagInput.trim()
+      const tagSlug = generateSlug(tagName)
+
+      const response = await fetch('/api/admin/tags', {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: newTagInput.trim(),
-          slug: newTagInput
-            .trim()
-            .toLowerCase()
-            .replace(/[^a-z0-9\s-]/g, '')
-            .replace(/\s+/g, '-'),
-          color: '#' + Math.floor(Math.random() * 16777215).toString(16), // 随机颜色
+          name: tagName,
+          slug: tagSlug,
+          description: `Tag: ${tagName}`, // Add description field
+          color:
+            '#' +
+            Math.floor(Math.random() * 16777215)
+              .toString(16)
+              .padStart(6, '0'), // Ensure 6-digit hex
           is_featured: false,
         }),
       })
 
       if (!response.ok) {
         const error = await response.json()
+
+        // Handle specific error cases
+        if (
+          response.status === 400 &&
+          error.error?.includes('slug already exists')
+        ) {
+          // Try with a timestamp suffix
+          const uniqueSlug = `${tagSlug}-${Date.now()}`
+          const retryResponse = await fetch('/api/admin/tags', {
+            method: 'POST',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              name: tagName,
+              slug: uniqueSlug,
+              description: `Tag: ${tagName}`,
+              color:
+                '#' +
+                Math.floor(Math.random() * 16777215)
+                  .toString(16)
+                  .padStart(6, '0'),
+              is_featured: false,
+            }),
+          })
+
+          if (!retryResponse.ok) {
+            const retryError = await retryResponse.json()
+            throw new Error(
+              retryError.error || 'Failed to create tag with unique slug'
+            )
+          }
+
+          const newTag = await retryResponse.json()
+          setTags(prev => [...prev, newTag])
+          setBlog(prev => ({
+            ...prev,
+            tags: [...prev.tags, newTag.id],
+          }))
+          setNewTagInput('')
+          showMessage('success', `Tag "${newTag.name}" created successfully`)
+          return
+        }
+
         throw new Error(error.error || 'Failed to create tag')
       }
 
@@ -1086,7 +1160,7 @@ export default function BlogEditor({
 
                           // For local files, use backend server directly
                           let cleanUrl = featuredImage.url
-                            .replace('http://localhost:3002', '')
+                            .replace('http://localhost:3006', '')
                             .replace('http://localhost:3001', '')
                             .replace('https://99group.games', '')
                             .replace('https://api.99group.games', '')
@@ -1096,13 +1170,7 @@ export default function BlogEditor({
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
 
-                          // Return appropriate backend URL based on environment
-                          const apiUrl =
-                            typeof window !== 'undefined' &&
-                            window.location.hostname === 'localhost'
-                              ? 'http://localhost:3002'
-                              : 'https://api.99group.games'
-                          return `${apiUrl}${cleanUrl}`
+                          return `${getBackendApiUrl()}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-32 object-cover rounded-lg block"
@@ -1115,9 +1183,9 @@ export default function BlogEditor({
                           const target = e.target as HTMLImageElement
 
                           // Try fallback URL if original fails
-                          if (featuredImage.url.includes(API_CONFIG.BASE_URL)) {
+                          if (featuredImage.url.includes('99group.games')) {
                             const fallbackUrl = featuredImage.url.replace(
-                              API_CONFIG.BASE_URL,
+                              'https://99group.games',
                               ''
                             )
                             console.log('Trying fallback URL:', fallbackUrl)
@@ -1369,7 +1437,7 @@ export default function BlogEditor({
 
                           // For local files, use backend server directly
                           let cleanUrl = featuredImage.url
-                            .replace('http://localhost:3002', '')
+                            .replace('http://localhost:3006', '')
                             .replace('http://localhost:3001', '')
                             .replace('https://99group.games', '')
                             .replace('https://api.99group.games', '')
@@ -1379,13 +1447,7 @@ export default function BlogEditor({
                             cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                           }
 
-                          // Return appropriate backend URL based on environment
-                          const apiUrl =
-                            typeof window !== 'undefined' &&
-                            window.location.hostname === 'localhost'
-                              ? 'http://localhost:3002'
-                              : 'https://api.99group.games'
-                          return `${apiUrl}${cleanUrl}`
+                          return `${getBackendApiUrl()}${cleanUrl}`
                         })()}
                         alt={featuredImage.alt_text}
                         className="w-full h-64 object-cover rounded-lg"

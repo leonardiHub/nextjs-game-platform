@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
 
     // This endpoint typically receives encrypted payloads from game providers
-    const response = await fetch('http://localhost:3002/api/game/wallet', {
+    const response = await fetch('http://localhost:3006/api/game/wallet', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

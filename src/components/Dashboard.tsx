@@ -42,7 +42,10 @@ export default function Dashboard({
   const router = useRouter()
   const gameContext = useGameContext()
   const [activeTab, setActiveTab] = useState('games')
-  const [games, setGames] = useState<{fishGames?: ApiGame[], slotGames?: ApiGame[]} | null>(null)
+  const [games, setGames] = useState<{
+    fishGames?: ApiGame[]
+    slotGames?: ApiGame[]
+  } | null>(null)
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [withdrawals, setWithdrawals] = useState<Withdrawal[]>([])
   const [isRefreshing, setIsRefreshing] = useState(false)
@@ -64,7 +67,8 @@ export default function Dashboard({
 
   const getAuthHeaders = () => {
     // Only access localStorage on client side
-    const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
+    const token =
+      typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
     return {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
@@ -196,7 +200,8 @@ export default function Dashboard({
 
   const handleKYCUpload = async (formData: FormData) => {
     try {
-      const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
+      const token =
+        typeof window !== 'undefined' ? localStorage.getItem('authToken') : null
       const response = await fetch('/api/kyc/upload', {
         method: 'POST',
         headers: {
@@ -238,7 +243,7 @@ export default function Dashboard({
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       {/* Only show header when not in game mode */}
       {/* {!showGame && (
         <Header
@@ -260,7 +265,7 @@ export default function Dashboard({
       {!gameContext.showGame && (
         <>
           <Hero />
-          <div className="max-w-[1400px] mx-auto p-4">
+          <div className="max-w-[1400px] mx-auto p-4 bg-white">
             {/* {user && (
               <ProgressSection balance={balance} canWithdraw={canWithdraw} />
             )} */}
@@ -269,9 +274,9 @@ export default function Dashboard({
 
             <div className="flex py-4 gap-2">
               <button
-                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -279,14 +284,14 @@ export default function Dashboard({
                   alt="slot"
                   className="w-7 h-7 lg:w-10 lg:h-10"
                 />
-                <span className="text-primary text-sm lg:text-[17px]">
+                <span className="text-[#00a6ff] text-sm lg:text-[17px] font-medium">
                   Slot
                 </span>
               </button>
               <button
-                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -294,14 +299,14 @@ export default function Dashboard({
                   alt="slot"
                   className="w-7 h-7 lg:w-10 lg:h-10"
                 />
-                <span className="text-primary text-sm lg:text-[17px]">
+                <span className="text-[#00a6ff] text-sm lg:text-[17px] font-medium">
                   Poker
                 </span>
               </button>
               <button
-                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -309,17 +314,17 @@ export default function Dashboard({
                   alt="slot"
                   className="w-10 h-10"
                 />
-                <span className="text-primary text-sm lg:text-[17px]">
+                <span className="text-[#00a6ff] text-sm lg:text-[17px] font-medium">
                   Football
                 </span>
               </button>
               <button
-                className="relative w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="relative w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
-                <div className="text-white bg-red-500 absolute rounded-r-lg left-0 bottom-6 lg:bottom-2 text-xs px-1 lg:px-2">
+                <div className="text-white bg-[#00a6ff] absolute rounded-r-lg left-0 bottom-6 lg:bottom-2 text-xs px-1 lg:px-2 font-bold">
                   New
                 </div>
                 <img
@@ -327,14 +332,14 @@ export default function Dashboard({
                   alt="slot"
                   className="w-7 h-7 lg:w-10 lg:h-10"
                 />
-                <span className="text-primary text-sm lg:text-[17px]">
+                <span className="text-[#00a6ff] text-sm lg:text-[17px] font-medium">
                   Pool
                 </span>
               </button>
               <button
-                className="w-1/6 hidden lg:flex items-center justify-center py-3 px-8 rounded-lg gap-4 text-white border border-[#222222]"
+                className="w-1/6 hidden lg:flex items-center justify-center py-3 px-8 rounded-lg gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -342,18 +347,18 @@ export default function Dashboard({
                   alt="slot"
                   className="w-7 h-7 lg:w-10 lg:h-10"
                 />
-                <span className="text-primary text-sm lg:text-[17px]">
+                <span className="text-[#00a6ff] text-sm lg:text-[17px] font-medium">
                   Gift
                 </span>
               </button>
               <button
-                className="w-1/6 hidden lg:flex items-center justify-center py-3 px-8 rounded-lg gap-4 text-white border border-[#222222]"
+                className="w-1/6 hidden lg:flex items-center justify-center py-3 px-8 rounded-lg gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img src="star-icon.webp" alt="slot" className="w-10 h-10" />
-                <span className="text-primary text-sm lg:text-[17px]">
+                <span className="text-[#00a6ff] text-sm lg:text-[17px] font-medium">
                   Star
                 </span>
               </button>

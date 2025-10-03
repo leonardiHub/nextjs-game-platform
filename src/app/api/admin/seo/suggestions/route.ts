@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
 
 interface SuggestionRequest {
   page_path: string

@@ -87,6 +87,8 @@ export default function ClientLayoutProvider({
   const [gameUrl, setGameUrl] = useState('')
   const [showGame, setShowGame] = useState(false)
   const [isClosingGame, setIsClosingGame] = useState(false)
+  // Move all hooks to the top to ensure consistent order
+  const [isClient, setIsClient] = useState(false)
 
   // Authentication helper functions
   const getAuthHeaders = () => {
@@ -331,13 +333,30 @@ export default function ClientLayoutProvider({
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  if (isLoading && !isAdminRoute) {
+  // Prevent hydration mismatch by ensuring consistent rendering
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
+  // Always render the same loading component to prevent hydration mismatch
+  if ((isLoading && !isAdminRoute) || !isClient) {
     return (
       <div
-        className="min-h-screen bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center"
+        className="min-h-screen bg-white flex items-center justify-center"
         suppressHydrationWarning={true}
       >
-        <Loader2 className="text-[#C29331] text-lg animate-spin" />
+        <div
+          className="w-6 h-6 border-2 border-[#00a6ff] border-t-transparent rounded-full animate-spin"
+          suppressHydrationWarning
+          style={{
+            width: '24px',
+            height: '24px',
+            border: '2px solid #00a6ff',
+            borderTop: '2px solid transparent',
+            borderRadius: '50%',
+            animation: 'spin 1s linear infinite',
+          }}
+        />
       </div>
     )
   }

@@ -207,31 +207,25 @@ const PromotionsPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white">
       {/* Main Content */}
       <>
-        <div className="lg:mt-0 mt-2 min-h-[70vh] w-full bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center relative">
+        <div className="lg:mt-0 mt-2 min-h-[70vh] w-full bg-white flex items-center justify-center relative">
           {/* Black fading overlay at the bottom */}
-          <div className="lg:block hidden absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#212121] via-[#212121]/70 to-transparent z-10 pointer-events-none"></div>
+          <div className="lg:block hidden absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fff] via-[#fff]/70 to-transparent z-10 pointer-events-none"></div>
 
           <div className="w-full max-w-[1200px] h-full flex lg:flex-row flex-col-reverse lg:gap-0 gap-8 items-center justify-between px-6 lg:px-8">
             <div className="w-full lg:max-w-[40%] flex flex-col items-center lg:items-start justify-center gap-2 lg:gap-4">
-              <p className="text-[16px] lg:w-auto w-[70%] lg: lg:-text-lg text-sm text-gray-300 lg:text-left text-center">
+              <p className="text-[16px] lg:w-auto w-[70%] lg: lg:-text-lg text-sm text-gray-500 lg:text-left text-center">
                 เครดิตฟรี มากมายไม่ติดเทิร์น แจกฟรีไม่อั้นผ่านระบบออโต้
               </p>
 
-              <h1 className="text-[20px] lg:text-[27px] gradient-gold font-bold leading-tight lg:text-left text-center">
+              <h1 className="text-[20px] lg:text-[27px] text-primary font-bold leading-tight lg:text-left text-center">
                 รับ เครดิตฟรี ได้ทุกคนไม่จำกัดยูส โปรโมชั่นดีๆ มีอีกเพียบ
                 ไม่มีเงื่อนไข
               </h1>
 
-              <button
-                className="font-bold px-6 py-1 lg:py-2 rounded-3xl w-max lg:mt-0 mt-4"
-                style={{
-                  background:
-                    'linear-gradient(180deg, #af8135, #f0e07c, #c69b3a)',
-                }}
-              >
+              <button className="font-bold px-6 py-1 lg:py-2 rounded-3xl w-max lg:mt-0 mt-4 text-white bg-primary">
                 สมัครสมาชิก
               </button>
             </div>
@@ -332,9 +326,9 @@ const PromotionsPage = () => {
         <div className="w-full flex items-center justify-center mt-4">
           <div className="w-full max-w-[1200px] flex flex-col items-center justify-center lg:px-0 px-4">
             <button
-              className="w-full overflow-hidden relative lg:hidden flex items-center justify-center py-1 px-8 rounded-lg gap-4 text-white border border-[#222222]"
+              className="w-full overflow-hidden relative lg:hidden flex items-center justify-center py-1 px-8 rounded-lg gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
               style={{
-                background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
               }}
             >
               <img
@@ -346,7 +340,7 @@ const PromotionsPage = () => {
                 <span className="text-primary text-sm lg:text-[17px]">
                   แจ็คพอตรางวัลใหญ่
                 </span>
-                <span className="gradient-gold font-bold text-[40px] z-50">
+                <span className="text-primary font-bold text-[40px] z-50">
                   ${jackpotAmount.toLocaleString()}
                 </span>
               </div>
@@ -354,9 +348,9 @@ const PromotionsPage = () => {
 
             <div className="flex py-4 gap-2 w-full">
               <button
-                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -369,9 +363,9 @@ const PromotionsPage = () => {
                 </span>
               </button>
               <button
-                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -384,9 +378,9 @@ const PromotionsPage = () => {
                 </span>
               </button>
               <button
-                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -399,9 +393,9 @@ const PromotionsPage = () => {
                 </span>
               </button>
               <button
-                className="relative w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-white border border-[#222222]"
+                className="relative w-1/4 lg:w-1/6 flex lg:flex-row flex-col items-center justify-around lg:justify-center py-1 lg:py-3 px-4 lg:px-8 rounded-lg lg:gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <div className="text-white bg-red-500 absolute rounded-r-lg left-0 bottom-6 lg:bottom-2 text-xs px-1 lg:px-2">
@@ -415,9 +409,9 @@ const PromotionsPage = () => {
                 <span className="text-primary text-sm lg:text-[20px]">หวย</span>
               </button>
               <button
-                className="w-2/6 overflow-hidden relative hidden lg:flex items-center justify-center py-1 px-8 rounded-lg gap-4 text-white border border-[#222222]"
+                className="w-2/6 overflow-hidden relative hidden lg:flex items-center justify-center py-1 px-8 rounded-lg gap-4 text-[#00a6ff] border border-blue-300 hover:border-blue-400 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
                 style={{
-                  background: 'linear-gradient(0deg, #1f1f1f, #313131)',
+                  background: 'linear-gradient(0deg, #ffffff, #e6f3ff)',
                 }}
               >
                 <img
@@ -453,7 +447,7 @@ const PromotionsPage = () => {
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="text-white lg:text-lg text-sm mt-2 z-50">
+                <span className="text-primary lg:text-lg text-sm mt-2 z-50">
                   คืนยอดเสียต่อสัปดาห์สูงสุด 10 %
                 </span>
               </div>
@@ -468,7 +462,7 @@ const PromotionsPage = () => {
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="text-white lg:text-lg text-sm mt-2 z-50">
+                <span className="text-primary lg:text-lg text-sm mt-2 z-50">
                   คืนยอดเสียต่อสัปดาห์สูงสุด 10 %
                 </span>
               </div>
@@ -483,7 +477,7 @@ const PromotionsPage = () => {
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="text-white lg:text-lg text-sm mt-2 z-50">
+                <span className="text-primary lg:text-lg text-sm mt-2 z-50">
                   คืนยอดเสียต่อสัปดาห์สูงสุด 10 %
                 </span>
               </div>
@@ -498,7 +492,7 @@ const PromotionsPage = () => {
                   className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <span className="text-white lg:text-lg text-sm mt-2 z-50">
+                <span className="text-primary lg:text-lg text-sm mt-2 z-50">
                   คืนยอดเสียต่อสัปดาห์สูงสุด 10 %
                 </span>
               </div>
@@ -529,10 +523,10 @@ const PromotionsPage = () => {
 
           {/* Modal Content */}
           <div className="relative z-10 w-full h-full lg:w-[900px] lg:h-[80vh] bg-gradient-to-br from-[#2a2a2a] to-[#1f1f1f] lg:rounded-xl border border-gray-700/50 overflow-hidden pb-10">
-            <div className="w-full h-10 bg-dark sticky top-0 flex items-center justify-start lg:justify-end px-4 py-6 lg:py-8">
+            <div className="w-full h-10 bg-white sticky top-0 flex items-center justify-start lg:justify-end px-4 py-6 lg:py-8">
               <button
                 onClick={closePromotionModal}
-                className="lg:hidden bl,ock z-20 w-8 h-8 bg-black/50 hover:bg-black/70"
+                className="lg:hidden block z-20 w-8 h-8 bg-black/50 hover:bg-black/70"
               >
                 <span className="text-white text-xl">
                   <ChevronLeft />

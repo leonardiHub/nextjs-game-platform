@@ -3,11 +3,11 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbGet = promisify(db.get.bind(db)) as any
 const dbRun = promisify(db.run.bind(db)) as any
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 function verifyAdmin(token: string) {
   try {

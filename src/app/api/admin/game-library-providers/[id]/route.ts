@@ -3,11 +3,12 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbGet = promisify(db.get.bind(db)) as any
 const dbRun = promisify(db.run.bind(db)) as any
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET =
+  process.env.JWT_SECRET || 'fun88-secret-key-change-in-production'
 
 function verifyAdmin(token: string) {
   try {
@@ -31,7 +32,8 @@ export async function PUT(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { name, code, logo_url, description, status, game_count } = await request.json()
+    const { name, code, logo_url, description, status, game_count } =
+      await request.json()
     const providerId = params.id
 
     // Validate required fields
@@ -43,23 +45,20 @@ export async function PUT(
     }
 
     // Check if provider exists
-    const existingProvider = await dbGet(
+    const existingProvider = (await dbGet(
       'SELECT id FROM game_library_providers WHERE id = ?',
       [providerId]
-    ) as any
+    )) as any
 
     if (!existingProvider) {
-      return NextResponse.json(
-        { error: 'Provider not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Provider not found' }, { status: 404 })
     }
 
     // Check if code is taken by another provider
-    const codeConflict = await dbGet(
+    const codeConflict = (await dbGet(
       'SELECT id FROM game_library_providers WHERE code = ? AND id != ?',
       [code, providerId]
-    ) as any
+    )) as any
 
     if (codeConflict) {
       return NextResponse.json(
@@ -69,15 +68,26 @@ export async function PUT(
     }
 
     // Update provider
-    await dbRun(`
+    await dbRun(
+      `
       UPDATE game_library_providers 
       SET name = ?, code = ?, logo_url = ?, description = ?, status = ?, games_count = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?
-    `, [name, code, logo_url || '', description || '', status || 'active', game_count || 0, providerId])
+    `,
+      [
+        name,
+        code,
+        logo_url || '',
+        description || '',
+        status || 'active',
+        game_count || 0,
+        providerId,
+      ]
+    )
 
     return NextResponse.json({
       success: true,
-      message: 'Game library provider updated successfully'
+      message: 'Game library provider updated successfully',
     })
   } catch (error) {
     console.error('Error updating game library provider:', error)
@@ -104,23 +114,20 @@ export async function DELETE(
     const providerId = params.id
 
     // Check if provider exists
-    const existingProvider = await dbGet(
+    const existingProvider = (await dbGet(
       'SELECT id FROM game_library_providers WHERE id = ?',
       [providerId]
-    ) as any
+    )) as any
 
     if (!existingProvider) {
-      return NextResponse.json(
-        { error: 'Provider not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'Provider not found' }, { status: 404 })
     }
 
     // Get the provider code to match with game_providers table
-    const providerInfo = await dbGet(
+    const providerInfo = (await dbGet(
       'SELECT code FROM game_library_providers WHERE id = ?',
       [providerId]
-    ) as any
+    )) as any
 
     if (!providerInfo) {
       return NextResponse.json(
@@ -130,10 +137,10 @@ export async function DELETE(
     }
 
     // Check if provider has games by matching provider codes
-    const gameCount = await dbGet(
+    const gameCount = (await dbGet(
       'SELECT COUNT(*) as count FROM games g JOIN game_providers p ON g.provider_id = p.id WHERE p.code = ?',
       [providerInfo.code]
-    ) as any
+    )) as any
 
     if (gameCount && gameCount.count > 0) {
       return NextResponse.json(
@@ -147,15 +154,15 @@ export async function DELETE(
 
     return NextResponse.json({
       success: true,
-      message: 'Game library provider deleted successfully'
+      message: 'Game library provider deleted successfully',
     })
   } catch (error) {
     console.error('Error deleting game library provider:', error)
     return NextResponse.json(
-      { 
+      {
         error: 'Failed to delete game library provider',
         details: error instanceof Error ? error.message : 'Unknown error',
-        stack: error instanceof Error ? error.stack : undefined
+        stack: error instanceof Error ? error.stack : undefined,
       },
       { status: 500 }
     )

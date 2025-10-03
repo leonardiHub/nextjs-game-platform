@@ -56,38 +56,38 @@ export default function GamesTab({
       id: 'สล็อต' as GameCategory,
       name: 'สล็อต',
       icon: '🎰',
-      color: 'from-pink-400 to-pink-500',
+      color: 'from-blue-400 to-blue-500',
     },
     {
       id: 'คาสิโนสด' as GameCategory,
       name: 'คาสิโนสด',
       icon: '🃏',
-      color: 'from-red-400 to-red-500',
+      color: 'from-blue-500 to-blue-600',
     },
     {
       id: 'แทงบอล' as GameCategory,
       name: 'แทงบอล',
       icon: '⚽',
-      color: 'from-green-400 to-green-500',
+      color: 'from-blue-600 to-blue-700',
     },
     {
       id: 'หวย' as GameCategory,
       name: 'หวย',
       icon: '🎱',
-      color: 'from-purple-400 to-purple-500',
+      color: 'from-blue-700 to-blue-800',
       badge: 'NEW',
     },
     {
       id: 'โปรโมชั่น' as GameCategory,
       name: 'โปรโมชั่น',
       icon: '🎁',
-      color: 'from-orange-400 to-orange-500',
+      color: 'from-blue-800 to-blue-900',
     },
     {
       id: 'สิทธิพิเศษ' as GameCategory,
       name: 'สิทธิพิเศษ',
       icon: '⭐',
-      color: 'from-yellow-400 to-yellow-500',
+      color: 'from-blue-300 to-blue-400',
     },
   ]
 
@@ -129,7 +129,7 @@ export default function GamesTab({
     onClick: () => void
   }) => (
     <div
-      className="relative rounded-lg cursor-pointer transform transition-all group"
+      className="relative rounded-lg cursor-pointer transform transition-all group hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
       onClick={onClick}
     >
       <div className="aspect-[2/3] md:aspect-[3/4] relative">
@@ -145,7 +145,7 @@ export default function GamesTab({
             }
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#00a6ff]/40 via-transparent to-transparent" />
         {game?.featured && (
           <>
             <img
@@ -156,10 +156,10 @@ export default function GamesTab({
         )}{' '}
         {/* RTP Badge */}
         <div
-          className="overflow-hidden absolute top-0 left-0 text-black text-xs font-bold rounded-tl-lg rounded-br-lg"
+          className="overflow-hidden absolute top-0 left-0 text-white text-xs font-bold rounded-tl-lg rounded-br-lg"
           style={{
             background:
-              'linear-gradient(300deg, #ecc440, #fffa8a, #ddac17, #ffff95)',
+              'linear-gradient(300deg, #00a6ff, #0088cc, #006699, #004d73)',
           }}
         >
           <div className="relative px-2 py-0.5 md:px-2 md:py-1 ">
@@ -168,7 +168,7 @@ export default function GamesTab({
           </div>
         </div>
         {/* Game Title */}
-        <div className="absolute bottom-0 w-full h-6 flex items-center justify-center bg-[#000]/70">
+        <div className="absolute bottom-0 w-full h-6 flex items-center justify-center bg-gradient-to-t from-[#00a6ff]/90 to-[#00a6ff]/70">
           <span className="text-white text-xs md:text-[16px] leading-tight drop-shadow-lg px-1 text-center line-clamp-1">
             {game.name}
           </span>
@@ -186,7 +186,7 @@ export default function GamesTab({
           <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-red-500 to-pink-500 bg-clip-text text-transparent">
             HOT GAMES
           </div> */}
-          <img src="pg-hot-games.png" className="h-8 w-auto" />
+          <img src="fun88-hot-games.png" className="h-8 w-auto" />
           <img src="hot-gif.webp" className="w-auto h-5 md:h-6" />
         </div>
 
@@ -196,7 +196,7 @@ export default function GamesTab({
               Array.from({ length: 6 }).map((_, index) => (
                 <div
                   key={index}
-                  className="aspect-[2/3] md:aspect-[3/4] bg-gray-200 rounded-2xl animate-pulse"
+                  className="aspect-[2/3] md:aspect-[3/4] bg-blue-200 rounded-2xl animate-pulse"
                 />
               ))
             : hotGames.map((game: any) => (
@@ -216,7 +216,7 @@ export default function GamesTab({
           <div className="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
             NEW GAMES
           </div> */}
-          <img src="pg-new-games.png" className="h-8 w-auto" />
+          <img src="fun88-new-games.png" className="h-8 w-auto" />
         </div>
 
         <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
@@ -225,7 +225,7 @@ export default function GamesTab({
               Array.from({ length: 6 }).map((_, index) => (
                 <div
                   key={index}
-                  className="aspect-[2/3] md:aspect-[3/4] bg-gray-200 rounded-2xl animate-pulse"
+                  className="aspect-[2/3] md:aspect-[3/4] bg-blue-200 rounded-2xl animate-pulse"
                 />
               ))
             : newGames.map((game: any) => (

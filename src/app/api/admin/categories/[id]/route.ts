@@ -1,19 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3002'
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/categories/${params.id}`, {
-      method: 'GET',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/categories/${params.id}`,
+      {
+        method: 'GET',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
       const error = await response.json()
@@ -24,7 +27,10 @@ export async function GET(
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error fetching category:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
 
@@ -35,14 +41,17 @@ export async function PUT(
   try {
     const body = await request.json()
 
-    const response = await fetch(`${API_BASE_URL}/api/admin/categories/${params.id}`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/categories/${params.id}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      }
+    )
 
     if (!response.ok) {
       const error = await response.json()
@@ -53,7 +62,10 @@ export async function PUT(
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error updating category:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
 
@@ -62,13 +74,16 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/categories/${params.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': request.headers.get('Authorization') || '',
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${API_BASE_URL}/api/admin/categories/${params.id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: request.headers.get('Authorization') || '',
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
       const error = await response.json()
@@ -79,6 +94,9 @@ export async function DELETE(
     return NextResponse.json(data)
   } catch (error) {
     console.error('Error deleting category:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }

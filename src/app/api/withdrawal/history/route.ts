@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
     const authHeader = request.headers.get('authorization')
 
     const response = await fetch(
-      'http://localhost:3002/api/withdrawal/history',
+      'http://localhost:3006/api/withdrawal/history',
       {
         method: 'GET',
         headers: {

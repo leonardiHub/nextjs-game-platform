@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3002'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
 console.log('Frontend API: BACKEND_URL is:', BACKEND_URL)
 
 export async function GET(
@@ -9,17 +9,20 @@ export async function GET(
 ) {
   try {
     const token = request.headers.get('authorization')
-    
+
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const response = await fetch(`${BACKEND_URL}/api/admin/seo/pages/${params.id}`, {
-      headers: {
-        'Authorization': token,
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${BACKEND_URL}/api/admin/seo/pages/${params.id}`,
+      {
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
@@ -42,7 +45,7 @@ export async function PUT(
 ) {
   try {
     const token = request.headers.get('authorization')
-    
+
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
@@ -54,16 +57,22 @@ export async function PUT(
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), 30000) // 30 second timeout
 
-    console.log('Frontend API: Sending request to backend:', `${BACKEND_URL}/api/admin/seo/pages/${params.id}`)
-    const response = await fetch(`${BACKEND_URL}/api/admin/seo/pages/${params.id}`, {
-      method: 'PUT',
-      headers: {
-        'Authorization': token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    })
+    console.log(
+      'Frontend API: Sending request to backend:',
+      `${BACKEND_URL}/api/admin/seo/pages/${params.id}`
+    )
+    const response = await fetch(
+      `${BACKEND_URL}/api/admin/seo/pages/${params.id}`,
+      {
+        method: 'PUT',
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+        signal: controller.signal,
+      }
+    )
 
     clearTimeout(timeoutId)
     console.log('Frontend API: Backend response status:', response.status)
@@ -85,9 +94,9 @@ export async function PUT(
     console.error('Error details:', {
       name: error instanceof Error ? error.name : 'Unknown',
       message: error instanceof Error ? error.message : error,
-      cause: error instanceof Error ? error.cause : undefined
+      cause: error instanceof Error ? error.cause : undefined,
     })
-    
+
     if (error instanceof Error) {
       if (error.name === 'AbortError') {
         return NextResponse.json(
@@ -97,7 +106,10 @@ export async function PUT(
       }
       if (error.message.includes('ECONNREFUSED')) {
         return NextResponse.json(
-          { error: 'Backend server connection refused', details: error.message },
+          {
+            error: 'Backend server connection refused',
+            details: error.message,
+          },
           { status: 503 }
         )
       }
@@ -108,9 +120,12 @@ export async function PUT(
         )
       }
     }
-    
+
     return NextResponse.json(
-      { error: 'Failed to update SEO page', details: error instanceof Error ? error.message : String(error) },
+      {
+        error: 'Failed to update SEO page',
+        details: error instanceof Error ? error.message : String(error),
+      },
       { status: 500 }
     )
   }
@@ -122,18 +137,21 @@ export async function DELETE(
 ) {
   try {
     const token = request.headers.get('authorization')
-    
+
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const response = await fetch(`${BACKEND_URL}/api/admin/seo/pages/${params.id}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': token,
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${BACKEND_URL}/api/admin/seo/pages/${params.id}`,
+      {
+        method: 'DELETE',
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)

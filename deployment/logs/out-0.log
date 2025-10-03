@@ -1,6 +1,6 @@
 2025-09-21 17:44 +00:00: Enhanced Game platform server running on port 3002
-2025-09-21 17:44 +00:00: Visit: http://localhost:3002
-2025-09-21 17:44 +00:00: Admin panel: http://localhost:3002/admin
+2025-09-21 17:44 +00:00: Visit: http://localhost:3006
+2025-09-21 17:44 +00:00: Admin panel: http://localhost:3006/admin
 2025-09-21 17:44 +00:00: Default admin: admin/admin123
 2025-09-21 17:44 +00:00: ✅ Connected to SQLite database successfully
 2025-09-21 17:44 +00:00: Default admin account created: admin/admin123

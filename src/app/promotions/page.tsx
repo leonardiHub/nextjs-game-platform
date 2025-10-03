@@ -5,32 +5,61 @@ import { getPageSEOSettings, getGlobalSEOSettings } from '@/utils/seo'
 export async function generateMetadata(): Promise<Metadata> {
   try {
     // 尝试获取页面特定的SEO设置
-    const pageSEO = await getPageSEOSettings('/promotions')
+    const pageSEO: any = await getPageSEOSettings('/promotions')
     const globalSettings = await getGlobalSEOSettings()
-    
+
     console.log('Promotions page SEO data:', pageSEO)
     console.log('Global settings:', globalSettings)
-    
+
     // 使用页面特定设置或全局设置作为fallback
     const finalPageSEO = pageSEO || {}
 
     if (finalPageSEO) {
       const metadata: any = {
         title: finalPageSEO.meta_title || globalSettings.default_meta_title,
-        description: finalPageSEO.meta_description || globalSettings.default_meta_description,
-        robots: finalPageSEO.robots_meta || globalSettings.default_robots_meta || 'index, follow',
+        description:
+          finalPageSEO.meta_description ||
+          globalSettings.default_meta_description,
+        robots:
+          finalPageSEO.robots_meta ||
+          globalSettings.default_robots_meta ||
+          'index, follow',
         openGraph: {
-          title: finalPageSEO.og_title || finalPageSEO.meta_title || globalSettings.default_meta_title,
-          description: finalPageSEO.og_description || finalPageSEO.meta_description || globalSettings.default_meta_description,
+          title:
+            finalPageSEO.og_title ||
+            finalPageSEO.meta_title ||
+            globalSettings.default_meta_title,
+          description:
+            finalPageSEO.og_description ||
+            finalPageSEO.meta_description ||
+            globalSettings.default_meta_description,
           siteName: globalSettings.site_name,
-          images: finalPageSEO.og_image ? [finalPageSEO.og_image] : (globalSettings.default_og_image ? [globalSettings.default_og_image] : undefined),
+          images: finalPageSEO.og_image
+            ? [finalPageSEO.og_image]
+            : globalSettings.default_og_image
+              ? [globalSettings.default_og_image]
+              : undefined,
         },
         twitter: {
           card: 'summary_large_image',
-          title: finalPageSEO.twitter_title || finalPageSEO.og_title || finalPageSEO.meta_title || globalSettings.default_meta_title,
-          description: finalPageSEO.twitter_description || finalPageSEO.og_description || finalPageSEO.meta_description || globalSettings.default_meta_description,
+          title:
+            finalPageSEO.twitter_title ||
+            finalPageSEO.og_title ||
+            finalPageSEO.meta_title ||
+            globalSettings.default_meta_title,
+          description:
+            finalPageSEO.twitter_description ||
+            finalPageSEO.og_description ||
+            finalPageSEO.meta_description ||
+            globalSettings.default_meta_description,
           site: globalSettings.twitter_site,
-          images: finalPageSEO.twitter_image ? [finalPageSEO.twitter_image] : (finalPageSEO.og_image ? [finalPageSEO.og_image] : (globalSettings.default_og_image ? [globalSettings.default_og_image] : undefined)),
+          images: finalPageSEO.twitter_image
+            ? [finalPageSEO.twitter_image]
+            : finalPageSEO.og_image
+              ? [finalPageSEO.og_image]
+              : globalSettings.default_og_image
+                ? [globalSettings.default_og_image]
+                : undefined,
         },
       }
 
@@ -41,7 +70,11 @@ export async function generateMetadata(): Promise<Metadata> {
       }
 
       // 添加canonical URL（如果有的话）
-      const canonicalUrl = finalPageSEO.canonical_url || (globalSettings.default_canonical_url ? `${globalSettings.default_canonical_url}/promotions` : undefined)
+      const canonicalUrl =
+        finalPageSEO.canonical_url ||
+        (globalSettings.default_canonical_url
+          ? `${globalSettings.default_canonical_url}/promotions`
+          : undefined)
       if (canonicalUrl && canonicalUrl.trim()) {
         metadata.alternates = {
           canonical: canonicalUrl,
@@ -52,18 +85,19 @@ export async function generateMetadata(): Promise<Metadata> {
 
       return metadata
     }
-    
+
     // 如果没有页面特定设置，使用全局默认设置
     return {
       title: globalSettings.default_meta_title,
       description: globalSettings.default_meta_description,
       robots: 'index, follow',
-      }
-    } catch (error) {
+    }
+  } catch (error) {
     console.error('Error generating promotions page metadata:', error)
     return {
       title: 'Promotions - 99Group Gaming Platform',
-      description: 'Discover exciting promotions and bonuses at 99Group Gaming Platform.',
+      description:
+        'Discover exciting promotions and bonuses at 99Group Gaming Platform.',
       robots: 'index, follow',
     }
   }
@@ -73,8 +107,9 @@ export default async function PromotionsPage() {
   // 获取schema markup用于JSON-LD
   const pageSEO = await getPageSEOSettings('/promotions')
   const globalSettings = await getGlobalSEOSettings()
-  const finalPageSEO = pageSEO || {}
-  const schemaMarkup = finalPageSEO.schema_markup || globalSettings.default_schema_markup
+  const finalPageSEO: any = pageSEO || {}
+  const schemaMarkup =
+    finalPageSEO.schema_markup || globalSettings.default_schema_markup
 
   return (
     <>
@@ -82,7 +117,7 @@ export default async function PromotionsPage() {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: schemaMarkup
+            __html: schemaMarkup,
           }}
         />
       )}

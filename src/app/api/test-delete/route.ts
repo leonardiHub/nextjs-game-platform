@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbGet = promisify(db.get.bind(db)) as any
 
 const JWT_SECRET = 'your-secret-key-change-in-production'
@@ -28,41 +28,43 @@ export async function GET(request: NextRequest) {
 
     // Test the query that's causing issues
     const providerId = '4'
-    
+
     // Check if provider exists
-    const existingProvider = await dbGet(
+    const existingProvider = (await dbGet(
       'SELECT id FROM game_library_providers WHERE id = ?',
       [providerId]
-    ) as any
+    )) as any
 
     if (!existingProvider) {
       return NextResponse.json({ error: 'Provider not found' })
     }
 
     // Get the provider code
-    const providerInfo = await dbGet(
+    const providerInfo = (await dbGet(
       'SELECT code FROM game_library_providers WHERE id = ?',
       [providerId]
-    ) as any
+    )) as any
 
     // Check game count
-    const gameCount = await dbGet(
+    const gameCount = (await dbGet(
       'SELECT COUNT(*) as count FROM games g JOIN game_providers p ON g.provider_id = p.id WHERE p.code = ?',
       [providerInfo.code]
-    ) as any
+    )) as any
 
     return NextResponse.json({
       providerId,
       existingProvider,
       providerInfo,
       gameCount,
-      message: 'Debug info for DELETE operation'
+      message: 'Debug info for DELETE operation',
     })
-
   } catch (error) {
     console.error('Test DELETE error:', error)
     return NextResponse.json(
-      { error: 'Test failed', details: error instanceof Error ? error.message : 'Unknown error' },
+      {
+        error: 'Test failed',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
       { status: 500 }
     )
   }

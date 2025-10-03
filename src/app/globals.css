@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import 'tailwindcss';
 @import '../styles/tiptap.css';
 
@@ -41,7 +42,7 @@
 
 /* Tailwind CSS v4 - Custom theme configuration */
 @theme {
-  --color-primary: #c29331; /* Updated Gold */
+  --color-primary: #00a6ff; /* Updated blue */
   --color-secondary: #212121; /* Updated Dark */
   --color-success: #10b981;
   --color-danger: #ef4444;
@@ -52,8 +53,8 @@
 
   /* Font family configuration */
   --font-sans:
-    var(--font-kanit), ui-sans-serif, system-ui, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 /* Use Tailwind's layer system to prevent conflicts */
@@ -67,10 +68,10 @@
   html,
   body {
     height: 100%;
-    font-family: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
   }
 
-  /* Ensure all text elements use Kanit */
+  /* Ensure all text elements use Noto Sans Thai */
   h1,
   h2,
   h3,
@@ -84,13 +85,13 @@
   input,
   textarea,
   select {
-    font-family: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
+    font-family: 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
   }
 }
 
 body {
-  font-family: var(--font-kanit), ui-sans-serif, system-ui, sans-serif;
-  background-color: #212121;
+  font-family: 'Noto Sans Thai', ui-sans-serif, system-ui, sans-serif;
+  background-color: #fff;
 }
 
 /* Custom animations for shimmer effect */
@@ -145,7 +146,7 @@ body {
 
 @layer utilities {
   .primary-gradient-to-r {
-    @apply border border-[#C29331] text-[#5C4A2E];
+    @apply border border-[#00a6ff] text-[#5C4A2E];
     background: linear-gradient(
       135deg,
       rgba(244, 252, 164, 1) 0%,
@@ -156,7 +157,7 @@ body {
     );
   }
   .primary-gradient-to-b {
-    @apply border border-[#C29331] text-[#5C4A2E];
+    @apply border border-[#00a6ff] text-[#5C4A2E];
     background: linear-gradient(
       180deg,
       rgb(244, 252, 164) 0%,
@@ -244,4 +245,14 @@ body {
   backface-visibility: hidden;
   -webkit-perspective: 1000px;
   perspective: 1000px;
+}
+
+/* Ensure spin animation is available for loading components */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

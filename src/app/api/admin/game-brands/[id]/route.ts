@@ -3,12 +3,12 @@ import jwt from 'jsonwebtoken'
 import { Database } from 'sqlite3'
 import { promisify } from 'util'
 
-const db = new Database('./game_platform.db')
+const db = new Database('./fun88_standalone.db')
 const dbAll = promisify(db.all.bind(db)) as any
 const dbGet = promisify(db.get.bind(db)) as any
 const dbRun = promisify(db.run.bind(db)) as any
 
-const JWT_SECRET = 'your-secret-key-change-in-production'
+const JWT_SECRET = 'fun88-secret-key-change-in-production'
 
 function verifyAdmin(token: string) {
   try {
@@ -32,10 +32,9 @@ export async function GET(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const brand = await dbGet(
-      'SELECT * FROM game_brands WHERE id = ?',
-      [params.id]
-    ) as any
+    const brand = (await dbGet('SELECT * FROM game_brands WHERE id = ?', [
+      params.id,
+    ])) as any
 
     if (!brand) {
       return NextResponse.json({ error: 'Brand not found' }, { status: 404 })
@@ -64,7 +63,8 @@ export async function PUT(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const { name, code, logo_url, description, status, games_count } = await request.json()
+    const { name, code, logo_url, description, status, games_count } =
+      await request.json()
 
     // Validate required fields
     if (!name || !code) {
@@ -75,20 +75,20 @@ export async function PUT(
     }
 
     // Check if brand exists
-    const existingBrand = await dbGet(
+    const existingBrand = (await dbGet(
       'SELECT id FROM game_brands WHERE id = ?',
       [params.id]
-    ) as any
+    )) as any
 
     if (!existingBrand) {
       return NextResponse.json({ error: 'Brand not found' }, { status: 404 })
     }
 
     // Check if code is taken by another brand
-    const duplicateBrand = await dbGet(
+    const duplicateBrand = (await dbGet(
       'SELECT id FROM game_brands WHERE code = ? AND id != ?',
       [code, params.id]
-    ) as any
+    )) as any
 
     if (duplicateBrand) {
       return NextResponse.json(
@@ -98,15 +98,26 @@ export async function PUT(
     }
 
     // Update brand
-    await dbRun(`
+    ;(await dbRun(
+      `
       UPDATE game_brands 
       SET name = ?, code = ?, logo_url = ?, description = ?, status = ?, games_count = ?, updated_at = CURRENT_TIMESTAMP
       WHERE id = ?
-    `, [name, code, logo_url || '', description || '', status || 'active', games_count || 0, params.id]) as any
+    `,
+      [
+        name,
+        code,
+        logo_url || '',
+        description || '',
+        status || 'active',
+        games_count || 0,
+        params.id,
+      ]
+    )) as any
 
     return NextResponse.json({
       success: true,
-      message: 'Game brand updated successfully'
+      message: 'Game brand updated successfully',
     })
   } catch (error) {
     console.error('Error updating game brand:', error)
@@ -131,21 +142,21 @@ export async function DELETE(
     }
 
     // Check if brand exists
-    const existingBrand = await dbGet(
+    const existingBrand = (await dbGet(
       'SELECT id FROM game_brands WHERE id = ?',
       [params.id]
-    ) as any
+    )) as any
 
     if (!existingBrand) {
       return NextResponse.json({ error: 'Brand not found' }, { status: 404 })
     }
 
     // Delete brand
-    await dbRun('DELETE FROM game_brands WHERE id = ?', [params.id]) as any
+    ;(await dbRun('DELETE FROM game_brands WHERE id = ?', [params.id])) as any
 
     return NextResponse.json({
       success: true,
-      message: 'Game brand deleted successfully'
+      message: 'Game brand deleted successfully',
     })
   } catch (error) {
     console.error('Error deleting game brand:', error)

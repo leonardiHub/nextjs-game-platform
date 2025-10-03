@@ -37,9 +37,9 @@ const Hero = () => {
     heroData.find(hero => hero.id === currentHero) || heroData[0]
 
   return (
-    <div className="lg:mt-0 mt-2 min-h-[70vh] w-full bg-gradient-to-br from-[#212121] via-[#2a2a2a] to-[#212121] flex items-center justify-center relative">
-      {/* Black fading overlay at the bottom */}
-      <div className="lg:block hidden absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#212121] via-[#212121]/70 to-transparent z-10 pointer-events-none"></div>
+    <div className="lg:mt-0 mt-2 min-h-[70vh] w-full bg-white flex items-center justify-center relative">
+      {/* Blue fading overlay at the bottom */}
+      <div className="lg:block hidden absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#fff] via-[#fff]/70 to-transparent z-10 pointer-events-none"></div>
 
       <div className="w-full max-w-[1200px] h-full flex lg:flex-row flex-col items-center justify-between px-6 lg:px-8">
         <div className="relative transition-all duration-1000 ease-in-out transform hover:scale-105">
@@ -72,16 +72,14 @@ const Hero = () => {
           />
         </div>
         <div className="w-full lg:max-w-[40%] flex flex-col items-center lg:items-start justify-center gap-4">
-          <h1 className="text-[27px] gradient-gold font-bold text-left leading-tight">
-            PGSLOT — direct slots, easy wins, auto system.
+          <h1 className="text-[27px] text-primary font-bold text-left leading-tight">
+            FUN88 เว็บไซต์ทางการ - มั่นคง ปลอดภัย ฝากถอนสะดวก อันดับ 1 ในไทย
           </h1>
-          <p className="text-lg text-gray-300">
-            Experience the thrill of gaming like never before.
-          </p>
+          <p className="text-lg text-white/90">ฝากถอนสะดวก อันดับ 1 ในไทย</p>
 
           {/* Marquee Banner */}
           <div className="w-full max-w-md mx-auto lg:mx-0 mb-4">
-            <div className="bg-gradient-to-r from-[#b08428] via-[#c29331] to-[#9e7520] rounded-lg shadow-lg overflow-hidden relative border border-[#c29331]/50 max-h-[50px] pl-2">
+            <div className="bg-gradient-to-r from-[#00a6ff] via-[#0088cc] to-[#00a6ff] rounded-lg shadow-lg overflow-hidden relative border border-[#00a6ff]/50 max-h-[50px] pl-2">
               <div className="flex items-center gap-2">
                 {/* Speaker Icon */}
                 <div className="flex-shrink-0 relative">
@@ -100,14 +98,15 @@ const Hero = () => {
               </div>
 
               {/* Shine effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#e4c157]/30 to-transparent animate-shine"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shine"></div>
             </div>
           </div>
 
           <button
-            className="font-bold px-10 py-2.5 rounded-3xl w-max lg:block hidden"
+            className="font-bold px-10 py-2.5 rounded-3xl w-max lg:block hidden text-white"
             style={{
-              background: 'linear-gradient(180deg, #af8135, #f0e07c, #c69b3a)',
+              background:
+                'linear-gradient(180deg, #00a6ff, #0088cc,rgb(85, 151, 184)',
             }}
           >
             Get Started

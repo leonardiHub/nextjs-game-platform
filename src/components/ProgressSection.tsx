@@ -16,13 +16,13 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
         return 'bg-gradient-to-br from-[#B08428] to-[#9E7520] text-white'
       case 'current':
         return balance >= 1000
-          ? 'bg-gradient-to-br from-[#C29331] to-[#B08428] text-white'
+          ? 'bg-gradient-to-br from-[#00a6ff] to-[#B08428] text-white'
           : balance > 0
-            ? 'bg-gradient-to-br from-[#D4B145] to-[#C29331] text-white animate-pulse'
+            ? 'bg-gradient-to-br from-[#D4B145] to-[#00a6ff] text-white animate-pulse'
             : 'bg-gray-700 text-gray-400'
       case 'goal':
         return balance >= 1000
-          ? 'bg-gradient-to-br from-[#C29331] to-[#B08428] text-white'
+          ? 'bg-gradient-to-br from-[#00a6ff] to-[#B08428] text-white'
           : 'bg-gray-700 text-gray-400'
       default:
         return 'bg-gray-700 text-gray-400'
@@ -45,7 +45,7 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
               S
             </div>
             <div className="text-center text-sm">
-              <div className="font-medium text-[#C29331]">Start</div>
+              <div className="font-medium text-[#00a6ff]">Start</div>
               <div className="text-xs text-[#D4B145]">$50</div>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
               P
             </div>
             <div className="text-center text-sm">
-              <div className="font-medium text-[#C29331]">Playing</div>
+              <div className="font-medium text-[#00a6ff]">Playing</div>
               <div className="text-xs text-[#D4B145]">
                 ${balance.toFixed(2)}
               </div>
@@ -71,7 +71,7 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
               W
             </div>
             <div className="text-center text-sm">
-              <div className="font-medium text-[#C29331]">Withdraw</div>
+              <div className="font-medium text-[#00a6ff]">Withdraw</div>
               <div className="text-xs text-[#D4B145]">$1000</div>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
             >
               S
             </div>
-            <span className="text-sm text-[#C29331]">Start: $50</span>
+            <span className="text-sm text-[#00a6ff]">Start: $50</span>
           </div>
           <div className="flex items-center space-x-3">
             <div
@@ -93,7 +93,7 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
             >
               P
             </div>
-            <span className="text-sm text-[#C29331]">
+            <span className="text-sm text-[#00a6ff]">
               Playing: ${balance.toFixed(2)}
             </span>
           </div>
@@ -103,18 +103,18 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
             >
               W
             </div>
-            <span className="text-sm text-[#C29331]">Withdraw: $1000</span>
+            <span className="text-sm text-[#00a6ff]">Withdraw: $1000</span>
           </div>
         </div>
 
         {/* Progress Bar */}
         <div className="w-full bg-gradient-to-r from-[#2a2a2a] via-[#323232] to-[#2a2a2a] rounded-full h-8 mb-3 overflow-hidden border-2 border-[#B08428]/40 shadow-inner relative">
           {/* Background glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#C29331]/10 via-[#D4B145]/20 to-[#C29331]/10 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#00a6ff]/10 via-[#D4B145]/20 to-[#00a6ff]/10 animate-pulse"></div>
 
           {/* Main progress fill */}
           <div
-            className="h-full bg-gradient-to-r from-[#D4B145] via-[#C29331] to-[#B08428] transition-all duration-1000 ease-out relative shadow-lg overflow-hidden"
+            className="h-full bg-gradient-to-r from-[#D4B145] via-[#00a6ff] to-[#B08428] transition-all duration-1000 ease-out relative shadow-lg overflow-hidden"
             style={{ width: `${progress}%` }}
           >
             {/* Inner glow */}
@@ -133,7 +133,7 @@ export default function ProgressSection({ balance }: ProgressSectionProps) {
           </div>
         </div>
 
-        <div className="text-center text-sm font-medium text-[#C29331]">
+        <div className="text-center text-sm font-medium text-[#00a6ff]">
           Progress to withdrawal: ${balance.toFixed(2)} / $1000
         </div>
       </div>

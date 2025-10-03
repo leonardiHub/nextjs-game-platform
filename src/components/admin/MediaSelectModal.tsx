@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { API_CONFIG } from '@/utils/config'
 import { X, Upload, Search, Image as ImageIcon, Trash2 } from 'lucide-react'
 
 interface MediaFile {
@@ -252,9 +253,15 @@ export default function MediaSelectModal({
 
                           // For local files, use backend server directly
                           let cleanUrl = media.url
-                            .replace('http://localhost:3002', '')
+                            .replace('http://localhost:3006', '')
                             .replace('http://localhost:3001', '')
-                            .replace('https://api.99group.games', '')
+                            .replace(
+                              API_CONFIG.BASE_URL.replace(
+                                'https://',
+                                'https://api.'
+                              ),
+                              ''
+                            )
 
                           // Ensure URL starts with /uploads
                           if (!cleanUrl.startsWith('/uploads')) {
@@ -265,8 +272,8 @@ export default function MediaSelectModal({
                           const apiUrl =
                             typeof window !== 'undefined' &&
                             window.location.hostname === 'localhost'
-                              ? 'http://localhost:3002'
-                              : 'https://api.99group.games'
+                              ? 'http://localhost:3006'
+                              : API_CONFIG.BASE_URL
                           return `${apiUrl}${cleanUrl}`
                         })()}
                         alt={media.alt_text || media.original_name}

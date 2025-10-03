@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
 import * as jwt from 'jsonwebtoken'
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-change-in-production'
+const JWT_SECRET =
+  process.env.JWT_SECRET || 'fun88-secret-key-change-in-production'
 
 // Mock database connection - replace with your actual database
 // This should connect to the same database as server_enhanced.js
 const sqlite3 = require('sqlite3').verbose()
 const path = require('path')
 
-const dbPath = path.join(process.cwd(), 'game_platform.db')
+const dbPath = path.join(process.cwd(), 'fun88_standalone.db')
 
 function getDatabase() {
   return new sqlite3.Database(dbPath, (err: any) => {
@@ -48,16 +49,18 @@ export async function GET(request: NextRequest) {
 
     const db = getDatabase()
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       db.all(
         'SELECT category, key, value FROM system_settings',
         [],
         (err: any, rows: any[]) => {
           db.close()
-          
+
           if (err) {
             console.error('Database error:', err)
-            resolve(NextResponse.json({ error: 'Database error' }, { status: 500 }))
+            resolve(
+              NextResponse.json({ error: 'Database error' }, { status: 500 })
+            )
             return
           }
 
@@ -67,20 +70,20 @@ export async function GET(request: NextRequest) {
               freeCreditAmount: 50,
               minBalanceThreshold: 0.1,
               withdrawalThreshold: 1000,
-              withdrawalAmount: 50
+              withdrawalAmount: 50,
             },
             security: {
               sessionTimeout: 30,
               maxLoginAttempts: 5,
-              passwordMinLength: 6
-            }
+              passwordMinLength: 6,
+            },
           }
 
           // Fill settings from database rows
           rows.forEach(row => {
             const { category, key, value } = row
             if (settings[category as keyof typeof settings]) {
-              ;(settings[category as keyof typeof settings] as any)[key] = 
+              ;(settings[category as keyof typeof settings] as any)[key] =
                 isNaN(parseFloat(value)) ? value : parseFloat(value)
             }
           })
@@ -91,7 +94,10 @@ export async function GET(request: NextRequest) {
     })
   } catch (error) {
     console.error('Error getting settings:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }
 
@@ -107,21 +113,21 @@ export async function POST(request: NextRequest) {
     const settings = await request.json()
     const db = getDatabase()
 
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       // Prepare update statements
-      const updates: Array<{category: string, key: string, value: string}> = []
-      
+      const updates: Array<{ category: string; key: string; value: string }> =
+        []
+
       // Wallet settings
       if (settings.wallet) {
         Object.entries(settings.wallet).forEach(([key, value]) => {
           updates.push({
             category: 'wallet',
             key,
-            value: String(value)
+            value: String(value),
           })
         })
       }
-
 
       // Security settings
       if (settings.security) {
@@ -129,7 +135,7 @@ export async function POST(request: NextRequest) {
           updates.push({
             category: 'security',
             key,
-            value: String(value)
+            value: String(value),
           })
         })
       }
@@ -148,22 +154,26 @@ export async function POST(request: NextRequest) {
         db.run(
           'INSERT OR REPLACE INTO system_settings (category, key, value, updated_at) VALUES (?, ?, ?, CURRENT_TIMESTAMP)',
           [update.category, update.key, update.value],
-          function(err: any) {
+          function (err: any) {
             if (err && !hasError) {
               hasError = true
               console.error('Database error:', err)
               db.close()
-              resolve(NextResponse.json({ error: 'Database error' }, { status: 500 }))
+              resolve(
+                NextResponse.json({ error: 'Database error' }, { status: 500 })
+              )
               return
             }
 
             completed++
             if (completed === updates.length && !hasError) {
               db.close()
-              resolve(NextResponse.json({ 
-                message: 'Settings updated successfully',
-                updatedCount: completed
-              }))
+              resolve(
+                NextResponse.json({
+                  message: 'Settings updated successfully',
+                  updatedCount: completed,
+                })
+              )
             }
           }
         )
@@ -171,6 +181,9 @@ export async function POST(request: NextRequest) {
     })
   } catch (error) {
     console.error('Error updating settings:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
   }
 }

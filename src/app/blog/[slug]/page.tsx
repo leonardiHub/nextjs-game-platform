@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { API_CONFIG } from '@/utils/config'
 import BlogPostClient from './BlogPostClient'
 import {
   processSchemaTemplate,
@@ -27,7 +28,7 @@ interface BlogPost {
 // Fetch blog data for metadata
 async function fetchBlogForMetadata(slug: string): Promise<BlogPost | null> {
   try {
-    const response = await fetch(`http://localhost:3002/api/blogs/${slug}`, {
+    const response = await fetch(`http://localhost:3006/api/blogs/${slug}`, {
       cache: 'no-store', // Always fetch fresh data for metadata
     })
 
@@ -67,17 +68,17 @@ export async function generateMetadata({
     if (
       imageUrl.startsWith('http') &&
       !imageUrl.includes('localhost') &&
-      !imageUrl.includes('99group.games')
+      !imageUrl.includes(API_CONFIG.BASE_URL.replace('https://', ''))
     ) {
       return imageUrl
     }
 
     // For local files, use backend server directly
     let cleanUrl = imageUrl
-      .replace('http://localhost:3002', '')
+      .replace('http://localhost:3006', '')
       .replace('http://localhost:3001', '')
-      .replace('https://99group.games', '')
-      .replace('https://api.99group.games', '')
+      .replace(API_CONFIG.BASE_URL, '')
+      .replace(API_CONFIG.BASE_URL.replace('https://', 'https://api.'), '')
 
     // Ensure URL starts with /uploads
     if (!cleanUrl.startsWith('/uploads')) {
@@ -88,8 +89,8 @@ export async function generateMetadata({
     // In server-side code, check process.env instead of window
     const apiUrl =
       process.env.NODE_ENV === 'production'
-        ? 'https://api.99group.games'
-        : 'http://localhost:3002'
+        ? API_CONFIG.BASE_URL
+        : 'http://localhost:3006'
     return `${apiUrl}${cleanUrl}`
   }
 

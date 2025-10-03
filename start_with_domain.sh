@@ -16,13 +16,13 @@ if [ $# -eq 1 ]; then
     echo "🚀 启动游戏平台，使用域名: $DOMAIN"
     export PUBLIC_DOMAIN=$DOMAIN
 else
-    echo "🏠 启动游戏平台，使用本地地址: http://localhost:3002"
+    echo "🏠 启动游戏平台，使用本地地址: http://localhost:3006"
 fi
 
 echo "📋 当前配置:"
 echo "   - 服务端口: 3002"
-echo "   - 公网域名: ${PUBLIC_DOMAIN:-http://localhost:3002}"
-echo "   - 回调地址: ${PUBLIC_DOMAIN:-http://localhost:3002}/api/game/callback"
+echo "   - 公网域名: ${PUBLIC_DOMAIN:-http://localhost:3006}"
+echo "   - 回调地址: ${PUBLIC_DOMAIN:-http://localhost:3006}/api/game/callback"
 echo ""
 
 # 启动服务器

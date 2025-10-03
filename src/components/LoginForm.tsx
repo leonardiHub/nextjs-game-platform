@@ -43,16 +43,16 @@ export default function LoginForm({ onLogin, onShowRegister }: LoginFormProps) {
   }
 
   return (
-    <div className="bg-[#212121] p-6 pt-0 h-full">
+    <div className="bg-white p-6 pt-0 h-full">
       {error && (
-        <div className="mb-6 p-4 bg-red-900/50 border border-red-500/50 text-red-300 rounded-lg text-center backdrop-blur-sm">
+        <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-600 rounded-lg text-center">
           {error}
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Username
           </label>
           <input
@@ -60,13 +60,13 @@ export default function LoginForm({ onLogin, onShowRegister }: LoginFormProps) {
             value={username}
             onChange={e => setUsername(e.target.value)}
             required
-            className="w-full px-4 py-3 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+            className="w-full px-4 py-3 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
             placeholder="Enter your username"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-yellow-200 mb-2">
+          <label className="block text-sm font-medium text-[#00a6ff] mb-2">
             Password
           </label>
           <input
@@ -74,7 +74,7 @@ export default function LoginForm({ onLogin, onShowRegister }: LoginFormProps) {
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
-            className="w-full px-4 py-3 bg-gray-800/50 border-2 border-yellow-600/30 rounded-lg focus:border-yellow-400 focus:outline-none transition-all text-white placeholder-gray-400 backdrop-blur-sm"
+            className="w-full px-4 py-3 bg-gray-50 border-2 border-blue-200 rounded-lg focus:border-[#00a6ff] focus:outline-none transition-all text-gray-900 placeholder-gray-400"
             placeholder="Enter your password"
           />
         </div>
@@ -83,19 +83,19 @@ export default function LoginForm({ onLogin, onShowRegister }: LoginFormProps) {
           type="submit"
           disabled={isLoading}
           style={{
-            background: 'linear-gradient(180deg, #af8135, #f0e07c, #c69b3a)',
+            background: 'linear-gradient(180deg, #00a6ff, #0088cc)',
           }}
-          className="w-full py-3 px-4 rounded-xl cursor-pointer font-bold hover:from-yellow-400 hover:to-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-gray-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg hover:shadow-yellow-400/25"
+          className="w-full py-3 px-4 rounded-xl cursor-pointer font-bold text-white hover:from-blue-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-[#00a6ff] focus:ring-offset-2 focus:ring-offset-white transition-all disabled:opacity-50 disabled:cursor-not-allowed transform hover:scale-105 shadow-lg hover:shadow-blue-500/25"
         >
           {isLoading ? 'Logging in...' : 'Login'}
         </button>
       </form>
 
-      <div className="mt-6 text-center text-[#d9d9d9]">
+      <div className="mt-6 text-center text-gray-600">
         <span className="">Don&apos;t have an account? </span>
         <button
           onClick={onShowRegister}
-          className="text-yellow-400 hover:text-yellow-300 font-medium underline decoration-yellow-400/50 hover:decoration-yellow-300"
+          className="text-[#00a6ff] hover:text-blue-600 font-medium underline decoration-[#00a6ff]/50 hover:decoration-blue-600"
         >
           Register here
         </button>
