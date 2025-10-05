@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { adminApiCall } from '@/utils/adminApi'
 import { AlertCircle, Info, CheckCircle } from 'lucide-react'
+import { API_CONFIG } from '@/utils/config'
 
 interface HeroCarouselItem {
   id: number
@@ -52,6 +53,35 @@ export default function HeroCarouselManagement() {
     height: number
     ratio: number
   } | null>(null)
+
+  // Helper function to format media URLs properly
+  const formatMediaUrl = (url: string) => {
+    if (!url) return ''
+
+    // Handle external URLs
+    if (url.startsWith('http') && !url.includes('localhost')) {
+      return url
+    }
+
+    // For local files, use backend server directly
+    let cleanUrl = url
+      .replace('http://localhost:3006', '')
+      .replace('http://localhost:3001', '')
+      .replace('https://99group.games', '')
+      .replace('https://api.99group.games', '')
+
+    // Ensure URL starts with /uploads
+    if (!cleanUrl.startsWith('/uploads')) {
+      cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
+    }
+
+    // Return appropriate backend URL based on environment
+    const apiUrl =
+      typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? 'http://localhost:3006'
+        : API_CONFIG.BASE_URL
+    return `${apiUrl}${cleanUrl}`
+  }
 
   useEffect(() => {
     fetchCarouselItems()
@@ -278,7 +308,7 @@ export default function HeroCarouselManagement() {
                         key={media.id}
                         onClick={() => {
                           setNewItem({ ...newItem, media_id: media.id })
-                          checkImageDimensions(media.url)
+                          checkImageDimensions(formatMediaUrl(media.url))
                         }}
                         className={`cursor-pointer border-2 rounded-lg p-2 transition-all ${
                           newItem.media_id === media.id
@@ -287,7 +317,7 @@ export default function HeroCarouselManagement() {
                         }`}
                       >
                         <img
-                          src={media.url}
+                          src={formatMediaUrl(media.url)}
                           alt={media.original_name || media.name}
                           className="w-full h-20 object-cover rounded"
                           onError={e => {
@@ -309,9 +339,10 @@ export default function HeroCarouselManagement() {
                         Selected Image:
                       </div>
                       <img
-                        src={
-                          mediaItems.find(m => m.id === newItem.media_id)?.url
-                        }
+                        src={formatMediaUrl(
+                          mediaItems.find(m => m.id === newItem.media_id)
+                            ?.url || ''
+                        )}
                         alt="Preview"
                         className="w-32 h-20 object-cover rounded border"
                         onError={e => {
@@ -416,7 +447,7 @@ export default function HeroCarouselManagement() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     {item.url ? (
                       <img
-                        src={item.url}
+                        src={formatMediaUrl(item.url)}
                         alt={item.alt_text || item.title}
                         className="w-16 h-12 object-cover rounded"
                         onError={e => {
