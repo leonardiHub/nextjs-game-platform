@@ -93,10 +93,23 @@ export async function PUT(
       )
     }
 
-    // Check if media exists
-    const media = await dbGet('SELECT id FROM media WHERE id = ?', [media_id])
-    if (!media) {
-      return NextResponse.json({ error: 'Media not found' }, { status: 404 })
+    // Check if media exists on backend server
+    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
+    try {
+      const mediaResponse = await fetch(`${API_BASE_URL}/api/admin/media/${media_id}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      
+      if (!mediaResponse.ok) {
+        return NextResponse.json({ error: 'Media not found' }, { status: 404 })
+      }
+    } catch (error) {
+      console.error('Error checking media:', error)
+      return NextResponse.json({ error: 'Failed to validate media' }, { status: 500 })
     }
 
     // Update item
