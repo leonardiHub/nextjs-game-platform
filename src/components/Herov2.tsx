@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
+import { API_CONFIG } from '@/utils/config'
 
 interface CarouselItem {
   id: number
@@ -28,6 +29,34 @@ export default function Herov2() {
   const [error, setError] = useState<string | null>(null)
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+
+  // Helper function to format media URLs properly
+  const formatMediaUrl = (url: string) => {
+    if (!url) return ''
+    
+    // Handle external URLs
+    if (url.startsWith('http') && !url.includes('localhost')) {
+      return url
+    }
+
+    // For local files, use backend server directly
+    let cleanUrl = url
+      .replace('http://localhost:3006', '')
+      .replace('http://localhost:3001', '')
+      .replace('https://99group.games', '')
+      .replace('https://api.99group.games', '')
+
+    // Ensure URL starts with /uploads
+    if (!cleanUrl.startsWith('/uploads')) {
+      cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
+    }
+
+    // Return appropriate backend URL based on environment
+    const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
+      ? 'http://localhost:3006'
+      : API_CONFIG.BASE_URL
+    return `${apiUrl}${cleanUrl}`
+  }
 
   useEffect(() => {
     fetchCarouselItems()
@@ -124,7 +153,7 @@ export default function Herov2() {
             <div key={item.id} className="embla__slide flex-[0_0_100%] min-w-0">
               <div className="relative w-full h-full rounded-lg overflow-hidden shadow-2xl">
                 <Image
-                  src={item.url}
+                  src={formatMediaUrl(item.url)}
                   alt={item.alt_text || item.media_title || 'Carousel image'}
                   fill
                   className="object-cover"
