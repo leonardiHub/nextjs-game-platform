@@ -33,7 +33,7 @@ export default function Herov2() {
   // Helper function to format media URLs properly
   const formatMediaUrl = (url: string) => {
     if (!url) return ''
-    
+
     // Handle external URLs
     if (url.startsWith('http') && !url.includes('localhost')) {
       return url
@@ -52,10 +52,16 @@ export default function Herov2() {
     }
 
     // Return appropriate backend URL based on environment
-    const apiUrl = typeof window !== 'undefined' && window.location.hostname === 'localhost'
-      ? 'http://localhost:3006'
-      : API_CONFIG.BASE_URL
-    return `${apiUrl}${cleanUrl}`
+    const apiUrl =
+      typeof window !== 'undefined' && window.location.hostname === 'localhost'
+        ? 'http://localhost:3006'
+        : API_CONFIG.BASE_URL
+    const formattedUrl = `${apiUrl}${cleanUrl}`
+    
+    // Debug logging
+    console.log('Original URL:', url, 'Formatted URL:', formattedUrl)
+    
+    return formattedUrl
   }
 
   useEffect(() => {
@@ -67,8 +73,11 @@ export default function Herov2() {
       const response = await fetch('/api/hero-carousel')
       const data: CarouselResponse = await response.json()
 
+      console.log('Carousel API Response:', data)
+
       if (data.success) {
         setCarouselItems(data.carouselItems)
+        console.log('Set carousel items:', data.carouselItems)
       } else {
         setError('Failed to load carousel items')
       }
