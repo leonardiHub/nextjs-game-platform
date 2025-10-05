@@ -57,10 +57,10 @@ export default function Herov2() {
         ? 'http://localhost:3006'
         : API_CONFIG.BASE_URL
     const formattedUrl = `${apiUrl}${cleanUrl}`
-    
+
     // Debug logging
     console.log('Original URL:', url, 'Formatted URL:', formattedUrl)
-    
+
     return formattedUrl
   }
 
