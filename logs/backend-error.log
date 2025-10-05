@@ -631,3 +631,168 @@
 2025-10-02 19:38:26 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
 2025-10-02 19:38:26 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
 2025-10-02 19:38:26 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-03 20:16:30 +00:00: NotFoundError: Not Found
+2025-10-03 20:16:30 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-03 20:16:30 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-03 20:16:30 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-03 20:16:30 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-03 20:16:30 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-03 20:16:30 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-03 20:16:30 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-03 20:16:30 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-03 20:16:30 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-03 20:16:30 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-03 20:16:40 +00:00: NotFoundError: Not Found
+2025-10-03 20:16:40 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-03 20:16:40 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-03 20:16:40 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-03 20:16:40 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-03 20:16:40 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-03 20:16:40 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-03 20:16:40 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-03 20:16:40 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-03 20:16:40 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-03 20:16:40 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-03 20:16:45 +00:00: NotFoundError: Not Found
+2025-10-03 20:16:45 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-03 20:16:45 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-03 20:16:45 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-03 20:16:45 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-03 20:16:45 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-03 20:16:45 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-03 20:16:45 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-03 20:16:45 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-03 20:16:45 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-03 20:16:45 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 10:23:55 +00:00: NotFoundError: Not Found
+2025-10-04 10:23:55 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 10:23:55 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 10:23:55 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 10:23:55 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 10:23:55 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 10:23:55 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 10:23:55 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 10:23:55 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 10:23:55 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 10:23:55 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 10:34:50 +00:00: NotFoundError: Not Found
+2025-10-04 10:34:50 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 10:34:50 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 10:34:50 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 10:34:50 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 10:34:50 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 10:34:50 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 10:34:50 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 10:34:50 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 10:34:50 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 10:34:50 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 10:35:01 +00:00: NotFoundError: Not Found
+2025-10-04 10:35:01 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 10:35:01 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 10:35:01 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 10:35:01 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 10:35:01 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 10:35:01 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 10:35:01 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 10:35:01 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 10:35:01 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 10:35:01 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 19:02:21 +00:00: NotFoundError: Not Found
+2025-10-04 19:02:21 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 19:02:21 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 19:02:21 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 19:02:21 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 19:02:21 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 19:02:21 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 19:02:21 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 19:02:21 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 19:02:21 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 19:02:21 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 19:02:32 +00:00: NotFoundError: Not Found
+2025-10-04 19:02:32 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 19:02:32 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 19:02:32 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 19:02:32 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 19:02:32 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 19:02:32 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 19:02:32 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 19:02:32 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 19:02:32 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 19:02:32 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 19:02:38 +00:00: NotFoundError: Not Found
+2025-10-04 19:02:38 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 19:02:38 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 19:02:38 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 19:02:38 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 19:02:38 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 19:02:38 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 19:02:38 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 19:02:38 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 19:02:38 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 19:02:38 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 05:46:28 +00:00: NotFoundError: Not Found
+2025-10-05 05:46:28 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 05:46:28 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 05:46:28 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 05:46:28 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 05:46:28 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 05:46:28 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 05:46:28 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 05:46:28 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 05:46:28 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 05:46:28 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 10:41:33 +00:00: NotFoundError: Not Found
+2025-10-05 10:41:33 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 10:41:33 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 10:41:33 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 10:41:33 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 10:41:33 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 10:41:33 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 10:41:33 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 10:41:33 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 10:41:33 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 10:41:33 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 10:41:34 +00:00: NotFoundError: Not Found
+2025-10-05 10:41:34 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 10:41:34 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 10:41:34 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 10:41:34 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 10:41:34 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 10:41:34 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 10:41:34 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 10:41:34 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 10:41:34 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 10:41:34 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 13:14:23 +00:00: NotFoundError: Not Found
+2025-10-05 13:14:23 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 13:14:23 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 13:14:23 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 13:14:23 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 13:14:23 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 13:14:23 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 13:14:23 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 13:14:23 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 13:14:23 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 13:14:23 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 13:20:02 +00:00: NotFoundError: Not Found
+2025-10-05 13:20:02 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 13:20:02 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 13:20:02 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 13:20:02 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 13:20:02 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 13:20:02 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 13:20:02 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 13:20:02 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 13:20:02 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 13:20:02 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 13:22:59 +00:00: NotFoundError: Not Found
+2025-10-05 13:22:59 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 13:22:59 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 13:22:59 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 13:22:59 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 13:22:59 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 13:22:59 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 13:22:59 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 13:22:59 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 13:22:59 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 13:22:59 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)

@@ -411,7 +411,7 @@ export default function ClientLayoutProvider({
               }}
             >
               <div
-                className="lg:mt-[66px] mt-[65px]"
+                className="lg:mt-[30px] mt-[75px]"
                 suppressHydrationWarning={true}
               >
                 {children}

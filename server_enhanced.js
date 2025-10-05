@@ -2388,11 +2388,12 @@ app.get('/api/admin/users', authenticateAdmin, (req, res) => {
   const search = req.query.search || ''
   const offset = (page - 1) * limit
 
-  let whereClause = ''
+  let whereClause = "WHERE kyc_status != 'deleted'"
   let params = []
 
   if (search) {
-    whereClause = 'WHERE username LIKE ? OR game_account LIKE ? OR id = ?'
+    whereClause =
+      "WHERE kyc_status != 'deleted' AND (username LIKE ? OR game_account LIKE ? OR id = ?)"
     params = [`%${search}%`, `%${search}%`, search]
   }
 

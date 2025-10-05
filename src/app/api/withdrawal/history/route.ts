@@ -1,19 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
+
 export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get('authorization')
 
-    const response = await fetch(
-      'http://localhost:3006/api/withdrawal/history',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(authHeader && { Authorization: authHeader }),
-        },
-      }
-    )
+    const response = await fetch(`${BACKEND_URL}/api/withdrawal/history`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(authHeader && { Authorization: authHeader }),
+      },
+    })
 
     const data = await response.json()
 

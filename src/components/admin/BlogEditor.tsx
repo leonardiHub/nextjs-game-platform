@@ -28,7 +28,13 @@ import { API_CONFIG } from '../../utils/config'
 
 // Helper function to get the correct backend API URL for serving images
 const getBackendApiUrl = () => {
-  return API_CONFIG.BASE_URL
+  // Determine the base URL based on environment
+  const isLocal =
+    typeof window !== 'undefined' &&
+    (window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1')
+
+  return isLocal ? 'http://localhost:3006' : 'http://15.235.215.3:3006'
 }
 
 interface BlogPost {

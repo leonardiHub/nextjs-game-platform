@@ -270,14 +270,14 @@ export default function GameNavbar({
                 pathname === '/' ? 'text-white' : 'hover:text-white'
               }`}
             >
-              หน้าหลัก
+              Home
               <span
                 className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full'
                 }`}
               ></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
+            {/* <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               สล็อต
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </span>
@@ -292,14 +292,14 @@ export default function GameNavbar({
             <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               แทงบอล
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-            </span>
+            </span> */}
             <span
               onClick={() => router.push('/blog')}
               className={`relative cursor-pointer transition-colors duration-300 group ${
                 pathname === '/blog' ? 'text-white' : 'hover:text-white'
               }`}
             >
-              แทงหวย
+              Blog
               <span
                 className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === '/blog' ? 'w-full' : 'w-0 group-hover:w-full'
@@ -312,7 +312,7 @@ export default function GameNavbar({
                 pathname === '/promotions' ? 'text-white' : 'hover:text-white'
               }`}
             >
-              โปรโมชั่น
+              Promotions
               <span
                 className={`absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-300 ${
                   pathname === '/promotions'
@@ -321,10 +321,10 @@ export default function GameNavbar({
                 }`}
               ></span>
             </span>
-            <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
+            {/* <span className="relative cursor-pointer transition-colors duration-300 hover:text-white group">
               สิทธิพิเศษ บทความ
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-            </span>
+            </span> */}
           </div>
 
           {user && isHydrated && (

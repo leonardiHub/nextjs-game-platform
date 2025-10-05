@@ -3,7 +3,7 @@ export const API_CONFIG = {
   // Backend API base URL
   BASE_URL:
     process.env.NODE_ENV === 'production'
-      ? 'https://api-staging.4d99.co'
+      ? 'http://15.235.215.3:3006'
       : process.env.NEXT_PUBLIC_API_URL ||
         (typeof window !== 'undefined' &&
         window.location.hostname === 'localhost'

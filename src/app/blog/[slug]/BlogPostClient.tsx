@@ -296,7 +296,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
                 const baseUrl = isLocal
                   ? 'http://localhost:3006'
-                  : 'http://15.235.215.3:5000'
+                  : 'http://15.235.215.3:3006'
 
                 return `${baseUrl}${cleanUrl}`
               })()}

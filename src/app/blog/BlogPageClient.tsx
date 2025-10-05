@@ -121,18 +121,13 @@ const BlogPageClient = () => {
                   src={(() => {
                     if (!blog.featured_image_url) return '/promotion-3.webp'
 
-                    // Handle external URLs
-                    if (
-                      blog.featured_image_url.startsWith('http') &&
-                      !blog.featured_image_url.includes('localhost')
-                    ) {
-                      return blog.featured_image_url
-                    }
-
-                    // For local files, use backend server directly
+                    // Clean the URL by removing existing prefixes
                     let cleanUrl = blog.featured_image_url
                       .replace('http://localhost:3006', '')
                       .replace('http://localhost:3001', '')
+                      .replace('https://99group.games', '')
+                      .replace('http://99group.games', '')
+                      .replace('http://15.235.215.3:3006', '')
                       .replace(API_CONFIG.BASE_URL, '')
                       .replace(
                         API_CONFIG.BASE_URL.replace('https://', 'https://api.'),
@@ -144,13 +139,17 @@ const BlogPageClient = () => {
                       cleanUrl = `/uploads/${cleanUrl.replace(/^\/+/, '')}`
                     }
 
-                    // Return appropriate backend URL based on environment
-                    const apiUrl =
+                    // Determine the base URL based on environment
+                    const isLocal =
                       typeof window !== 'undefined' &&
-                      window.location.hostname === 'localhost'
-                        ? 'http://localhost:3006'
-                        : API_CONFIG.BASE_URL
-                    return `${apiUrl}${cleanUrl}`
+                      (window.location.hostname === 'localhost' ||
+                        window.location.hostname === '127.0.0.1')
+
+                    const baseUrl = isLocal
+                      ? 'http://localhost:3006'
+                      : 'http://15.235.215.3:3006'
+
+                    return `${baseUrl}${cleanUrl}`
                   })()}
                   alt={blog.title}
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"

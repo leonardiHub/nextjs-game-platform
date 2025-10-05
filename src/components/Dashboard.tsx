@@ -21,6 +21,7 @@ import Hero from './Hero'
 import AuthModal from '@/components/AuthModal'
 import { useRouter } from 'next/navigation'
 import { useGameContext } from '@/components/ClientLayoutProvider'
+import Herov2 from './Herov2'
 
 interface DashboardProps {
   user: User | null
@@ -131,6 +132,13 @@ export default function Dashboard({
   }
 
   const handlePlayGame = async (gameUid: string) => {
+    // Check if user is authenticated
+    if (!user) {
+      setAuthModalTab('login')
+      setShowAuthModal(true)
+      return
+    }
+
     try {
       const response = await fetch('/api/game/launch', {
         method: 'POST',
@@ -264,7 +272,8 @@ export default function Dashboard({
       {/* Only show main content when not in game mode */}
       {!gameContext.showGame && (
         <>
-          <Hero />
+          {/* <Hero /> */}
+          <Herov2 />
           <div className="max-w-[1400px] mx-auto p-4 bg-white">
             {/* {user && (
               <ProgressSection balance={balance} canWithdraw={canWithdraw} />

@@ -317,8 +317,15 @@ function populateSlotGames() {
   })
 }
 
-// Initialize with slot games on startup
-populateSlotGames()
+// Initialize with slot games only if database is empty
+db.get('SELECT COUNT(*) as count FROM games', (err, result: any) => {
+  if (!err && result.count === 0) {
+    console.log('Database is empty, populating with default games...')
+    populateSlotGames()
+  } else {
+    console.log('Database has existing games, skipping population')
+  }
+})
 
 function verifyAdmin(token: string) {
   try {

@@ -6749,3 +6749,946 @@
 2025-10-03 07:45:03 +00:00: Next.js route handler called for: /api/seo/page
 2025-10-03 07:46:19 +00:00: Next.js route handler called for: /api/seo/global
 2025-10-03 07:46:19 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 08:57:22 +00:00: Enhanced Game platform server running on port 3006
+2025-10-03 08:57:22 +00:00: Visit: http://localhost:3006
+2025-10-03 08:57:22 +00:00: Admin panel: http://localhost:3006/admin
+2025-10-03 08:57:22 +00:00: Default admin: admin/admin123
+2025-10-03 08:57:22 +00:00: Environment: production
+2025-10-03 08:57:22 +00:00: ✅ Connected to SQLite database successfully
+2025-10-03 08:57:35 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 08:57:35 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 08:57:45 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 08:58:42 +00:00: Next.js route handler called for: /api/withdrawal/request
+2025-10-03 08:58:56 +00:00: Next.js route handler called for: /api/withdrawal/request
+2025-10-03 09:00:05 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:00:06 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:00:06 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 09:00:10 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:00:26 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:00:42 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:04:04 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:04:04 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 09:04:08 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:05:13 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:05:13 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 09:13:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:13:58 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 09:13:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:13:58 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 09:28:54 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:28:54 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 09:28:54 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 09:28:54 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 10:06:57 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 10:06:57 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 10:07:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 10:07:01 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 11:37:29 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 11:37:29 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 11:37:30 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 11:37:30 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 12:33:32 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 12:33:32 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 12:33:37 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-03 12:33:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 12:33:46 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-03 12:33:46 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 12:33:46 +00:00: Next.js route handler called for: /api/blogs
+2025-10-03 12:33:47 +00:00: Next.js route handler called for: /api/blogs/fun88-is-now-live
+2025-10-03 12:33:47 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 12:33:47 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-03 12:33:47 +00:00: Next.js route handler called for: /api/blogs
+2025-10-03 12:33:57 +00:00: Next.js route handler called for: /api/blogs
+2025-10-03 12:34:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 12:34:00 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 14:33:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 14:33:01 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 14:33:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 14:33:01 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 14:58:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 14:58:03 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 14:58:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 14:58:03 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 15:45:23 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 15:45:23 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 15:45:24 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 15:45:24 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 15:56:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 15:56:50 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 15:56:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 15:56:50 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 16:21:05 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 16:21:05 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 16:21:06 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 16:21:06 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 16:52:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 16:52:33 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 16:52:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 16:52:33 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 18:37:09 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 18:37:09 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 18:46:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 18:46:11 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 19:56:46 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 19:56:46 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 19:58:45 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 19:58:45 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 19:58:45 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 19:58:45 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-03 20:16:30 +00:00: Next.js route handler called for: /
+2025-10-03 20:16:30 +00:00: Serving file: .next/server/app/index.html
+2025-10-03 20:16:30 +00:00: NotFoundError: Not Found
+2025-10-03 20:16:30 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-03 20:16:30 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-03 20:16:30 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-03 20:16:30 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-03 20:16:30 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-03 20:16:30 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-03 20:16:30 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-03 20:16:30 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-03 20:16:30 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-03 20:16:30 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-03 20:16:40 +00:00: Next.js route handler called for: /
+2025-10-03 20:16:40 +00:00: Serving file: .next/server/app/index.html
+2025-10-03 20:16:40 +00:00: NotFoundError: Not Found
+2025-10-03 20:16:40 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-03 20:16:40 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-03 20:16:40 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-03 20:16:40 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-03 20:16:40 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-03 20:16:40 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-03 20:16:40 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-03 20:16:40 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-03 20:16:40 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-03 20:16:40 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-03 20:16:45 +00:00: Next.js route handler called for: /robots.txt
+2025-10-03 20:16:45 +00:00: Serving file: .next/server/app/index.html
+2025-10-03 20:16:45 +00:00: NotFoundError: Not Found
+2025-10-03 20:16:45 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-03 20:16:45 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-03 20:16:45 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-03 20:16:45 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-03 20:16:45 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-03 20:16:45 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-03 20:16:45 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-03 20:16:45 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-03 20:16:45 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-03 20:16:45 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-03 23:58:18 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-03 23:58:18 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 01:57:05 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 01:57:05 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 03:02:24 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 03:02:24 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 03:02:24 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 03:02:24 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 04:48:29 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 04:48:29 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 05:09:24 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 05:09:24 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 05:09:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 05:09:25 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 06:50:32 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 06:50:32 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 06:50:32 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 06:50:32 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 08:41:10 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 08:41:10 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 08:43:07 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 08:43:07 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 09:03:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 09:03:37 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 09:03:51 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 10:12:20 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 10:12:20 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 10:12:20 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 10:12:20 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 10:23:55 +00:00: Next.js route handler called for: /
+2025-10-04 10:23:55 +00:00: Serving file: .next/server/app/index.html
+2025-10-04 10:23:55 +00:00: NotFoundError: Not Found
+2025-10-04 10:23:55 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 10:23:55 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 10:23:55 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 10:23:55 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 10:23:55 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 10:23:55 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 10:23:55 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 10:23:55 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 10:23:55 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 10:23:55 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 10:34:50 +00:00: Next.js route handler called for: /
+2025-10-04 10:34:50 +00:00: Serving file: .next/server/app/index.html
+2025-10-04 10:34:50 +00:00: NotFoundError: Not Found
+2025-10-04 10:34:50 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 10:34:50 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 10:34:50 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 10:34:50 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 10:34:50 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 10:34:50 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 10:34:50 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 10:34:50 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 10:34:50 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 10:34:50 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 10:35:01 +00:00: Next.js route handler called for: /
+2025-10-04 10:35:01 +00:00: Serving file: .next/server/app/index.html
+2025-10-04 10:35:01 +00:00: NotFoundError: Not Found
+2025-10-04 10:35:01 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 10:35:01 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 10:35:01 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 10:35:01 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 10:35:01 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 10:35:01 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 10:35:01 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 10:35:01 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 10:35:01 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 10:35:01 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 10:41:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 10:41:02 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 10:41:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 10:41:03 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 14:36:30 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 14:36:30 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 14:36:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 14:36:31 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 15:18:46 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 15:18:46 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 15:18:46 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 15:18:46 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 16:06:18 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 16:06:18 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 16:06:19 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 16:06:19 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 19:02:21 +00:00: Next.js route handler called for: /
+2025-10-04 19:02:21 +00:00: Serving file: .next/server/app/index.html
+2025-10-04 19:02:21 +00:00: NotFoundError: Not Found
+2025-10-04 19:02:21 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 19:02:21 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 19:02:21 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 19:02:21 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 19:02:21 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 19:02:21 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 19:02:21 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 19:02:21 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 19:02:21 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 19:02:21 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 19:02:32 +00:00: Next.js route handler called for: /
+2025-10-04 19:02:32 +00:00: Serving file: .next/server/app/index.html
+2025-10-04 19:02:32 +00:00: NotFoundError: Not Found
+2025-10-04 19:02:32 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 19:02:32 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 19:02:32 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 19:02:32 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 19:02:32 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 19:02:32 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 19:02:32 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 19:02:32 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 19:02:32 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 19:02:32 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 19:02:38 +00:00: Next.js route handler called for: /wiki
+2025-10-04 19:02:38 +00:00: Serving file: .next/server/app/index.html
+2025-10-04 19:02:38 +00:00: NotFoundError: Not Found
+2025-10-04 19:02:38 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-04 19:02:38 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-04 19:02:38 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-04 19:02:38 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-04 19:02:38 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-04 19:02:38 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-04 19:02:38 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-04 19:02:38 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-04 19:02:38 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-04 19:02:38 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-04 19:34:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 19:34:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 19:34:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 19:34:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 20:22:42 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 20:22:42 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 20:22:43 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 20:22:43 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 20:45:18 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 20:45:18 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 20:45:19 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 20:45:19 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 21:14:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 21:14:39 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 22:19:46 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 22:19:46 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 22:19:47 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 22:19:47 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 23:09:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 23:09:39 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 23:09:46 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-04 23:09:46 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-04 23:10:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 01:26:14 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 01:26:14 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 01:26:19 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 01:26:19 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 01:26:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 02:43:17 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 02:43:17 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 04:50:27 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 04:50:27 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 05:46:28 +00:00: Next.js route handler called for: /
+2025-10-05 05:46:28 +00:00: Serving file: .next/server/app/index.html
+2025-10-05 05:46:28 +00:00: NotFoundError: Not Found
+2025-10-05 05:46:28 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 05:46:28 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 05:46:28 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 05:46:28 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 05:46:28 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 05:46:28 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 05:46:28 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 05:46:28 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 05:46:28 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 05:46:28 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 06:34:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 06:34:58 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 06:34:59 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 06:34:59 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 07:48:35 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 07:48:35 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:00:45 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:00:45 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:17:05 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:17:05 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:17:06 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:17:06 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:39:04 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:04 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:39:17 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 09:39:17 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:17 +00:00: Next.js route handler called for: /api/blogs
+2025-10-05 09:39:17 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 09:39:17 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:18 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 09:39:18 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:18 +00:00: Next.js route handler called for: /api/blogs
+2025-10-05 09:39:19 +00:00: Next.js route handler called for: /api/blogs/fun88-is-now-live
+2025-10-05 09:39:19 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:19 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 09:39:19 +00:00: Next.js route handler called for: /api/blogs
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-hero-sub-2.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/game.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/pool-icon.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-hero.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/money.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-hero-sub-1.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/poker-icon.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-1.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-2.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/football-icon.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-3.webp
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:22 +00:00: Next.js route handler called for: /api/blogs/promotion-4.webp
+2025-10-05 09:39:31 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 09:39:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:57 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:39:57 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:48:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:48:58 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 09:52:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 09:52:02 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 10:41:33 +00:00: Next.js route handler called for: /
+2025-10-05 10:41:33 +00:00: Serving file: .next/server/app/index.html
+2025-10-05 10:41:33 +00:00: NotFoundError: Not Found
+2025-10-05 10:41:33 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 10:41:33 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 10:41:33 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 10:41:33 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 10:41:33 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 10:41:33 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 10:41:33 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 10:41:33 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 10:41:33 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 10:41:33 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 10:41:34 +00:00: Next.js route handler called for: /favicon.ico
+2025-10-05 10:41:34 +00:00: Serving file: .next/server/app/index.html
+2025-10-05 10:41:34 +00:00: NotFoundError: Not Found
+2025-10-05 10:41:34 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 10:41:34 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 10:41:34 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 10:41:34 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 10:41:34 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 10:41:34 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 10:41:34 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 10:41:34 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 10:41:34 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 10:41:34 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 11:27:36 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 11:27:36 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 11:34:23 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 11:34:23 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 11:34:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 11:34:33 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 11:34:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 11:34:37 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 11:38:18 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 11:38:18 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 11:39:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 11:39:01 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:08:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:08:03 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:08:06 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:08:06 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:08:30 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:08:30 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:09:28 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:28 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:09:28 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:29 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:34 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:34 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:41 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:41 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:44 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:44 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:47 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:47 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:51 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:53 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:53 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:54 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:54 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:55 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:55 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:57 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:57 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:09:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:16 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:10:16 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:11:07 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:11:07 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:11:08 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:11:08 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:12:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:12:00 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:12:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:12:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:12:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:12:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:12:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:13:51 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:13:51 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:14:23 +00:00: Next.js route handler called for: /pdown
+2025-10-05 13:14:23 +00:00: Serving file: .next/server/app/index.html
+2025-10-05 13:14:23 +00:00: NotFoundError: Not Found
+2025-10-05 13:14:23 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 13:14:23 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 13:14:23 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 13:14:23 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 13:14:23 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 13:14:23 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 13:14:23 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 13:14:23 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 13:14:23 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 13:14:23 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 13:18:04 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:04 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:18:34 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:34 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:18:35 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:35 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:18:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:18:48 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:18:48 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:18:50 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:18:50 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:18:50 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:18:55 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:18:55 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:18:55 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:18:55 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:19:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:19:40 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:20:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:20:00 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:20:02 +00:00: Next.js route handler called for: /
+2025-10-05 13:20:02 +00:00: Serving file: .next/server/app/index.html
+2025-10-05 13:20:02 +00:00: NotFoundError: Not Found
+2025-10-05 13:20:02 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 13:20:02 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 13:20:02 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 13:20:02 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 13:20:02 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 13:20:02 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 13:20:02 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 13:20:02 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 13:20:02 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 13:20:02 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 13:21:41 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:21:41 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:22:29 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:22:29 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:22:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:22:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:22:59 +00:00: Next.js route handler called for: /
+2025-10-05 13:22:59 +00:00: Serving file: .next/server/app/index.html
+2025-10-05 13:22:59 +00:00: NotFoundError: Not Found
+2025-10-05 13:22:59 +00:00:     at createHttpError (/home/ubuntu/fun88-v1/node_modules/send/index.js:861:12)
+2025-10-05 13:22:59 +00:00:     at SendStream.error (/home/ubuntu/fun88-v1/node_modules/send/index.js:168:31)
+2025-10-05 13:22:59 +00:00:     at SendStream.pipe (/home/ubuntu/fun88-v1/node_modules/send/index.js:468:14)
+2025-10-05 13:22:59 +00:00:     at sendfile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:1000:8)
+2025-10-05 13:22:59 +00:00:     at ServerResponse.sendFile (/home/ubuntu/fun88-v1/node_modules/express/lib/response.js:409:3)
+2025-10-05 13:22:59 +00:00:     at /home/ubuntu/fun88-v1/server_enhanced.js:3494:9
+2025-10-05 13:22:59 +00:00:     at Layer.handleRequest (/home/ubuntu/fun88-v1/node_modules/router/lib/layer.js:152:17)
+2025-10-05 13:22:59 +00:00:     at trimPrefix (/home/ubuntu/fun88-v1/node_modules/router/index.js:342:13)
+2025-10-05 13:22:59 +00:00:     at /home/ubuntu/fun88-v1/node_modules/router/index.js:297:9
+2025-10-05 13:22:59 +00:00:     at processParams (/home/ubuntu/fun88-v1/node_modules/router/index.js:582:12)
+2025-10-05 13:23:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:01 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:08 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:08 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:09 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:09 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:09 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:09 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:12 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:12 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:19 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:19 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:20 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:20 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:23:22 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:23:22 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:23:25 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:23:25 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:23:27 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:23:27 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:24:05 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:24:05 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:24:13 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:24:13 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:24:19 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:24:19 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:24:20 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:24:20 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:24:21 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:24:21 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:24:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:24:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:24:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:24:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:24:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:27:48 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:27:48 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:28:10 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:28:10 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:29:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:29:25 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:30:20 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:30:20 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:30:27 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:30:27 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:30:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:30:31 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:30:32 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:31:17 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:17 +00:00: Next.js route handler called for: /api/admin/seo/global
+2025-10-05 13:31:20 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:31:24 +00:00: Next.js route handler called for: /api/admin/seo/global
+2025-10-05 13:31:40 +00:00: Next.js route handler called for: /api/admin/seo/global
+2025-10-05 13:31:44 +00:00: Next.js route handler called for: /api/admin/seo/global
+2025-10-05 13:32:00 +00:00: Next.js route handler called for: /api/admin/seo/pages/5
+2025-10-05 13:32:00 +00:00: PUT /api/admin/seo/pages/:id called with pageId: 5
+2025-10-05 13:32:00 +00:00: Request body: {
+2025-10-05 13:32:00 +00:00:   "page_path": "/",
+2025-10-05 13:32:00 +00:00:   "page_title": "Home Page",
+2025-10-05 13:32:00 +00:00:   "meta_title": "FUN88 Group",
+2025-10-05 13:32:00 +00:00:   "meta_description": "Experience premium online gaming at FUN88 Gaming Platform. Get $50 free credits, enjoy secure gaming environment, and access top-quality games. Join thousands of satisfied players today.",
+2025-10-05 13:32:00 +00:00:   "canonical_url": "https://99group.games/",
+2025-10-05 13:32:00 +00:00:   "schema_markup": "{\n  \"@context\": \"https://schema.org\",\n  \"url\": \"https://99group.games/\",\n  \"name\": \"Home Page\",\n  \"publisher\": {\n    \"@type\": \"Organization\",\n    \"name\": \"99Group Gaming Platform\",\n    \"logo\": {\n      \"@type\": \"ImageObject\",\n      \"url\": \"https://99group.games/logo.png\"\n    }\n  },\n  \"inLanguage\": \"en-US\",\n  \"@type\": \"WebSite\",\n  \"description\": \"Premium online gaming platform - 99Group Gaming Platform\",\n  \"potentialAction\": {\n    \"@type\": \"SearchAction\",\n    \"target\": {\n      \"@type\": \"EntryPoint\",\n      \"urlTemplate\": \"https://99group.games/search?q={search_term_string}\"\n    },\n    \"query-input\": \"required name=search_term_string\"\n  }\n}",
+2025-10-05 13:32:00 +00:00:   "og_title": "Home Page",
+2025-10-05 13:32:00 +00:00:   "og_description": "Premium online gaming platform with $50 free credits and secure gaming environment.",
+2025-10-05 13:32:00 +00:00:   "og_image": "/images/og-default.jpg",
+2025-10-05 13:32:00 +00:00:   "twitter_title": "Home Page",
+2025-10-05 13:32:00 +00:00:   "twitter_description": "Premium online gaming platform with $50 free credits and secure gaming environment.",
+2025-10-05 13:32:00 +00:00:   "twitter_image": "/images/og-default.jpg",
+2025-10-05 13:32:00 +00:00:   "robots_meta": "index, follow",
+2025-10-05 13:32:00 +00:00:   "keywords": "gaming, casino, online games, FUN88, free credits, home, main page, gaming platform, online casino, home, page"
+2025-10-05 13:32:00 +00:00: }
+2025-10-05 13:32:00 +00:00: Request body raw: {
+2025-10-05 13:32:00 +00:00:   page_path: '/',
+2025-10-05 13:32:00 +00:00:   page_title: 'Home Page',
+2025-10-05 13:32:00 +00:00:   meta_title: 'FUN88 Group',
+2025-10-05 13:32:00 +00:00:   meta_description: 'Experience premium online gaming at FUN88 Gaming Platform. Get $50 free credits, enjoy secure gaming environment, and access top-quality games. Join thousands of satisfied players today.',
+2025-10-05 13:32:00 +00:00:   canonical_url: 'https://99group.games/',
+2025-10-05 13:32:00 +00:00:   schema_markup: '{\n' +
+2025-10-05 13:32:00 +00:00:     '  "@context": "https://schema.org",\n' +
+2025-10-05 13:32:00 +00:00:     '  "url": "https://99group.games/",\n' +
+2025-10-05 13:32:00 +00:00:     '  "name": "Home Page",\n' +
+2025-10-05 13:32:00 +00:00:     '  "publisher": {\n' +
+2025-10-05 13:32:00 +00:00:     '    "@type": "Organization",\n' +
+2025-10-05 13:32:00 +00:00:     '    "name": "99Group Gaming Platform",\n' +
+2025-10-05 13:32:00 +00:00:     '    "logo": {\n' +
+2025-10-05 13:32:00 +00:00:     '      "@type": "ImageObject",\n' +
+2025-10-05 13:32:00 +00:00:     '      "url": "https://99group.games/logo.png"\n' +
+2025-10-05 13:32:00 +00:00:     '    }\n' +
+2025-10-05 13:32:00 +00:00:     '  },\n' +
+2025-10-05 13:32:00 +00:00:     '  "inLanguage": "en-US",\n' +
+2025-10-05 13:32:00 +00:00:     '  "@type": "WebSite",\n' +
+2025-10-05 13:32:00 +00:00:     '  "description": "Premium online gaming platform - 99Group Gaming Platform",\n' +
+2025-10-05 13:32:00 +00:00:     '  "potentialAction": {\n' +
+2025-10-05 13:32:00 +00:00:     '    "@type": "SearchAction",\n' +
+2025-10-05 13:32:00 +00:00:     '    "target": {\n' +
+2025-10-05 13:32:00 +00:00:     '      "@type": "EntryPoint",\n' +
+2025-10-05 13:32:00 +00:00:     '      "urlTemplate": "https://99group.games/search?q={search_term_string}"\n' +
+2025-10-05 13:32:00 +00:00:     '    },\n' +
+2025-10-05 13:32:00 +00:00:     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 13:32:00 +00:00:     '  }\n' +
+2025-10-05 13:32:00 +00:00:     '}',
+2025-10-05 13:32:00 +00:00:   og_title: 'Home Page',
+2025-10-05 13:32:00 +00:00:   og_description: 'Premium online gaming platform with $50 free credits and secure gaming environment.',
+2025-10-05 13:32:00 +00:00:   og_image: '/images/og-default.jpg',
+2025-10-05 13:32:00 +00:00:   twitter_title: 'Home Page',
+2025-10-05 13:32:00 +00:00:   twitter_description: 'Premium online gaming platform with $50 free credits and secure gaming environment.',
+2025-10-05 13:32:00 +00:00:   twitter_image: '/images/og-default.jpg',
+2025-10-05 13:32:00 +00:00:   robots_meta: 'index, follow',
+2025-10-05 13:32:00 +00:00:   keywords: 'gaming, casino, online games, FUN88, free credits, home, main page, gaming platform, online casino, home, page'
+2025-10-05 13:32:00 +00:00: }
+2025-10-05 13:32:00 +00:00: SEO page updated, fetching updated data...
+2025-10-05 13:32:00 +00:00: Sending successful response: {
+2025-10-05 13:32:00 +00:00:   message: 'SEO page updated successfully',
+2025-10-05 13:32:00 +00:00:   page: {
+2025-10-05 13:32:00 +00:00:     id: 5,
+2025-10-05 13:32:00 +00:00:     page_path: '/',
+2025-10-05 13:32:00 +00:00:     page_title: 'Home Page',
+2025-10-05 13:32:00 +00:00:     meta_title: 'FUN88 Group',
+2025-10-05 13:32:00 +00:00:     meta_description: 'Experience premium online gaming at FUN88 Gaming Platform. Get $50 free credits, enjoy secure gaming environment, and access top-quality games. Join thousands of satisfied players today.',
+2025-10-05 13:32:00 +00:00:     canonical_url: 'https://99group.games/',
+2025-10-05 13:32:00 +00:00:     schema_markup: '{\n' +
+2025-10-05 13:32:00 +00:00:       '  "@context": "https://schema.org",\n' +
+2025-10-05 13:32:00 +00:00:       '  "url": "https://99group.games/",\n' +
+2025-10-05 13:32:00 +00:00:       '  "name": "Home Page",\n' +
+2025-10-05 13:32:00 +00:00:       '  "publisher": {\n' +
+2025-10-05 13:32:00 +00:00:       '    "@type": "Organization",\n' +
+2025-10-05 13:32:00 +00:00:       '    "name": "99Group Gaming Platform",\n' +
+2025-10-05 13:32:00 +00:00:       '    "logo": {\n' +
+2025-10-05 13:32:00 +00:00:       '      "@type": "ImageObject",\n' +
+2025-10-05 13:32:00 +00:00:       '      "url": "https://99group.games/logo.png"\n' +
+2025-10-05 13:32:00 +00:00:       '    }\n' +
+2025-10-05 13:32:00 +00:00:       '  },\n' +
+2025-10-05 13:32:00 +00:00:       '  "inLanguage": "en-US",\n' +
+2025-10-05 13:32:00 +00:00:       '  "@type": "WebSite",\n' +
+2025-10-05 13:32:00 +00:00:       '  "description": "Premium online gaming platform - 99Group Gaming Platform",\n' +
+2025-10-05 13:32:00 +00:00:       '  "potentialAction": {\n' +
+2025-10-05 13:32:00 +00:00:       '    "@type": "SearchAction",\n' +
+2025-10-05 13:32:00 +00:00:       '    "target": {\n' +
+2025-10-05 13:32:00 +00:00:       '      "@type": "EntryPoint",\n' +
+2025-10-05 13:32:00 +00:00:       '      "urlTemplate": "https://99group.games/search?q={search_term_string}"\n' +
+2025-10-05 13:32:00 +00:00:       '    },\n' +
+2025-10-05 13:32:00 +00:00:       '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 13:32:00 +00:00:       '  }\n' +
+2025-10-05 13:32:00 +00:00:       '}',
+2025-10-05 13:32:00 +00:00:     og_title: 'Home Page',
+2025-10-05 13:32:00 +00:00:     og_description: 'Premium online gaming platform with $50 free credits and secure gaming environment.',
+2025-10-05 13:32:00 +00:00:     og_image: '/images/og-default.jpg',
+2025-10-05 13:32:00 +00:00:     twitter_title: 'Home Page',
+2025-10-05 13:32:00 +00:00:     twitter_description: 'Premium online gaming platform with $50 free credits and secure gaming environment.',
+2025-10-05 13:32:00 +00:00:     twitter_image: '/images/og-default.jpg',
+2025-10-05 13:32:00 +00:00:     robots_meta: 'index, follow',
+2025-10-05 13:32:00 +00:00:     keywords: 'gaming, casino, online games, FUN88, free credits, home, main page, gaming platform, online casino, home, page',
+2025-10-05 13:32:00 +00:00:     created_at: '2025-10-05 13:31:24',
+2025-10-05 13:32:00 +00:00:     updated_at: '2025-10-05 13:32:00'
+2025-10-05 13:32:00 +00:00:   }
+2025-10-05 13:32:00 +00:00: }
+2025-10-05 13:32:00 +00:00: Next.js route handler called for: /api/admin/seo/pages
+2025-10-05 13:32:00 +00:00: Next.js route handler called for: /api/admin/seo/global
+2025-10-05 13:32:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:32:02 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:32:02 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:32:10 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:32:10 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:32:12 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:32:12 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:32:13 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:32:13 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:32:14 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:32:14 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 13:32:24 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:32:29 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:32:29 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:32:33 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:32:41 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:36:38 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:36:38 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:36:42 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:37:03 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:37:20 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:37:20 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:37:51 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:37:51 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:37:59 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:37:59 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:38:05 +00:00: Next.js route handler called for: /api/admin/media/upload
+2025-10-05 13:38:05 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:38:15 +00:00: Next.js route handler called for: /api/admin/media/upload
+2025-10-05 13:38:16 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:38:18 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:38:18 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:38:18 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:38:18 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:47:23 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:47:23 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:47:31 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:47:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:47:33 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:50:06 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:50:06 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 13:50:08 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:50:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:50:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:51:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:52:13 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:52:58 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:53:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:55:10 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:55:10 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:55:46 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:55:46 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:55:54 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:55:54 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:56:00 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:56:00 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:56:07 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:56:07 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 13:56:18 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:56:18 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 13:58:18 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 13:59:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 13:59:00 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 13:59:04 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 13:59:04 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 13:59:05 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:00:05 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:00:20 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:00:20 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:00:25 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:01:04 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:01:12 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:01:19 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:01:29 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:01:48 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:01:58 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:02:15 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:03:54 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:05:21 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:05:27 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:05:34 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:05:48 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:06:02 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:06:08 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:06:18 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:06:29 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:06:35 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:06:44 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:08:05 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:08:05 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:08:08 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:09:26 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:09:26 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:09:26 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:09:26 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:09:26 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:09:26 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:09:30 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:09:32 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:10:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:31 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:10:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:31 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:10:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:35 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:10:37 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:10:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:39 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:10:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:39 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:10:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:39 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:42 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:10:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:50 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:10:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:50 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:10:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:10:53 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 14:10:53 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 14:10:54 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:10:55 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:11:12 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:11:30 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:11:33 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:12:09 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:12:09 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:12:13 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 14:12:13 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 14:12:14 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:14:35 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:14:35 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:14:35 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:14:35 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:14:36 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:14:48 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:14:49 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:14:49 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:14:49 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:14:50 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:16:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:16:00 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:16:10 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:16:10 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:16:21 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:16:21 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:16:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:16:33 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:16:40 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:16:40 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:17:03 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:17:03 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:17:11 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:17:11 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:17:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:17:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:17:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:17:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:00 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:18:00 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:01 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:18:01 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:10 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:10 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:18:14 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:18:14 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:18:15 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:19:19 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:19:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:19:37 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:19:38 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:24:24 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:24:24 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:24:24 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:24:24 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:24:25 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:24:25 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:24:26 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:25:26 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 14:25:26 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 14:25:27 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 14:25:27 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 14:25:28 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 14:25:28 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 14:25:29 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 14:25:29 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 14:25:42 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:25:42 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:25:46 +00:00: Next.js route handler called for: /api/admin/categories
+2025-10-05 14:25:46 +00:00: Next.js route handler called for: /api/admin/tags
+2025-10-05 14:25:47 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:25:47 +00:00: Next.js route handler called for: /api/admin/media/folders
+2025-10-05 14:26:14 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:26:14 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:26:37 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:26:37 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:26:38 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:28:31 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:28:31 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:28:36 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:28:36 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:28:48 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:28:48 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:29:52 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:29:52 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:29:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:29:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:29:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:29:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:30:04 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:30:04 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:30:38 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:30:38 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:31:12 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:31:12 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:31:47 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:31:47 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:31:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:31:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:32:16 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:32:16 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:34:12 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:12 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:34:13 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:21 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:21 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:34:23 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:26 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:34:30 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:32 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:32 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:34:33 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:56 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:34:56 +00:00: Next.js route handler called for: /api/seo/page
+2025-10-05 14:34:57 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:35:10 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:35:33 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 14:35:33 +00:00: Next.js route handler called for: /api/admin/blogs
+2025-10-05 14:35:34 +00:00: Next.js route handler called for: /api/admin/media
+2025-10-05 14:37:28 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:37:28 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:37:36 +00:00: Next.js route handler called for: /api/seo/global
+2025-10-05 14:37:36 +00:00: Next.js route handler called for: /api/seo/pages
+2025-10-05 14:38:05 +00:00: Next.js route handler called for: /api/$1
+2025-10-05 14:38:16 +00:00: Enhanced Game platform server running on port 3006
+2025-10-05 14:38:16 +00:00: Visit: http://localhost:3006
+2025-10-05 14:38:16 +00:00: Admin panel: http://localhost:3006/admin
+2025-10-05 14:38:16 +00:00: Default admin: admin/admin123
+2025-10-05 14:38:16 +00:00: Environment: production
+2025-10-05 14:38:16 +00:00: ✅ Connected to SQLite database successfully

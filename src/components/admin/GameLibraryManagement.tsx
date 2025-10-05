@@ -18,6 +18,7 @@ import {
   ToggleRight,
 } from 'lucide-react'
 import { adminGet, adminPost, adminPut, adminDelete } from '@/utils/adminApi'
+import MediaSelectModal from './MediaSelectModal'
 
 interface Game {
   id: number
@@ -66,6 +67,7 @@ export default function GameLibraryManagement() {
   } | null>(null)
   const [showAddForm, setShowAddForm] = useState(false)
   const [editingGame, setEditingGame] = useState<Game | null>(null)
+  const [showMediaModal, setShowMediaModal] = useState(false)
   const [filters, setFilters] = useState({
     search: '',
     provider: '',
@@ -207,6 +209,15 @@ export default function GameLibraryManagement() {
     e.preventDefault()
     const gameData = editingGame ? { ...editingGame } : newGame
     saveGame(gameData)
+  }
+
+  const handleMediaSelect = (media: any) => {
+    if (editingGame) {
+      setEditingGame({ ...editingGame, thumbnail_url: media.url })
+    } else {
+      setNewGame({ ...newGame, thumbnail_url: media.url })
+    }
+    setShowMediaModal(false)
   }
 
   const filteredGames = data.games.filter(game => {
@@ -404,7 +415,9 @@ export default function GameLibraryManagement() {
                 </label>
                 <input
                   type="number"
-                  value={editingGame ? editingGame.code : newGame.code}
+                  value={
+                    editingGame ? editingGame.code || '' : newGame.code || ''
+                  }
                   onChange={e => {
                     const code = parseInt(e.target.value) || 0
                     if (editingGame) {
@@ -618,57 +631,58 @@ export default function GameLibraryManagement() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Demo URL
+                  Game Thumbnail
                 </label>
-                <input
-                  type="url"
-                  value={
-                    editingGame
-                      ? editingGame.demo_url || ''
-                      : newGame.demo_url || ''
-                  }
-                  onChange={e => {
-                    if (editingGame) {
-                      setEditingGame({
-                        ...editingGame,
-                        demo_url: e.target.value,
-                      })
-                    } else {
-                      setNewGame({ ...newGame, demo_url: e.target.value })
-                    }
-                  }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="https://demo.example.com/game"
-                />
-              </div>
-
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Thumbnail URL
-                </label>
-                <input
-                  type="url"
-                  value={
-                    editingGame
-                      ? editingGame.thumbnail_url || ''
-                      : newGame.thumbnail_url || ''
-                  }
-                  onChange={e => {
-                    if (editingGame) {
-                      setEditingGame({
-                        ...editingGame,
-                        thumbnail_url: e.target.value,
-                      })
-                    } else {
-                      setNewGame({ ...newGame, thumbnail_url: e.target.value })
-                    }
-                  }}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder="/images/games/game-name.jpg"
-                />
+                <div className="flex items-center space-x-4">
+                  <button
+                    type="button"
+                    onClick={() => setShowMediaModal(true)}
+                    className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  >
+                    <Plus className="w-4 h-4" />
+                    <span>Select from Media Library</span>
+                  </button>
+                  {((editingGame && editingGame.thumbnail_url) ||
+                    newGame.thumbnail_url) && (
+                    <div className="flex items-center space-x-2">
+                      <img
+                        src={
+                          editingGame
+                            ? editingGame.thumbnail_url || ''
+                            : newGame.thumbnail_url || ''
+                        }
+                        alt="Game thumbnail"
+                        className="w-12 h-12 rounded-lg object-cover"
+                        onError={e => {
+                          const target = e.target as HTMLImageElement
+                          target.style.display = 'none'
+                        }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (editingGame) {
+                            setEditingGame({
+                              ...editingGame,
+                              thumbnail_url: '',
+                            })
+                          } else {
+                            setNewGame({ ...newGame, thumbnail_url: '' })
+                          }
+                        }}
+                        className="text-red-600 hover:text-red-800"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  Select an image from your media library or upload a new one
+                </p>
               </div>
             </div>
 
@@ -908,6 +922,14 @@ export default function GameLibraryManagement() {
           </div>
         )}
       </div>
+
+      {/* Media Select Modal */}
+      <MediaSelectModal
+        isOpen={showMediaModal}
+        onClose={() => setShowMediaModal(false)}
+        onSelect={handleMediaSelect}
+        selectedId={null}
+      />
     </div>
   )
 }

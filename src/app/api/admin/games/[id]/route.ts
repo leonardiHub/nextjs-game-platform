@@ -21,7 +21,7 @@ function verifyAdmin(token: string) {
 // PUT - Update game
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authHeader = request.headers.get('authorization')
@@ -46,7 +46,7 @@ export async function PUT(
       demo_url,
       thumbnail_url,
     } = await request.json()
-    const gameId = params.id
+    const { id: gameId } = await params
 
     // Validate required fields
     if (!name || !code || !game_uid || !type || !provider_id) {
@@ -90,13 +90,11 @@ export async function PUT(
 
     // Update game
     await dbRun(
-      `
-      UPDATE games 
-      SET name = ?, code = ?, game_uid = ?, type = ?, provider_id = ?, rtp = ?, 
-          status = ?, featured = ?, displaySequence = ?, min_bet = ?, max_bet = ?, 
-          demo_url = ?, thumbnail_url = ?, updated_at = CURRENT_TIMESTAMP
-      WHERE id = ?
-    `,
+      `UPDATE games 
+       SET name = ?, code = ?, game_uid = ?, type = ?, provider_id = ?, rtp = ?, 
+           status = ?, featured = ?, displaySequence = ?, min_bet = ?, max_bet = ?, 
+           demo_url = ?, thumbnail_url = ?, updated_at = CURRENT_TIMESTAMP
+       WHERE id = ?`,
       [
         name,
         code,
@@ -131,7 +129,7 @@ export async function PUT(
 // DELETE - Delete game
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const authHeader = request.headers.get('authorization')
@@ -141,7 +139,7 @@ export async function DELETE(
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
-    const gameId = params.id
+    const { id: gameId } = await params
 
     // Check if game exists
     const existingGame = (await dbGet('SELECT id FROM games WHERE id = ?', [

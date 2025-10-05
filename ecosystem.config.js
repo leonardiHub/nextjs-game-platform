@@ -44,7 +44,8 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 5000,
-        NEXT_PUBLIC_API_URL: 'http://localhost:3006',
+        NEXT_PUBLIC_API_URL: 'http://15.235.215.3:3006',
+        BACKEND_URL: 'http://15.235.215.3:3006',
       },
       env_development: {
         NODE_ENV: 'development',

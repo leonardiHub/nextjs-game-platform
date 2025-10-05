@@ -35,7 +35,7 @@ const nextConfig = {
       // Exclude paths that have Next.js API routes
       {
         source:
-          '/api/((?!captcha|admin/users|admin/withdrawals|admin/kyc|admin/seo|seo).*)',
+          '/api/((?!captcha|admin/users|admin/withdrawals|admin/withdrawal|admin/kyc|admin/seo|admin/hero-carousel|admin/games|seo).*)',
         destination: `http://localhost:${backendPort}/api/$1`, // Proxy to Backend
       },
       // Proxy uploads directory to backend

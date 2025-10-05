@@ -102,6 +102,7 @@ export default function GamesTab({
     image: `/pgsoft/${game.code}.png`,
     game_uid: game.game_uid,
     featured: game?.featured,
+    thumbnail_url: game.thumbnail_url,
   }))
 
   // Get new games (remaining games after the first 6)
@@ -112,6 +113,7 @@ export default function GamesTab({
     image: `/pgsoft/${game.code}.png`,
     game_uid: game.game_uid,
     featured: game?.featured,
+    thumbnail_url: game.thumbnail_url,
   }))
 
   const GameCard = ({
@@ -125,6 +127,7 @@ export default function GamesTab({
       image: string
       game_uid: string
       featured: any
+      thumbnail_url?: string
     }
     onClick: () => void
   }) => (
@@ -138,10 +141,13 @@ export default function GamesTab({
           alt={game.name}
           className="w-full h-full object-cover"
           onError={e => {
-            // Fallback to png if webp doesn't exist
             const target = e.target as HTMLImageElement
             if (target.src.includes('.webp')) {
+              // Fallback to png if webp doesn't exist
               target.src = `/pgsoft/${game.id}.png`
+            } else if (target.src.includes('.png')) {
+              // Fallback to API thumbnail_url if png doesn't exist
+              target.src = game.thumbnail_url || `/pgsoft/${game.id}.png`
             }
           }}
         />

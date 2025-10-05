@@ -678,11 +678,9 @@ app.post('/api/register', (req, res) => {
   const { full_name, username, captcha, session_id } = req.body
 
   if (!full_name || !username || !captcha || !session_id) {
-    return res
-      .status(400)
-      .json({
-        error: 'Full name, username, captcha, and session ID are required',
-      })
+    return res.status(400).json({
+      error: 'Full name, username, captcha, and session ID are required',
+    })
   }
 
   if (full_name.trim().length < 2) {
@@ -1717,11 +1715,12 @@ app.get('/api/admin/users', authenticateAdmin, (req, res) => {
   const search = req.query.search || ''
   const offset = (page - 1) * limit
 
-  let whereClause = ''
+  let whereClause = "WHERE kyc_status != 'deleted'"
   let params = []
 
   if (search) {
-    whereClause = 'WHERE username LIKE ? OR game_account LIKE ? OR id = ?'
+    whereClause =
+      "WHERE kyc_status != 'deleted' AND (username LIKE ? OR game_account LIKE ? OR id = ?)"
     params = [`%${search}%`, `%${search}%`, search]
   }
 

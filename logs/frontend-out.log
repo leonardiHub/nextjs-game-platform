@@ -3097,3 +3097,2385 @@
 2025-10-03 07:44:29 +00:00: [1] 📄 Schema template received: No
 2025-10-03 07:45:03 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
 2025-10-03 07:46:19 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 07:57:13 +00:00: 
+2025-10-03 07:57:13 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 07:57:13 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 07:57:13 +00:00: 
+2025-10-03 07:57:13 +00:00: [0] 
+2025-10-03 07:57:13 +00:00: 
+2025-10-03 07:57:13 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 07:57:13 +00:00: [0] > node server_enhanced.js
+2025-10-03 07:57:13 +00:00: [0] 
+2025-10-03 07:57:13 +00:00: [1] 
+2025-10-03 07:57:13 +00:00:    ▲ Next.js 15.5.3
+2025-10-03 07:57:13 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-03 07:57:13 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 07:57:13 +00:00: [1] 
+2025-10-03 07:57:13 +00:00: [1]  ✓ Starting...
+2025-10-03 07:57:13 +00:00: [0] 
+2025-10-03 07:57:13 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 07:57:13 +00:00: [0] 
+2025-10-03 07:57:13 +00:00: Visit: http://localhost:5000
+2025-10-03 07:57:13 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 07:57:13 +00:00: [0] Default admin: admin/admin123
+2025-10-03 07:57:13 +00:00: [0] Environment: production
+2025-10-03 07:57:13 +00:00: [0] 
+2025-10-03 07:57:13 +00:00: ✅ Connected to SQLite database successfully
+2025-10-03 07:57:13 +00:00: [1]  ✓ Ready in 234ms
+2025-10-03 07:57:13 +00:00: [1] 
+2025-10-03 07:57:13 +00:00: JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 07:57:13 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 07:57:14 +00:00: [1] 
+2025-10-03 07:57:14 +00:00: All existing games purged
+2025-10-03 07:57:14 +00:00: [1] Populated 30 slot games
+2025-10-03 07:57:15 +00:00: [1] 
+2025-10-03 07:57:15 +00:00: Fetching page SEO settings for: /promotions
+2025-10-03 07:57:15 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-03 07:57:15 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-03 07:57:15 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-03 07:57:15 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 07:57:15 +00:00: [1] 
+2025-10-03 07:57:15 +00:00: Response status: 200
+2025-10-03 07:57:15 +00:00: [1] Response ok: true
+2025-10-03 07:57:15 +00:00: [1] Response status: 200
+2025-10-03 07:57:15 +00:00: [1] Response ok: true
+2025-10-03 07:57:15 +00:00: [1] 
+2025-10-03 07:57:15 +00:00: Response data: {
+2025-10-03 07:57:15 +00:00: [1]   "pages": []
+2025-10-03 07:57:15 +00:00: [1] }
+2025-10-03 07:57:15 +00:00: [1] Pages array length: 0
+2025-10-03 07:57:15 +00:00: [1] Found page config: NO
+2025-10-03 07:57:15 +00:00: [1] Response data: {
+2025-10-03 07:57:15 +00:00: [1]   "pages": []
+2025-10-03 07:57:15 +00:00: [1] }
+2025-10-03 07:57:15 +00:00: [1] Pages array length: 0
+2025-10-03 07:57:15 +00:00: [1] Found page config: NO
+2025-10-03 07:57:15 +00:00: [1] Promotions page SEO data: null
+2025-10-03 07:57:15 +00:00: [1] 
+2025-10-03 07:57:15 +00:00: Global settings: {
+2025-10-03 07:57:15 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 07:57:15 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 07:57:15 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 07:57:15 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 07:57:15 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 07:57:15 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 07:57:15 +00:00: [1]   default_canonical_url: '',
+2025-10-03 07:57:15 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 07:57:15 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 07:57:15 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 07:57:15 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 07:57:15 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 07:57:15 +00:00: [1]     '  }\n' +
+2025-10-03 07:57:15 +00:00: [1]     '}',
+2025-10-03 07:57:15 +00:00: [1]   id: 1,
+2025-10-03 07:57:15 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 07:57:15 +00:00: [1]     'Allow: /\n' +
+2025-10-03 07:57:15 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 07:57:15 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 07:57:15 +00:00: [1]     '\n' +
+2025-10-03 07:57:15 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 07:57:15 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 07:57:15 +00:00: [1]   google_analytics_id: '',
+2025-10-03 07:57:15 +00:00: [1]   google_search_console_id: '',
+2025-10-03 07:57:15 +00:00: [1]   header_code: '',
+2025-10-03 07:57:15 +00:00: [1]   body_code: '',
+2025-10-03 07:57:15 +00:00: [1]   footer_code: '',
+2025-10-03 07:57:15 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 07:57:15 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 07:57:15 +00:00: [1] }
+2025-10-03 07:57:26 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 07:57:26 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 07:57:26 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 07:57:26 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 07:57:26 +00:00: [1] Response status: 200
+2025-10-03 07:57:26 +00:00: [1] Response ok: true
+2025-10-03 07:57:26 +00:00: [1] Response status: 200
+2025-10-03 07:57:26 +00:00: [1] Response ok: true
+2025-10-03 07:57:26 +00:00: [1] 
+2025-10-03 07:57:26 +00:00: Response data: {
+2025-10-03 07:57:26 +00:00: [1]   "pages": []
+2025-10-03 07:57:26 +00:00: [1] }
+2025-10-03 07:57:26 +00:00: [1] Pages array length: 0
+2025-10-03 07:57:26 +00:00: [1] Found page config: NO
+2025-10-03 07:57:26 +00:00: [1] Response data: {
+2025-10-03 07:57:26 +00:00: [1]   "pages": []
+2025-10-03 07:57:26 +00:00: [1] }
+2025-10-03 07:57:26 +00:00: [1] Pages array length: 0
+2025-10-03 07:57:26 +00:00: [1] Found page config: NO
+2025-10-03 07:57:26 +00:00: [1] Blog page SEO data: null
+2025-10-03 07:57:26 +00:00: [1] 
+2025-10-03 07:57:26 +00:00: Global settings: {
+2025-10-03 07:57:26 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 07:57:26 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 07:57:26 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 07:57:26 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 07:57:26 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 07:57:26 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 07:57:26 +00:00: [1]   default_canonical_url: '',
+2025-10-03 07:57:26 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 07:57:26 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 07:57:26 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 07:57:26 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 07:57:26 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 07:57:26 +00:00: [1]     '  }\n' +
+2025-10-03 07:57:26 +00:00: [1]     '}',
+2025-10-03 07:57:26 +00:00: [1]   id: 1,
+2025-10-03 07:57:26 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 07:57:26 +00:00: [1]     'Allow: /\n' +
+2025-10-03 07:57:26 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 07:57:26 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 07:57:26 +00:00: [1]     '\n' +
+2025-10-03 07:57:26 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 07:57:26 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 07:57:26 +00:00: [1]   google_analytics_id: '',
+2025-10-03 07:57:26 +00:00: [1]   google_search_console_id: '',
+2025-10-03 07:57:26 +00:00: [1]   header_code: '',
+2025-10-03 07:57:26 +00:00: [1]   body_code: '',
+2025-10-03 07:57:26 +00:00: [1]   footer_code: '',
+2025-10-03 07:57:26 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 07:57:26 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 07:57:26 +00:00: [1] }
+2025-10-03 07:57:27 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 07:57:27 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 07:57:27 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 07:57:27 +00:00: [1] 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 07:57:27 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 07:57:27 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 07:57:27 +00:00: [1] 📊 API Response status: 200
+2025-10-03 07:57:27 +00:00: [1] 📊 API Response status: 200
+2025-10-03 07:57:27 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 07:57:27 +00:00: [1] 🔍 Available pages: []
+2025-10-03 07:57:27 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 07:57:27 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 07:57:27 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 07:57:27 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 07:57:27 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 07:57:27 +00:00: [1] 🔍 Available pages: []
+2025-10-03 07:57:27 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 07:57:27 +00:00: [1] 📄 Schema template received: No
+2025-10-03 07:57:52 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 07:57:52 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 07:57:52 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 07:57:52 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 07:57:52 +00:00: [1] Response status: 200
+2025-10-03 07:57:52 +00:00: [1] Response ok: true
+2025-10-03 07:57:52 +00:00: [1] Response status: 200
+2025-10-03 07:57:52 +00:00: [1] Response ok: true
+2025-10-03 07:57:52 +00:00: [1] Response data: {
+2025-10-03 07:57:52 +00:00: [1]   "pages": []
+2025-10-03 07:57:52 +00:00: [1] }
+2025-10-03 07:57:52 +00:00: [1] Pages array length: 0
+2025-10-03 07:57:52 +00:00: [1] Found page config: NO
+2025-10-03 07:57:52 +00:00: [1] Response data: {
+2025-10-03 07:57:52 +00:00: [1]   "pages": []
+2025-10-03 07:57:52 +00:00: [1] }
+2025-10-03 07:57:52 +00:00: [1] Pages array length: 0
+2025-10-03 07:57:52 +00:00: [1] Found page config: NO
+2025-10-03 07:57:52 +00:00: [1] Admin page SEO data: null
+2025-10-03 07:57:52 +00:00: [1] Global settings: {
+2025-10-03 07:57:52 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 07:57:52 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 07:57:52 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 07:57:52 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 07:57:52 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 07:57:52 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 07:57:52 +00:00: [1]   default_canonical_url: '',
+2025-10-03 07:57:52 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 07:57:52 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 07:57:52 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 07:57:52 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 07:57:52 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 07:57:52 +00:00: [1]     '  }\n' +
+2025-10-03 07:57:52 +00:00: [1]     '}',
+2025-10-03 07:57:52 +00:00: [1]   id: 1,
+2025-10-03 07:57:52 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 07:57:52 +00:00: [1]     'Allow: /\n' +
+2025-10-03 07:57:52 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 07:57:52 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 07:57:52 +00:00: [1]     '\n' +
+2025-10-03 07:57:52 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 07:57:52 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 07:57:52 +00:00: [1]   google_analytics_id: '',
+2025-10-03 07:57:52 +00:00: [1]   google_search_console_id: '',
+2025-10-03 07:57:52 +00:00: [1]   header_code: '',
+2025-10-03 07:57:52 +00:00: [1]   body_code: '',
+2025-10-03 07:57:52 +00:00: [1]   footer_code: '',
+2025-10-03 07:57:52 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 07:57:52 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 07:57:52 +00:00: [1] }
+2025-10-03 07:58:02 +00:00: [1] Fetching blog 1 from http://localhost:3006
+2025-10-03 07:58:02 +00:00: [1] 
+2025-10-03 07:58:02 +00:00: Blog API response status: 200
+2025-10-03 08:00:13 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:00:13 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:00:13 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:00:13 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:00:13 +00:00: [1] Response status: 200
+2025-10-03 08:00:13 +00:00: [1] Response ok: true
+2025-10-03 08:00:13 +00:00: [1] Response status: 200
+2025-10-03 08:00:13 +00:00: [1] Response ok: true
+2025-10-03 08:00:13 +00:00: [1] Response data: {
+2025-10-03 08:00:13 +00:00: [1]   "pages": []
+2025-10-03 08:00:13 +00:00: [1] }
+2025-10-03 08:00:13 +00:00: [1] Pages array length: 0
+2025-10-03 08:00:13 +00:00: [1] Found page config: NO
+2025-10-03 08:00:13 +00:00: [1] Response data: {
+2025-10-03 08:00:13 +00:00: [1]   "pages": []
+2025-10-03 08:00:13 +00:00: [1] }
+2025-10-03 08:00:13 +00:00: [1] Pages array length: 0
+2025-10-03 08:00:13 +00:00: [1] Found page config: NO
+2025-10-03 08:00:13 +00:00: [1] Admin page SEO data: null
+2025-10-03 08:00:13 +00:00: [1] Global settings: {
+2025-10-03 08:00:13 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:00:13 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:00:13 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:00:13 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:00:13 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:00:13 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:00:13 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:00:13 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:00:13 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:00:13 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:00:13 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:00:13 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:00:13 +00:00: [1]     '  }\n' +
+2025-10-03 08:00:13 +00:00: [1]     '}',
+2025-10-03 08:00:13 +00:00: [1]   id: 1,
+2025-10-03 08:00:13 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:00:13 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:00:13 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:00:13 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:00:13 +00:00: [1]     '\n' +
+2025-10-03 08:00:13 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:00:13 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:00:13 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:00:13 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:00:13 +00:00: [1]   header_code: '',
+2025-10-03 08:00:13 +00:00: [1]   body_code: '',
+2025-10-03 08:00:13 +00:00: [1]   footer_code: '',
+2025-10-03 08:00:13 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:00:13 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:00:13 +00:00: [1] }
+2025-10-03 08:00:16 +00:00: [1] 
+2025-10-03 08:00:16 +00:00: Fetching blog 1 from http://localhost:3006
+2025-10-03 08:00:17 +00:00: [1] 
+2025-10-03 08:00:17 +00:00: Blog API response status: 200
+2025-10-03 08:00:49 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:00:49 +00:00: [1] next start exited with code SIGINT
+2025-10-03 08:00:49 +00:00: 
+2025-10-03 08:00:49 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:00:49 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:00:49 +00:00: 
+2025-10-03 08:00:49 +00:00: [0] 
+2025-10-03 08:00:49 +00:00: 
+2025-10-03 08:00:49 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:00:49 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:00:49 +00:00: [0] 
+2025-10-03 08:00:49 +00:00: [1] 
+2025-10-03 08:00:49 +00:00:    ▲ Next.js 15.5.3
+2025-10-03 08:00:49 +00:00: [1] 
+2025-10-03 08:00:49 +00:00:    - Local:        http://localhost:5000
+2025-10-03 08:00:49 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:00:49 +00:00: [1] 
+2025-10-03 08:00:49 +00:00: [1]  ✓ Starting...
+2025-10-03 08:00:49 +00:00: [0] 
+2025-10-03 08:00:49 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:00:49 +00:00: Visit: http://localhost:5000
+2025-10-03 08:00:49 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:00:49 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:00:49 +00:00: [0] Environment: production
+2025-10-03 08:00:49 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 08:00:49 +00:00: [1]  ✓ Ready in 229ms
+2025-10-03 08:00:50 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:00:50 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:00:50 +00:00: [1] All existing games purged
+2025-10-03 08:00:50 +00:00: [1] 
+2025-10-03 08:00:50 +00:00: Populated 30 slot games
+2025-10-03 08:00:50 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:00:50 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:00:50 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:00:50 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:00:50 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 08:00:50 +00:00: [1] Response status: 200
+2025-10-03 08:00:50 +00:00: [1] Response ok: true
+2025-10-03 08:00:50 +00:00: [1] Response status: 200
+2025-10-03 08:00:50 +00:00: [1] Response ok: true
+2025-10-03 08:00:50 +00:00: [1] Response data: {
+2025-10-03 08:00:50 +00:00: [1]   "pages": []
+2025-10-03 08:00:50 +00:00: [1] }
+2025-10-03 08:00:50 +00:00: [1] Pages array length: 0
+2025-10-03 08:00:50 +00:00: [1] Found page config: NO
+2025-10-03 08:00:50 +00:00: [1] Response data: {
+2025-10-03 08:00:50 +00:00: [1]   "pages": []
+2025-10-03 08:00:50 +00:00: [1] }
+2025-10-03 08:00:50 +00:00: [1] Pages array length: 0
+2025-10-03 08:00:50 +00:00: [1] Found page config: NO
+2025-10-03 08:00:50 +00:00: [1] Admin page SEO data: null
+2025-10-03 08:00:50 +00:00: [1] Global settings: {
+2025-10-03 08:00:50 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:00:50 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:00:50 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:00:50 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:00:50 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:00:50 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:00:50 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:00:50 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:00:50 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:00:50 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:00:50 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:00:50 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:00:50 +00:00: [1]     '  }\n' +
+2025-10-03 08:00:50 +00:00: [1]     '}',
+2025-10-03 08:00:50 +00:00: [1]   id: 1,
+2025-10-03 08:00:50 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:00:50 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:00:50 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:00:50 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:00:50 +00:00: [1]     '\n' +
+2025-10-03 08:00:50 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:00:50 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:00:50 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:00:50 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:00:50 +00:00: [1]   header_code: '',
+2025-10-03 08:00:50 +00:00: [1]   body_code: '',
+2025-10-03 08:00:50 +00:00: [1]   footer_code: '',
+2025-10-03 08:00:50 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:00:50 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:00:50 +00:00: [1] }
+2025-10-03 08:00:54 +00:00: [1] Fetching blog 1 from http://localhost:3006
+2025-10-03 08:00:54 +00:00: [1] Blog API response status: 200
+2025-10-03 08:00:59 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:00:59 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:00:59 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:00:59 +00:00: [1] 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:00:59 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:00:59 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:00:59 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:00:59 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:00:59 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:00:59 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:00:59 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:00:59 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:00:59 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:00:59 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:00:59 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:00:59 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:00:59 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:00:59 +00:00: [1] 📄 Schema template received: No
+2025-10-03 08:00:59 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:00:59 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:00:59 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:00:59 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:00:59 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:00 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:01 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:01:01 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:01:01 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:01:01 +00:00: [1] 
+2025-10-03 08:01:01 +00:00: 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:01:01 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:01:01 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:01:01 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:01:01 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:01:01 +00:00: [1] 
+2025-10-03 08:01:01 +00:00: 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:01:01 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:01:01 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:01:01 +00:00: 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:01:01 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:01:01 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:01:01 +00:00: ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:01:01 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:01:01 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:01:01 +00:00: [1] 📄 Schema template received: No
+2025-10-03 08:01:01 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:01 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:01 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:01 +00:00: [1] 
+2025-10-03 08:01:01 +00:00: ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:01 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:01:02 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:01:02 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:01:02 +00:00: [1] 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:01:02 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:01:02 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:01:02 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:01:02 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:01:02 +00:00: [1] 
+2025-10-03 08:01:02 +00:00: 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:01:02 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:01:02 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:01:02 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:01:02 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:01:02 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:01:02 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:01:02 +00:00: [1] 📄 Schema template received: No
+2025-10-03 08:01:02 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:02 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:01:04 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:01:08 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 08:01:08 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 08:01:08 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 08:01:08 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 08:01:08 +00:00: [1] Response status: 200
+2025-10-03 08:01:08 +00:00: [1] Response ok: true
+2025-10-03 08:01:08 +00:00: [1] Response status: 200
+2025-10-03 08:01:08 +00:00: [1] Response ok: true
+2025-10-03 08:01:08 +00:00: [1] Response data: {
+2025-10-03 08:01:08 +00:00: [1]   "pages": []
+2025-10-03 08:01:08 +00:00: [1] }
+2025-10-03 08:01:08 +00:00: Pages array length: 0
+2025-10-03 08:01:08 +00:00: [1] Found page config: NO
+2025-10-03 08:01:08 +00:00: [1] Response data: {
+2025-10-03 08:01:08 +00:00: [1]   "pages": []
+2025-10-03 08:01:08 +00:00: [1] }
+2025-10-03 08:01:08 +00:00: [1] Pages array length: 0
+2025-10-03 08:01:08 +00:00: [1] Found page config: NO
+2025-10-03 08:01:08 +00:00: [1] Blog page SEO data: null
+2025-10-03 08:01:08 +00:00: [1] 
+2025-10-03 08:01:08 +00:00: Global settings: {
+2025-10-03 08:01:08 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:01:08 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:01:08 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:01:08 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:01:08 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:01:08 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:01:08 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:01:08 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:01:08 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:01:08 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:01:08 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:01:08 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:01:08 +00:00: [1]     '  }\n' +
+2025-10-03 08:01:08 +00:00: [1]     '}',
+2025-10-03 08:01:08 +00:00: [1]   id: 1,
+2025-10-03 08:01:08 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:01:08 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:01:08 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:01:08 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:01:08 +00:00: [1]     '\n' +
+2025-10-03 08:01:08 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:01:08 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:01:08 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:01:08 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:01:08 +00:00: [1]   header_code: '',
+2025-10-03 08:01:08 +00:00: [1]   body_code: '',
+2025-10-03 08:01:08 +00:00: [1]   footer_code: '',
+2025-10-03 08:01:08 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:01:08 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:01:08 +00:00: [1] }
+2025-10-03 08:01:10 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:01:10 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:01:10 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:01:10 +00:00: [1] 
+2025-10-03 08:01:10 +00:00: 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:01:10 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:01:10 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:01:10 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:01:10 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:01:10 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:01:10 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:01:10 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:01:10 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:01:10 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:01:10 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:01:10 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:01:10 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:01:10 +00:00: 📄 Schema template received: No
+2025-10-03 08:01:10 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:25:43 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:25:43 +00:00: [1] next start exited with code SIGINT
+2025-10-03 08:25:43 +00:00: 
+2025-10-03 08:25:43 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:25:43 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:25:43 +00:00: 
+2025-10-03 08:25:43 +00:00: [0] 
+2025-10-03 08:25:43 +00:00: 
+2025-10-03 08:25:43 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:25:43 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:25:43 +00:00: [0] 
+2025-10-03 08:25:43 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-03 08:25:43 +00:00: [1] 
+2025-10-03 08:25:43 +00:00:    - Local:        http://localhost:5000
+2025-10-03 08:25:43 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:25:43 +00:00: [1] 
+2025-10-03 08:25:43 +00:00: [1]  ✓ Starting...
+2025-10-03 08:25:43 +00:00: [0] 
+2025-10-03 08:25:43 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:25:43 +00:00: Visit: http://localhost:5000
+2025-10-03 08:25:43 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:25:43 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:25:43 +00:00: [0] Environment: production
+2025-10-03 08:25:43 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 08:25:43 +00:00: [1]  ✓ Ready in 232ms
+2025-10-03 08:25:43 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:25:43 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:25:43 +00:00: [1] 
+2025-10-03 08:25:43 +00:00: All existing games purged
+2025-10-03 08:25:43 +00:00: [1] 
+2025-10-03 08:25:43 +00:00: Populated 30 slot games
+2025-10-03 08:25:47 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-03 08:25:47 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-03 08:25:47 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-03 08:25:47 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-03 08:25:47 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 08:25:47 +00:00: [1] Response status: 200
+2025-10-03 08:25:47 +00:00: [1] Response ok: true
+2025-10-03 08:25:47 +00:00: [1] Response status: 200
+2025-10-03 08:25:47 +00:00: [1] Response ok: true
+2025-10-03 08:25:47 +00:00: [1] Response data: {
+2025-10-03 08:25:47 +00:00: [1]   "pages": []
+2025-10-03 08:25:47 +00:00: [1] }
+2025-10-03 08:25:47 +00:00: [1] Pages array length: 0
+2025-10-03 08:25:47 +00:00: [1] Found page config: NO
+2025-10-03 08:25:47 +00:00: [1] Response data: {
+2025-10-03 08:25:47 +00:00: [1]   "pages": []
+2025-10-03 08:25:47 +00:00: [1] }
+2025-10-03 08:25:47 +00:00: [1] Pages array length: 0
+2025-10-03 08:25:47 +00:00: [1] Found page config: NO
+2025-10-03 08:25:47 +00:00: [1] Promotions page SEO data: null
+2025-10-03 08:25:47 +00:00: [1] Global settings: {
+2025-10-03 08:25:47 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:25:47 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:25:47 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:25:47 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:25:47 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:25:47 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:25:47 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:25:47 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:25:47 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:25:47 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:25:47 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:25:47 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:25:47 +00:00: [1]     '  }\n' +
+2025-10-03 08:25:47 +00:00: [1]     '}',
+2025-10-03 08:25:47 +00:00: [1]   id: 1,
+2025-10-03 08:25:47 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:25:47 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:25:47 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:25:47 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:25:47 +00:00: [1]     '\n' +
+2025-10-03 08:25:47 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:25:47 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:25:47 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:25:47 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:25:47 +00:00: [1]   header_code: '',
+2025-10-03 08:25:47 +00:00: [1]   body_code: '',
+2025-10-03 08:25:47 +00:00: [1]   footer_code: '',
+2025-10-03 08:25:47 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:25:47 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:25:47 +00:00: [1] }
+2025-10-03 08:25:52 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:25:52 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:25:52 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:25:52 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:25:52 +00:00: [1] 
+2025-10-03 08:25:52 +00:00: Response status: 200
+2025-10-03 08:25:52 +00:00: [1] Response ok: true
+2025-10-03 08:25:52 +00:00: [1] Response status: 200
+2025-10-03 08:25:52 +00:00: [1] Response ok: true
+2025-10-03 08:25:52 +00:00: [1] 
+2025-10-03 08:25:52 +00:00: Response data: {
+2025-10-03 08:25:52 +00:00: [1]   "pages": []
+2025-10-03 08:25:52 +00:00: [1] }
+2025-10-03 08:25:52 +00:00: [1] Pages array length: 0
+2025-10-03 08:25:52 +00:00: [1] Found page config: NO
+2025-10-03 08:25:52 +00:00: [1] Response data: {
+2025-10-03 08:25:52 +00:00: [1]   "pages": []
+2025-10-03 08:25:52 +00:00: [1] }
+2025-10-03 08:25:52 +00:00: [1] Pages array length: 0
+2025-10-03 08:25:52 +00:00: [1] Found page config: NO
+2025-10-03 08:25:52 +00:00: [1] Admin page SEO data: null
+2025-10-03 08:25:52 +00:00: [1] Global settings: {
+2025-10-03 08:25:52 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:25:52 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:25:52 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:25:52 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:25:52 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:25:52 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:25:52 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:25:52 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:25:52 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:25:52 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:25:52 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:25:52 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:25:52 +00:00: [1]     '  }\n' +
+2025-10-03 08:25:52 +00:00: [1]     '}',
+2025-10-03 08:25:52 +00:00: [1]   id: 1,
+2025-10-03 08:25:52 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:25:52 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:25:52 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:25:52 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:25:52 +00:00: [1]     '\n' +
+2025-10-03 08:25:52 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:25:52 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:25:52 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:25:52 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:25:52 +00:00: [1]   header_code: '',
+2025-10-03 08:25:52 +00:00: [1]   body_code: '',
+2025-10-03 08:25:52 +00:00: [1]   footer_code: '',
+2025-10-03 08:25:52 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:25:52 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:25:52 +00:00: [1] }
+2025-10-03 08:25:56 +00:00: [1] Fetching blog 1 from http://localhost:3006
+2025-10-03 08:25:56 +00:00: [1] Blog API response status: 200
+2025-10-03 08:26:10 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 08:26:10 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 08:26:10 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 08:26:10 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 08:26:10 +00:00: [1] Response status: 200
+2025-10-03 08:26:10 +00:00: [1] Response ok: true
+2025-10-03 08:26:10 +00:00: [1] Response status: 200
+2025-10-03 08:26:10 +00:00: [1] Response ok: true
+2025-10-03 08:26:10 +00:00: [1] Response data: {
+2025-10-03 08:26:10 +00:00: [1]   "pages": []
+2025-10-03 08:26:10 +00:00: [1] }
+2025-10-03 08:26:10 +00:00: [1] Pages array length: 0
+2025-10-03 08:26:10 +00:00: [1] Found page config: NO
+2025-10-03 08:26:10 +00:00: [1] Response data: {
+2025-10-03 08:26:10 +00:00: [1]   "pages": []
+2025-10-03 08:26:10 +00:00: [1] }
+2025-10-03 08:26:10 +00:00: [1] Pages array length: 0
+2025-10-03 08:26:10 +00:00: [1] Found page config: NO
+2025-10-03 08:26:10 +00:00: [1] Blog page SEO data: null
+2025-10-03 08:26:10 +00:00: [1] 
+2025-10-03 08:26:10 +00:00: Global settings: {
+2025-10-03 08:26:10 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:26:10 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:26:10 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:26:10 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:26:10 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:26:10 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:26:10 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:26:10 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:26:10 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:26:10 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:26:10 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:26:10 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:26:10 +00:00: [1]     '  }\n' +
+2025-10-03 08:26:10 +00:00: [1]     '}',
+2025-10-03 08:26:10 +00:00: [1]   id: 1,
+2025-10-03 08:26:10 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:26:10 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:26:10 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:26:10 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:26:10 +00:00: [1]     '\n' +
+2025-10-03 08:26:10 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:26:10 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:26:10 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:26:10 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:26:10 +00:00: [1]   header_code: '',
+2025-10-03 08:26:10 +00:00: [1]   body_code: '',
+2025-10-03 08:26:10 +00:00: [1]   footer_code: '',
+2025-10-03 08:26:10 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:26:10 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:26:10 +00:00: [1] }
+2025-10-03 08:26:11 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:26:11 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:26:11 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:26:11 +00:00: [1] 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:26:11 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:26:11 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:26:11 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:26:11 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:26:11 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:26:11 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:26:11 +00:00: ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:26:11 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:26:11 +00:00: 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:26:11 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:26:11 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:26:11 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:26:11 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:26:11 +00:00: [1] 📄 Schema template received: No
+2025-10-03 08:26:28 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 08:26:28 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 08:26:28 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 08:26:28 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 08:26:28 +00:00: [1] Response status: 200
+2025-10-03 08:26:28 +00:00: [1] Response ok: true
+2025-10-03 08:26:28 +00:00: [1] Response status: 200
+2025-10-03 08:26:28 +00:00: [1] Response ok: true
+2025-10-03 08:26:28 +00:00: [1] Response data: {
+2025-10-03 08:26:28 +00:00: [1]   "pages": []
+2025-10-03 08:26:28 +00:00: [1] }
+2025-10-03 08:26:28 +00:00: [1] Pages array length: 0
+2025-10-03 08:26:28 +00:00: [1] Found page config: NO
+2025-10-03 08:26:28 +00:00: [1] Response data: {
+2025-10-03 08:26:28 +00:00: [1]   "pages": []
+2025-10-03 08:26:28 +00:00: [1] }
+2025-10-03 08:26:28 +00:00: [1] Pages array length: 0
+2025-10-03 08:26:28 +00:00: [1] Found page config: NO
+2025-10-03 08:26:28 +00:00: [1] Blog page SEO data: null
+2025-10-03 08:26:28 +00:00: [1] 
+2025-10-03 08:26:28 +00:00: Global settings: {
+2025-10-03 08:26:28 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:26:28 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:26:28 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:26:28 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:26:28 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:26:28 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:26:28 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:26:28 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:26:28 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:26:28 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:26:28 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:26:28 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:26:28 +00:00: [1]     '  }\n' +
+2025-10-03 08:26:28 +00:00: [1]     '}',
+2025-10-03 08:26:28 +00:00: [1]   id: 1,
+2025-10-03 08:26:28 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:26:28 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:26:28 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:26:28 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:26:28 +00:00: [1]     '\n' +
+2025-10-03 08:26:28 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:26:28 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:26:28 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:26:28 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:26:28 +00:00: [1]   header_code: '',
+2025-10-03 08:26:28 +00:00: [1]   body_code: '',
+2025-10-03 08:26:28 +00:00: [1]   footer_code: '',
+2025-10-03 08:26:28 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:26:28 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:26:28 +00:00: [1] }
+2025-10-03 08:26:29 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:26:29 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:26:29 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:26:29 +00:00: [1] 
+2025-10-03 08:26:29 +00:00: 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:26:29 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:26:29 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:26:29 +00:00: [1] 
+2025-10-03 08:26:29 +00:00: 📊 API Response status: 200
+2025-10-03 08:26:29 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:26:29 +00:00: [1] 
+2025-10-03 08:26:29 +00:00: 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:26:29 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:26:29 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:26:29 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:26:29 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:26:29 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:26:29 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:26:29 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:26:29 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:26:29 +00:00: [1] 📄 Schema template received: No
+2025-10-03 08:26:30 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:30 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:32 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 08:26:32 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:26:32 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:26:32 +00:00: [1] 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 08:26:32 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 08:26:32 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 08:26:32 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:26:32 +00:00: [1] 📊 API Response status: 200
+2025-10-03 08:26:32 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:26:32 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:26:32 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 08:26:32 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:26:32 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 08:26:32 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 08:26:32 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 08:26:32 +00:00: [1] 🔍 Available pages: []
+2025-10-03 08:26:32 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 08:26:32 +00:00: [1] 📄 Schema template received: No
+2025-10-03 08:26:33 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:33 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:33 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:33 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:33 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:33 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-03 08:26:36 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:27:53 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:27:55 +00:00: 
+2025-10-03 08:27:55 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:27:55 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:27:55 +00:00: 
+2025-10-03 08:27:55 +00:00: [0] 
+2025-10-03 08:27:55 +00:00: 
+2025-10-03 08:27:55 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:27:55 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:27:55 +00:00: [0] 
+2025-10-03 08:27:56 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-03 08:27:56 +00:00: [1] 
+2025-10-03 08:27:56 +00:00:    - Local:        http://localhost:5000
+2025-10-03 08:27:56 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:27:56 +00:00: [1] 
+2025-10-03 08:27:56 +00:00: [1]  ✓ Starting...
+2025-10-03 08:27:56 +00:00: [0] 
+2025-10-03 08:27:56 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:27:56 +00:00: [0] 
+2025-10-03 08:27:56 +00:00: Visit: http://localhost:5000
+2025-10-03 08:27:56 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:27:56 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:27:56 +00:00: [0] Environment: production
+2025-10-03 08:27:56 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 08:27:56 +00:00: [1]  ✓ Ready in 228ms
+2025-10-03 08:27:56 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:27:56 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:27:56 +00:00: [1] 
+2025-10-03 08:27:56 +00:00: All existing games purged
+2025-10-03 08:27:56 +00:00: [1] Populated 30 slot games
+2025-10-03 08:27:58 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:28:00 +00:00: 
+2025-10-03 08:28:00 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:28:00 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:28:00 +00:00: 
+2025-10-03 08:28:00 +00:00: [0] 
+2025-10-03 08:28:00 +00:00: 
+2025-10-03 08:28:00 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:28:00 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:28:00 +00:00: [0] 
+2025-10-03 08:28:00 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-03 08:28:00 +00:00: [1] 
+2025-10-03 08:28:00 +00:00:    - Local:        http://localhost:5000
+2025-10-03 08:28:00 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:28:00 +00:00: [1] 
+2025-10-03 08:28:00 +00:00: [1]  ✓ Starting...
+2025-10-03 08:28:00 +00:00: [0] 
+2025-10-03 08:28:00 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:28:00 +00:00: [0] 
+2025-10-03 08:28:00 +00:00: Visit: http://localhost:5000
+2025-10-03 08:28:00 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:28:00 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:28:00 +00:00: [0] Environment: production
+2025-10-03 08:28:00 +00:00: [0] 
+2025-10-03 08:28:00 +00:00: ✅ Connected to SQLite database successfully
+2025-10-03 08:28:01 +00:00: [1]  ✓ Ready in 228ms
+2025-10-03 08:28:01 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:28:01 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:28:01 +00:00: [1] All existing games purged
+2025-10-03 08:28:01 +00:00: [1] 
+2025-10-03 08:28:01 +00:00: Populated 30 slot games
+2025-10-03 08:29:52 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:29:52 +00:00: [1] next start exited with code SIGINT
+2025-10-03 08:29:52 +00:00: 
+2025-10-03 08:29:52 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:29:52 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:29:52 +00:00: 
+2025-10-03 08:29:52 +00:00: [0] 
+2025-10-03 08:29:52 +00:00: 
+2025-10-03 08:29:52 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:29:52 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:29:52 +00:00: [0] 
+2025-10-03 08:29:52 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-03 08:29:52 +00:00: [1] 
+2025-10-03 08:29:52 +00:00:    - Local:        http://localhost:5000
+2025-10-03 08:29:52 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:29:52 +00:00: [1] 
+2025-10-03 08:29:52 +00:00: [1]  ✓ Starting...
+2025-10-03 08:29:52 +00:00: [0] 
+2025-10-03 08:29:52 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:29:52 +00:00: Visit: http://localhost:5000
+2025-10-03 08:29:52 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:29:52 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:29:52 +00:00: [0] Environment: production
+2025-10-03 08:29:52 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 08:29:52 +00:00: [1]  ✓ Ready in 228ms
+2025-10-03 08:29:53 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:29:53 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:29:53 +00:00: [1] All existing games purged
+2025-10-03 08:29:53 +00:00: [1] 
+2025-10-03 08:29:53 +00:00: Populated 30 slot games
+2025-10-03 08:29:55 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:29:55 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 08:33:37 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:33:38 +00:00: [1] next start exited with code SIGINT
+2025-10-03 08:33:38 +00:00: 
+2025-10-03 08:33:38 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:33:38 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:33:38 +00:00: 
+2025-10-03 08:33:38 +00:00: [0] 
+2025-10-03 08:33:38 +00:00: 
+2025-10-03 08:33:38 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:33:38 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:33:38 +00:00: [0] 
+2025-10-03 08:33:38 +00:00: [1] 
+2025-10-03 08:33:38 +00:00:    ▲ Next.js 15.5.3
+2025-10-03 08:33:38 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-03 08:33:38 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:33:38 +00:00: [1] 
+2025-10-03 08:33:38 +00:00: [1]  ✓ Starting...
+2025-10-03 08:33:38 +00:00: [0] 
+2025-10-03 08:33:38 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:33:38 +00:00: Visit: http://localhost:5000
+2025-10-03 08:33:38 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:33:38 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:33:38 +00:00: [0] Environment: production
+2025-10-03 08:33:38 +00:00: [0] 
+2025-10-03 08:33:38 +00:00: ✅ Connected to SQLite database successfully
+2025-10-03 08:33:38 +00:00: [1]  ✓ Ready in 226ms
+2025-10-03 08:33:39 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:33:39 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:33:39 +00:00: [1] 
+2025-10-03 08:33:39 +00:00: All existing games purged
+2025-10-03 08:33:39 +00:00: [1] 
+2025-10-03 08:33:39 +00:00: Populated 30 slot games
+2025-10-03 08:35:27 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:35:27 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 08:35:29 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:36:01 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:36:03 +00:00: 
+2025-10-03 08:36:03 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:36:03 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:36:03 +00:00: 
+2025-10-03 08:36:03 +00:00: [0] 
+2025-10-03 08:36:03 +00:00: 
+2025-10-03 08:36:03 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:36:03 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:36:03 +00:00: [0] 
+2025-10-03 08:36:03 +00:00: [1] 
+2025-10-03 08:36:03 +00:00:    ▲ Next.js 15.5.3
+2025-10-03 08:36:03 +00:00: [1] 
+2025-10-03 08:36:03 +00:00:    - Local:        http://localhost:5000
+2025-10-03 08:36:03 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:36:03 +00:00: [1] 
+2025-10-03 08:36:03 +00:00: [1]  ✓ Starting...
+2025-10-03 08:36:03 +00:00: [0] 
+2025-10-03 08:36:03 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:36:03 +00:00: [0] Visit: http://localhost:5000
+2025-10-03 08:36:03 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:36:03 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:36:03 +00:00: [0] Environment: production
+2025-10-03 08:36:03 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 08:36:03 +00:00: [1]  ✓ Ready in 229ms
+2025-10-03 08:36:03 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:36:03 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:36:04 +00:00: [1] 
+2025-10-03 08:36:04 +00:00: All existing games purged
+2025-10-03 08:36:04 +00:00: [1] 
+2025-10-03 08:36:04 +00:00: Populated 30 slot games
+2025-10-03 08:36:07 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:36:07 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:36:07 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 08:37:14 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:37:14 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:37:14 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:37:14 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:37:14 +00:00: [1] Response status: 200
+2025-10-03 08:37:14 +00:00: [1] Response ok: true
+2025-10-03 08:37:14 +00:00: [1] Response status: 200
+2025-10-03 08:37:14 +00:00: [1] Response ok: true
+2025-10-03 08:37:14 +00:00: [1] 
+2025-10-03 08:37:14 +00:00: Response data: {
+2025-10-03 08:37:14 +00:00: [1]   "pages": []
+2025-10-03 08:37:14 +00:00: [1] }
+2025-10-03 08:37:14 +00:00: [1] Pages array length: 0
+2025-10-03 08:37:14 +00:00: [1] Found page config: NO
+2025-10-03 08:37:14 +00:00: [1] Response data: {
+2025-10-03 08:37:14 +00:00: [1]   "pages": []
+2025-10-03 08:37:14 +00:00: [1] }
+2025-10-03 08:37:14 +00:00: [1] Pages array length: 0
+2025-10-03 08:37:14 +00:00: [1] Found page config: NO
+2025-10-03 08:37:14 +00:00: [1] 
+2025-10-03 08:37:14 +00:00: Admin page SEO data: null
+2025-10-03 08:37:14 +00:00: [1] Global settings: {
+2025-10-03 08:37:14 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:37:14 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:37:14 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:37:14 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:37:14 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:37:14 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:37:14 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:37:14 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:37:14 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:37:14 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:37:14 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:37:14 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:37:14 +00:00: [1]     '  }\n' +
+2025-10-03 08:37:14 +00:00: [1]     '}',
+2025-10-03 08:37:14 +00:00: [1]   id: 1,
+2025-10-03 08:37:14 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:37:14 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:37:14 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:37:14 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:37:14 +00:00: [1]     '\n' +
+2025-10-03 08:37:14 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:37:14 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:37:14 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:37:14 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:37:14 +00:00: [1]   header_code: '',
+2025-10-03 08:37:14 +00:00: [1]   body_code: '',
+2025-10-03 08:37:14 +00:00: [1]   footer_code: '',
+2025-10-03 08:37:14 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:37:14 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:37:14 +00:00: [1] }
+2025-10-03 08:37:15 +00:00: [1] 
+2025-10-03 08:37:15 +00:00: JWT decoded: {
+2025-10-03 08:37:15 +00:00: [1]   adminId: 1,
+2025-10-03 08:37:15 +00:00: [1]   username: 'admin',
+2025-10-03 08:37:15 +00:00: [1]   role: 'super_admin',
+2025-10-03 08:37:15 +00:00: [1]   isAdmin: true,
+2025-10-03 08:37:15 +00:00: [1]   iat: 1759478273,
+2025-10-03 08:37:15 +00:00: [1]   exp: 1759507073
+2025-10-03 08:37:15 +00:00: [1] }
+2025-10-03 08:37:15 +00:00: [1] isAdmin check: true
+2025-10-03 08:37:21 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:37:21 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:37:21 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-03 08:37:21 +00:00: [1] API URL: http://localhost:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-03 08:37:21 +00:00: [1] Response status: 200
+2025-10-03 08:37:21 +00:00: [1] Response ok: true
+2025-10-03 08:37:21 +00:00: [1] Response status: 200
+2025-10-03 08:37:21 +00:00: [1] Response ok: true
+2025-10-03 08:37:21 +00:00: [1] Response data: {
+2025-10-03 08:37:21 +00:00: [1]   "pages": []
+2025-10-03 08:37:21 +00:00: [1] }
+2025-10-03 08:37:21 +00:00: [1] Pages array length: 0
+2025-10-03 08:37:21 +00:00: [1] Found page config: NO
+2025-10-03 08:37:21 +00:00: [1] Response data: {
+2025-10-03 08:37:21 +00:00: [1]   "pages": []
+2025-10-03 08:37:21 +00:00: [1] }
+2025-10-03 08:37:21 +00:00: Pages array length: 0
+2025-10-03 08:37:21 +00:00: [1] Found page config: NO
+2025-10-03 08:37:21 +00:00: [1] Admin page SEO data: null
+2025-10-03 08:37:21 +00:00: [1] Global settings: {
+2025-10-03 08:37:21 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 08:37:21 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 08:37:21 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 08:37:21 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 08:37:21 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 08:37:21 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 08:37:21 +00:00: [1]   default_canonical_url: '',
+2025-10-03 08:37:21 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 08:37:21 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 08:37:21 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 08:37:21 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 08:37:21 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 08:37:21 +00:00: [1]     '  }\n' +
+2025-10-03 08:37:21 +00:00: [1]     '}',
+2025-10-03 08:37:21 +00:00: [1]   id: 1,
+2025-10-03 08:37:21 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 08:37:21 +00:00: [1]     'Allow: /\n' +
+2025-10-03 08:37:21 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 08:37:21 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 08:37:21 +00:00: [1]     '\n' +
+2025-10-03 08:37:21 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 08:37:21 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 08:37:21 +00:00: [1]   google_analytics_id: '',
+2025-10-03 08:37:21 +00:00: [1]   google_search_console_id: '',
+2025-10-03 08:37:21 +00:00: [1]   header_code: '',
+2025-10-03 08:37:21 +00:00: [1]   body_code: '',
+2025-10-03 08:37:21 +00:00: [1]   footer_code: '',
+2025-10-03 08:37:21 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 08:37:21 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 08:37:21 +00:00: [1] }
+2025-10-03 08:37:55 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:41:05 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:51:44 +00:00: [1] Fetching page SEO from: http://localhost:3006/api/seo/page?path=%2F
+2025-10-03 08:57:03 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:57:04 +00:00: 
+2025-10-03 08:57:04 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:57:04 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:57:04 +00:00: 
+2025-10-03 08:57:05 +00:00: [0] 
+2025-10-03 08:57:05 +00:00: 
+2025-10-03 08:57:05 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:57:05 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:57:05 +00:00: [0] 
+2025-10-03 08:57:05 +00:00: [1] 
+2025-10-03 08:57:05 +00:00:    ▲ Next.js 15.5.3
+2025-10-03 08:57:05 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-03 08:57:05 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:57:05 +00:00: [1] 
+2025-10-03 08:57:05 +00:00: [1]  ✓ Starting...
+2025-10-03 08:57:05 +00:00: [0] 
+2025-10-03 08:57:05 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:57:05 +00:00: Visit: http://localhost:5000
+2025-10-03 08:57:05 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:57:05 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:57:05 +00:00: [0] Environment: production
+2025-10-03 08:57:05 +00:00: [0] 
+2025-10-03 08:57:05 +00:00: ✅ Connected to SQLite database successfully
+2025-10-03 08:57:05 +00:00: [1]  ✓ Ready in 226ms
+2025-10-03 08:57:05 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:57:05 +00:00: [1] Frontend API: BACKEND_URL is: http://localhost:3006
+2025-10-03 08:57:05 +00:00: [1] 
+2025-10-03 08:57:05 +00:00: All existing games purged
+2025-10-03 08:57:05 +00:00: [1] 
+2025-10-03 08:57:05 +00:00: Populated 30 slot games
+2025-10-03 08:57:21 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 08:57:23 +00:00: 
+2025-10-03 08:57:23 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 08:57:23 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 08:57:23 +00:00: 
+2025-10-03 08:57:23 +00:00: [0] 
+2025-10-03 08:57:23 +00:00: 
+2025-10-03 08:57:23 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 08:57:23 +00:00: [0] > node server_enhanced.js
+2025-10-03 08:57:23 +00:00: [0] 
+2025-10-03 08:57:24 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-03 08:57:24 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-03 08:57:24 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 08:57:24 +00:00: [1] 
+2025-10-03 08:57:24 +00:00: [1]  ✓ Starting...
+2025-10-03 08:57:24 +00:00: [0] 
+2025-10-03 08:57:24 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 08:57:24 +00:00: [0] Visit: http://localhost:5000
+2025-10-03 08:57:24 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 08:57:24 +00:00: [0] Default admin: admin/admin123
+2025-10-03 08:57:24 +00:00: [0] Environment: production
+2025-10-03 08:57:24 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 08:57:24 +00:00: [1]  ✓ Ready in 229ms
+2025-10-03 08:57:24 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 08:57:24 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-03 08:57:24 +00:00: [1] All existing games purged
+2025-10-03 08:57:24 +00:00: [1] 
+2025-10-03 08:57:24 +00:00: Populated 30 slot games
+2025-10-03 08:57:35 +00:00: [1] 
+2025-10-03 08:57:35 +00:00: Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 08:57:35 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 09:00:06 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 09:00:20 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 09:00:22 +00:00: 
+2025-10-03 09:00:22 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 09:00:22 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 09:00:22 +00:00: 
+2025-10-03 09:00:23 +00:00: [0] 
+2025-10-03 09:00:23 +00:00: 
+2025-10-03 09:00:23 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 09:00:23 +00:00: [0] > node server_enhanced.js
+2025-10-03 09:00:23 +00:00: [0] 
+2025-10-03 09:00:23 +00:00: [1] 
+2025-10-03 09:00:23 +00:00:    ▲ Next.js 15.5.3
+2025-10-03 09:00:23 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-03 09:00:23 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 09:00:23 +00:00: [1] 
+2025-10-03 09:00:23 +00:00: [1]  ✓ Starting...
+2025-10-03 09:00:23 +00:00: [0] 
+2025-10-03 09:00:23 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 09:00:23 +00:00: [0] Visit: http://localhost:5000
+2025-10-03 09:00:23 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 09:00:23 +00:00: [0] Default admin: admin/admin123
+2025-10-03 09:00:23 +00:00: [0] Environment: production
+2025-10-03 09:00:23 +00:00: [0] 
+2025-10-03 09:00:23 +00:00: ✅ Connected to SQLite database successfully
+2025-10-03 09:00:23 +00:00: [1]  ✓ Ready in 230ms
+2025-10-03 09:00:23 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 09:00:23 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-03 09:00:23 +00:00: [1] All existing games purged
+2025-10-03 09:00:23 +00:00: [1] Populated 30 slot games
+2025-10-03 09:00:26 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 09:04:04 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 09:05:10 +00:00: [0] npm run server exited with code SIGINT
+2025-10-03 09:05:10 +00:00: [1] next start exited with code SIGINT
+2025-10-03 09:05:10 +00:00: 
+2025-10-03 09:05:10 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-03 09:05:10 +00:00: > concurrently "npm run server" "next start"
+2025-10-03 09:05:10 +00:00: 
+2025-10-03 09:05:10 +00:00: [0] 
+2025-10-03 09:05:10 +00:00: 
+2025-10-03 09:05:10 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-03 09:05:10 +00:00: [0] > node server_enhanced.js
+2025-10-03 09:05:10 +00:00: [0] 
+2025-10-03 09:05:10 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-03 09:05:10 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-03 09:05:10 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-03 09:05:10 +00:00: [1] 
+2025-10-03 09:05:10 +00:00: [1]  ✓ Starting...
+2025-10-03 09:05:10 +00:00: [0] 
+2025-10-03 09:05:10 +00:00: Enhanced Game platform server running on port 5000
+2025-10-03 09:05:10 +00:00: [0] Visit: http://localhost:5000
+2025-10-03 09:05:10 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-03 09:05:10 +00:00: [0] Default admin: admin/admin123
+2025-10-03 09:05:10 +00:00: [0] Environment: production
+2025-10-03 09:05:10 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-03 09:05:11 +00:00: [1]  ✓ Ready in 232ms
+2025-10-03 09:05:11 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-03 09:05:11 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-03 09:05:11 +00:00: [1] All existing games purged
+2025-10-03 09:05:11 +00:00: [1] 
+2025-10-03 09:05:11 +00:00: Populated 30 slot games
+2025-10-03 09:05:13 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 09:05:13 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-03 09:13:58 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 09:13:58 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 09:28:54 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 09:28:54 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 10:06:57 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 10:07:01 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 11:37:29 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 11:37:30 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 12:33:32 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 12:33:37 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-03 12:33:37 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-03 12:33:37 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-03 12:33:37 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-03 12:33:37 +00:00: [1] Response status: 200
+2025-10-03 12:33:37 +00:00: [1] Response ok: true
+2025-10-03 12:33:37 +00:00: [1] Response status: 200
+2025-10-03 12:33:37 +00:00: [1] Response ok: true
+2025-10-03 12:33:37 +00:00: [1] 
+2025-10-03 12:33:37 +00:00: Response data: {
+2025-10-03 12:33:37 +00:00: [1]   "pages": []
+2025-10-03 12:33:37 +00:00: [1] }
+2025-10-03 12:33:37 +00:00: [1] Pages array length: 0
+2025-10-03 12:33:37 +00:00: [1] Found page config: NO
+2025-10-03 12:33:37 +00:00: [1] Response data: {
+2025-10-03 12:33:37 +00:00: [1]   "pages": []
+2025-10-03 12:33:37 +00:00: [1] }
+2025-10-03 12:33:37 +00:00: [1] Pages array length: 0
+2025-10-03 12:33:37 +00:00: [1] Found page config: NO
+2025-10-03 12:33:37 +00:00: [1] Promotions page SEO data: null
+2025-10-03 12:33:37 +00:00: [1] 
+2025-10-03 12:33:37 +00:00: Global settings: {
+2025-10-03 12:33:37 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 12:33:37 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 12:33:37 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 12:33:37 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 12:33:37 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 12:33:37 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 12:33:37 +00:00: [1]   default_canonical_url: '',
+2025-10-03 12:33:37 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 12:33:37 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 12:33:37 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 12:33:37 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 12:33:37 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 12:33:37 +00:00: [1]     '  }\n' +
+2025-10-03 12:33:37 +00:00: [1]     '}',
+2025-10-03 12:33:37 +00:00: [1]   id: 1,
+2025-10-03 12:33:37 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 12:33:37 +00:00: [1]     'Allow: /\n' +
+2025-10-03 12:33:37 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 12:33:37 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 12:33:37 +00:00: [1]     '\n' +
+2025-10-03 12:33:37 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 12:33:37 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 12:33:37 +00:00: [1]   google_analytics_id: '',
+2025-10-03 12:33:37 +00:00: [1]   google_search_console_id: '',
+2025-10-03 12:33:37 +00:00: [1]   header_code: '',
+2025-10-03 12:33:37 +00:00: [1]   body_code: '',
+2025-10-03 12:33:37 +00:00: [1]   footer_code: '',
+2025-10-03 12:33:37 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 12:33:37 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 12:33:37 +00:00: [1] }
+2025-10-03 12:33:46 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 12:33:46 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 12:33:46 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-03 12:33:46 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fblog
+2025-10-03 12:33:46 +00:00: [1] Response status: 200
+2025-10-03 12:33:46 +00:00: [1] Response ok: true
+2025-10-03 12:33:46 +00:00: [1] Response status: 200
+2025-10-03 12:33:46 +00:00: [1] Response ok: true
+2025-10-03 12:33:46 +00:00: [1] 
+2025-10-03 12:33:46 +00:00: Response data: {
+2025-10-03 12:33:46 +00:00: [1]   "pages": []
+2025-10-03 12:33:46 +00:00: [1] }
+2025-10-03 12:33:46 +00:00: [1] Pages array length: 0
+2025-10-03 12:33:46 +00:00: [1] Found page config: NO
+2025-10-03 12:33:46 +00:00: [1] Response data: {
+2025-10-03 12:33:46 +00:00: [1]   "pages": []
+2025-10-03 12:33:46 +00:00: [1] }
+2025-10-03 12:33:46 +00:00: [1] Pages array length: 0
+2025-10-03 12:33:46 +00:00: [1] Found page config: NO
+2025-10-03 12:33:46 +00:00: [1] Blog page SEO data: null
+2025-10-03 12:33:46 +00:00: [1] Global settings: {
+2025-10-03 12:33:46 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-03 12:33:46 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-03 12:33:46 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-03 12:33:46 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-03 12:33:46 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-03 12:33:46 +00:00: [1]   twitter_site: '@99group',
+2025-10-03 12:33:46 +00:00: [1]   default_canonical_url: '',
+2025-10-03 12:33:46 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-03 12:33:46 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-03 12:33:46 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-03 12:33:46 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-03 12:33:46 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-03 12:33:46 +00:00: [1]     '  }\n' +
+2025-10-03 12:33:46 +00:00: [1]     '}',
+2025-10-03 12:33:46 +00:00: [1]   id: 1,
+2025-10-03 12:33:46 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-03 12:33:46 +00:00: [1]     'Allow: /\n' +
+2025-10-03 12:33:46 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-03 12:33:46 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-03 12:33:46 +00:00: [1]     '\n' +
+2025-10-03 12:33:46 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-03 12:33:46 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-03 12:33:46 +00:00: [1]   google_analytics_id: '',
+2025-10-03 12:33:46 +00:00: [1]   google_search_console_id: '',
+2025-10-03 12:33:46 +00:00: [1]   header_code: '',
+2025-10-03 12:33:46 +00:00: [1]   body_code: '',
+2025-10-03 12:33:46 +00:00: [1]   footer_code: '',
+2025-10-03 12:33:46 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-03 12:33:46 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-03 12:33:46 +00:00: [1] }
+2025-10-03 12:33:47 +00:00: [1] 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-03 12:33:47 +00:00: [1] 
+2025-10-03 12:33:47 +00:00: 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 12:33:47 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 12:33:47 +00:00: [1] 
+2025-10-03 12:33:47 +00:00: 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-03 12:33:47 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-03 12:33:47 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-03 12:33:47 +00:00: [1] 📊 API Response status: 200
+2025-10-03 12:33:47 +00:00: [1] 📊 API Response status: 200
+2025-10-03 12:33:47 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 12:33:47 +00:00: [1] 🔍 Available pages: []
+2025-10-03 12:33:47 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 12:33:47 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-03 12:33:47 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-03 12:33:47 +00:00: [1] 🔍 Available pages: []
+2025-10-03 12:33:47 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-03 12:33:47 +00:00: [1] 📄 Schema template received: No
+2025-10-03 12:33:47 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-03 12:33:47 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-03 12:34:00 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 14:33:01 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 14:33:01 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 14:58:03 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 14:58:03 +00:00: [1] 
+2025-10-03 14:58:03 +00:00: Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 15:45:23 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 15:45:24 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 15:56:50 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 15:56:50 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 16:21:05 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 16:21:06 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 16:52:33 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 16:52:33 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 18:37:09 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 18:46:11 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 19:56:46 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 19:58:45 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 19:58:45 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-03 23:58:18 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 01:57:05 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 03:02:24 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 03:02:24 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 04:48:29 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 05:09:24 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 05:09:25 +00:00: [1] 
+2025-10-04 05:09:25 +00:00: Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 06:50:32 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 06:50:32 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 08:41:10 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 08:43:07 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 09:03:37 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 10:12:20 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 10:12:20 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 10:41:02 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 10:41:03 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 14:36:30 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 14:36:31 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 15:18:46 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 15:18:46 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 16:06:18 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 16:06:19 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 19:34:56 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 19:34:56 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 20:22:42 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 20:22:43 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 20:45:18 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 20:45:19 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 21:14:39 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 22:19:46 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 22:19:47 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 23:09:39 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-04 23:09:46 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 01:26:14 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 01:26:19 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 02:43:17 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 04:50:27 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 06:34:58 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 06:34:59 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 07:48:35 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:00:45 +00:00: [1] 
+2025-10-05 09:00:45 +00:00: Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:17:05 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:17:06 +00:00: [1] 
+2025-10-05 09:17:06 +00:00: Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:39:04 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:39:17 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-05 09:39:17 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fblog
+2025-10-05 09:39:17 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-05 09:39:17 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fblog
+2025-10-05 09:39:17 +00:00: [1] 
+2025-10-05 09:39:17 +00:00: Response status: 200
+2025-10-05 09:39:17 +00:00: [1] Response ok: true
+2025-10-05 09:39:17 +00:00: [1] Response status: 200
+2025-10-05 09:39:17 +00:00: [1] Response ok: true
+2025-10-05 09:39:17 +00:00: [1] Response data: {
+2025-10-05 09:39:17 +00:00: [1]   "pages": []
+2025-10-05 09:39:17 +00:00: [1] }
+2025-10-05 09:39:17 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:17 +00:00: [1] Found page config: NO
+2025-10-05 09:39:17 +00:00: [1] Response data: {
+2025-10-05 09:39:17 +00:00: [1]   "pages": []
+2025-10-05 09:39:17 +00:00: [1] }
+2025-10-05 09:39:17 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:17 +00:00: [1] Found page config: NO
+2025-10-05 09:39:17 +00:00: [1] Blog page SEO data: null
+2025-10-05 09:39:17 +00:00: [1] Global settings: {
+2025-10-05 09:39:17 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 09:39:17 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 09:39:17 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 09:39:17 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 09:39:17 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 09:39:17 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 09:39:17 +00:00: [1]   default_canonical_url: '',
+2025-10-05 09:39:17 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 09:39:17 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 09:39:17 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 09:39:17 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  }\n' +
+2025-10-05 09:39:17 +00:00: [1]     '}',
+2025-10-05 09:39:17 +00:00: [1]   id: 1,
+2025-10-05 09:39:17 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Allow: /\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 09:39:17 +00:00: [1]     '\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 09:39:17 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 09:39:17 +00:00: [1]   google_analytics_id: '',
+2025-10-05 09:39:17 +00:00: [1]   google_search_console_id: '',
+2025-10-05 09:39:17 +00:00: [1]   header_code: '',
+2025-10-05 09:39:17 +00:00: [1]   body_code: '',
+2025-10-05 09:39:17 +00:00: [1]   footer_code: '',
+2025-10-05 09:39:17 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 09:39:17 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 09:39:17 +00:00: [1] }
+2025-10-05 09:39:17 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-05 09:39:17 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-05 09:39:17 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-05 09:39:17 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-05 09:39:17 +00:00: [1] Response status: 200
+2025-10-05 09:39:17 +00:00: [1] Response ok: true
+2025-10-05 09:39:17 +00:00: [1] Response status: 200
+2025-10-05 09:39:17 +00:00: [1] Response ok: true
+2025-10-05 09:39:17 +00:00: [1] Response data: {
+2025-10-05 09:39:17 +00:00: [1]   "pages": []
+2025-10-05 09:39:17 +00:00: [1] }
+2025-10-05 09:39:17 +00:00: Pages array length: 0
+2025-10-05 09:39:17 +00:00: [1] Found page config: NO
+2025-10-05 09:39:17 +00:00: [1] Response data: {
+2025-10-05 09:39:17 +00:00: [1]   "pages": []
+2025-10-05 09:39:17 +00:00: [1] }
+2025-10-05 09:39:17 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:17 +00:00: [1] Found page config: NO
+2025-10-05 09:39:17 +00:00: [1] Promotions page SEO data: null
+2025-10-05 09:39:17 +00:00: [1] Global settings: {
+2025-10-05 09:39:17 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 09:39:17 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 09:39:17 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 09:39:17 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 09:39:17 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 09:39:17 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 09:39:17 +00:00: [1]   default_canonical_url: '',
+2025-10-05 09:39:17 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 09:39:17 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 09:39:17 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 09:39:17 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 09:39:17 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 09:39:17 +00:00: [1]     '  }\n' +
+2025-10-05 09:39:17 +00:00: [1]     '}',
+2025-10-05 09:39:17 +00:00: [1]   id: 1,
+2025-10-05 09:39:17 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Allow: /\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 09:39:17 +00:00: [1]     '\n' +
+2025-10-05 09:39:17 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 09:39:17 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 09:39:17 +00:00: [1]   google_analytics_id: '',
+2025-10-05 09:39:17 +00:00: [1]   google_search_console_id: '',
+2025-10-05 09:39:17 +00:00: [1]   header_code: '',
+2025-10-05 09:39:17 +00:00: [1]   body_code: '',
+2025-10-05 09:39:17 +00:00: [1]   footer_code: '',
+2025-10-05 09:39:17 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 09:39:17 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 09:39:17 +00:00: [1] }
+2025-10-05 09:39:18 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-05 09:39:18 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fblog
+2025-10-05 09:39:18 +00:00: [1] Fetching page SEO settings for: /blog
+2025-10-05 09:39:18 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fblog
+2025-10-05 09:39:18 +00:00: [1] Response status: 200
+2025-10-05 09:39:18 +00:00: [1] Response ok: true
+2025-10-05 09:39:18 +00:00: [1] Response status: 200
+2025-10-05 09:39:18 +00:00: [1] Response ok: true
+2025-10-05 09:39:18 +00:00: [1] 
+2025-10-05 09:39:18 +00:00: Response data: {
+2025-10-05 09:39:18 +00:00: [1]   "pages": []
+2025-10-05 09:39:18 +00:00: [1] }
+2025-10-05 09:39:18 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:18 +00:00: [1] Found page config: NO
+2025-10-05 09:39:18 +00:00: [1] Response data: {
+2025-10-05 09:39:18 +00:00: [1]   "pages": []
+2025-10-05 09:39:18 +00:00: [1] }
+2025-10-05 09:39:18 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:18 +00:00: [1] Found page config: NO
+2025-10-05 09:39:18 +00:00: [1] Blog page SEO data: null
+2025-10-05 09:39:18 +00:00: [1] Global settings: {
+2025-10-05 09:39:18 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 09:39:18 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 09:39:18 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 09:39:18 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 09:39:18 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 09:39:18 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 09:39:18 +00:00: [1]   default_canonical_url: '',
+2025-10-05 09:39:18 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 09:39:18 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 09:39:18 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 09:39:18 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 09:39:18 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 09:39:18 +00:00: [1]     '  }\n' +
+2025-10-05 09:39:18 +00:00: [1]     '}',
+2025-10-05 09:39:18 +00:00: [1]   id: 1,
+2025-10-05 09:39:18 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 09:39:18 +00:00: [1]     'Allow: /\n' +
+2025-10-05 09:39:18 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 09:39:18 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 09:39:18 +00:00: [1]     '\n' +
+2025-10-05 09:39:18 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 09:39:18 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 09:39:18 +00:00: [1]   google_analytics_id: '',
+2025-10-05 09:39:18 +00:00: [1]   google_search_console_id: '',
+2025-10-05 09:39:18 +00:00: [1]   header_code: '',
+2025-10-05 09:39:18 +00:00: [1]   body_code: '',
+2025-10-05 09:39:18 +00:00: [1]   footer_code: '',
+2025-10-05 09:39:18 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 09:39:18 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 09:39:18 +00:00: [1] }
+2025-10-05 09:39:19 +00:00: [1] 
+2025-10-05 09:39:19 +00:00: 🔄 Page component: Processing schema for blog: FUN88 is now live!
+2025-10-05 09:39:19 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-05 09:39:19 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-05 09:39:19 +00:00: [1] 
+2025-10-05 09:39:19 +00:00: 🚀 Starting schema processing for blog: FUN88 is now live!
+2025-10-05 09:39:19 +00:00: [1] 🔍 Fetching schema template for page: /blog/[slug]
+2025-10-05 09:39:19 +00:00: [1] 📡 API URL (server): http://localhost:3006/api/seo/pages?page_path=%2Fblog%2F%5Bslug%5D
+2025-10-05 09:39:19 +00:00: [1] 📊 API Response status: 200
+2025-10-05 09:39:19 +00:00: [1] 📊 API Response status: 200
+2025-10-05 09:39:19 +00:00: [1] 
+2025-10-05 09:39:19 +00:00: 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-05 09:39:19 +00:00: [1] 🔍 Available pages: []
+2025-10-05 09:39:19 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-05 09:39:19 +00:00: [1] ⚠️  No schema template found for page: /blog/[slug]
+2025-10-05 09:39:19 +00:00: [1] 📋 API Response data: { pages_count: 0, page_paths: [] }
+2025-10-05 09:39:19 +00:00: [1] 🔍 Available pages: []
+2025-10-05 09:39:19 +00:00: [1] 📋 Page component: Schema template received: No
+2025-10-05 09:39:19 +00:00: [1] ⚠️  Page component: No schema template available
+2025-10-05 09:39:19 +00:00: [1] ⚠️  No schema template found for /blog/[slug]
+2025-10-05 09:39:19 +00:00: [1] 📄 Schema template received: No
+2025-10-05 09:39:22 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-05 09:39:22 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-05 09:39:22 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-05 09:39:22 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-05 09:39:22 +00:00: [1] Response status: 200
+2025-10-05 09:39:22 +00:00: [1] Response ok: true
+2025-10-05 09:39:22 +00:00: [1] Response status: 200
+2025-10-05 09:39:22 +00:00: [1] Response ok: true
+2025-10-05 09:39:22 +00:00: [1] Response data: {
+2025-10-05 09:39:22 +00:00: [1]   "pages": []
+2025-10-05 09:39:22 +00:00: [1] }
+2025-10-05 09:39:22 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:22 +00:00: [1] Found page config: NO
+2025-10-05 09:39:22 +00:00: [1] Response data: {
+2025-10-05 09:39:22 +00:00: [1]   "pages": []
+2025-10-05 09:39:22 +00:00: [1] }
+2025-10-05 09:39:22 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:22 +00:00: [1] Found page config: NO
+2025-10-05 09:39:22 +00:00: [1] Promotions page SEO data: null
+2025-10-05 09:39:22 +00:00: [1] Global settings: {
+2025-10-05 09:39:22 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 09:39:22 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 09:39:22 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 09:39:22 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 09:39:22 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 09:39:22 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 09:39:22 +00:00: [1]   default_canonical_url: '',
+2025-10-05 09:39:22 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 09:39:22 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 09:39:22 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 09:39:22 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 09:39:22 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 09:39:22 +00:00: [1]     '  }\n' +
+2025-10-05 09:39:22 +00:00: [1]     '}',
+2025-10-05 09:39:22 +00:00: [1]   id: 1,
+2025-10-05 09:39:22 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 09:39:22 +00:00: [1]     'Allow: /\n' +
+2025-10-05 09:39:22 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 09:39:22 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 09:39:22 +00:00: [1]     '\n' +
+2025-10-05 09:39:22 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 09:39:22 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 09:39:22 +00:00: [1]   google_analytics_id: '',
+2025-10-05 09:39:22 +00:00: [1]   google_search_console_id: '',
+2025-10-05 09:39:22 +00:00: [1]   header_code: '',
+2025-10-05 09:39:22 +00:00: [1]   body_code: '',
+2025-10-05 09:39:22 +00:00: [1]   footer_code: '',
+2025-10-05 09:39:22 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 09:39:22 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 09:39:22 +00:00: [1] }
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] 
+2025-10-05 09:39:22 +00:00: ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] 
+2025-10-05 09:39:22 +00:00: ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] 
+2025-10-05 09:39:22 +00:00: ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:22 +00:00: [1] ⚠️  Page component: No blog data available for schema processing
+2025-10-05 09:39:31 +00:00: [1] Fetching page SEO settings for: /promotions
+2025-10-05 09:39:31 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-05 09:39:31 +00:00: [1] 
+2025-10-05 09:39:31 +00:00: Fetching page SEO settings for: /promotions
+2025-10-05 09:39:31 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fpromotions
+2025-10-05 09:39:31 +00:00: [1] Response status: 200
+2025-10-05 09:39:31 +00:00: [1] Response ok: true
+2025-10-05 09:39:31 +00:00: [1] Response status: 200
+2025-10-05 09:39:31 +00:00: [1] Response ok: true
+2025-10-05 09:39:31 +00:00: [1] 
+2025-10-05 09:39:31 +00:00: Response data: {
+2025-10-05 09:39:31 +00:00: [1]   "pages": []
+2025-10-05 09:39:31 +00:00: [1] }
+2025-10-05 09:39:31 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:31 +00:00: [1] Found page config: NO
+2025-10-05 09:39:31 +00:00: [1] Response data: {
+2025-10-05 09:39:31 +00:00: [1]   "pages": []
+2025-10-05 09:39:31 +00:00: [1] }
+2025-10-05 09:39:31 +00:00: [1] Pages array length: 0
+2025-10-05 09:39:31 +00:00: [1] Found page config: NO
+2025-10-05 09:39:31 +00:00: [1] Promotions page SEO data: null
+2025-10-05 09:39:31 +00:00: [1] Global settings: {
+2025-10-05 09:39:31 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 09:39:31 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 09:39:31 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 09:39:31 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 09:39:31 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 09:39:31 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 09:39:31 +00:00: [1]   default_canonical_url: '',
+2025-10-05 09:39:31 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 09:39:31 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 09:39:31 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 09:39:31 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 09:39:31 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 09:39:31 +00:00: [1]     '  }\n' +
+2025-10-05 09:39:31 +00:00: [1]     '}',
+2025-10-05 09:39:31 +00:00: [1]   id: 1,
+2025-10-05 09:39:31 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 09:39:31 +00:00: [1]     'Allow: /\n' +
+2025-10-05 09:39:31 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 09:39:31 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 09:39:31 +00:00: [1]     '\n' +
+2025-10-05 09:39:31 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 09:39:31 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 09:39:31 +00:00: [1]   google_analytics_id: '',
+2025-10-05 09:39:31 +00:00: [1]   google_search_console_id: '',
+2025-10-05 09:39:31 +00:00: [1]   header_code: '',
+2025-10-05 09:39:31 +00:00: [1]   body_code: '',
+2025-10-05 09:39:31 +00:00: [1]   footer_code: '',
+2025-10-05 09:39:31 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 09:39:31 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 09:39:31 +00:00: [1] }
+2025-10-05 09:39:57 +00:00: [1] 
+2025-10-05 09:39:57 +00:00: Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:48:58 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 09:52:02 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 10:01:14 +00:00: [1] next start exited with code 0
+2025-10-05 13:07:58 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:07:58 +00:00: 
+2025-10-05 13:07:58 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:07:58 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:07:58 +00:00: 
+2025-10-05 13:07:59 +00:00: [0] 
+2025-10-05 13:07:59 +00:00: 
+2025-10-05 13:07:59 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:07:59 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:07:59 +00:00: [0] 
+2025-10-05 13:07:59 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-05 13:07:59 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-05 13:07:59 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:07:59 +00:00: [1] 
+2025-10-05 13:07:59 +00:00: [1]  ✓ Starting...
+2025-10-05 13:07:59 +00:00: [0] 
+2025-10-05 13:07:59 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:07:59 +00:00: [0] Visit: http://localhost:5000
+2025-10-05 13:07:59 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:07:59 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:07:59 +00:00: [0] Environment: production
+2025-10-05 13:07:59 +00:00: [0] 
+2025-10-05 13:07:59 +00:00: ✅ Connected to SQLite database successfully
+2025-10-05 13:07:59 +00:00: [1]  ✓ Ready in 233ms
+2025-10-05 13:07:59 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-05 13:07:59 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-05 13:07:59 +00:00: [1] 
+2025-10-05 13:07:59 +00:00: All existing games purged
+2025-10-05 13:07:59 +00:00: [1] 
+2025-10-05 13:07:59 +00:00: Populated 30 slot games
+2025-10-05 13:08:03 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:08:03 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-05 13:08:06 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:08:30 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:08:30 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:08:30 +00:00: [1] 
+2025-10-05 13:08:30 +00:00: Fetching page SEO settings for: /admin
+2025-10-05 13:08:30 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:08:30 +00:00: [1] Response status: 200
+2025-10-05 13:08:30 +00:00: [1] Response ok: true
+2025-10-05 13:08:30 +00:00: [1] Response status: 200
+2025-10-05 13:08:30 +00:00: [1] Response ok: true
+2025-10-05 13:08:30 +00:00: [1] 
+2025-10-05 13:08:30 +00:00: Response data: {
+2025-10-05 13:08:30 +00:00: [1]   "pages": []
+2025-10-05 13:08:30 +00:00: [1] }
+2025-10-05 13:08:30 +00:00: [1] Pages array length: 0
+2025-10-05 13:08:30 +00:00: [1] Found page config: NO
+2025-10-05 13:08:30 +00:00: [1] Response data: {
+2025-10-05 13:08:30 +00:00: [1]   "pages": []
+2025-10-05 13:08:30 +00:00: [1] }
+2025-10-05 13:08:30 +00:00: [1] Pages array length: 0
+2025-10-05 13:08:30 +00:00: [1] Found page config: NO
+2025-10-05 13:08:30 +00:00: [1] Admin page SEO data: null
+2025-10-05 13:08:30 +00:00: [1] Global settings: {
+2025-10-05 13:08:30 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 13:08:30 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 13:08:30 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 13:08:30 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 13:08:30 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 13:08:30 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 13:08:30 +00:00: [1]   default_canonical_url: '',
+2025-10-05 13:08:30 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 13:08:30 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 13:08:30 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 13:08:30 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 13:08:30 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 13:08:30 +00:00: [1]     '  }\n' +
+2025-10-05 13:08:30 +00:00: [1]     '}',
+2025-10-05 13:08:30 +00:00: [1]   id: 1,
+2025-10-05 13:08:30 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 13:08:30 +00:00: [1]     'Allow: /\n' +
+2025-10-05 13:08:30 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 13:08:30 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 13:08:30 +00:00: [1]     '\n' +
+2025-10-05 13:08:30 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 13:08:30 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 13:08:30 +00:00: [1]   google_analytics_id: '',
+2025-10-05 13:08:30 +00:00: [1]   google_search_console_id: '',
+2025-10-05 13:08:30 +00:00: [1]   header_code: '',
+2025-10-05 13:08:30 +00:00: [1]   body_code: '',
+2025-10-05 13:08:30 +00:00: [1]   footer_code: '',
+2025-10-05 13:08:30 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 13:08:30 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 13:08:30 +00:00: [1] }
+2025-10-05 13:08:52 +00:00: [1] JWT decoded: {
+2025-10-05 13:08:52 +00:00: [1]   adminId: 1,
+2025-10-05 13:08:52 +00:00: [1]   username: 'admin',
+2025-10-05 13:08:52 +00:00: [1]   role: 'super_admin',
+2025-10-05 13:08:52 +00:00: [1]   isAdmin: true,
+2025-10-05 13:08:52 +00:00: [1]   iat: 1759669711,
+2025-10-05 13:08:52 +00:00: [1]   exp: 1759698511
+2025-10-05 13:08:52 +00:00: [1] }
+2025-10-05 13:08:52 +00:00: [1] isAdmin check: true
+2025-10-05 13:09:21 +00:00: [1] JWT decoded: {
+2025-10-05 13:09:21 +00:00: [1]   adminId: 1,
+2025-10-05 13:09:21 +00:00: [1]   username: 'admin',
+2025-10-05 13:09:21 +00:00: [1]   role: 'super_admin',
+2025-10-05 13:09:21 +00:00: [1]   isAdmin: true,
+2025-10-05 13:09:21 +00:00: [1]   iat: 1759669711,
+2025-10-05 13:09:21 +00:00: [1]   exp: 1759698511
+2025-10-05 13:09:21 +00:00: [1] }
+2025-10-05 13:09:21 +00:00: [1] isAdmin check: true
+2025-10-05 13:09:28 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:22:29 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:22:56 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:01 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:08 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:09 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:09 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:12 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:19 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:20 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:23:22 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:23:22 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:23:22 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:23:22 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:23:22 +00:00: [1] Response status: 200
+2025-10-05 13:23:22 +00:00: [1] Response ok: true
+2025-10-05 13:23:22 +00:00: [1] Response status: 200
+2025-10-05 13:23:22 +00:00: [1] Response ok: true
+2025-10-05 13:23:22 +00:00: [1] Response data: {
+2025-10-05 13:23:22 +00:00: [1]   "pages": []
+2025-10-05 13:23:22 +00:00: [1] }
+2025-10-05 13:23:22 +00:00: [1] Pages array length: 0
+2025-10-05 13:23:22 +00:00: [1] Found page config: NO
+2025-10-05 13:23:22 +00:00: [1] Response data: {
+2025-10-05 13:23:22 +00:00: [1]   "pages": []
+2025-10-05 13:23:22 +00:00: [1] }
+2025-10-05 13:23:22 +00:00: [1] Pages array length: 0
+2025-10-05 13:23:22 +00:00: [1] Found page config: NO
+2025-10-05 13:23:22 +00:00: [1] Admin page SEO data: null
+2025-10-05 13:23:22 +00:00: [1] 
+2025-10-05 13:23:22 +00:00: Global settings: {
+2025-10-05 13:23:22 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 13:23:22 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 13:23:22 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 13:23:22 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 13:23:22 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 13:23:22 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 13:23:22 +00:00: [1]   default_canonical_url: '',
+2025-10-05 13:23:22 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 13:23:22 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 13:23:22 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 13:23:22 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 13:23:22 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 13:23:22 +00:00: [1]     '  }\n' +
+2025-10-05 13:23:22 +00:00: [1]     '}',
+2025-10-05 13:23:22 +00:00: [1]   id: 1,
+2025-10-05 13:23:22 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 13:23:22 +00:00: [1]     'Allow: /\n' +
+2025-10-05 13:23:22 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 13:23:22 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 13:23:22 +00:00: [1]     '\n' +
+2025-10-05 13:23:22 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 13:23:22 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 13:23:22 +00:00: [1]   google_analytics_id: '',
+2025-10-05 13:23:22 +00:00: [1]   google_search_console_id: '',
+2025-10-05 13:23:22 +00:00: [1]   header_code: '',
+2025-10-05 13:23:22 +00:00: [1]   body_code: '',
+2025-10-05 13:23:22 +00:00: [1]   footer_code: '',
+2025-10-05 13:23:22 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 13:23:22 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 13:23:22 +00:00: [1] }
+2025-10-05 13:23:49 +00:00: [1] JWT decoded: {
+2025-10-05 13:23:49 +00:00: [1]   adminId: 1,
+2025-10-05 13:23:49 +00:00: [1]   username: 'admin',
+2025-10-05 13:23:49 +00:00: [1]   role: 'super_admin',
+2025-10-05 13:23:49 +00:00: [1]   isAdmin: true,
+2025-10-05 13:23:49 +00:00: [1]   iat: 1759669711,
+2025-10-05 13:23:49 +00:00: [1]   exp: 1759698511
+2025-10-05 13:23:49 +00:00: [1] }
+2025-10-05 13:23:49 +00:00: [1] isAdmin check: true
+2025-10-05 13:25:36 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:25:36 +00:00: [1] next start exited with code SIGINT
+2025-10-05 13:25:36 +00:00: 
+2025-10-05 13:25:36 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:25:36 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:25:36 +00:00: 
+2025-10-05 13:25:36 +00:00: [0] 
+2025-10-05 13:25:36 +00:00: 
+2025-10-05 13:25:36 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:25:36 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:25:36 +00:00: [0] 
+2025-10-05 13:25:36 +00:00: [1] 
+2025-10-05 13:25:36 +00:00:    ▲ Next.js 15.5.3
+2025-10-05 13:25:36 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-05 13:25:36 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:25:36 +00:00: [1] 
+2025-10-05 13:25:36 +00:00: [1]  ✓ Starting...
+2025-10-05 13:25:36 +00:00: [0] 
+2025-10-05 13:25:36 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:25:36 +00:00: [0] 
+2025-10-05 13:25:36 +00:00: Visit: http://localhost:5000
+2025-10-05 13:25:36 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:25:36 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:25:36 +00:00: [0] Environment: production
+2025-10-05 13:25:36 +00:00: [0] 
+2025-10-05 13:25:36 +00:00: ✅ Connected to SQLite database successfully
+2025-10-05 13:25:36 +00:00: [1] 
+2025-10-05 13:25:36 +00:00: [TypeError: routesManifest.dataRoutes is not iterable]
+2025-10-05 13:25:36 +00:00: [1] 
+2025-10-05 13:25:36 +00:00: next start exited with code 1
+2025-10-05 13:26:24 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:26:25 +00:00: 
+2025-10-05 13:26:25 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:26:25 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:26:25 +00:00: 
+2025-10-05 13:26:25 +00:00: [0] 
+2025-10-05 13:26:25 +00:00: 
+2025-10-05 13:26:25 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:26:25 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:26:25 +00:00: [0] 
+2025-10-05 13:26:25 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-05 13:26:25 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-05 13:26:25 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:26:25 +00:00: [1] 
+2025-10-05 13:26:25 +00:00: [1]  ✓ Starting...
+2025-10-05 13:26:25 +00:00: [0] 
+2025-10-05 13:26:25 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:26:25 +00:00: Visit: http://localhost:5000
+2025-10-05 13:26:25 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:26:25 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:26:25 +00:00: [0] Environment: production
+2025-10-05 13:26:25 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-05 13:26:25 +00:00: [1]  ✓ Ready in 228ms
+2025-10-05 13:26:25 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-05 13:26:25 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-05 13:26:25 +00:00: [1] 
+2025-10-05 13:26:25 +00:00: Database has existing games, skipping population
+2025-10-05 13:27:48 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:27:48 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:27:48 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:27:48 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:27:48 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-05 13:27:48 +00:00: [1] Response status: 200
+2025-10-05 13:27:48 +00:00: [1] Response ok: true
+2025-10-05 13:27:48 +00:00: [1] Response status: 200
+2025-10-05 13:27:48 +00:00: [1] Response ok: true
+2025-10-05 13:27:48 +00:00: [1] Response data: {
+2025-10-05 13:27:48 +00:00: [1]   "pages": []
+2025-10-05 13:27:48 +00:00: [1] }
+2025-10-05 13:27:48 +00:00: [1] Pages array length: 0
+2025-10-05 13:27:48 +00:00: [1] Found page config: NO
+2025-10-05 13:27:48 +00:00: [1] Response data: {
+2025-10-05 13:27:48 +00:00: [1]   "pages": []
+2025-10-05 13:27:48 +00:00: [1] }
+2025-10-05 13:27:48 +00:00: [1] Pages array length: 0
+2025-10-05 13:27:48 +00:00: [1] Found page config: NO
+2025-10-05 13:27:48 +00:00: [1] Admin page SEO data: null
+2025-10-05 13:27:48 +00:00: [1] Global settings: {
+2025-10-05 13:27:48 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 13:27:48 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 13:27:48 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 13:27:48 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 13:27:48 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 13:27:48 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 13:27:48 +00:00: [1]   default_canonical_url: '',
+2025-10-05 13:27:48 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 13:27:48 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 13:27:48 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 13:27:48 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 13:27:48 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 13:27:48 +00:00: [1]     '  }\n' +
+2025-10-05 13:27:48 +00:00: [1]     '}',
+2025-10-05 13:27:48 +00:00: [1]   id: 1,
+2025-10-05 13:27:48 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 13:27:48 +00:00: [1]     'Allow: /\n' +
+2025-10-05 13:27:48 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 13:27:48 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 13:27:48 +00:00: [1]     '\n' +
+2025-10-05 13:27:48 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 13:27:48 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 13:27:48 +00:00: [1]   google_analytics_id: '',
+2025-10-05 13:27:48 +00:00: [1]   google_search_console_id: '',
+2025-10-05 13:27:48 +00:00: [1]   header_code: '',
+2025-10-05 13:27:48 +00:00: [1]   body_code: '',
+2025-10-05 13:27:48 +00:00: [1]   footer_code: '',
+2025-10-05 13:27:48 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 13:27:48 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 13:27:48 +00:00: [1] }
+2025-10-05 13:27:49 +00:00: [1] JWT decoded: {
+2025-10-05 13:27:49 +00:00: [1]   adminId: 1,
+2025-10-05 13:27:49 +00:00: [1]   username: 'admin',
+2025-10-05 13:27:49 +00:00: [1]   role: 'super_admin',
+2025-10-05 13:27:49 +00:00: [1]   isAdmin: true,
+2025-10-05 13:27:49 +00:00: [1]   iat: 1759669711,
+2025-10-05 13:27:49 +00:00: [1]   exp: 1759698511
+2025-10-05 13:27:49 +00:00: [1] }
+2025-10-05 13:27:49 +00:00: [1] isAdmin check: true
+2025-10-05 13:30:27 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:30:27 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:30:27 +00:00: [1] Fetching page SEO settings for: /admin
+2025-10-05 13:30:27 +00:00: [1] API URL: http://15.235.215.3:3006/api/seo/pages?page_path=%2Fadmin
+2025-10-05 13:30:27 +00:00: [1] Response status: 200
+2025-10-05 13:30:27 +00:00: [1] Response ok: true
+2025-10-05 13:30:27 +00:00: [1] Response status: 200
+2025-10-05 13:30:27 +00:00: [1] Response ok: true
+2025-10-05 13:30:27 +00:00: [1] 
+2025-10-05 13:30:27 +00:00: Response data: {
+2025-10-05 13:30:27 +00:00: [1]   "pages": []
+2025-10-05 13:30:27 +00:00: [1] }
+2025-10-05 13:30:27 +00:00: [1] Pages array length: 0
+2025-10-05 13:30:27 +00:00: [1] Found page config: NO
+2025-10-05 13:30:27 +00:00: [1] Response data: {
+2025-10-05 13:30:27 +00:00: [1]   "pages": []
+2025-10-05 13:30:27 +00:00: [1] }
+2025-10-05 13:30:27 +00:00: [1] Pages array length: 0
+2025-10-05 13:30:27 +00:00: [1] Found page config: NO
+2025-10-05 13:30:27 +00:00: [1] Admin page SEO data: null
+2025-10-05 13:30:27 +00:00: [1] 
+2025-10-05 13:30:27 +00:00: Global settings: {
+2025-10-05 13:30:27 +00:00: [1]   site_name: '99Group Gaming Platform',
+2025-10-05 13:30:27 +00:00: [1]   default_meta_title: '99Group - Premium Gaming Platform',
+2025-10-05 13:30:27 +00:00: [1]   default_meta_description: 'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+2025-10-05 13:30:27 +00:00: [1]   default_og_image: '/images/og-default.jpg',
+2025-10-05 13:30:27 +00:00: [1]   favicon_url: '/favicon.ico',
+2025-10-05 13:30:27 +00:00: [1]   twitter_site: '@99group',
+2025-10-05 13:30:27 +00:00: [1]   default_canonical_url: '',
+2025-10-05 13:30:27 +00:00: [1]   default_robots_meta: 'index, follow',
+2025-10-05 13:30:27 +00:00: [1]   default_keywords: 'gaming, casino, online games, 99group, free credits',
+2025-10-05 13:30:27 +00:00: [1]   default_schema_markup: '{\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  "@context": "https://schema.org",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  "@type": "WebSite",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  "name": "99Group Gaming Platform",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  "url": "https://99group.games",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  "description": "Premium online gaming platform with free credits and secure gaming environment",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  "potentialAction": {\n' +
+2025-10-05 13:30:27 +00:00: [1]     '    "@type": "SearchAction",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '    "target": "https://99group.games/search?q={search_term_string}",\n' +
+2025-10-05 13:30:27 +00:00: [1]     '    "query-input": "required name=search_term_string"\n' +
+2025-10-05 13:30:27 +00:00: [1]     '  }\n' +
+2025-10-05 13:30:27 +00:00: [1]     '}',
+2025-10-05 13:30:27 +00:00: [1]   id: 1,
+2025-10-05 13:30:27 +00:00: [1]   robots_txt: 'User-agent: *\n' +
+2025-10-05 13:30:27 +00:00: [1]     'Allow: /\n' +
+2025-10-05 13:30:27 +00:00: [1]     'Disallow: /admin/\n' +
+2025-10-05 13:30:27 +00:00: [1]     'Disallow: /api/\n' +
+2025-10-05 13:30:27 +00:00: [1]     '\n' +
+2025-10-05 13:30:27 +00:00: [1]     'Sitemap: https://99group.games/sitemap.xml',
+2025-10-05 13:30:27 +00:00: [1]   sitemap_url: '/sitemap.xml',
+2025-10-05 13:30:27 +00:00: [1]   google_analytics_id: '',
+2025-10-05 13:30:27 +00:00: [1]   google_search_console_id: '',
+2025-10-05 13:30:27 +00:00: [1]   header_code: '',
+2025-10-05 13:30:27 +00:00: [1]   body_code: '',
+2025-10-05 13:30:27 +00:00: [1]   footer_code: '',
+2025-10-05 13:30:27 +00:00: [1]   created_at: '2025-10-02 16:19:31',
+2025-10-05 13:30:27 +00:00: [1]   updated_at: '2025-10-02 16:19:31'
+2025-10-05 13:30:27 +00:00: [1] }
+2025-10-05 13:30:29 +00:00: [1] JWT decoded: {
+2025-10-05 13:30:29 +00:00: [1]   adminId: 1,
+2025-10-05 13:30:29 +00:00: [1]   username: 'admin',
+2025-10-05 13:30:29 +00:00: [1]   role: 'super_admin',
+2025-10-05 13:30:29 +00:00: [1]   isAdmin: true,
+2025-10-05 13:30:29 +00:00: [1]   iat: 1759669711,
+2025-10-05 13:30:29 +00:00: [1]   exp: 1759698511
+2025-10-05 13:30:29 +00:00: [1] }
+2025-10-05 13:30:29 +00:00: [1] isAdmin check: true
+2025-10-05 13:30:31 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:32:02 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 13:33:33 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:33:33 +00:00: [1] next start exited with code SIGINT
+2025-10-05 13:33:34 +00:00: 
+2025-10-05 13:33:34 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:33:34 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:33:34 +00:00: 
+2025-10-05 13:33:34 +00:00: [0] 
+2025-10-05 13:33:34 +00:00: 
+2025-10-05 13:33:34 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:33:34 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:33:34 +00:00: [0] 
+2025-10-05 13:33:34 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-05 13:33:34 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-05 13:33:34 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:33:34 +00:00: [1] 
+2025-10-05 13:33:34 +00:00: [1]  ✓ Starting...
+2025-10-05 13:33:34 +00:00: [0] 
+2025-10-05 13:33:34 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:33:34 +00:00: Visit: http://localhost:5000
+2025-10-05 13:33:34 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:33:34 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:33:34 +00:00: [0] Environment: production
+2025-10-05 13:33:34 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-05 13:33:34 +00:00: [1] [TypeError: routesManifest.dataRoutes is not iterable]
+2025-10-05 13:33:34 +00:00: [1] next start exited with code 1
+2025-10-05 13:37:09 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:37:10 +00:00: 
+2025-10-05 13:37:10 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:37:10 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:37:10 +00:00: 
+2025-10-05 13:37:10 +00:00: [0] 
+2025-10-05 13:37:10 +00:00: 
+2025-10-05 13:37:10 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:37:10 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:37:10 +00:00: [0] 
+2025-10-05 13:37:10 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-05 13:37:10 +00:00: [1] 
+2025-10-05 13:37:10 +00:00:    - Local:        http://localhost:5000
+2025-10-05 13:37:10 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:37:10 +00:00: [1] 
+2025-10-05 13:37:10 +00:00: [1]  ✓ Starting...
+2025-10-05 13:37:10 +00:00: [0] 
+2025-10-05 13:37:10 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:37:10 +00:00: Visit: http://localhost:5000
+2025-10-05 13:37:10 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:37:10 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:37:10 +00:00: [0] Environment: production
+2025-10-05 13:37:10 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-05 13:37:10 +00:00: [1] 
+2025-10-05 13:37:10 +00:00: [TypeError: routesManifest.dataRoutes is not iterable]
+2025-10-05 13:37:10 +00:00: [1] next start exited with code 1
+2025-10-05 13:37:40 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:37:40 +00:00: 
+2025-10-05 13:37:40 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:37:40 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:37:40 +00:00: 
+2025-10-05 13:37:40 +00:00: [0] 
+2025-10-05 13:37:40 +00:00: 
+2025-10-05 13:37:40 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:37:40 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:37:40 +00:00: [0] 
+2025-10-05 13:37:40 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-05 13:37:40 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-05 13:37:40 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:37:40 +00:00: [1] 
+2025-10-05 13:37:40 +00:00: [1]  ✓ Starting...
+2025-10-05 13:37:40 +00:00: [0] 
+2025-10-05 13:37:40 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:37:40 +00:00: Visit: http://localhost:5000
+2025-10-05 13:37:40 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:37:40 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:37:40 +00:00: [0] Environment: production
+2025-10-05 13:37:40 +00:00: [0] 
+2025-10-05 13:37:40 +00:00: ✅ Connected to SQLite database successfully
+2025-10-05 13:37:40 +00:00: [1]  ✓ Ready in 230ms
+2025-10-05 13:37:40 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-05 13:37:40 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-05 13:37:41 +00:00: [1] 
+2025-10-05 13:37:41 +00:00: Database has existing games, skipping population
+2025-10-05 13:39:16 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:39:18 +00:00: 
+2025-10-05 13:39:18 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:39:18 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:39:18 +00:00: 
+2025-10-05 13:39:18 +00:00: [0] 
+2025-10-05 13:39:18 +00:00: 
+2025-10-05 13:39:18 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:39:18 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:39:18 +00:00: [0] 
+2025-10-05 13:39:18 +00:00: [1] 
+2025-10-05 13:39:18 +00:00:    ▲ Next.js 15.5.3
+2025-10-05 13:39:18 +00:00: [1] 
+2025-10-05 13:39:18 +00:00:    - Local:        http://localhost:5000
+2025-10-05 13:39:18 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:39:18 +00:00: [1] 
+2025-10-05 13:39:18 +00:00: [1]  ✓ Starting...
+2025-10-05 13:39:18 +00:00: [0] 
+2025-10-05 13:39:18 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:39:18 +00:00: Visit: http://localhost:5000
+2025-10-05 13:39:18 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:39:18 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:39:18 +00:00: [0] Environment: production
+2025-10-05 13:39:18 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-05 13:39:18 +00:00: [1]  ✓ Ready in 232ms
+2025-10-05 13:39:18 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-05 13:39:18 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-05 13:39:18 +00:00: [1] Database has existing games, skipping population
+2025-10-05 13:53:01 +00:00: [1] 
+2025-10-05 13:53:01 +00:00:  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-05 13:53:21 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:53:21 +00:00: [1] next start exited with code SIGINT
+2025-10-05 13:53:22 +00:00: 
+2025-10-05 13:53:22 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:53:22 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:53:22 +00:00: 
+2025-10-05 13:53:22 +00:00: [0] 
+2025-10-05 13:53:22 +00:00: 
+2025-10-05 13:53:22 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:53:22 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:53:22 +00:00: [0] 
+2025-10-05 13:53:22 +00:00: [1]    ▲ Next.js 15.5.3
+2025-10-05 13:53:22 +00:00: [1] 
+2025-10-05 13:53:22 +00:00:    - Local:        http://localhost:5000
+2025-10-05 13:53:22 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:53:22 +00:00: [1] 
+2025-10-05 13:53:22 +00:00: [1]  ✓ Starting...
+2025-10-05 13:53:22 +00:00: [0] 
+2025-10-05 13:53:22 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:53:22 +00:00: [0] Visit: http://localhost:5000
+2025-10-05 13:53:22 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:53:22 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:53:22 +00:00: [0] Environment: production
+2025-10-05 13:53:22 +00:00: [0] ✅ Connected to SQLite database successfully
+2025-10-05 13:53:22 +00:00: [1]  ✓ Ready in 231ms
+2025-10-05 13:53:22 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-05 13:53:22 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-05 13:53:22 +00:00: [1] 
+2025-10-05 13:53:22 +00:00: Database has existing games, skipping population
+2025-10-05 13:58:10 +00:00: [0] npm run server exited with code SIGINT
+2025-10-05 13:58:10 +00:00: [1] next start exited with code SIGINT
+2025-10-05 13:58:10 +00:00: 
+2025-10-05 13:58:10 +00:00: > nextjs-game-platform@0.1.0 start
+2025-10-05 13:58:10 +00:00: > concurrently "npm run server" "next start"
+2025-10-05 13:58:10 +00:00: 
+2025-10-05 13:58:10 +00:00: [0] 
+2025-10-05 13:58:10 +00:00: 
+2025-10-05 13:58:10 +00:00: [0] > nextjs-game-platform@0.1.0 server
+2025-10-05 13:58:10 +00:00: [0] > node server_enhanced.js
+2025-10-05 13:58:10 +00:00: [0] 
+2025-10-05 13:58:11 +00:00: [1] 
+2025-10-05 13:58:11 +00:00:    ▲ Next.js 15.5.3
+2025-10-05 13:58:11 +00:00: [1]    - Local:        http://localhost:5000
+2025-10-05 13:58:11 +00:00: [1]    - Network:      http://15.235.215.3:5000
+2025-10-05 13:58:11 +00:00: [1] 
+2025-10-05 13:58:11 +00:00: [1]  ✓ Starting...
+2025-10-05 13:58:11 +00:00: [0] 
+2025-10-05 13:58:11 +00:00: Enhanced Game platform server running on port 5000
+2025-10-05 13:58:11 +00:00: [0] Visit: http://localhost:5000
+2025-10-05 13:58:11 +00:00: [0] Admin panel: http://localhost:5000/admin
+2025-10-05 13:58:11 +00:00: [0] Default admin: admin/admin123
+2025-10-05 13:58:11 +00:00: [0] Environment: production
+2025-10-05 13:58:11 +00:00: [0] 
+2025-10-05 13:58:11 +00:00: ✅ Connected to SQLite database successfully
+2025-10-05 13:58:11 +00:00: [1]  ✓ Ready in 229ms
+2025-10-05 13:58:11 +00:00: [1] JWT_SECRET being used: fun88-secret-key-change-in-production
+2025-10-05 13:58:11 +00:00: [1] Frontend API: BACKEND_URL is: http://15.235.215.3:3006
+2025-10-05 13:58:11 +00:00: [1] 
+2025-10-05 13:58:11 +00:00: Database has existing games, skipping population
+2025-10-05 14:24:24 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 14:24:24 +00:00: [1]  ⚠ metadataBase property in metadata export is not set for resolving social open graph or twitter images, using "http://localhost:5000". See https://nextjs.org/docs/app/api-reference/functions/generate-metadata#metadatabase
+2025-10-05 14:24:24 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F
+2025-10-05 14:33:46 +00:00: [0] 
+2025-10-05 14:33:46 +00:00: Terminated
+2025-10-05 14:33:46 +00:00: [0] npm run server exited with code 143
+2025-10-05 14:44:57 +00:00: [1] Fetching page SEO from: http://15.235.215.3:3006/api/seo/page?path=%2F

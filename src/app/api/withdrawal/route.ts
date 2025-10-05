@@ -1,20 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
+
 export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get('authorization')
 
     // Get withdrawal history
-    const response = await fetch(
-      'http://localhost:3006/api/withdrawal/history',
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(authHeader && { Authorization: authHeader }),
-        },
-      }
-    )
+    const response = await fetch(`${BACKEND_URL}/api/withdrawal/history`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(authHeader && { Authorization: authHeader }),
+      },
+    })
 
     const data = await response.json()
 
@@ -38,17 +37,14 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
 
     // Make withdrawal request
-    const response = await fetch(
-      'http://localhost:3006/api/withdrawal/request',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          ...(authHeader && { Authorization: authHeader }),
-        },
-        body: JSON.stringify(body),
-      }
-    )
+    const response = await fetch(`${BACKEND_URL}/api/withdrawal/request`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(authHeader && { Authorization: authHeader }),
+      },
+      body: JSON.stringify(body),
+    })
 
     const data = await response.json()
 

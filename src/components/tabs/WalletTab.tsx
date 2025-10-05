@@ -216,7 +216,7 @@ export default function WalletTab({
       </div>
 
       {/* Free Credit Achievement Tracker */}
-      <div className="bg-white rounded-xl p-5 border border-[#00a6ff]/20 shadow-lg">
+      {/* <div className="bg-white rounded-xl p-5 border border-[#00a6ff]/20 shadow-lg">
         <div className="flex items-center space-x-2 mb-4">
           <div className="w-6 h-6 bg-[#00a6ff] rounded-full flex items-center justify-center">
             <Gift className="w-3 h-3 text-white" />
@@ -232,7 +232,7 @@ export default function WalletTab({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-          {/* Daily Login Achievement */}
+          
           <div className="bg-blue-50 rounded-lg p-3 border border-blue-200">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
@@ -257,7 +257,7 @@ export default function WalletTab({
             </div>
           </div>
 
-          {/* First Deposit Achievement */}
+          
           <div className="bg-green-50 rounded-lg p-3 border border-green-200">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
@@ -279,7 +279,7 @@ export default function WalletTab({
             </div>
           </div>
 
-          {/* Play Games Achievement */}
+          
           <div className="bg-purple-50 rounded-lg p-3 border border-purple-200">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
@@ -306,7 +306,7 @@ export default function WalletTab({
             </div>
           </div>
 
-          {/* High Roller Achievement */}
+          
           <div className="bg-yellow-50 rounded-lg p-3 border border-yellow-200">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
@@ -331,7 +331,7 @@ export default function WalletTab({
             </div>
           </div>
 
-          {/* Referral Achievement */}
+          
           <div className="bg-orange-50 rounded-lg p-3 border border-orange-200">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
@@ -356,7 +356,7 @@ export default function WalletTab({
             </div>
           </div>
 
-          {/* Lucky Streak Achievement */}
+          
           <div className="bg-pink-50 rounded-lg p-3 border border-pink-200">
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center space-x-2">
@@ -382,7 +382,7 @@ export default function WalletTab({
           </div>
         </div>
 
-        {/* Total Credits Earned */}
+        
         <div className="mt-4 bg-green-50 border border-green-200 rounded-lg p-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -397,7 +397,7 @@ export default function WalletTab({
             Keep completing achievements to earn more!
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Withdrawal Form */}
       <div className="bg-white rounded-xl p-5 border border-[#00a6ff]/20 shadow-lg">
