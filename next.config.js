@@ -46,7 +46,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['api-staging.4d99.co', 'fun88tha.com', '15.235.215.3'],
+    domains: ['fun88.game', 'www.fun88.game', '15.235.215.3'],
   },
   async headers() {
     return [

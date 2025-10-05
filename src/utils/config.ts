@@ -13,7 +13,7 @@ export const API_CONFIG = {
   // Frontend base URL
   FRONTEND_URL:
     process.env.NODE_ENV === 'production'
-      ? 'https://99group.games'
+      ? 'https://fun88.game'
       : 'http://localhost:5000',
 
   // HUIDU API Configuration

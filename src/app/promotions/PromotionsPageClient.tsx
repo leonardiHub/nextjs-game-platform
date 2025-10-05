@@ -535,11 +535,9 @@ const PromotionsPage = () => {
 
               <button
                 onClick={closePromotionModal}
-                className="lg:block hidden z-20 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center"
+                className="lg:block hidden z-20 w-8 h-8 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center p-1"
               >
-                <span className="text-white text-xl">
-                  <X />
-                </span>
+                <X className="text-white" />
               </button>
             </div>
             {/* Close Button */}

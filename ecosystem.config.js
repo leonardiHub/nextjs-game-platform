@@ -9,7 +9,7 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3006,
-        PUBLIC_DOMAIN: 'http://localhost:5000',
+        PUBLIC_DOMAIN: 'https://fun88.game',
       },
       env_development: {
         NODE_ENV: 'development',
@@ -44,8 +44,8 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 5000,
-        NEXT_PUBLIC_API_URL: 'http://15.235.215.3:3006',
-        BACKEND_URL: 'http://15.235.215.3:3006',
+        NEXT_PUBLIC_API_URL: 'https://fun88.game',
+        BACKEND_URL: 'https://fun88.game',
       },
       env_development: {
         NODE_ENV: 'development',

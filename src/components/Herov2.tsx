@@ -174,21 +174,6 @@ export default function Herov2() {
                     target.style.display = 'none'
                   }}
                 />
-
-                {/* Gradient overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-
-                {/* Content overlay */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white px-4">
-                    <h1 className="text-2xl md:text-3xl font-bold mb-2 drop-shadow-lg">
-                      Welcome to Fun88
-                    </h1>
-                    <p className="text-sm md:text-base drop-shadow-md">
-                      Your Ultimate Gaming Experience
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           ))}

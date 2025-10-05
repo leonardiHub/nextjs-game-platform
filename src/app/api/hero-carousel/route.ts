@@ -34,13 +34,14 @@ export async function GET(request: NextRequest) {
           )
 
           // Generate a valid admin token for backend authentication
-          const JWT_SECRET = process.env.JWT_SECRET || 'fun88-secret-key-change-in-production'
+          const JWT_SECRET =
+            process.env.JWT_SECRET || 'fun88-secret-key-change-in-production'
           const serviceToken = jwt.sign(
-            { 
-              isAdmin: true, 
-              username: 'system', 
+            {
+              isAdmin: true,
+              username: 'system',
               role: 'admin',
-              iat: Math.floor(Date.now() / 1000)
+              iat: Math.floor(Date.now() / 1000),
             },
             JWT_SECRET,
             { expiresIn: '1h' }

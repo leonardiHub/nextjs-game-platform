@@ -39,15 +39,18 @@ export async function GET(request: NextRequest) {
     // Enrich carousel items with media details from backend server
     const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
     const enrichedItems = await Promise.all(
-      carouselItems.map(async (item) => {
+      carouselItems.map(async item => {
         try {
-          const mediaResponse = await fetch(`${API_BASE_URL}/api/admin/media/${item.media_id}`, {
-            method: 'GET',
-            headers: {
-              Authorization: `Bearer ${token}`,
-              'Content-Type': 'application/json',
-            },
-          })
+          const mediaResponse = await fetch(
+            `${API_BASE_URL}/api/admin/media/${item.media_id}`,
+            {
+              method: 'GET',
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+              },
+            }
+          )
 
           if (mediaResponse.ok) {
             const mediaData = await mediaResponse.json()
@@ -69,7 +72,10 @@ export async function GET(request: NextRequest) {
             }
           }
         } catch (error) {
-          console.error(`Error fetching media for carousel item ${item.id}:`, error)
+          console.error(
+            `Error fetching media for carousel item ${item.id}:`,
+            error
+          )
           return {
             ...item,
             filename: null,
@@ -159,18 +165,23 @@ export async function POST(request: NextRequest) {
     })
 
     // Fetch the created item from local database
-    const newItem = await dbGet('SELECT * FROM hero_carousel WHERE id = ?', [result.lastID])
+    const newItem = await dbGet('SELECT * FROM hero_carousel WHERE id = ?', [
+      result.lastID,
+    ])
 
     // Enrich with media details from backend server
     let enrichedItem = { ...newItem }
     try {
-      const mediaResponse = await fetch(`${API_BASE_URL}/api/admin/media/${media_id}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
+      const mediaResponse = await fetch(
+        `${API_BASE_URL}/api/admin/media/${media_id}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
 
       if (mediaResponse.ok) {
         const mediaData = await mediaResponse.json()

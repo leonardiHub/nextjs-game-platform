@@ -100,7 +100,7 @@ const BlogPageClient = () => {
 
   return (
     <div className="w-full min-h-screen bg-dark text-white flex flex-col items-center pb-8">
-      <span className="text-3xl text-primary font-semibold my-8">
+      <span className="text-3xl text-primary font-semibold my-8 lg:mt-20 mt-4">
         Blog Articles
       </span>
 
