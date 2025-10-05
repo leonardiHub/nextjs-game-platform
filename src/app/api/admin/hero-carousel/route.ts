@@ -29,14 +29,59 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     }
 
+    // Get carousel items from local database
     const carouselItems = await dbAll(`
-      SELECT hc.*, m.filename, m.url, m.alt_text, m.title as media_title
+      SELECT hc.*
       FROM hero_carousel hc
-      LEFT JOIN media m ON hc.media_id = m.id
       ORDER BY hc.display_order ASC
     `)
 
-    return NextResponse.json({ carouselItems })
+    // Enrich carousel items with media details from backend server
+    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
+    const enrichedItems = await Promise.all(
+      carouselItems.map(async (item) => {
+        try {
+          const mediaResponse = await fetch(`${API_BASE_URL}/api/admin/media/${item.media_id}`, {
+            method: 'GET',
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          })
+
+          if (mediaResponse.ok) {
+            const mediaData = await mediaResponse.json()
+            return {
+              ...item,
+              filename: mediaData.filename,
+              url: mediaData.url,
+              alt_text: mediaData.alt_text,
+              media_title: mediaData.title || mediaData.original_name,
+            }
+          } else {
+            // If media not found, return item with null media fields
+            return {
+              ...item,
+              filename: null,
+              url: null,
+              alt_text: null,
+              media_title: null,
+            }
+          }
+        } catch (error) {
+          console.error(`Error fetching media for carousel item ${item.id}:`, error)
+          return {
+            ...item,
+            filename: null,
+            url: null,
+            alt_text: null,
+            media_title: null,
+          }
+        }
+      })
+    )
+
+    return NextResponse.json({ carouselItems: enrichedItems })
   } catch (error) {
     console.error('Error fetching hero carousel:', error)
     return NextResponse.json(
@@ -66,20 +111,26 @@ export async function POST(request: NextRequest) {
     // Check if media exists on backend server
     const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
     try {
-      const mediaResponse = await fetch(`${API_BASE_URL}/api/admin/media/${media_id}`, {
-        method: 'GET',
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      })
-      
+      const mediaResponse = await fetch(
+        `${API_BASE_URL}/api/admin/media/${media_id}`,
+        {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+
       if (!mediaResponse.ok) {
         return NextResponse.json({ error: 'Media not found' }, { status: 404 })
       }
     } catch (error) {
       console.error('Error checking media:', error)
-      return NextResponse.json({ error: 'Failed to validate media' }, { status: 500 })
+      return NextResponse.json(
+        { error: 'Failed to validate media' },
+        { status: 500 }
+      )
     }
 
     // Get next display order if not provided
@@ -107,21 +158,38 @@ export async function POST(request: NextRequest) {
       )
     })
 
-    // Fetch the created item with media details
-    const newItem = await dbGet(
-      `
-      SELECT hc.*, m.filename, m.url, m.alt_text, m.title as media_title
-      FROM hero_carousel hc
-      LEFT JOIN media m ON hc.media_id = m.id
-      WHERE hc.id = ?
-    `,
-      [result.lastID]
-    )
+    // Fetch the created item from local database
+    const newItem = await dbGet('SELECT * FROM hero_carousel WHERE id = ?', [result.lastID])
+
+    // Enrich with media details from backend server
+    let enrichedItem = { ...newItem }
+    try {
+      const mediaResponse = await fetch(`${API_BASE_URL}/api/admin/media/${media_id}`, {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (mediaResponse.ok) {
+        const mediaData = await mediaResponse.json()
+        enrichedItem = {
+          ...newItem,
+          filename: mediaData.filename,
+          url: mediaData.url,
+          alt_text: mediaData.alt_text,
+          media_title: mediaData.title || mediaData.original_name,
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching media details for new item:', error)
+    }
 
     return NextResponse.json(
       {
         message: 'Hero carousel item created successfully',
-        item: newItem,
+        item: enrichedItem,
       },
       { status: 201 }
     )
