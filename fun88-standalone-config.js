@@ -13,7 +13,7 @@ module.exports = {
   backend: {
     port: 3001,
     domain: 'https://api-staging.4d99.co',
-    database: 'fun88_platform.db',
+    database: 'fun88_standalone.db',
     jwtSecret: 'fun88-secret-key-change-in-production',
   },
 
@@ -28,7 +28,7 @@ module.exports = {
 
   // Database Configuration
   database: {
-    name: 'fun88_platform.db',
+    name: 'fun88_standalone.db',
     tables: [
       'users',
       'game_sessions',

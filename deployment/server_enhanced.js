@@ -99,7 +99,7 @@ app.use((req, res, next) => {
 })
 
 // Initialize SQLite Database with better error handling
-const db = new sqlite3.Database('fun88_platform.db', err => {
+const db = new sqlite3.Database('fun88_standalone.db', err => {
   if (err) {
     console.error('❌ Database connection error:', err.message)
   } else {

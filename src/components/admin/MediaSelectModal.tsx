@@ -253,7 +253,8 @@ export default function MediaSelectModal({
 
                           // For local files, use backend server directly
                           let cleanUrl = media.url
-                            .replace('http://localhost:3006', '')
+                            .replace('http://localhost:5002', '')
+                            .replace('http://localhost:5002', '')
                             .replace('http://localhost:3001', '')
                             .replace(
                               API_CONFIG.BASE_URL.replace(
@@ -272,7 +273,7 @@ export default function MediaSelectModal({
                           const apiUrl =
                             typeof window !== 'undefined' &&
                             window.location.hostname === 'localhost'
-                              ? 'http://localhost:3006'
+                              ? 'http://localhost:5002'
                               : API_CONFIG.BASE_URL
                           return `${apiUrl}${cleanUrl}`
                         })()}

@@ -65,7 +65,7 @@ export default function HeroCarouselManagement() {
 
     // For local files, use backend server directly
     let cleanUrl = url
-      .replace('http://localhost:3006', '')
+      .replace('http://localhost:5002', '')
       .replace('http://localhost:3001', '')
       .replace('https://99group.games', '')
       .replace('https://api.99group.games', '')
@@ -78,7 +78,7 @@ export default function HeroCarouselManagement() {
     // Return appropriate backend URL based on environment
     const apiUrl =
       typeof window !== 'undefined' && window.location.hostname === 'localhost'
-        ? 'http://localhost:3006'
+        ? 'http://localhost:5002'
         : API_CONFIG.BASE_URL
     return `${apiUrl}${cleanUrl}`
   }

@@ -10,7 +10,7 @@ This project has been completely decoupled from 99group.games and is now a stand
 - **Backend Port**: 3001 (instead of 3002)
 
 ### 2. Database Separation
-- **Database File**: `fun88_platform.db` (instead of game_platform.db)
+- **Database File**: `fun88_standalone.db` (instead of game_platform.db)
 - **Player Prefix**: `fun88` (instead of h4944d)
 - **JWT Secret**: `fun88-secret-key-change-in-production`
 
@@ -71,14 +71,14 @@ pm2 status
 
 ## 📊 Database
 
-The project now uses its own SQLite database (`fun88_platform.db`) with the same schema but completely separate data from 99group.games.
+The project now uses its own SQLite database (`fun88_standalone.db`) with the same schema but completely separate data from 99group.games.
 
 ## ✅ Verification
 
 To verify the project is standalone:
 
 1. Check API calls go to `https://api-staging.4d99.co` instead of 99group.games
-2. Verify database file is `fun88_platform.db`
+2. Verify database file is `fun88_standalone.db`
 3. Confirm player accounts use `fun88` prefix
 4. Check PM2 processes are running independently
 

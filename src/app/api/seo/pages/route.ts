@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5002'
 
 /**
  * 公开的SEO配置API - 用于前端页面获取SEO设置

@@ -3,18 +3,18 @@ export const API_CONFIG = {
   // Backend API base URL
   BASE_URL:
     process.env.NODE_ENV === 'production'
-      ? 'http://15.235.215.3:3006'
+      ? 'http://15.235.215.3:5001'
       : process.env.NEXT_PUBLIC_API_URL ||
         (typeof window !== 'undefined' &&
         window.location.hostname === 'localhost'
-          ? 'http://localhost:3006'
-          : 'http://15.235.215.3:3006'),
+          ? 'http://localhost:5002'
+          : 'http://15.235.215.3:5001'),
 
   // Frontend base URL
   FRONTEND_URL:
     process.env.NODE_ENV === 'production'
       ? 'https://fun88.game'
-      : 'http://localhost:5000',
+      : 'http://localhost:3007',
 
   // HUIDU API Configuration
   HUIDU: {

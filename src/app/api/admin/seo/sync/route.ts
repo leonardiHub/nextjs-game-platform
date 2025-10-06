@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
-const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:3006'
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5002'
 
 interface DiscoveredPage {
   page_path: string

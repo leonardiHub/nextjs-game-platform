@@ -90,7 +90,7 @@ export async function POST(request: NextRequest) {
       })
 
       // Forward to backend transactions endpoint
-      const response = await fetch('http://localhost:3006/api/transactions', {
+      const response = await fetch('http://localhost:5002/api/transactions', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -4,6 +4,7 @@ import './globals.css'
 import ClientLayoutProvider from '@/components/ClientLayoutProvider'
 import HydrationSuppressor from '@/components/HydrationSuppressor'
 import { HydrationProvider } from '@/components/HydrationProvider'
+import ClientOnlyScript from '@/components/ClientOnlyScript'
 import '@/utils/suppressHydrationWarnings'
 import { getGlobalSEOSettings } from '@/utils/seo'
 
@@ -61,38 +62,42 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  let globalSettings
+  // Use consistent default settings to prevent hydration mismatches
+  const defaultSettings = {
+    site_name: '99Group Gaming Platform',
+    default_meta_title: '99Group - Premium Gaming Platform',
+    default_meta_description:
+      'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
+    default_og_image: '/images/og-default.jpg',
+    favicon_url: '/favicon.ico',
+    twitter_site: '@99group',
+    header_code: '',
+    body_code: '',
+    footer_code: '',
+  }
+
+  let globalSettings = defaultSettings
 
   try {
-    globalSettings = await getGlobalSEOSettings()
+    const fetchedSettings = await getGlobalSEOSettings()
+    // Only use fetched settings if they're valid and complete
+    if (fetchedSettings && typeof fetchedSettings === 'object') {
+      globalSettings = { ...defaultSettings, ...fetchedSettings }
+      // Ensure header_code is always a string to prevent hydration issues
+      globalSettings.header_code = globalSettings.header_code || ''
+    }
   } catch (error) {
     console.error('Error loading global SEO settings:', error)
-    globalSettings = {
-      site_name: '99Group Gaming Platform',
-      default_meta_title: '99Group - Premium Gaming Platform',
-      default_meta_description:
-        'Experience the best online gaming platform with 99Group. Get $50 free credits, premium games, and secure gaming environment.',
-      default_og_image: '/images/og-default.jpg',
-      favicon_url: '/favicon.ico',
-      twitter_site: '@99group',
-      header_code: '',
-      body_code: '',
-      footer_code: '',
-    }
+    // Use default settings on error
   }
 
   return (
     <html lang="en">
       <head>
-        {/* 注入自定义header代码 */}
-        {globalSettings.header_code && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: globalSettings.header_code,
-            }}
-          />
-        )}
+        {/* 注入自定义header代码 - 使用客户端组件防止hydration不匹配 */}
+        <ClientOnlyScript code={globalSettings.header_code} />
         <script
+          suppressHydrationWarning={true}
           dangerouslySetInnerHTML={{
             __html: `
               // Ultra-aggressive hydration fix - runs before React hydration
@@ -170,28 +175,16 @@ export default async function RootLayout({
         suppressContentEditableWarning={true}
         data-hydration-suppressed="true"
       >
-        {/* 注入自定义body代码 */}
-        {globalSettings.body_code && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: globalSettings.body_code,
-            }}
-          />
-        )}
+        {/* 注入自定义body代码 - 使用客户端组件防止hydration不匹配 */}
+        <ClientOnlyScript code={globalSettings.body_code} />
 
         <HydrationProvider>
           <HydrationSuppressor />
           <ClientLayoutProvider>{children}</ClientLayoutProvider>
         </HydrationProvider>
 
-        {/* 注入自定义footer代码 */}
-        {globalSettings.footer_code && (
-          <script
-            dangerouslySetInnerHTML={{
-              __html: globalSettings.footer_code,
-            }}
-          />
-        )}
+        {/* 注入自定义footer代码 - 使用客户端组件防止hydration不匹配 */}
+        <ClientOnlyScript code={globalSettings.footer_code} />
       </body>
     </html>
   )

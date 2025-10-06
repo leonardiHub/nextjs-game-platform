@@ -28,7 +28,7 @@ interface BlogPost {
 // Fetch blog data for metadata
 async function fetchBlogForMetadata(slug: string): Promise<BlogPost | null> {
   try {
-    const response = await fetch(`http://localhost:3006/api/blogs/${slug}`, {
+    const response = await fetch(`http://localhost:5002/api/blogs/${slug}`, {
       cache: 'no-store', // Always fetch fresh data for metadata
     })
 
@@ -75,7 +75,7 @@ export async function generateMetadata({
 
     // For local files, use backend server directly
     let cleanUrl = imageUrl
-      .replace('http://localhost:3006', '')
+      .replace('http://localhost:5002', '')
       .replace('http://localhost:3001', '')
       .replace(API_CONFIG.BASE_URL, '')
       .replace(API_CONFIG.BASE_URL.replace('https://', 'https://api.'), '')
@@ -90,7 +90,7 @@ export async function generateMetadata({
     const apiUrl =
       process.env.NODE_ENV === 'production'
         ? API_CONFIG.BASE_URL
-        : 'http://localhost:3006'
+        : 'http://localhost:5002'
     return `${apiUrl}${cleanUrl}`
   }
 
