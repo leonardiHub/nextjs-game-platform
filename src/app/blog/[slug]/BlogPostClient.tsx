@@ -272,7 +272,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
 
                 // Clean the URL by removing existing prefixes
                 let cleanUrl = blog.featured_image_url
-                  .replace('http://localhost:5002', '')
+                  .replace('http://localhost:3006', '')
                   .replace('http://localhost:3001', '')
                   .replace('https://99group.games', '')
                   .replace('http://99group.games', '')
@@ -295,7 +295,7 @@ const BlogPostClient = ({ slug }: BlogPostClientProps) => {
                     window.location.hostname === '127.0.0.1')
 
                 const baseUrl = isLocal
-                  ? 'http://localhost:5002'
+                  ? 'http://localhost:3006'
                   : 'http://15.235.215.3:3006'
 
                 return `${baseUrl}${cleanUrl}`

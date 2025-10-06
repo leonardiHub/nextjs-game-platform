@@ -58,7 +58,7 @@ export function processSchemaTemplate(
 
     // For local files, use backend server directly
     let cleanUrl = imageUrl
-      .replace('http://localhost:5002', '')
+      .replace('http://localhost:3006', '')
       .replace('http://localhost:3001', '')
 
     // Ensure URL starts with /uploads
@@ -67,7 +67,7 @@ export function processSchemaTemplate(
     }
 
     // Return full URL
-    return `http://localhost:5002${cleanUrl}`
+    return `http://localhost:3006${cleanUrl}`
   }
 
   // 格式化日期为ISO 8601格式
@@ -128,7 +128,7 @@ export async function getPageSchemaTemplate(pagePath: string): Promise<string> {
 
     // 检测运行环境并构建正确的API URL
     const isServer = typeof window === 'undefined'
-    const baseUrl = isServer ? 'http://localhost:5002' : ''
+    const baseUrl = isServer ? 'http://localhost:3006' : ''
     const apiUrl = `${baseUrl}/api/seo/pages?page_path=${encodeURIComponent(pagePath)}`
 
     console.log(`📡 API URL (${isServer ? 'server' : 'client'}): ${apiUrl}`)

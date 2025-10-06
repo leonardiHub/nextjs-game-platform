@@ -640,7 +640,7 @@ export default function BlogManagement() {
 
                               // For local files, use backend server directly
                               let cleanUrl = blog.featured_image_url
-                                .replace('http://localhost:5002', '')
+                                .replace('http://localhost:3006', '')
                                 .replace('http://localhost:3001', '')
                                 .replace('https://api.99group.games', '')
 
@@ -653,7 +653,7 @@ export default function BlogManagement() {
                               const apiUrl =
                                 typeof window !== 'undefined' &&
                                 window.location.hostname === 'localhost'
-                                  ? 'http://localhost:5002'
+                                  ? 'http://localhost:3006'
                                   : 'http://15.235.215.3:3006'
                               return `${apiUrl}${cleanUrl}`
                             })()}

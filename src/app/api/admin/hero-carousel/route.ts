@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
     `)
 
     // Enrich carousel items with media details from backend server
-    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:5002'
+    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
     const enrichedItems = await Promise.all(
       carouselItems.map(async item => {
         try {
@@ -115,7 +115,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if media exists on backend server
-    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:5002'
+    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3006'
     try {
       const mediaResponse = await fetch(
         `${API_BASE_URL}/api/admin/media/${media_id}`,

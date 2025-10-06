@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
     console.log('🎮 Game callback GET request with params:', queryParams)
 
     // Forward GET request to backend
-    const backendUrl = `http://localhost:5002/api/game/callback${queryParams ? `?${queryParams}` : ''}`
+    const backendUrl = `http://localhost:3006/api/game/callback${queryParams ? `?${queryParams}` : ''}`
 
     const response = await fetch(backendUrl, {
       method: 'GET',
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Forward the request to backend server
-    const response = await fetch('http://localhost:5002/api/game/callback', {
+    const response = await fetch('http://localhost:3006/api/game/callback', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
     const API_BASE_URL =
       process.env.NEXT_PUBLIC_API_URL ||
       process.env.API_BASE_URL ||
-      'http://localhost:5002'
+      'http://localhost:3006'
     console.log('API_BASE_URL:', API_BASE_URL)
     console.log('Carousel items to enrich:', carouselItems.length)
 

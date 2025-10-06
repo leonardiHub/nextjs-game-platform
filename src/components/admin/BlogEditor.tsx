@@ -34,7 +34,7 @@ const getBackendApiUrl = () => {
     (window.location.hostname === 'localhost' ||
       window.location.hostname === '127.0.0.1')
 
-  return isLocal ? 'http://localhost:5002' : 'http://15.235.215.3:3006'
+  return isLocal ? 'http://localhost:3006' : 'http://15.235.215.3:3006'
 }
 
 interface BlogPost {
@@ -308,13 +308,13 @@ export default function BlogEditor({
         // Ensure URL is properly formatted
         let imageUrl = data.url || ''
         if (imageUrl) {
-          if (imageUrl.startsWith('http://localhost:5002')) {
+          if (imageUrl.startsWith('http://localhost:3006')) {
             // Already correct - using backend URL
           } else if (imageUrl.startsWith('http')) {
             // Other http URL, clean it and use backend URL
             let cleanUrl = imageUrl
               .replace('http://localhost:3001', '')
-              .replace('http://localhost:5002', '')
+              .replace('http://localhost:3006', '')
               .replace('https://99group.games', '')
               .replace('https://api.99group.games', '')
 
@@ -353,13 +353,13 @@ export default function BlogEditor({
     // Ensure URL is properly formatted
     let imageUrl = media.url || ''
     if (imageUrl) {
-      if (imageUrl.startsWith('http://localhost:5002')) {
+      if (imageUrl.startsWith('http://localhost:3006')) {
         // Already correct - using backend URL
       } else if (imageUrl.startsWith('http')) {
         // Other http URL, clean it and use backend URL
         let cleanUrl = imageUrl
           .replace('http://localhost:3001', '')
-          .replace('http://localhost:5002', '')
+          .replace('http://localhost:3006', '')
           .replace('https://99group.games', '')
           .replace('https://api.99group.games', '')
 
@@ -1166,7 +1166,7 @@ export default function BlogEditor({
 
                           // For local files, use backend server directly
                           let cleanUrl = featuredImage.url
-                            .replace('http://localhost:5002', '')
+                            .replace('http://localhost:3006', '')
                             .replace('http://localhost:3001', '')
                             .replace('https://99group.games', '')
                             .replace('https://api.99group.games', '')
@@ -1443,7 +1443,7 @@ export default function BlogEditor({
 
                           // For local files, use backend server directly
                           let cleanUrl = featuredImage.url
-                            .replace('http://localhost:5002', '')
+                            .replace('http://localhost:3006', '')
                             .replace('http://localhost:3001', '')
                             .replace('https://99group.games', '')
                             .replace('https://api.99group.games', '')

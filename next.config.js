@@ -23,7 +23,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   async rewrites() {
-    const backendPort = process.env.BACKEND_PORT || 5002
+    const backendPort = process.env.BACKEND_PORT || 3006
     const isProduction = process.env.NODE_ENV === 'production'
 
     // In production, let nginx handle the proxying
@@ -46,33 +46,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ['fun88.game', 'www.fun88.game', '15.235.215.3', 'localhost'],
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '5002',
-        pathname: '/uploads/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '5001',
-        pathname: '/uploads/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3007',
-        pathname: '/uploads/**',
-      },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3008',
-        pathname: '/uploads/**',
-      },
-    ],
+    domains: ['fun88.game', 'www.fun88.game', '15.235.215.3'],
   },
   async headers() {
     return [
